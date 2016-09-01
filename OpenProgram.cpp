@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
 // Programa : OpenProgram.cpp
-// Autor    : Eugenio Martínez - torrentelinux@gmail.com - Agosto de 2016
+// Autor    : Eugenio Martínez - torrentelinux@gmail.com - Mayo de 2016
 // Propósito: Ejecutar una aplicación, documento, URL, etc.,
 //            seleccionada por el usuario mediante un cuadro de diálogo simple.
 //---------------------------------------------------------------------------

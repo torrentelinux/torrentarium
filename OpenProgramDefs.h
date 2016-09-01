@@ -28,5 +28,6 @@ extern const unsigned short int op_null   ;
 void ShowErrorCode(LPTSTR lpszMessage, DWORD dwECode);
 void SaveLog(const _TCHAR *line_text);
 void SaveLog(wstring &line_text);
+_TCHAR *GetFileNameLog(void);
 
 #endif

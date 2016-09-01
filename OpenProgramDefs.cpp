@@ -11,6 +11,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
+// Contiene el nombre completo del fichero registro: OpenProgram.log
+static _TCHAR fi_log[256] = { '\0' };
+
 // Operaciones admitidas por ShellExecute()
 const unsigned short int op_edit    = 0;  // "edit"
 const unsigned short int op_explore = 1;  // "explore"
@@ -53,11 +56,19 @@ void ShowErrorCode(LPTSTR lpszMessage, DWORD dwECode)
    LocalFree(lpDisplayBuf);
 }
 
+// Devuelve el nombre completo del fichero de registro
+_TCHAR *GetFileNameLog(void)
+{
+   return fi_log;
+}
+
+// Guarda una línea de texto de tipo 'wstring' en OpenProgram.log
 void SaveLog(wstring &line_text)
 {
    SaveLog(line_text.c_str());
 }
-// Guarda una línea de texto, si es posible, en %localappdata%\Registro\OpenProgram.log
+
+// Guarda una línea de texto de tipo '_TCHAR *', si es posible, en %localappdata%\Registro\OpenProgram.log
 // sino en el directorio actual .\OpenProgram.log
 void SaveLog(const _TCHAR *line_text)
 {
@@ -93,6 +104,8 @@ void SaveLog(const _TCHAR *line_text)
      ofn << filename.c_str() << ends;  // Se prepara para abrir OpenProgram.log en el directorio vigente
    else
      ofn << newdir.str().c_str() << L"\\" << filename.c_str() << ends;  // Construye la trayectoria completa a OpenProgram.log
+
+   wcscpy(fi_log, ofn.str().c_str());
 
    // Abre el fichero
    salida.open(ofn.str().c_str(), ios_base::app);

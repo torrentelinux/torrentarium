@@ -29,6 +29,7 @@
 
 #include "OpenProgramDialog.h"
 #include "OpenProgramDefs.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -130,6 +131,7 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
 
    imgMinimize->Visible = false;
    imgHelp->Visible = false;
+   imgViewLog->Visible = false;
 
    txtErrorMsg->Caption = "";
    txtErrorMsg->Visible = false;
@@ -178,7 +180,7 @@ void __fastcall TfrmOpenProgram::CancelBtnClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
 {
-	DWORD status = 33;
+	int status = 33;
         wstringstream tmp;
      	wostringstream msg, commands;
         _TCHAR current_time[42] = { L"" };
@@ -208,12 +210,12 @@ void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
      // ShellExecute, ShellExecuteEx, ShellExecCmdLine, WinExec, ...
      // Por ej. escribir la sig. orden:
      //              * cmd /k dir&pause&exit
-     status = (DWORD)ShellExecute(Application->Handle, L"open", prog, params, NULL, SW_SHOWNORMAL);
+     status = (int)ShellExecute(Application->Handle, L"open", prog, params, NULL, SW_SHOWNORMAL);
 
      // Guarda cada línea de texto en 'OpenProgram.log'
-     commands << current_date << L", " << current_time << L": "
-              << prog         << L", " << params
-              << L", Open, Normal window, "
+     commands << current_date << ", " << current_time << ": "
+              << prog         << ", " << params
+              << ", Open, Normal window, "
               << status << ends;
    }
    else
@@ -227,15 +229,15 @@ void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
      GetDateFormat(LOCALE_SYSTEM_DEFAULT, LOCALE_NOUSEROVERRIDE, NULL, NULL, current_date, sizeof(current_date));
      GetTimeFormat(LOCALE_SYSTEM_DEFAULT, LOCALE_NOUSEROVERRIDE, NULL, NULL, current_time, sizeof(current_time));
 
-     status = (DWORD)ShellExecute(Application->Handle, cftOperation->Text.c_str(),
+     status = (int)ShellExecute(Application->Handle, cftOperation->Text.c_str(),
                                 prog, cbxParameters->Text.c_str(),
                                 cbxDirectory->Text.c_str(), cftRun->ItemIndex);
 
      // Guarda cada línea de texto en 'OpenProgram.log'
-     commands << current_date               << L", " << current_time << L": "
-              << cbxOpen->Text.c_str()      << L", " << cbxParameters->Text.c_str() << L", "
-              << cbxDirectory->Text.c_str() << L", " << cftOperation->Text.c_str()  << L", "
-              << cftRun->Text.c_str()       << L", "
+     commands << current_date               << ", " << current_time << ": "
+              << cbxOpen->Text.c_str()      << ", " << cbxParameters->Text.c_str() << ", "
+              << cbxDirectory->Text.c_str() << ", " << cftOperation->Text.c_str()  << ", "
+              << cftRun->Text.c_str()       << ", "
               << status << ends;
    }
 
@@ -380,10 +382,11 @@ void __fastcall TfrmOpenProgram::btnDownClick(TObject *Sender)
 
      imgMinimize->Visible = true;
      imgHelp->Visible = true;
+     imgViewLog->Visible = true;
 
      // Ubica el control 'TShape' en su nueva posición
-     shpCircle->Left = 97;
-     shpCircle->Top = 288;
+     shpCircle->Left = 122;
+     shpCircle->Top = 296;
      txtErrorMsg->Visible = true;
 
      cbxOpen->SetFocus();
@@ -448,6 +451,7 @@ void __fastcall TfrmOpenProgram::btnUpClick(TObject *Sender)
 
      imgMinimize->Visible = false;
      imgHelp->Visible = false;
+     imgViewLog->Visible = false;
 
      // Ubica el control 'TShape' en su posición normal
      shpCircle->Left = 32;
@@ -525,3 +529,22 @@ void __fastcall TfrmOpenProgram::txtTrickClick(TObject *Sender)
    btnDown->Visible = true;
 }
 //---------------------------------------------------------------------------
+void __fastcall TfrmOpenProgram::imgViewLogClick(TObject *Sender)
+{
+	int status = 33;
+	MessageDialog mdlg;
+
+   // Abre el fichero de registro para su lectura
+   status = (int)ShellExecute(Application->Handle, L"open", GetFileNameLog(), NULL, NULL, SW_SHOWNORMAL);
+
+   if(status <= 32)
+     mdlg.error(L"Notice", L"Error opening file log.");
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmOpenProgram::imgViewLogMouseEnter(TObject *Sender)
+{
+   // Cambia la apariencia del ratón: flecha por mano.
+   imgViewLog->Cursor = crHandPoint;
+}
+//---------------------------------------------------------------------------
+
