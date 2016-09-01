@@ -1,19 +1,16 @@
 ________________________
-Descripci√≥n del proyecto
+DescripciÛn del proyecto
 
-Proyecto OpenProgram.cbproj desarrollado por Octulio Bilet√°n.
+Proyecto OpenProgram.cbproj desarrollado por Octulio Bilet·n.
 Para Embarcadero Rad Studio XE4/C++ Builder y versiones posteriores.
-Hace uso de la funci√≥n ShellExecute() que proporciona Windows para abrir
-documentos, ejecutar aplicaciones y buscar ficheros en la computadora.
 
 El programa OpenProgram.exe es una utilidad parecida a 'Run ...' que trae Windows.
 Tiene dos modos de trabajo: normal y extendido.
-En el modo normal, tiene la apariencia y el comportamiento semejante a 'Run ...' y en el modo extendido aparecen m√°s
-opciones a seleccionar. Para acceder al modo extendido debe mover el puntero del rat√≥n hacia la esquina inferior derecha
-de la ventana, ver√° que cambia de flecha a mano el rat√≥n, en ese lugar haga clic con el bot√≥n izquierdo del rat√≥n y aparecer√°
-un bot√≥n con flecha hacia abajo. Ahora pulse sobre el bot√≥n mencionado para que aparezcan las nuevas opciones.
-A continuaci√≥n, puede volver al modo normal presionando el bot√≥n flecha hacia arriba.
-
+En el modo normal, tiene la apariencia y el comportamiento semejante a 'Run ...' y en el modo extendido aparecen m·s
+opciones a seleccionar. Para acceder al modo extendido debe mover el puntero del ratÛn hacia la esquina inferior derecha
+de la ventana, ver· que cambia de flecha a mano el ratÛn, en ese lugar haga clic con el botÛn izquierdo del ratÛn y aparecer·
+un botÛn con flecha hacia abajo. Ahora pulse sobre el botÛn mencionado para que aparezcan las nuevas opciones.
+A continuaciÛn, puede volver al modo normal presionando el botÛn flecha hacia arriba.
 
 ___________
 Direcciones
@@ -21,4 +18,4 @@ Direcciones
 Contacto: torrentelinux@gmail.com
 Sitio en GitHub: https://github.com/torrentelinux/torrentarium/
 _____________________________________________________________
-Ultima actualizaci√≥n: 08:38 p.m. lunes, 29 de agosto de 2016.
+Ultima actualizaciÛn: 08:30 p.m. s·bado, 27 de agosto de 2016.
