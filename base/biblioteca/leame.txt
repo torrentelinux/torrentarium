@@ -3,6 +3,7 @@ Descripción del proyecto
 
 Proyecto OpenProgram.cbproj desarrollado por Octulio Biletán.
 Para Embarcadero Rad Studio XE4/C++ Builder y versiones posteriores.
+Soporta las versiones de 32 y 64 bits de Windows Vista y versiones posteriores.
 
 El programa OpenProgram.exe es una utilidad parecida a 'Run ...' que trae Windows.
 Tiene dos modos de trabajo: normal y extendido.
@@ -18,4 +19,4 @@ Direcciones
 Contacto: torrentelinux@gmail.com
 Sitio en GitHub: https://github.com/torrentelinux/torrentarium/
 _____________________________________________________________
-Ultima actualización: 08:30 p.m. sábado, 27 de agosto de 2016.
+Ultima actualización: 07:19 p.m. jueves, 08 de septiembre de 2016
