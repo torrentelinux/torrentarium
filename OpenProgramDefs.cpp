@@ -105,6 +105,7 @@ void SaveLog(const _TCHAR *line_text)
    else
      ofn << newdir.str().c_str() << L"\\" << filename.c_str() << ends;  // Construye la trayectoria completa a OpenProgram.log
 
+   // Guarda el nombre completo del fichero registro en 'fi_log'
    wcscpy(fi_log, ofn.str().c_str());
 
    // Abre el fichero
@@ -125,4 +126,3 @@ void SaveLog(const _TCHAR *line_text)
    // Cierra el fichero
    salida.close();
 }
-

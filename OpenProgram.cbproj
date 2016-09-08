@@ -7,8 +7,8 @@
         <MainSource>OpenProgram.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <TargetedPlatforms>1</TargetedPlatforms>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -34,6 +34,12 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -41,6 +47,12 @@
     </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
         <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
         <CfgParent>Cfg_2</CfgParent>
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
@@ -82,6 +94,11 @@
         <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <ILINK_LibraryPath>C:\Program Files (x86)\Embarcadero\RAD Studio\11.0\lib\win64\release\psdk\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <PackageImports>adortl;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapIndy10ServerTransport;DataSnapProviderClient;DataSnapServer;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;fmx;fmxase;fmxdae;fmxobj;FMXTee;FmxTeeUI;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;MetropolisUILiveTile;rtl;soaprtl;Tee;TeeDB;TeeUI;vcl;vclactnband;vcldb;vcldsnap;vclib;vclie;vclimg;vclribbon;VclSmp;vcltouch;vclx;webdsnap;xmlrtl;$(PackageImports)</PackageImports>
         <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
     </PropertyGroup>
@@ -111,15 +128,26 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <VerInfo_AutoIncVersion>false</VerInfo_AutoIncVersion>
         <VerInfo_Release>16</VerInfo_Release>
-        <VerInfo_MinorVer>8</VerInfo_MinorVer>
+        <VerInfo_MinorVer>9</VerInfo_MinorVer>
         <VerInfo_Build>10</VerInfo_Build>
         <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
         <BCC_InstructionSet>6</BCC_InstructionSet>
         <BCC_NestedComments>true</BCC_NestedComments>
-        <VerInfo_Keys>CompanyName=Torrente Linux.;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.8.16.10;InternalName=OpenProgram.;LegalCopyright=Octulio Biletan.;LegalTrademarks=;OriginalFilename=OpenProgram.exe.;ProductName=OpenProgram.;ProductVersion=1.8.16.10;Comments=Run application and/or Open document.;Contact=torrentelinux@gmail.com.</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Torrente Linux.;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.9.16.10;InternalName=OpenProgram.;LegalCopyright=Octulio Biletan.;LegalTrademarks=;OriginalFilename=OpenProgram.exe.;ProductName=OpenProgram.;ProductVersion=1.9.16.10;Comments=Run application and/or Open document.;Contact=torrentelinux@gmail.com.</VerInfo_Keys>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <LinkPackageImports>rtl.bpi;vcl.bpi;Tee.bpi;vclimg.bpi;vclx.bpi;VclSmp.bpi</LinkPackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_Build>10</VerInfo_Build>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_MinorVer>9</VerInfo_MinorVer>
+        <VerInfo_AutoIncVersion>false</VerInfo_AutoIncVersion>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;Tee.bpi;vclimg.bpi;vclx.bpi;VclSmp.bpi</LinkPackageImports>
+        <ILINK_UserVersion>1.9</ILINK_UserVersion>
+        <VerInfo_Release>16</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=Torrente Linux;FileDescription=Opens a program, folder, document, or internet url (64-bit).;FileVersion=1.9.16.10;InternalName=OpenProgram;LegalCopyright=;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=;ProductVersion=1.9.16.10;Comments=App. 64-bit Windows.</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <Defines>NDEBUG;$(Defines)</Defines>
@@ -133,7 +161,7 @@
         <VerInfo_AutoIncVersion>false</VerInfo_AutoIncVersion>
         <ILINK_UserVersion>1.6</ILINK_UserVersion>
         <ILINK_Description>OpenProgram-Release.</ILINK_Description>
-        <VerInfo_MinorVer>8</VerInfo_MinorVer>
+        <VerInfo_MinorVer>9</VerInfo_MinorVer>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>OpenProgram_Icon.ico</Icon_MainIcon>
         <BCC_InstructionSet>6</BCC_InstructionSet>
@@ -144,12 +172,29 @@
         <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
         <VerInfo_Build>10</VerInfo_Build>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <VerInfo_Keys>CompanyName=Torrente Utilidades.;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.8.16.10;InternalName=OpenProgram;LegalCopyright=Octulio Biletan;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=OpenProgram;ProductVersion=1.8.16.10;Comments=torrentelinux@gmail.com</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Torrente Utilidades.;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.9.16.10;InternalName=OpenProgram;LegalCopyright=Octulio Biletan;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=OpenProgram;ProductVersion=1.9.16.10;Comments=torrentelinux@gmail.com</VerInfo_Keys>
         <LinkPackageImports>rtl.bpi;vcl.bpi;Tee.bpi;vclimg.bpi;vclx.bpi;VclSmp.bpi</LinkPackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_Build>10</VerInfo_Build>
+        <VerInfo_MinorVer>9</VerInfo_MinorVer>
+        <VerInfo_PreRelease>true</VerInfo_PreRelease>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_AutoIncVersion>false</VerInfo_AutoIncVersion>
+        <DynamicRTL>false</DynamicRTL>
+        <ILINK_UserVersion>1.9</ILINK_UserVersion>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;Tee.bpi;vclimg.bpi;vclx.bpi;VclSmp.bpi</LinkPackageImports>
+        <VerInfo_Release>16</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=Torrente Linux;FileDescription=Opens a program, folder, document, or internet url (64-bit).;FileVersion=1.9.16.10;InternalName=OpenProgram;LegalCopyright=Octulio Biletan.;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=;ProductVersion=1.9.16.10;Comments=torrentelinux@gmail.com</VerInfo_Keys>
     </PropertyGroup>
     <ItemGroup>
         <LibFiles Include="C:\Program Files (x86)\Embarcadero\RAD Studio\11.0\lib\win32\release\psdk\shlwapi.lib" Condition="'$(Platform)'=='Win32'">
             <BuildOrder>2</BuildOrder>
+            <IgnorePath>true</IgnorePath>
+        </LibFiles>
+        <LibFiles Include="C:\Program Files (x86)\Embarcadero\RAD Studio\11.0\lib\win64\release\psdk\shlwapi.a" Condition="'$(Platform)'=='Win64'">
+            <BuildOrder>5</BuildOrder>
             <IgnorePath>true</IgnorePath>
         </LibFiles>
         <CppCompile Include="OpenProgram.cpp">
@@ -246,7 +291,7 @@
             <Deployment/>
             <Platforms>
                 <Platform value="Win32">True</Platform>
-                <Platform value="Win64">False</Platform>
+                <Platform value="Win64">True</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

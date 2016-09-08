@@ -8,6 +8,7 @@
 //              * cmd /k CSCRIPT %systemroot%\system32\SCREGEDIT.WSF&pause&exit
 //              * cmd /k powershell /?&pause&exit
 //              * powershell
+//              * cmd /c runas /user:Administrador notepad&pause&exit
 //            Ejemplos de nombres de carpetas aceptadas:
 //              * .
 //              * ..
@@ -17,6 +18,10 @@
 //              * www.bing.com
 //              * www.bing.com/?q=cuando+sale+windows+server+2016
 //              * www.duckduckgo.com/?q=cuando+sale+windows+server+2016
+//              * file:///C:/
+//              * http://127.0.0.1
+//              * http://localhost
+//              * ftp://ftp.sitio.org
 //            Ejemplos de nombres de documentos aceptados:
 //              * C:\Windows\Help\mui\0C0A\mmc.CHM
 //---------------------------------------------------------------------------
@@ -112,12 +117,12 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
 
    btnSelDir->Visible = false;
 
-   // Configuración del botón 'btnDown'
+   // Configuración del botón 'Down'
    btnDown->Left = 518;
    btnDown->Top = 137;
    btnDown->Visible = false;
 
-   // Configuración del botón 'btnUp'
+   // Oculta el botón 'Up'
    btnUp->Visible = false;
 
    // Configuración de la línea de texto 'txtTrick'
@@ -129,6 +134,7 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
    shpCircle->Left = 32;
    shpCircle->Top = 140;
 
+   // Oculta los botones Minimize, Help y ViewLog
    imgMinimize->Visible = false;
    imgHelp->Visible = false;
    imgViewLog->Visible = false;
@@ -139,14 +145,19 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::FormClose(TObject *Sender, TCloseAction &Action)
 {
-     // Finaliza el registro de actividades del usuario
-     SaveLog(end_log);
+   // Finaliza el registro de actividades del usuario
+   SaveLog(end_log);
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::FormDestroy(TObject *Sender)
 {
-     delete[] prog;
-     prog = NULL;
+   // Libera memoria utilizada
+   delete[] prog;
+   prog = NULL;
+
+   // SetProcessWorkingSetSize: Sets the minimum and maximum working set sizes for the specified process
+   // Libera la memoria utilizada por este proceso
+   SetProcessWorkingSetSize(GetCurrentProcess(), -1, -1);
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::CancelBtnClick(TObject *Sender)
@@ -467,6 +478,7 @@ void __fastcall TfrmOpenProgram::btnSelDirClick(TObject *Sender)
    dlgDirOpen.Title = L"Choose a folder to open";
 
    if(dlgDirOpen.Execute())
+   {
      if(cftOperation->ItemIndex == op_find)
      {
        cbxOpen->Text = dlgDirOpen.DirName;
@@ -474,6 +486,7 @@ void __fastcall TfrmOpenProgram::btnSelDirClick(TObject *Sender)
      }
      else
        cbxDirectory->Text = dlgDirOpen.DirName;
+   }
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::imgMinimizeClick(TObject *Sender)
@@ -486,7 +499,7 @@ void __fastcall TfrmOpenProgram::imgHelpClick(TObject *Sender)
    // Muestra en un cuadro de diálogo una breve descripción acerca de este programa
    ShellAbout(Application->Handle, L"OpenProgram",
               L"Opens a program, folder, document, or internet url.\n"
-              "Version 1.8.16.10",
+              "Version 1.9.16.10",
               NULL);
 }
 //---------------------------------------------------------------------------
@@ -522,10 +535,10 @@ void __fastcall TfrmOpenProgram::txtTrickMouseEnter(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::txtTrickClick(TObject *Sender)
 {
-   // Oculta la línea de texto fija que sirve como truco para mostrar el botón 'btnDown'
+   // Oculta la línea de texto fija que sirve como truco para mostrar el botón 'Down'
    txtTrick->Visible = false;
 
-   // Hace visible el botón 'btnDown';
+   // Hace visible el botón 'Down';
    btnDown->Visible = true;
 }
 //---------------------------------------------------------------------------
@@ -547,4 +560,3 @@ void __fastcall TfrmOpenProgram::imgViewLogMouseEnter(TObject *Sender)
    imgViewLog->Cursor = crHandPoint;
 }
 //---------------------------------------------------------------------------
-

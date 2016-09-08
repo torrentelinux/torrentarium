@@ -23,6 +23,7 @@
 #include <Vcl.FileCtrl.hpp>
 
 #include "OpenProgramClass.h"
+#include <Vcl.Imaging.pngimage.hpp>
 
 //---------------------------------------------------------------------------
 class TfrmOpenProgram : public TForm
