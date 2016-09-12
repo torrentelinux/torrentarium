@@ -3,7 +3,7 @@
 Aplicaciones realizadas en C/C++ para Windows.
 Proyecto OpenProgram.exe: construído con Embarcadero C++ Builder.
 Soporta 32 y 64 bits, Windows Vista, 7, 8, 8.1, 10, 2008, 2012 y 2016.
-Ultima actualización: 08-Set-2016.
+Ultima actualización: 12-Set-2016.
 
 Desarrollador principal: Eugenio Martínez.
 Dirección de contacto: torrentelinux@gmail.com
