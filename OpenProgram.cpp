@@ -1,16 +1,24 @@
 //---------------------------------------------------------------------------
 // Programa : OpenProgram.cpp
-// Autor    : Eugenio Martínez - torrentelinux@gmail.com - Mayo de 2016
+// Autor    : Eugenio Martínez - torrentelinux@gmail.com - Agosto de 2016
 // Propósito: Ejecutar una aplicación, documento, URL, etc.,
 //            seleccionada por el usuario mediante un cuadro de diálogo simple.
+// Observac.: Para compilar desde la consola de texto debe ejecutar los siguientes pasos
+//            1) Start Menu/Programs/Embarcadero RAD Studio 10.1 Berlin/RAD Studio Command Prompt
+//            2) cd \RadStudio10.1\Projects
+//            3) msbuild OpenProgram.cbproj /t:Build /p:Config=Release
+//            4) Win32\Release\OpenProgram.exe
+//
+//            Ejecutar msbuild /h para conocer sus diferentes opciones
 //---------------------------------------------------------------------------
 
 #include <tchar.h>
 #include <vcl.h>
-#pragma hdrstop
-//---------------------------------------------------------------------------
 #include <Vcl.Styles.hpp>
 #include <Vcl.Themes.hpp>
+#pragma hdrstop
+
+//---------------------------------------------------------------------------
 USEFORM("OpenProgramDialog.cpp", frmOpenProgram);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)

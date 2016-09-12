@@ -8,22 +8,20 @@
 #ifndef OpenProgramDialogH
 #define OpenProgramDialogH
 //---------------------------------------------------------------------------
-#include <Classes.hpp>
-#include <Controls.hpp>
-#include <StdCtrls.hpp>
-#include <Forms.hpp>
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
 #include <ExtCtrls.hpp>
 #include <Dialogs.hpp>
 #include <Vcl.Graphics.hpp>
 #include <Vcl.Buttons.hpp>
-#include <VCLTee.TeCanvas.hpp>
 #include <Vcl.Grids.hpp>
 #include <Vcl.Outline.hpp>
 #include <Vcl.Samples.DirOutln.hpp>
 #include <Vcl.FileCtrl.hpp>
 
 #include "OpenProgramClass.h"
-#include <Vcl.Imaging.pngimage.hpp>
 
 //---------------------------------------------------------------------------
 class TfrmOpenProgram : public TForm
@@ -51,10 +49,10 @@ __published:	// IDE-managed Components
 	TStaticText *txtOperation;
 	TStaticText *txtTrick;
 	TShape *shpCircle;
-	TOpenDialog *dlgFileOpen;
 	TImage *imgEscudo;
 	TImage *imgMinimize;
 	TImage *imgHelp;
+	TOpenDialog *dlgFileOpen;
 	TImage *imgViewLog;
 	void __fastcall CancelBtnClick(TObject *Sender);
 	void __fastcall OKBtnClick(TObject *Sender);

@@ -34,7 +34,6 @@
 
 #include "OpenProgramDialog.h"
 #include "OpenProgramDefs.h"
-
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -58,7 +57,21 @@ __fastcall TfrmOpenProgram::TfrmOpenProgram(TComponent* Owner)
    dlgFileOpen->FilterIndex = 0;
    dlgFileOpen->FileName = "";
 
-   prog = new _TCHAR[512];
+
+   try
+   {
+     // Solicita al sistema espacio por 512 bytes para almacenamiento de datos
+     prog = new _TCHAR[512];
+
+   }
+   catch(std::bad_alloc)
+   {
+     // Muestra un mensaje de error por falta de memoria
+     MessageBox(NULL, (LPCWSTR)L"No memory !!!", (LPCWSTR)L"Error", MB_OK|MB_ICONERROR);
+
+     // Retorna al S.O.
+     exit(EXIT_FAILURE);
+   }
 
    // Inicia el registro de actividades del usuario
    SaveLog(begin_log);
@@ -89,7 +102,7 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
    cftOperation->Visible = false;
 
    // Agrega 'null' al final de la lista de items
-//   cftOperation->Items->Add(op_null);
+   // cftOperation->Items->Add(op_null);
 
    // Oculta los controles de correr
    txtRun->Visible = false;
@@ -155,8 +168,9 @@ void __fastcall TfrmOpenProgram::FormDestroy(TObject *Sender)
    delete[] prog;
    prog = NULL;
 
-   // SetProcessWorkingSetSize: Sets the minimum and maximum working set sizes for the specified process
-   // Libera la memoria utilizada por este proceso
+   // SetProcessWorkingSetSize: Sets the minimum and maximum working set sizes for the specified process.
+   // Establece el tamaño mínimo y máximo de espacio de trabajo para el proceso especificado.
+   // En este caso, libera la memoria utilizada por este proceso (menor consumo).
    SetProcessWorkingSetSize(GetCurrentProcess(), -1, -1);
 }
 //---------------------------------------------------------------------------
@@ -186,6 +200,8 @@ void __fastcall TfrmOpenProgram::CancelBtnClick(TObject *Sender)
      // Inicializa el círculo a 'Ok'
      shpCircle->Brush->Color = clBlue;
      shpCircle->Hint = "Ok";
+
+     cbxOpen->SetFocus();
    }
 }
 //---------------------------------------------------------------------------
@@ -284,6 +300,7 @@ void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
 
    // Registra el comando ingresado por el usuario en un fichero de texto
    SaveLog(commands.str().c_str());
+   cbxOpen->SetFocus();
 
    return;
 }
