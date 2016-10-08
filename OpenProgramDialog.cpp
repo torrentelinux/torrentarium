@@ -34,6 +34,7 @@
 
 #include "OpenProgramDialog.h"
 #include "OpenProgramDefs.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -57,21 +58,7 @@ __fastcall TfrmOpenProgram::TfrmOpenProgram(TComponent* Owner)
    dlgFileOpen->FilterIndex = 0;
    dlgFileOpen->FileName = "";
 
-
-   try
-   {
-     // Solicita al sistema espacio por 512 bytes para almacenamiento de datos
-     prog = new _TCHAR[512];
-
-   }
-   catch(std::bad_alloc)
-   {
-     // Muestra un mensaje de error por falta de memoria
-     MessageBox(NULL, (LPCWSTR)L"No memory !!!", (LPCWSTR)L"Error", MB_OK|MB_ICONERROR);
-
-     // Retorna al S.O.
-     exit(EXIT_FAILURE);
-   }
+   prog = new _TCHAR[512];
 
    // Inicia el registro de actividades del usuario
    SaveLog(begin_log);
@@ -101,12 +88,27 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
    txtOperation->Visible = false;
    cftOperation->Visible = false;
 
-   // Agrega 'null' al final de la lista de items
-   // cftOperation->Items->Add(op_null);
-
    // Oculta los controles de correr
    txtRun->Visible = false;
    cftRun->Visible = false;
+
+   // Oculta los controles de prioridad
+   txtPriority->Visible = false;
+   cbxPriority->Visible = false;
+
+   // Oculta los controles de afinidad
+   txtAffinity->Visible = false;
+   cbxAffinity->Visible = false;
+
+   // Oculta los controles de tiempo de espera
+   txtDelayTime->Visible = false;
+   cbxDelayTime->Visible = false;
+
+   // El control de tiempo de espera está deshabilitado
+   cbxDelayTime->Enabled = false;
+
+   // Oculta el control 'activar tiempo de espera'
+   chkboxActivateDTime->Visible = false;
 
    // Ubica el control 'txtText3' en su posición normal
    txtText3->Left = 59;
@@ -154,6 +156,19 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
 
    txtErrorMsg->Caption = "";
    txtErrorMsg->Visible = false;
+
+   SYSTEM_INFO siInfo;
+   GetSystemInfo(&siInfo);
+
+   for(unsigned int i = 0; i <= siInfo.dwNumberOfProcessors; i++)
+     cbxAffinity->Items->Add(UnicodeString(i));
+
+   cbxAffinity->ItemIndex = 0;
+
+   for(unsigned int i = 1; i <= nelemsTimeTable; i++)
+     cbxDelayTime->Items->Add(UnicodeString(i));
+
+   cbxDelayTime->ItemIndex = 5;
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::FormClose(TObject *Sender, TCloseAction &Action)
@@ -168,9 +183,8 @@ void __fastcall TfrmOpenProgram::FormDestroy(TObject *Sender)
    delete[] prog;
    prog = NULL;
 
-   // SetProcessWorkingSetSize: Sets the minimum and maximum working set sizes for the specified process.
-   // Establece el tamaño mínimo y máximo de espacio de trabajo para el proceso especificado.
-   // En este caso, libera la memoria utilizada por este proceso (menor consumo).
+   // SetProcessWorkingSetSize: Sets the minimum and maximum working set sizes for the specified process
+   // Libera la memoria utilizada por este proceso
    SetProcessWorkingSetSize(GetCurrentProcess(), -1, -1);
 }
 //---------------------------------------------------------------------------
@@ -192,7 +206,22 @@ void __fastcall TfrmOpenProgram::CancelBtnClick(TObject *Sender)
      cftRun->ItemIndex = 1;
 
      // Inicializa el control cftOperation a la opción 'Open'
-     cftOperation->ItemIndex = 3;
+     cftOperation->ItemIndex = op_open;
+
+     // Inicializa el control a la 1ra. opción
+     cbxAffinity->ItemIndex = 0;
+
+     // Inicializa el control a la 1ra. opción
+     cbxPriority->ItemIndex = 0;
+
+     // Inicializa el control a la 6ta. opción
+     cbxDelayTime->ItemIndex = 5;
+
+     // Deshabilita el control
+     cbxDelayTime->Enabled = false;
+
+     // Desmarca el control
+     chkboxActivateDTime->Checked = false;
 
      // Botón 'OK' deshabilitado
      OKBtn->Enabled = false;
@@ -200,14 +229,12 @@ void __fastcall TfrmOpenProgram::CancelBtnClick(TObject *Sender)
      // Inicializa el círculo a 'Ok'
      shpCircle->Brush->Color = clBlue;
      shpCircle->Hint = "Ok";
-
-     cbxOpen->SetFocus();
    }
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
 {
-	int status = 33;
+	DWORD status = 33;
         wstringstream tmp;
      	wostringstream msg, commands;
         _TCHAR current_time[42] = { L"" };
@@ -237,12 +264,12 @@ void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
      // ShellExecute, ShellExecuteEx, ShellExecCmdLine, WinExec, ...
      // Por ej. escribir la sig. orden:
      //              * cmd /k dir&pause&exit
-     status = (int)ShellExecute(Application->Handle, L"open", prog, params, NULL, SW_SHOWNORMAL);
+     status = (DWORD)ShellExecute(Application->Handle, L"open", prog, params, NULL, SW_SHOWNORMAL);
 
      // Guarda cada línea de texto en 'OpenProgram.log'
-     commands << current_date << ", " << current_time << ": "
-              << prog         << ", " << params
-              << ", Open, Normal window, "
+     commands << current_date << L", " << current_time << L": "
+              << prog         << L", " << params
+              << L", Open, Normal window, "
               << status << ends;
    }
    else
@@ -256,15 +283,29 @@ void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
      GetDateFormat(LOCALE_SYSTEM_DEFAULT, LOCALE_NOUSEROVERRIDE, NULL, NULL, current_date, sizeof(current_date));
      GetTimeFormat(LOCALE_SYSTEM_DEFAULT, LOCALE_NOUSEROVERRIDE, NULL, NULL, current_time, sizeof(current_time));
 
-     status = (int)ShellExecute(Application->Handle, cftOperation->Text.c_str(),
-                                prog, cbxParameters->Text.c_str(),
-                                cbxDirectory->Text.c_str(), cftRun->ItemIndex);
+     feInfo.hwnd = Application->Handle;
+     feInfo.Operation = cftOperation->Text;
+     feInfo.File = cbxOpen->Text;
+     feInfo.Parameters = cbxParameters->Text;
+     feInfo.Directory = cbxDirectory->Text;
+     feInfo.nShowCmd = cftRun->ItemIndex;
+     feInfo.dwPriorityClass = IdPriority[cbxPriority->ItemIndex].dwId;
+     feInfo.dwProcessAffinityMask = cbxAffinity->Text.ToInt();
+
+     if(chkboxActivateDTime->Checked)
+       feInfo.Interval = TimeTable[cbxDelayTime->ItemIndex].Interval;
+     else
+       feInfo.Interval = IGNORE;  // No se utiliza el tiempo de espera
+
+     // Ejecuta el objeto seleccionado por el usuario
+     status = FileExec(&feInfo);
 
      // Guarda cada línea de texto en 'OpenProgram.log'
-     commands << current_date               << ", " << current_time << ": "
-              << cbxOpen->Text.c_str()      << ", " << cbxParameters->Text.c_str() << ", "
-              << cbxDirectory->Text.c_str() << ", " << cftOperation->Text.c_str()  << ", "
-              << cftRun->Text.c_str()       << ", "
+     commands << current_date               << L", " << current_time << L": "
+              << cbxOpen->Text.c_str()      << L", " << cbxParameters->Text.c_str() << L", "
+              << cbxDirectory->Text.c_str() << L", " << cftOperation->Text.c_str()  << L", "
+              << cftRun->Text.c_str()       << L", " << cbxPriority->Text.c_str()   << L", "
+              << cbxAffinity->Text.c_str()  << L", " << feInfo.Interval             << L", "
               << status << ends;
    }
 
@@ -300,7 +341,6 @@ void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
 
    // Registra el comando ingresado por el usuario en un fichero de texto
    SaveLog(commands.str().c_str());
-   cbxOpen->SetFocus();
 
    return;
 }
@@ -380,6 +420,21 @@ void __fastcall TfrmOpenProgram::btnDownClick(TObject *Sender)
      txtRun->Visible = true;
      cftRun->Visible = true;
 
+     // Muestra los controles de prioridad
+     txtPriority->Visible = true;
+     cbxPriority->Visible = true;
+
+     // Muestra los controles de afinidad
+     txtAffinity->Visible = true;
+     cbxAffinity->Visible = true;
+
+     // Muestra los controles de tiempo de espera
+     txtDelayTime->Visible = true;
+     cbxDelayTime->Visible = true;
+
+     // Muestra el control 'activar tiempo de espera'
+     chkboxActivateDTime->Visible = true;
+
      // Ubica el control 'txtText3' a su nueva posición
      txtText3->Left = 59;
      txtText3->Top = 230;
@@ -424,7 +479,7 @@ void __fastcall TfrmOpenProgram::btnDownClick(TObject *Sender)
 void __fastcall TfrmOpenProgram::btnUpClick(TObject *Sender)
 {
    // Se habilita el modo normal
-   
+
    if(btnUp->Visible == true)
    {
      btnUp->Visible = false;
@@ -450,6 +505,21 @@ void __fastcall TfrmOpenProgram::btnUpClick(TObject *Sender)
      cftOperation->Visible = false;
      txtRun->Visible = false;
      cftRun->Visible = false;
+
+     // Oculta los controles de prioridad
+     txtPriority->Visible = false;
+     cbxPriority->Visible = false;
+
+     // Oculta los controles de afinidad
+     txtAffinity->Visible = false;
+     cbxAffinity->Visible = false;
+
+     // Oculta los controles de tiempo de espera
+     txtDelayTime->Visible = false;
+     cbxDelayTime->Visible = false;
+
+     // Oculta el control 'activar tiempo de espera'
+     chkboxActivateDTime->Visible = false;
 
      // Ubica el control 'txtText3' en su posición normal
      txtText3->Left = 59;
@@ -516,7 +586,7 @@ void __fastcall TfrmOpenProgram::imgHelpClick(TObject *Sender)
    // Muestra en un cuadro de diálogo una breve descripción acerca de este programa
    ShellAbout(Application->Handle, L"OpenProgram",
               L"Opens a program, folder, document, or internet url.\n"
-              "Version 1.9.16.10",
+              "Version 1.10.16.10",
               NULL);
 }
 //---------------------------------------------------------------------------
@@ -561,11 +631,11 @@ void __fastcall TfrmOpenProgram::txtTrickClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::imgViewLogClick(TObject *Sender)
 {
-	int status = 33;
+	DWORD status = 33;
 	MessageDialog mdlg;
 
    // Abre el fichero de registro para su lectura
-   status = (int)ShellExecute(Application->Handle, L"open", GetFileNameLog(), NULL, NULL, SW_SHOWNORMAL);
+   status = (DWORD)ShellExecute(Application->Handle, L"open", GetFileNameLog(), NULL, NULL, SW_SHOWNORMAL);
 
    if(status <= 32)
      mdlg.error(L"Notice", L"Error opening file log.");
@@ -577,3 +647,15 @@ void __fastcall TfrmOpenProgram::imgViewLogMouseEnter(TObject *Sender)
    imgViewLog->Cursor = crHandPoint;
 }
 //---------------------------------------------------------------------------
+void __fastcall TfrmOpenProgram::chkboxActivateDTimeClick(TObject *Sender)
+{
+   if(chkboxActivateDTime->Checked)
+     cbxDelayTime->Enabled = true;
+   else
+     cbxDelayTime->Enabled = false;
+}
+//---------------------------------------------------------------------------
+// SIN USO
+// Agrega 'null' al final de la lista de items
+//   cftOperation->Items->Add(op_null);
+

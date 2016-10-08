@@ -9,25 +9,59 @@
 //---------------------------------------------------------------------------
 #include <tchar.h>
 #include <vcl.h>
+#include <windows.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <dir.h>
+#pragma hdrstop
 
 using namespace std;
 
 // Operaciones admitidas por ShellExecute()
-extern const unsigned short int op_edit   ;  // "edit"
-extern const unsigned short int op_explore;  // "explore"
-extern const unsigned short int op_find   ;  // "find"
-extern const unsigned short int op_open   ;  // "open"
-extern const unsigned short int op_print  ;  // "print"
-extern const unsigned short int op_null   ;
+extern const unsigned short int op_edit      ;  // "edit"
+extern const unsigned short int op_explore   ;  // "explore"
+extern const unsigned short int op_find      ;  // "find"
+extern const unsigned short int op_open      ;  // "open"
+extern const unsigned short int op_print     ;  // "print"
+extern const unsigned short int op_properties;  // "properties"
+extern const unsigned short int op_null      ;
 
-void ShowErrorCode(LPTSTR lpszMessage, DWORD dwECode);
+struct idPriorityClass
+{
+   DWORD dwId;
+   UnicodeString Name;
+};
+extern idPriorityClass IdPriority[];
+
+struct File_Exec
+{
+   HWND hwnd;
+   UnicodeString Operation;
+   UnicodeString File;
+   UnicodeString Parameters;
+   UnicodeString Directory;
+   INT nShowCmd;
+   DWORD dwProcessAffinityMask;
+   DWORD dwPriorityClass;
+   UINT Interval;
+};
+
+struct idTimeInterval
+{
+   unsigned int Interval;
+};
+extern struct idTimeInterval TimeTable[];
+extern unsigned int nelemsTimeTable;
+
+void ShowErrorDialog(_TCHAR *msg);
+void ShowInfoDialog(void);
+void ShowErrorCode(LPWSTR lpszMessage, DWORD dwECode);
 void SaveLog(const _TCHAR *line_text);
 void SaveLog(wstring &line_text);
 _TCHAR *GetFileNameLog(void);
+DWORD FileExec(__in_opt HWND hwnd, __in_opt LPCWSTR lpOperation, __in LPCWSTR lpFile, __in_opt LPCWSTR lpParameters, __in_opt LPCWSTR lpDirectory, __in INT nShowCmd);
+DWORD FileExec(File_Exec *fe);
 
 #endif

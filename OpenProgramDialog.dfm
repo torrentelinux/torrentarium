@@ -9013,7 +9013,7 @@ object frmOpenProgram: TfrmOpenProgram
     Caption = 'empty'
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 18
+    TabOrder = 23
     OnClick = txtTrickClick
     OnMouseEnter = txtTrickMouseEnter
   end
@@ -9029,7 +9029,7 @@ object frmOpenProgram: TfrmOpenProgram
     ModalResult = 1
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 19
+    TabOrder = 9
     OnClick = OKBtnClick
   end
   object CancelBtn: TButton
@@ -9043,7 +9043,7 @@ object frmOpenProgram: TfrmOpenProgram
     ModalResult = 2
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 5
+    TabOrder = 10
     OnClick = CancelBtnClick
   end
   object btnBrowse: TButton
@@ -9055,7 +9055,7 @@ object frmOpenProgram: TfrmOpenProgram
     Caption = '&Browse ...'
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 6
+    TabOrder = 11
     OnClick = btnBrowseClick
   end
   object cbxOpen: TComboBox
@@ -9082,7 +9082,7 @@ object frmOpenProgram: TfrmOpenProgram
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 15
   end
   object txtText2: TStaticText
     Left = 2
@@ -9099,7 +9099,7 @@ object frmOpenProgram: TfrmOpenProgram
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 15
+    TabOrder = 20
   end
   object txtText3: TStaticText
     Left = 59
@@ -9113,11 +9113,11 @@ object frmOpenProgram: TfrmOpenProgram
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 17
+    TabOrder = 21
   end
   object btnUp: TBitBtn
     Left = 518
-    Top = 170
+    Top = 235
     Width = 32
     Height = 32
     Hint = 'Up'
@@ -9151,7 +9151,7 @@ object frmOpenProgram: TfrmOpenProgram
     Layout = blGlyphTop
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 9
+    TabOrder = 14
     Visible = False
     OnClick = btnUpClick
     OnMouseEnter = btnUpMouseEnter
@@ -9168,7 +9168,7 @@ object frmOpenProgram: TfrmOpenProgram
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 16
   end
   object txtDirectory: TStaticText
     Left = 4
@@ -9182,7 +9182,7 @@ object frmOpenProgram: TfrmOpenProgram
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 12
+    TabOrder = 17
   end
   object cbxParameters: TComboBox
     Left = 81
@@ -9216,16 +9216,34 @@ object frmOpenProgram: TfrmOpenProgram
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 14
+    TabOrder = 19
+  end
+  object cftRun: TComboBox
+    Left = 81
+    Top = 181
+    Width = 126
+    Height = 21
+    Hint = 'Specify how an application is to be displayed when it is opened.'
+    Style = csDropDownList
+    ItemIndex = 1
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    Text = 'Normal window'
+    Items.Strings = (
+      'Hide window'
+      'Normal window'
+      'Minimized'
+      'Maximized')
   end
   object txtErrorMsg: TStaticText
-    Left = 4
-    Top = 208
+    Left = 8
+    Top = 212
     Width = 546
     Height = 17
     AutoSize = False
     Caption = 'empty'
-    TabOrder = 16
+    TabOrder = 22
   end
   object txtOperation: TStaticText
     Left = 4
@@ -9239,7 +9257,27 @@ object frmOpenProgram: TfrmOpenProgram
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 13
+    TabOrder = 18
+  end
+  object cftOperation: TComboBox
+    Left = 81
+    Top = 150
+    Width = 126
+    Height = 21
+    Hint = 'Specifies the action to be performed.'
+    Style = csDropDownList
+    ItemIndex = 3
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    Text = 'Open'
+    Items.Strings = (
+      'Edit'
+      'Explore'
+      'Find'
+      'Open'
+      'Print'
+      'Properties')
   end
   object btnSelDir: TButton
     Left = 414
@@ -9250,7 +9288,7 @@ object frmOpenProgram: TfrmOpenProgram
     Caption = 'Select Directory'
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 7
+    TabOrder = 12
     OnClick = btnSelDirClick
   end
   object btnDown: TBitBtn
@@ -9289,44 +9327,102 @@ object frmOpenProgram: TfrmOpenProgram
     Layout = blGlyphTop
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 8
+    TabOrder = 13
     OnClick = btnDownClick
     OnMouseEnter = btnDownMouseEnter
   end
-  object cftOperation: TComboBox
-    Left = 81
+  object txtPriority: TStaticText
+    Left = 227
+    Top = 150
+    Width = 49
+    Height = 20
+    Caption = 'Priority:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 24
+  end
+  object txtAffinity: TStaticText
+    Left = 227
+    Top = 182
+    Width = 48
+    Height = 20
+    Caption = 'Affinity:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 25
+  end
+  object cbxPriority: TComboBox
+    Left = 282
     Top = 150
     Width = 126
     Height = 21
-    Hint = 'Specifies the action to be performed.'
-    ItemIndex = 3
+    Hint = 'Specify the priority class for the process.'
+    Style = csDropDownList
+    ItemIndex = 0
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 3
-    Text = 'Open'
+    TabOrder = 5
+    Text = 'Normal'
     Items.Strings = (
-      'Edit'
-      'Explore'
-      'Find'
-      'Open'
-      'Print')
+      'Normal'
+      'Idle'
+      'High'
+      'Realtime'
+      'Below normal'
+      'Above normal')
   end
-  object cftRun: TComboBox
-    Left = 81
+  object cbxAffinity: TComboBox
+    Left = 282
     Top = 181
     Width = 126
     Height = 21
-    Hint = 'Specify how an application is to be displayed when it is opened.'
-    ItemIndex = 1
+    Hint = 'Specify the affinity mask for the threads of the process. '
+    Style = csDropDownList
+    MaxLength = 2
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 4
-    Text = 'Normal window'
-    Items.Strings = (
-      'Hide window'
-      'Normal window'
-      'Minimized'
-      'Maximized')
+    Sorted = True
+    TabOrder = 6
+  end
+  object txtDelayTime: TStaticText
+    Left = 420
+    Top = 181
+    Width = 58
+    Height = 17
+    Caption = 'Delay time:'
+    TabOrder = 26
+  end
+  object cbxDelayTime: TComboBox
+    Left = 480
+    Top = 181
+    Width = 70
+    Height = 21
+    Hint = 'Specifies the timeout to change the priority of the new process.'
+    Style = csDropDownList
+    ParentShowHint = False
+    ShowHint = True
+    Sorted = True
+    TabOrder = 8
+  end
+  object chkboxActivateDTime: TCheckBox
+    Left = 420
+    Top = 150
+    Width = 123
+    Height = 17
+    Hint = 'Turn on "Delay time".'
+    Caption = 'Activate Delay time.'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+    OnClick = chkboxActivateDTimeClick
   end
   object dlgFileOpen: TOpenDialog
     Filter = 
@@ -9340,7 +9436,7 @@ object frmOpenProgram: TfrmOpenProgram
       'All files|*.*'
     FilterIndex = 0
     Title = 'Run ...'
-    Left = 408
-    Top = 224
+    Left = 464
+    Top = 232
   end
 end

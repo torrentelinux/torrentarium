@@ -57,17 +57,41 @@ MessageDialog::~MessageDialog()
 // sin codigo aun...
 }
 
+// Muestra un mensaje de error en un cuadro de diálogo.
 DWORD MessageDialog::error(const TCHAR *title, const TCHAR *msg)
 {
-     return Application->MessageBox(msg, title, MB_ICONERROR);
+	DWORD status;
+
+   if(Application)
+     status = Application->MessageBox(msg, title, MB_ICONERROR);
+   else
+     status = ::MessageBox(NULL, msg, title, MB_ICONERROR);
+
+   return status;
 }
 
+// Muestra un mensaje informativo en un cuadro de diálogo
 DWORD MessageDialog::info(const TCHAR *title, const TCHAR *msg)
 {
-     return Application->MessageBox(msg, title, MB_ICONINFORMATION);
+	DWORD status;
+
+   if(Application)
+     status = Application->MessageBox(msg, title, MB_ICONINFORMATION);
+   else
+     status = ::MessageBox(NULL, msg, title, MB_ICONINFORMATION);
+
+   return status;
 }
 
+// Muestra un mensaje de advertencia en un cuadro de diálogo
 DWORD MessageDialog::warning(const TCHAR *title, const TCHAR *msg)
 {
-     return Application->MessageBox(msg, title, MB_ICONWARNING);
+	DWORD status;
+
+   if(Application)
+     status = Application->MessageBox(msg, title, MB_ICONWARNING);
+   else
+     status = ::MessageBox(NULL, msg, title, MB_ICONWARNING);
+
+   return status;
 }

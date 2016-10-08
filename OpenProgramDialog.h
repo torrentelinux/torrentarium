@@ -8,20 +8,23 @@
 #ifndef OpenProgramDialogH
 #define OpenProgramDialogH
 //---------------------------------------------------------------------------
-#include <System.Classes.hpp>
-#include <Vcl.Controls.hpp>
-#include <Vcl.StdCtrls.hpp>
-#include <Vcl.Forms.hpp>
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
 #include <ExtCtrls.hpp>
 #include <Dialogs.hpp>
 #include <Vcl.Graphics.hpp>
 #include <Vcl.Buttons.hpp>
+#include <VCLTee.TeCanvas.hpp>
 #include <Vcl.Grids.hpp>
 #include <Vcl.Outline.hpp>
 #include <Vcl.Samples.DirOutln.hpp>
 #include <Vcl.FileCtrl.hpp>
+#include <Vcl.Imaging.pngimage.hpp>
 
 #include "OpenProgramClass.h"
+#include "OpenProgramDefs.h"
 
 //---------------------------------------------------------------------------
 class TfrmOpenProgram : public TForm
@@ -49,11 +52,18 @@ __published:	// IDE-managed Components
 	TStaticText *txtOperation;
 	TStaticText *txtTrick;
 	TShape *shpCircle;
+	TOpenDialog *dlgFileOpen;
 	TImage *imgEscudo;
 	TImage *imgMinimize;
 	TImage *imgHelp;
-	TOpenDialog *dlgFileOpen;
 	TImage *imgViewLog;
+	TStaticText *txtPriority;
+	TStaticText *txtAffinity;
+	TComboBox *cbxPriority;
+	TComboBox *cbxAffinity;
+	TStaticText *txtDelayTime;
+	TComboBox *cbxDelayTime;
+	TCheckBox *chkboxActivateDTime;
 	void __fastcall CancelBtnClick(TObject *Sender);
 	void __fastcall OKBtnClick(TObject *Sender);
 	void __fastcall cbxOpenChange(TObject *Sender);
@@ -75,9 +85,11 @@ __published:	// IDE-managed Components
 	void __fastcall imgHelpMouseEnter(TObject *Sender);
 	void __fastcall imgViewLogClick(TObject *Sender);
 	void __fastcall imgViewLogMouseEnter(TObject *Sender);
+	void __fastcall chkboxActivateDTimeClick(TObject *Sender);
 private:	// User declarations
 protected:
 	DirectoryDialog dlgDirOpen;
+	File_Exec feInfo;
 
 public:		// User declarations
 	__fastcall TfrmOpenProgram(TComponent* Owner);
