@@ -6,7 +6,7 @@
         <AppType>Application</AppType>
         <MainSource>OpenProgram.cpp</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
     </PropertyGroup>
@@ -41,6 +41,8 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <RunBCCOutOfProcess>true</RunBCCOutOfProcess>
+        <SubProcessesNumber>2</SubProcessesNumber>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.9.16.10;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.9.16.10;Comments=</VerInfo_Keys>
         <VerInfo_Locale>11274</VerInfo_Locale>
         <Custom_Styles>Luna|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Luna.vsf</Custom_Styles>
@@ -99,13 +101,14 @@
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <Debugger_RunParams>/i</Debugger_RunParams>
         <BCC_InstructionSet>6</BCC_InstructionSet>
         <VerInfo_Release>16</VerInfo_Release>
         <VerInfo_Build>10</VerInfo_Build>
         <BCC_NestedComments>true</BCC_NestedComments>
-        <VerInfo_Keys>CompanyName=;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.9.16.10;InternalName=OpenProgram;LegalCopyright=Octulio Biletan.;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=;ProductVersion=1.9.16.10;Comments=torrentelinux@gmail.com</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.10.16.10;InternalName=OpenProgram;LegalCopyright=Octulio Biletan.;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=;ProductVersion=1.10.16.10;Comments=torrentelinux@gmail.com</VerInfo_Keys>
         <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
-        <VerInfo_MinorVer>9</VerInfo_MinorVer>
+        <VerInfo_MinorVer>10</VerInfo_MinorVer>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>OpenProgram_Icon.ico</Icon_MainIcon>
@@ -121,20 +124,20 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <DynamicRTL>false</DynamicRTL>
         <ILINK_ImageComment>OpenProgram.exe</ILINK_ImageComment>
-        <VerInfo_Build>10</VerInfo_Build>
+        <VerInfo_Build>12</VerInfo_Build>
         <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
         <VerInfo_Release>16</VerInfo_Release>
-        <ILINK_UserVersion>1.9</ILINK_UserVersion>
+        <ILINK_UserVersion>1.10</ILINK_UserVersion>
         <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
         <BCC_OptimizeForSize>true</BCC_OptimizeForSize>
         <BCC_NestedComments>true</BCC_NestedComments>
-        <VerInfo_MinorVer>9</VerInfo_MinorVer>
+        <VerInfo_MinorVer>10</VerInfo_MinorVer>
         <BCC_InstructionSet>6</BCC_InstructionSet>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>OpenProgram_Icon.ico</Icon_MainIcon>
         <LinkPackageImports>rtl.bpi;vcl.bpi;vclx.bpi;VclSmp.bpi</LinkPackageImports>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.9.16.10;InternalName=OpenProgram;LegalCopyright=Octulio Biletan;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=;ProductVersion=1.9.16.10;Comments=torrentelinux@gmail.com</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.10.16.12;InternalName=OpenProgram;LegalCopyright=Octulio Biletan;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=;ProductVersion=1.10.16.12;Comments=torrentelinux@gmail.com</VerInfo_Keys>
         <VerInfo_PreRelease>true</VerInfo_PreRelease>
         <AppEnableHighDPI>true</AppEnableHighDPI>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>

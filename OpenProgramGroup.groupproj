@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{C814A242-48E1-4AB8-B350-DFBEB74F43D9}</ProjectGuid>
+        <ProjectGuid>{C552BCE7-8C54-41CA-AB00-A5CE73D32A4C}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
         <Projects Include="OpenProgram.cbproj">

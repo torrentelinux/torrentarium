@@ -34,7 +34,6 @@
 
 #include "OpenProgramDialog.h"
 #include "OpenProgramDefs.h"
-
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -49,6 +48,7 @@ _TCHAR drv[MAXDRIVE] = { L"" },
 
 _TCHAR *prog = NULL;
 TfrmOpenProgram *frmOpenProgram;
+bool miseventos(TMessage &Mensaje);
 
 //---------------------------------------------------------------------------
 __fastcall TfrmOpenProgram::TfrmOpenProgram(TComponent* Owner)
@@ -58,7 +58,21 @@ __fastcall TfrmOpenProgram::TfrmOpenProgram(TComponent* Owner)
    dlgFileOpen->FilterIndex = 0;
    dlgFileOpen->FileName = "";
 
-   prog = new _TCHAR[512];
+
+   try
+   {
+     // Solicita al sistema espacio por 512 bytes para almacenamiento de datos
+     prog = new _TCHAR[512];
+
+   }
+   catch(std::bad_alloc)
+   {
+     // Muestra un mensaje de error por falta de memoria
+     MessageBox(NULL, (LPCWSTR)L"No memory !!!", (LPCWSTR)L"Error", MB_OK|MB_ICONERROR);
+
+     // Retorna al S.O.
+     exit(EXIT_FAILURE);
+   }
 
    // Inicia el registro de actividades del usuario
    SaveLog(begin_log);
@@ -169,6 +183,44 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
      cbxDelayTime->Items->Add(UnicodeString(i));
 
    cbxDelayTime->ItemIndex = 5;
+
+   // Prepara los parámetros de cierre para este proceso.
+   // Esta función establece un orden de cierre para este proceso en relación a
+   // los otros procesos en el sistema.
+   // Consultar en este enlace:
+   // https://msdn.microsoft.com/en-us/library/windows/desktop/ms686227(v=vs.85).aspx
+   SetProcessShutdownParameters(0, 0);
+}
+//---------------------------------------------------------------------------
+// Responde al mensaje WM_QUERYENDSESSION.
+// Tanto para apagar o cerrar sesión.
+// Probar esta acción presionando las teclas Windows+X
+void __fastcall TfrmOpenProgram::WMQueryEndSession(TWMQueryEndSession &Message)
+{
+/*  Los miembros de Message son:
+   	Message.Msg;     uint
+   	Message.Source;  uint
+   	Message.Unused;  int
+   	Message.Result;  int
+*/
+   // Le digo al S.O. que me espere a que termine mi tarea...
+   Message.Result = FALSE;
+
+   // Indica que el sistema no se puede apagar y establece una razón explicativa
+   // que se mostrará al usuario si el apagado del sistema se inicia.
+   // Consultar en este enlace:
+   // https://msdn.microsoft.com/en-us/library/windows/desktop/aa376877(v=vs.85).aspx
+   ShutdownBlockReasonCreate(Handle, L"Please wait while working...");
+
+   // Inicia mi tarea: finaliza el registro de actividades del usuario.
+   SaveLog(end_log);
+   // Fin de mi tarea.
+
+   // Destruye la razón de bloquear el apagado del sistema, es decir prosigue...
+   ShutdownBlockReasonDestroy(Handle);
+
+   // Le digo al S.O. que prosiga con el apagado/cierre del sistema
+   Message.Result = TRUE;
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::FormClose(TObject *Sender, TCloseAction &Action)
@@ -586,7 +638,7 @@ void __fastcall TfrmOpenProgram::imgHelpClick(TObject *Sender)
    // Muestra en un cuadro de diálogo una breve descripción acerca de este programa
    ShellAbout(Application->Handle, L"OpenProgram",
               L"Opens a program, folder, document, or internet url.\n"
-              "Version 1.10.16.10",
+              "Version 1.10.16.12",
               NULL);
 }
 //---------------------------------------------------------------------------
@@ -655,7 +707,3 @@ void __fastcall TfrmOpenProgram::chkboxActivateDTimeClick(TObject *Sender)
      cbxDelayTime->Enabled = false;
 }
 //---------------------------------------------------------------------------
-// SIN USO
-// Agrega 'null' al final de la lista de items
-//   cftOperation->Items->Add(op_null);
-

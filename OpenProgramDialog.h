@@ -8,20 +8,19 @@
 #ifndef OpenProgramDialogH
 #define OpenProgramDialogH
 //---------------------------------------------------------------------------
-#include <Classes.hpp>
-#include <Controls.hpp>
-#include <StdCtrls.hpp>
-#include <Forms.hpp>
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
 #include <ExtCtrls.hpp>
 #include <Dialogs.hpp>
 #include <Vcl.Graphics.hpp>
 #include <Vcl.Buttons.hpp>
-#include <VCLTee.TeCanvas.hpp>
 #include <Vcl.Grids.hpp>
 #include <Vcl.Outline.hpp>
 #include <Vcl.Samples.DirOutln.hpp>
 #include <Vcl.FileCtrl.hpp>
-#include <Vcl.Imaging.pngimage.hpp>
+#include <Vcl.AppEvnts.hpp>
 
 #include "OpenProgramClass.h"
 #include "OpenProgramDefs.h"
@@ -42,28 +41,28 @@ __published:	// IDE-managed Components
 	TComboBox *cbxDirectory;
 	TComboBox *cftRun;
 	TComboBox *cftOperation;
+	TComboBox *cbxDelayTime;
+	TComboBox *cbxPriority;
+	TComboBox *cbxAffinity;
+	TCheckBox *chkboxActivateDTime;
 	TStaticText *txtOpen;
-	TStaticText *txtText2;
-	TStaticText *txtText3;
 	TStaticText *txtParameters;
 	TStaticText *txtDirectory;
 	TStaticText *txtRun;
 	TStaticText *txtErrorMsg;
 	TStaticText *txtOperation;
 	TStaticText *txtTrick;
+	TStaticText *txtPriority;
+	TStaticText *txtAffinity;
+	TStaticText *txtDelayTime;
+	TStaticText *txtText2;
+	TStaticText *txtText3;
 	TShape *shpCircle;
 	TOpenDialog *dlgFileOpen;
 	TImage *imgEscudo;
 	TImage *imgMinimize;
 	TImage *imgHelp;
 	TImage *imgViewLog;
-	TStaticText *txtPriority;
-	TStaticText *txtAffinity;
-	TComboBox *cbxPriority;
-	TComboBox *cbxAffinity;
-	TStaticText *txtDelayTime;
-	TComboBox *cbxDelayTime;
-	TCheckBox *chkboxActivateDTime;
 	void __fastcall CancelBtnClick(TObject *Sender);
 	void __fastcall OKBtnClick(TObject *Sender);
 	void __fastcall cbxOpenChange(TObject *Sender);
@@ -86,13 +85,21 @@ __published:	// IDE-managed Components
 	void __fastcall imgViewLogClick(TObject *Sender);
 	void __fastcall imgViewLogMouseEnter(TObject *Sender);
 	void __fastcall chkboxActivateDTimeClick(TObject *Sender);
+
 private:	// User declarations
 protected:
 	DirectoryDialog dlgDirOpen;
 	File_Exec feInfo;
 
+	void __fastcall WMQueryEndSession(TWMQueryEndSession &Message);
+
 public:		// User declarations
 	__fastcall TfrmOpenProgram(TComponent* Owner);
+
+	BEGIN_MESSAGE_MAP
+	    VCL_MESSAGE_HANDLER(WM_QUERYENDSESSION, TWMQueryEndSession, WMQueryEndSession)
+	END_MESSAGE_MAP(TForm)
+
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TfrmOpenProgram *frmOpenProgram;

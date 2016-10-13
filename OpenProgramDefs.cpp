@@ -51,10 +51,10 @@ unsigned int nelemsTimeTable = sizeof(TimeTable) / sizeof(TimeTable[0]);
 #define FormatMessage_Arg 0x2c0a
 #define Text_Arg TEXT(" %s ha fallado con código de error %d: %s")
 
-void ShowErrorCode(LPWSTR lpszMessage, DWORD dwECode)
+void ShowErrorCode(LPTSTR lpszMessage, DWORD dwECode)
 {
-	LPVOID lpMsgBuf = NULL;
-	LPVOID lpDisplayBuf = NULL;
+    	LPVOID lpMsgBuf = NULL;
+    	LPVOID lpDisplayBuf = NULL;
 
    FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM,
                  NULL, dwECode, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
@@ -96,10 +96,10 @@ void SaveLog(const _TCHAR *line_text)
 	int status = 0;
 	int flag = 0;
 	MessageDialog mdbox;
-	wofstream salida;
-	wostringstream newdir, ofn;
-	wstring filename = L"OpenProgram.log";
-	_TCHAR data[256] = { L"" };
+   	wofstream salida;
+     	wostringstream newdir, ofn;
+        wstring filename = L"OpenProgram.log";
+        _TCHAR data[256] = { L"" };
 
    status = GetEnvironmentVariable(L"LOCALAPPDATA", data, 256);
 
@@ -261,4 +261,3 @@ DWORD FileExec(File_Exec *fe)
 
    return status;
 }
-

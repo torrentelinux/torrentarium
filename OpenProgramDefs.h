@@ -15,18 +15,17 @@
 #include <sstream>
 #include <string>
 #include <dir.h>
-#pragma hdrstop
 
 using namespace std;
 
 // Operaciones admitidas por ShellExecute()
-extern const unsigned short int op_edit      ;  // "edit"
-extern const unsigned short int op_explore   ;  // "explore"
-extern const unsigned short int op_find      ;  // "find"
-extern const unsigned short int op_open      ;  // "open"
-extern const unsigned short int op_print     ;  // "print"
+extern const unsigned short int op_edit   ;  // "edit"
+extern const unsigned short int op_explore;  // "explore"
+extern const unsigned short int op_find   ;  // "find"
+extern const unsigned short int op_open   ;  // "open"
+extern const unsigned short int op_print  ;  // "print"
 extern const unsigned short int op_properties;  // "properties"
-extern const unsigned short int op_null      ;
+extern const unsigned short int op_null   ;
 
 struct idPriorityClass
 {
@@ -55,9 +54,7 @@ struct idTimeInterval
 extern struct idTimeInterval TimeTable[];
 extern unsigned int nelemsTimeTable;
 
-void ShowErrorDialog(_TCHAR *msg);
-void ShowInfoDialog(void);
-void ShowErrorCode(LPWSTR lpszMessage, DWORD dwECode);
+void ShowErrorCode(LPTSTR lpszMessage, DWORD dwECode);
 void SaveLog(const _TCHAR *line_text);
 void SaveLog(wstring &line_text);
 _TCHAR *GetFileNameLog(void);
