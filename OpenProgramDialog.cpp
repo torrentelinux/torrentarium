@@ -26,6 +26,41 @@
 //              * C:\Windows\Help\mui\0C0A\mmc.CHM
 //---------------------------------------------------------------------------
 
+// <--------- Comentarios de funciones -------->
+// SetProcessShutdownParameters()
+// Esta función establece un orden de cierre para este proceso en relación a
+// los otros procesos en el sistema. Consultar en este enlace:
+// https://msdn.microsoft.com/en-us/library/windows/desktop/ms686227(v=vs.85).aspx
+//
+// FlushProcessWriteBuffers()   
+// The function generates an interprocessor interrupt (IPI) to all
+// processors that are part of the current process affinity. It guarantees the
+// visibility of write operations performed on one processor to the other processors.
+// Dicho en español: Vacía la cola de escritura del proceso en curso.
+//
+// SetProcessWorkingSetSize()
+// Sets the minimum and maximum 'working set' sizes for the specified process.
+// The 'working set' of a process is the set of pages in the virtual address
+// space of the process that are currently resident in physical memory.
+// También se puede usar la función EmptyWorkingSet() para el mismo cometido.
+// Libera la memoria utilizada por este proceso.
+//
+// ShutdownBlockReasonCreate()
+// Indica que el sistema no se puede apagar y establece una razón explicativa
+// que se mostrará al usuario si el apagado del sistema se inicia.
+// Consultar en este enlace:
+// https://msdn.microsoft.com/en-us/library/windows/desktop/aa376877(v=vs.85).aspx
+//
+// ShutdownBlockReasonDestroy()
+// This function can only be called from the thread that created the window
+// specified by the hWnd parameter. Otherwise, the function fails and the
+// last error code is ERROR_ACCESS_DENIED.
+// If system shutdown has been previously blocked by the
+// ShutdownBlockReasonCreate function, this function frees the reason string.
+// Otherwise, this function is a no-op.
+//
+// <--------- ************************ -------->
+
 #include <tchar.h>
 #include <vcl.h>
 #include <shellapi.h>
@@ -48,7 +83,6 @@ _TCHAR drv[MAXDRIVE] = { L"" },
 
 _TCHAR *prog = NULL;
 TfrmOpenProgram *frmOpenProgram;
-bool miseventos(TMessage &Mensaje);
 
 //---------------------------------------------------------------------------
 __fastcall TfrmOpenProgram::TfrmOpenProgram(TComponent* Owner)
@@ -58,12 +92,10 @@ __fastcall TfrmOpenProgram::TfrmOpenProgram(TComponent* Owner)
    dlgFileOpen->FilterIndex = 0;
    dlgFileOpen->FileName = "";
 
-
    try
    {
      // Solicita al sistema espacio por 512 bytes para almacenamiento de datos
      prog = new _TCHAR[512];
-
    }
    catch(std::bad_alloc)
    {
@@ -80,6 +112,9 @@ __fastcall TfrmOpenProgram::TfrmOpenProgram(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
 {
+     	wostringstream msg;
+	MessageDialog msgbox;
+
    // Establece las dimensiones normales de la ventana principal
    Left = 40;
    Top = 59;
@@ -185,16 +220,17 @@ void __fastcall TfrmOpenProgram::FormCreate(TObject *Sender)
    cbxDelayTime->ItemIndex = 5;
 
    // Prepara los parámetros de cierre para este proceso.
-   // Esta función establece un orden de cierre para este proceso en relación a
-   // los otros procesos en el sistema.
-   // Consultar en este enlace:
-   // https://msdn.microsoft.com/en-us/library/windows/desktop/ms686227(v=vs.85).aspx
-   SetProcessShutdownParameters(0, 0);
+   if(SetProcessShutdownParameters(0, 0) == FALSE)
+   {
+     msg << L"Failed to set parameters shutdown." << endl 
+         << L"Error code: " << GetLastError() << ends;
+     msgbox.warning(L"* Warning *", msg.str().c_str());
+   }
 }
 //---------------------------------------------------------------------------
 // Responde al mensaje WM_QUERYENDSESSION.
 // Tanto para apagar o cerrar sesión.
-// Probar esta acción presionando las teclas Windows+X
+// Probar esta acción presionando las teclas Windows+X en Windows 8 y vers. sigs.
 void __fastcall TfrmOpenProgram::WMQueryEndSession(TWMQueryEndSession &Message)
 {
 /*  Los miembros de Message son:
@@ -208,8 +244,6 @@ void __fastcall TfrmOpenProgram::WMQueryEndSession(TWMQueryEndSession &Message)
 
    // Indica que el sistema no se puede apagar y establece una razón explicativa
    // que se mostrará al usuario si el apagado del sistema se inicia.
-   // Consultar en este enlace:
-   // https://msdn.microsoft.com/en-us/library/windows/desktop/aa376877(v=vs.85).aspx
    ShutdownBlockReasonCreate(Handle, L"Please wait while working...");
 
    // Inicia mi tarea: finaliza el registro de actividades del usuario.
@@ -235,9 +269,11 @@ void __fastcall TfrmOpenProgram::FormDestroy(TObject *Sender)
    delete[] prog;
    prog = NULL;
 
-   // SetProcessWorkingSetSize: Sets the minimum and maximum working set sizes for the specified process
-   // Libera la memoria utilizada por este proceso
-   SetProcessWorkingSetSize(GetCurrentProcess(), -1, -1);
+   // Vacía la cola de escritura del proceso en curso.
+   FlushProcessWriteBuffers();
+   
+   // Libera la memoria utilizada por este proceso.
+   SetProcessWorkingSetSize(GetCurrentProcess(), (SIZE_T)-1, (SIZE_T)-1);
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmOpenProgram::CancelBtnClick(TObject *Sender)
@@ -371,7 +407,7 @@ void __fastcall TfrmOpenProgram::OKBtnClick(TObject *Sender)
      if(btnDown->Tag == 1)
        ShowErrorCode(L"< Wrong >", status);
 
-     msg << L"Windows cannot find \'" << prog << L"\'. Make sure you typed the name correctly, and then try again.";
+     msg << L"Windows cannot find \'" << prog << L"\'. Make sure you typed the name correctly, and then try again." << ends;
      Application->MessageBox(msg.str().c_str(), L"Error", MB_ICONERROR);
    }
    else
@@ -638,7 +674,7 @@ void __fastcall TfrmOpenProgram::imgHelpClick(TObject *Sender)
    // Muestra en un cuadro de diálogo una breve descripción acerca de este programa
    ShellAbout(Application->Handle, L"OpenProgram",
               L"Opens a program, folder, document, or internet url.\n"
-              "Version 1.10.16.12",
+              "Version " __VERSION_op__,
               NULL);
 }
 //---------------------------------------------------------------------------

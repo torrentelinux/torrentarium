@@ -15,6 +15,16 @@
 #include <sstream>
 #include <string>
 #include <dir.h>
+#pragma hdrstop
+
+// Nro. de versión de OpenProgram.exe
+#define __VERSION_op__	L"1.11.17.14"
+
+// Estilo incorrecto
+#define WRONG_STYLE     1
+
+// Estilo correcto
+#define OK_STYLE        -1
 
 using namespace std;
 
@@ -51,6 +61,7 @@ struct idTimeInterval
 {
    unsigned int Interval;
 };
+
 extern struct idTimeInterval TimeTable[];
 extern unsigned int nelemsTimeTable;
 
@@ -60,5 +71,11 @@ void SaveLog(wstring &line_text);
 _TCHAR *GetFileNameLog(void);
 DWORD FileExec(__in_opt HWND hwnd, __in_opt LPCWSTR lpOperation, __in LPCWSTR lpFile, __in_opt LPCWSTR lpParameters, __in_opt LPCWSTR lpDirectory, __in INT nShowCmd);
 DWORD FileExec(File_Exec *fe);
+
+// Check the name of the indicated style
+DWORD ValidarEstilo(_TCHAR *stl);
+
+// Returns list of supported styles
+_TCHAR *EstilosAdmitidos(void);
 
 #endif

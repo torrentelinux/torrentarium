@@ -9,7 +9,16 @@
 #pragma package(smart_init)
 
 // Contiene el nombre completo del fichero registro: OpenProgram.log
-static _TCHAR fi_log[256] = { '\0' };
+static _TCHAR fi_log[256] = { '\0'
+};
+
+// Contiene los nombres de los estilos de interfaz gráfica admitidos
+static _TCHAR estilos_admitidos[][64] = { L"Windows",
+                                          L"Windows10",
+                                          L"Luna",
+                                          L"Sky",
+                                          L""
+};
 
 // Operaciones admitidas por ShellExecute()/ShellExecuteEx()
 const unsigned short int op_edit       = 0;  // "edit"
@@ -260,4 +269,32 @@ DWORD FileExec(File_Exec *fe)
      }
 
    return status;
+}
+
+// Check the name of the indicated style
+DWORD ValidarEstilo(_TCHAR *stl)
+{
+        DWORD status = WRONG_STYLE;  // Estilo incorrecto
+
+   for(int i = 0; i < 4; i++)
+     if(wcscmp(stl, estilos_admitidos[i]) == 0)
+     {
+       status = OK_STYLE;  // Estilo correcto
+       break;
+     }
+
+   return status;
+}
+
+// Returns list of supported styles
+_TCHAR *EstilosAdmitidos(void)
+{
+        int i;
+        UnicodeString lista;
+
+    for(i = 0; i < 3; i++)
+      lista = lista + estilos_admitidos[i] + L", ";
+
+    lista = lista + estilos_admitidos[i];
+    return lista.c_str();
 }
