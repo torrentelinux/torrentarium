@@ -12,6 +12,11 @@ opciones a seleccionar. Para acceder al modo extendido debe mover el puntero del
 de la ventana, verá que cambia de flecha a mano el ratón, en ese lugar haga clic con el botón izquierdo del ratón y aparecerá
 un botón con flecha hacia abajo. Ahora pulse sobre el botón mencionado para que aparezcan las nuevas opciones.
 A continuación, puede volver al modo normal presionando el botón flecha hacia arriba.
+Para conocer otras opciones disponibles en OpenProgram puede convocarlo de la siguiente manera:
+
+	OpenProgram /i
+
+Presentará en pantalla un cuadro de diálogo informativo acerca de los argumentos admitidos.
 
 ___________
 Direcciones
@@ -19,4 +24,4 @@ Direcciones
 Contacto: torrentelinux@gmail.com
 Sitio en GitHub: https://github.com/torrentelinux/torrentarium/
 _____________________________________________________________
-Ultima actualización: 08:36 p.m. 08/10/2016
+Ultima actualización: 01:13 lunes, 12 de junio de 2017
