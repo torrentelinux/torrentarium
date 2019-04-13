@@ -64,6 +64,7 @@ class TiempoEstimado
 int _tmain(void)
 {
         int simbolo = 0xDB;
+        int demora = 249;
         double segs, mins;
         TiempoEstimado potenciaEstimada;
         ostringstream salida;
@@ -81,7 +82,7 @@ int _tmain(void)
      salida << potenciaEstimada.calculos(n) << endl;
 
      cerr.put(simbolo); simbolo ^= 0xDC;
-     Sleep(249);
+     Sleep(demora); demora ^= 2;
    }
 
    segs = potenciaEstimada.total_tiempos();
