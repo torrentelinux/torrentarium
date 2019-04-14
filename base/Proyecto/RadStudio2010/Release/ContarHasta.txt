@@ -1,0 +1,1 @@
+Fichero ContarHasta.7z contiene fichero ejecutable ContarHasta.exe, 32 bits, Windows modo comando.
