@@ -1,0 +1,36 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{13B35B96-9D6A-48C3-A55B-8ED4C270EC77}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="ContarHasta.cbproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ContarHasta">
+			<MSBuild Projects="ContarHasta.cbproj"/>
+		</Target>
+		<Target Name="ContarHasta:Clean">
+			<MSBuild Targets="Clean" Projects="ContarHasta.cbproj"/>
+		</Target>
+		<Target Name="ContarHasta:Make">
+			<MSBuild Targets="Make" Projects="ContarHasta.cbproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ContarHasta"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ContarHasta:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ContarHasta:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
