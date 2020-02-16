@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html;
+      charset=windows-1252">
+    <title>Documentación de Wciclar</title>
+    <meta name="GENERATOR" content="OpenOffice.org 3.4.1 (Win32)">
+    <meta name="AUTHOR" content="Eugenio Martínez">
+    <meta name="CREATED" content="20060904;16282888">
+    <meta name="CHANGEDBY" content="Eugenio Martínez">
+    <meta name="CHANGED" content="20131209;23355474">
+    <meta name="DESCRIPTION" content="Wciclar consume ciclos de CPU
+      durante un cierto tiempo.">
+    <meta name="KEYWORDS" content="wciclar, cpu, reloj, prioridad,
+      tiempo, utilidades torrente, torrente">
+    <meta name="Información" content="Aplicación para Windows">
+    <meta name="CHANGEDBY" content="Linux Torrente">
+    <style type="text/css">
+	<!--
+		P { color: #000000 }
+		H1 { color: #000000 }
+		PRE { color: #000000 }
+		PRE.cjk { font-family: "NSimSun", monospace }
+		A:link { color: #000099 }
+		A:visited { color: #990099 }
+	-->
+	</style>
+  </head>
+  <body dir="LTR" link="#000099" lang="es-AR" vlink="#990099"
+    text="#000000" bgcolor="#ffffff">
+    <h1 align="CENTER">Documentación de la aplicación Wciclar</h1>
+    <p><br>
+      Podría definirse a Wciclar como un instrumento de
+      medición de su velocidad de ejecución en
+      Windows.<br>
+      Es un programa de 32 bits para Windows 32/64 bits.<br>
+    </p>
+    <p style="margin-bottom: 0cm">Esta aplicación se acoge a la
+      licencia pública <a href="http://www.gnu.org/">GNU</a> también
+      conocida como GPL. Haga <a href="license.txt">clic
+        aquí</a> para leer la licencia. <br>
+      &nbsp; </p>
+    <p>&nbsp; </p>
+    <p align="CENTER"><img src="wciclar.jpg" name="graphics1"
+        width="448" height="228" align="BOTTOM" border="0"></p>
+    <p align="RIGHT"><a href="hoja2.html">Más
+        imágenes</a></p>
+    <p>Viene acompañado de un fichero de configuración
+      llamado wciclar.ini, su contenido podría ser el siguiente: </p>
+    <pre class="western" style="margin-left: 1.06cm; text-align: left">[wciclar]
+intervalo=3
+prioridad=normal
+estilo=normal
+sonido=normal
+salida=normal
+origen_x=536
+origen_y=-26
+ancho=224
+alto=132
+;
+; Nuevo: canal alfa, para visualizar la ventana translúcida.
+alfa=75
+;
+linea_texto_1=¿ Cómo se despertó la bella durmiente ?
+linea_texto_2=* Un gallo le cantó al oído y le quedó...
+linea_texto_3=...zumbando durante muchos días ***
+;
+; Fin de wciclar.ini
+;</pre>
+    <p style="margin-left: 1.06cm">
+      Los campos de la sección [wciclar] son:</p>
+    <ul>
+      <p><b>intervalo:</b> expresa el tiempo, en segundos, que
+        actualizará la información en la ventana. Puede comenzar desde 1
+        en adelante. </p>
+      <p><b>prioridad:</b> indica la prioridad que tendrá la aplicación.
+        Los nombres aceptados son: <font face="Arial, sans-serif">normal,
+
+          alta, muy alta, baja,</font> <font face="Arial, sans-serif">encima
+
+          de lo normal</font> y <font face="Arial, sans-serif">debajo
+          de lo normal.</font> </p>
+      <p><b>estilo:</b> indica la apariencia de la ventana. Los nombres
+        aceptados son: <font face="Arial, sans-serif">normal</font> y <font
+          face="Arial, sans-serif">superior.</font> </p>
+      <p><b>sonido:</b> indica la emisión o no de un efecto sonoro. Los
+        nombres aceptados son: <font face="Arial, sans-serif">normal,
+          silencio, tic</font> y <font face="Arial, sans-serif">mpop.</font>
+      </p>
+      <p><b>salida: </b>indica el modo de salir de wciclar. Los nombres
+        aceptados son: <font face="Arial, Helvetica">normal, rápida</font>
+        y <font face="Arial, Helvetica">rapida.</font> </p>
+      <p><b>origen_x: </b>posición sobre el eje X expresado en pixels.
+        Es un valor de 32 bits. Se aceptan a los valores negativos.</p>
+      <p><b>origen_y: </b>posición sobre el eje Y expresado en pixels.
+        Es un valor de 32 bits. Se aceptan a los valores negativos.</p>
+      <p><b>ancho: </b>ancho de la ventana expresado en pixels. Su
+        rango de valores van desde 1 hasta 320.</p>
+      <p><b>alto:</b> altura de la ventana expresado en pixels. Su rango
+        de valores van desde 1 hasta 240.</p>
+      <p><b>alfa:</b> para visualizar la ventana translúcida. Su rango
+        de valores van desde 0 % hasta 100 %.</p>
+      <p><b>linea_texto_1:</b> permite la visualización de una línea de
+        texto de hasta 65 caracteres en la zona inferior de la ventana.
+        Este campo puede repetirse hasta tres veces.</p>
+      <p><b>Caracter ';':</b> es el caracter comentario, todo lo que
+        está escrito después de '<b>;'</b> es ignorado.</p>
+    </ul>
+    <p>También acepta argumentos enviados desde la línea de
+      comandos, para conocerlos ejecute <font face="Arial, sans-serif">wciclar</font>
+      desde Símbolo del sistema de la siguiente manera: <font
+        face="Arial, sans-serif"><i>wciclar
+          ayuda</i></font>. </p>
+    <p>Y aparecerá en la pantalla un cuadro de diálogo
+      explicando brevemente los diferentes argumentos que se aceptan. </p>
+    <p>La rapidez de Windows se manifiesta cuando se observa a <b>vps</b>
+      alcanzando el valor 100 o 64, según la versión del sistema
+      operativo que se esté usando, a <b>cwh</b> con valores bajos y a
+      <b>est</b>
+      con valores negativos.</p>
+    <hr>
+    <p>Copyright © 2006-2020 Eugenio Martínez.<u><b>Dirección
+          de contacto:</b></u> <a href="mailto:torrentelinux@gmail.com">torrentelinux@gmail.com</a>.
+      <u><b>Sitio:</b></u> <a
+        href="https://sites.google.com/site/torrentewindows/home">sites.google.com/site/torrentewindows/home</a>
+    </p>
+  </body>
+</html>
