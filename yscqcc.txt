@@ -1,0 +1,7 @@
+Yo solo sé que sé C
+Yo solo C  que sé C
+Yo solo C  que C  sé
+____________________
+Yo solo C  que C  C
+
+char *autor = { "Edmund Muslok" };
