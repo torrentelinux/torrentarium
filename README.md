@@ -8,6 +8,6 @@ Soporta 32 y 64 bits, Windows Vista, 7, 8, 8.1, 10, 2008, 2012 y 2016.<br>
 Proyecto wciclar.exe: construído con Embarcadero RAD Studio 10.2 Tokyo, 32 bits.<br>
 Ultima actualización: 16-Feb-2020.<br>
 
-Desarrollador principal: Eugenio Martínez[Octulio Biletán].<br>
+Desarrollador principal: Eugenio Martínez[<a href="https://www.bing.com/search?q=octulio+bilet%C3%A1n">Octulio Biletán</a>][Edmund Muslok].<br>
 Dirección de contacto: torrentelinux@gmail.com<br>
 Mi presencia en LinkedIn: https://ar.linkedin.com/in/eugenio-martínez-ob1<br>
