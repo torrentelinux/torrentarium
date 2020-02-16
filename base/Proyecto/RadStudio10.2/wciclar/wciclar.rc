@@ -1,0 +1,80 @@
+//---------------------------------------------------------------------------
+
+// Módulo     : wciclar.rc
+// Autor      : eugenio martínez - mayo de 2006
+// Descripción: consume ciclos de cpu durante un cierto tiempo
+//              optimizado para CPU Intel Pentium, aplicación para Windows
+//              última vez modificado febrero de 2020
+// Licencia   : Copyright (C) 2006-2020 - Eugenio Martínez - torrentelinux@gmail.com
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+//---------------------------------------------------------------------------
+
+#include "wciclar.rh"
+
+STRINGTABLE
+{
+ TEXTO_CORREO, "mail://torrentelinux@gmail.com"
+}
+
+STRINGTABLE
+{
+ TEXTO_SITIO, "https://sites.google.com/site/torrentewindows/home"
+}
+
+STRINGTABLE
+{
+ TEXTO_AUTOR, "Aplicación realizada por Eugenio Martínez."
+}
+
+// Iconos
+IDI_ICON1 ICON "cpu.ico"
+IDI_ICON2 ICON "cpu02.ico"
+
+// Sonidos
+BIP_01  WAVE  "bip.wav"
+TIC_01  WAVE  "tic.wav"
+MPOP_1  WAVE  "mpop.wav"
+
+VERSIONINFO_1 VERSIONINFO
+FILEVERSION 4,2,2020,1
+PRODUCTVERSION 4,2,2020,1
+#if __BORLANDC__
+  FILEOS VOS_NT_WINDOWS32
+  FILETYPE VFT_APP
+#endif
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "2C0A04E4"
+  {
+   VALUE "CompanyName", "Eugenio Martínez\000"
+   VALUE "FileDescription", "Consume ciclos de CPU durante un tiempo.\000"
+   VALUE "FileVersion", "4.02.2020.1\000"
+   VALUE "InternalName", "wciclar\000"
+   VALUE "LegalCopyright", "Copyright © Eugenio Martínez 2006-2020\000"
+   VALUE "OriginalFilename", "wciclar.exe\000"
+   VALUE "ProductName", "Utilidades Torrente\000"
+   VALUE "ProductVersion", "4.02\000"
+   VALUE "Comments", "Esta aplicación se adhiere a la GNU/GPL.\000"
+  }
+ }
+
+ BLOCK "VarFileInfo"
+ {
+  VALUE "Translation", 0x2C0A, 1252
+ }
+}
