@@ -1,0 +1,36 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{1657D55C-53BF-4126-8A12-211CFCD9A310}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="wciclar.cbproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="wciclar">
+			<MSBuild Projects="wciclar.cbproj"/>
+		</Target>
+		<Target Name="wciclar:Clean">
+			<MSBuild Targets="Clean" Projects="wciclar.cbproj"/>
+		</Target>
+		<Target Name="wciclar:Make">
+			<MSBuild Targets="Make" Projects="wciclar.cbproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="wciclar"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="wciclar:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="wciclar:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
