@@ -39,6 +39,10 @@ void comienzo()
 	// vector con valores numéricos desordenados
 	int vector[] = { 33, 0, 99, -1, -62, 19, 8, 101, 10, 33, 31 };
 
+    // Activa la localización del sistema para la aplicación en curso.
+    // Es a los fines de mostrar los caracteres acentuados en pantalla.
+    Intl.setlocale(ALL, "");
+
     print("Método de ordenamiento por intercambio de datos en un vector numérico (bubble sort).\n");
     print("\n--Vector desordenado--\n");
 
