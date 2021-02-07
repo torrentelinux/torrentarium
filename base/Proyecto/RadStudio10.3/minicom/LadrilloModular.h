@@ -1,4 +1,5 @@
 // LadrilloModular.h
+// Octulio Biletán - Agosto de 2020
 // Declarar la clase LadrilloConCalce
 // Esta clase reúne en un único lugar la biblioteca de funciones y clases de C/C++.
 

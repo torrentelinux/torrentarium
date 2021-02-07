@@ -1,5 +1,7 @@
 // LadrilloModular.cpp
+// Octulio Biletán - Agosto de 2020
 // El "ladrillo" como objeto modular en la estructura de un programa C++.
+// Compatible con Embarcadero RAD Studio 10.2 y versiones posteriores.
 
 #include <cstdio>
 #include <cstring>
@@ -18,6 +20,8 @@ LadrilloConCalce::LadrilloConCalce()
    // Grupo de funciones de cstdio
    C.strerror = strerror;
    C.perror = perror;
+   C.sprintf = sprintf;
+   C.sscanf = sscanf;
 
    // Grupo salida estándar del sistema
    C.printf = printf;
@@ -26,6 +30,35 @@ LadrilloConCalce::LadrilloConCalce()
 
    // Grupo entrada estándar del sistema
    C.scanf = scanf;
+   C.gets = gets;
+
+   // Grupo de e/s para ficheros
+   C.fclose = fclose;
+   C.fopen = fopen;
+   C.getc = getc;
+   C.fgetc = fgetc;
+   C.fgets = fgets;
+   C.ungetc = ungetc;
+   C.putc = putc;
+   C.fcloseall = fcloseall;
+   C.feof = feof;
+   C.ferror = ferror;
+   C.fflush = fflush;
+   C.flushall = flushall;
+   C.fileno = fileno;
+   C.fprintf = fprintf;
+   C.fputc = fputc;
+   C.fputs = fputs;
+   C.fread = fread;
+   C.fscanf = fscanf;
+   C.fseek = fseek;
+   C.fsetpos = fsetpos;
+   C.ftell = ftell;
+   C.fwrite =fwrite;
+   C._fseeki64 = _fseeki64;
+   C._ftelli64 = _ftelli64;
+   C.rewind = rewind;
+   C.clearerr = clearerr;
 
    // Grupo de funciones de mem.h
    mem.memset = memset;

@@ -1,4 +1,5 @@
 // bbteca.c.cpp.h
+// Octulio Biletán - Agosto de 2020
 // Biblioteca estándar de clases y funciones en C/C++ agrupadas en 'struct'
 // Se utilizan tanto puntero a función como puntero a clase.
 // Compatible con Embarcadero RAD Studio 10.2 y versiones posteriores.
@@ -47,7 +48,6 @@ struct _cstdio
 
     int (*sprintf)(char * __buffer, const char * __format, ...) __ATTRIB_FORMAT(printf, 2, 3);
     int (*sscanf)(const char * __buffer,  const char * __format, ...);
-
 };
 
 struct _conio
