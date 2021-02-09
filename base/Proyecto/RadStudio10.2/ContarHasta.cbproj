@@ -42,6 +42,12 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -122,6 +128,10 @@
         <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>(None)</Manifest_File>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <Defines>NDEBUG;$(Defines)</Defines>
         <TASM_Debugging>None</TASM_Debugging>
@@ -131,14 +141,37 @@
         <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>(None)</Manifest_File>
+        <ILINK_OSVersion>6.0</ILINK_OSVersion>
+        <ILINK_UserVersion>6.0</ILINK_UserVersion>
+        <ILINK_ImageComment>Windows Vista 64 bit</ILINK_ImageComment>
+        <ILINK_Description>WinVista</ILINK_Description>
+        <ILINK_ImageFlags>AGGRESSIVE</ILINK_ImageFlags>
+        <ILINK_MapFileType>None</ILINK_MapFileType>
+        <TASM_FloatingPoint>Real</TASM_FloatingPoint>
+        <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!='' And '$(FileToCompile)'=='ContarHasta.cpp'">
+        <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+        <TASM_FloatingPoint>Real</TASM_FloatingPoint>
+        <BCC_OptimizeMaximum>true</BCC_OptimizeMaximum>
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <BCC_InstructionSet>6</BCC_InstructionSet>
+        <BCC_NestedComments>true</BCC_NestedComments>
+        <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+        <ILINK_OSVersion>6.0</ILINK_OSVersion>
+        <ILINK_UserVersion>6.0</ILINK_UserVersion>
     </PropertyGroup>
     <ItemGroup>
+        <CppCompile Include="ContarHasta.cpp">
+            <BuildOrder>1</BuildOrder>
+            <OptionOverrides>true</OptionOverrides>
+        </CppCompile>
         <PCHCompile Include="ContarHasta.h">
             <BuildOrder>0</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
-        <CppCompile Include="TiempoEstimado.cpp">
-            <BuildOrder>1</BuildOrder>
+        <CppCompile Include="LadrilloModular.cpp">
+            <BuildOrder>2</BuildOrder>
         </CppCompile>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
