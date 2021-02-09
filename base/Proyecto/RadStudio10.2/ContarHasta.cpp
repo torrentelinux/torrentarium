@@ -1,9 +1,10 @@
-// TiempoEstimado.cpp
+// ContarHasta.cpp
 // Octulio Biletán - torrentelinux@gmail.com - 04|2019
 // Realiza la cuenta desde 0 hasta 2^N - 1
 // Comenzando con 2^18 hasta 2^36 incluído.
 // Calcular y contar hasta 2^40 demandaría un tiempo aprox. de 1 hora.
-// Proyecto ContarHasta.cbproj para Embarcadero RAD Studio 10.2/RAD Studio 2010
+// Proyecto ContarHasta.cbproj para Embarcadero RAD Studio 10.2/RAD Studio 2010.
+// Compatible con versiones posteriores.
 // Realizar: tiempo.cronometrar(contar.hasta(elevar_a(2,n)))
 //           contar desde <expresionA> hasta <expresionB> incrementando <expresionC>
 //           contar desde <expresionA> hasta <expresionB> decrementando <expresionC>
