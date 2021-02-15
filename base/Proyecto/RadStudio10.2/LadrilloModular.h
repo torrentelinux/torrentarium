@@ -8,17 +8,17 @@
 
 #include "bbteca.c.cpp.h"
 
-using namespace std;
-
 class LadrilloConCalce
 {
    public:
         _cstdio   C;
         _conio    consola;
-        _mem      mem;
         _cstring  cstring;
         _cstdlib  cstdlib;
+        _cctype   cctype;
         _cmath    cmath;
+        _ctime    ctime;
+        _mem      mem;
         _cprocess cprocess;
         _iostream iostream;
 

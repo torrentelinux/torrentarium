@@ -1,0 +1,6 @@
+ Calcular y contar hasta 2^38 demandaría un tiempo aprox. de 26 mins.
+     ""  ""  ""    hasta 2^40 demandaría un tiempo aprox. de 1 hora.
+     ""  ""  ""    hasta 2^64      ""    mucho más tiempo.
+ Realizar: tiempo.cronometrar(contar.hasta(elevar_a(2,n)))
+           contar desde <expresionA> hasta <expresionB> incrementando <expresionC>
+           contar desde <expresionA> hasta <expresionB> decrementando <expresionC>

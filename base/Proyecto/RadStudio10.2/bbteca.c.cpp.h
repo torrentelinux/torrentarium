@@ -13,17 +13,21 @@
 #include <cmath>
 #include <cstring>
 #include <cstdlib>
+#include <cctype>
+#include <ctime>
 
 #include <cprocess.h>
 #include <conio.h>
 #include <mem.h>
+
+using namespace std;
 
 struct _cstdio
 {
     int (*printf)(const char *fmt, ...);
     int (*puts)(const char *txt);
     int (*putchar)(const int cc);
-    int (*putc)(const int __c, FILE * __fp);
+    int (*putc)(const int __c, FILE *__fp);
 
     int   (*scanf)(const char *fmt, ...);
     char* (*gets)(char * __s);
@@ -60,7 +64,11 @@ struct _cstdio
     void (*rewind)(FILE * __stream);
     void (*clearerr)(FILE * __stream);
 
+#if __BORLANDC__ > 0x621
     int (*sprintf)(char * __buffer, const char * __format, ...) __ATTRIB_FORMAT(printf, 2, 3);
+#else
+    int (*sprintf)(char * __buffer, const char * __format, ...);
+#endif
     int (*sscanf)(const char * __buffer,  const char * __format, ...);
 };
 
@@ -82,7 +90,16 @@ struct _cstring
 
 struct _cstdlib
 {
+#if __BORLANDC__ > 0x621
     void _NO_RETURN_DECL (*exit)(int __status);
+#else
+    void (*exit)(int __status);
+#endif
+};
+
+struct _cctype
+{
+    int (*isdigit)(int __c);
 };
 
 struct _cprocess
@@ -113,6 +130,12 @@ struct _cprocess
 struct _cmath
 {
     double (*pow)(double __x, double __y);
+};
+
+struct _ctime
+{
+    char* (*strtime)(char *__timestr);
+
 };
 
 #include <iostream>

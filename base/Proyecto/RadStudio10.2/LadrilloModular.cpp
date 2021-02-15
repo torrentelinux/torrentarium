@@ -63,8 +63,14 @@ LadrilloConCalce::LadrilloConCalce()
    // Grupo de funciones de cstdlib
    cstdlib.exit = exit;
 
+   // Grupo de funciones de cctype
+   cctype.isdigit = isdigit;
+
    // Grupo de funciones de cmath
    cmath.pow = pow;
+
+   // Grupo de funciones de ctime
+   ctime.strtime = _strtime;
 
    // Grupo de funciones de cprocess
    cprocess.system = system;
@@ -113,8 +119,14 @@ LadrilloConCalce::~LadrilloConCalce()
    // Grupo de funciones de cstdlib
    memset(&cstdlib, 0, sizeof(cstdlib));
 
+   // Grupo de funciones de cctype
+   memset(&cctype, 0, sizeof(cctype));
+
    // Grupo de funciones de cmath
    memset(&cmath, 0, sizeof(cmath));
+
+   // Grupo de funciones de ctime
+   memset(&ctime, 0, sizeof(ctime));
 
    // Grupo de funciones de cprocess
    memset(&cprocess, 0, sizeof(cprocess));
