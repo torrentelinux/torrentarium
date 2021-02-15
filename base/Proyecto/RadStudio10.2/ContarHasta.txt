@@ -1,6 +1,28 @@
+ContarHasta ** Documentación básica
+
+Aplicación escrita en C++ para Windows de 64 bits.
+Toma los tiempos de cálculos que demandan hacer 2^18 hasta 2^límite.
+Donde límite = 2^[sizeof(unsigned short int) * 8].
+O sea si fuese por ejemplo, limite = 2^[2*8] = 65536.
+Por consiguiente el valor máximo alcanzable es 2^65536.
+Los cálculos que puede hacer 'ContarHasta' son:
+    * contar_hasta()
+    * sumar_hasta()
+
+Se toma el tiempo empleado en cada función.
+Para el cálculo de la potencia Y = X ^ N se utiliza la función:
+    * unsigned __int64 potencia(unsigned long int x, unsigned long int n)
+
+Tanto 'x' como 'n' son nº de 32 bits y el valor resultante 'Y' es de 64 bits.
+El compilador utilizado fue Embarcadero C++ Builder 10.2 para Windows.
+
+·__________________________________________________________________________________·
+--Observaciones--
  Calcular y contar hasta 2^38 demandaría un tiempo aprox. de 26 mins.
      ""  ""  ""    hasta 2^40 demandaría un tiempo aprox. de 1 hora.
      ""  ""  ""    hasta 2^64      ""    mucho más tiempo.
- Realizar: tiempo.cronometrar(contar.hasta(elevar_a(2,n)))
+ Realizar: tiempo.cronometrar(contar.hasta(potencia(2,n)))
            contar desde <expresionA> hasta <expresionB> incrementando <expresionC>
            contar desde <expresionA> hasta <expresionB> decrementando <expresionC>
+·__________________________________________________________________________________·
+Aplicación realizada por Octulio Biletán, Abril de 2019.
