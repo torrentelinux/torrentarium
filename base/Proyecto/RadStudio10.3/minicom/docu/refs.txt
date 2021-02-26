@@ -10,10 +10,10 @@
 // https://support.microsoft.com/en-us/help/99261/how-to-performing-clear-screen-cls-in-a-console-application
 // Licencia: GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007.
 //
-// Código fuente para compilador Embarcadero C++ Builder 2010 y ver. 10.3.3, Rio.
+// Código fuente para compilador Embarcadero C++ Builder 2010, 10.2 y 10.3
 // Mini-intérprete de comandos para Windows.
 
-// Fecha: 14-Agosto-2020
+ Fecha: 14-Agosto-2020
 
 // -- Sugerencias --
 // Sugerencias para añadir al proyecto minicom.
@@ -28,13 +28,15 @@
 //
 // Falta completar: COMSPEC=, SHELL=, OSTYPE=, TMPPATH, TERM=linux
 //
-// -- Usos --
-// Minicom consta de tres comandos internos: ayuda, cmd y salir.
-// » cmd dir
-// » ayuda
-// » cmd cmd /?
-// » cmd start explorer .
-// » ^Z
-// » ^L
-// » ^D
-// » salir
+ -- Usos --
+ Minicom consta de cuatro comandos internos: ayuda, lengua, cmd y salir.
+ » cmd dir
+ » ayuda	-->> muestra una ayuda explicativa en pantalla.
+ » cmd cmd /?
+ » cmd start explorer .
+ » ^Z
+ » ^L		-->> borra la pantalla.
+ » ^D
+ » salir	--> sale de minicom.
+ » lengua	--> informa la config. actual de minicom en cuanto a idioma/región
+		    este comando es similar a 'locale'.
