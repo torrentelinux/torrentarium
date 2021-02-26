@@ -2,7 +2,7 @@
 // Autor    : Eugenio Martínez
 // Propósito: Definir un mini intérprete de comandos
 //            para sistemas Windows.
-// Licencia : Copyright (C) 2020 - Eugenio Martínez - torrentelinux@gmail.com
+// Licencia : Copyright (C) 2020-2021 - Eugenio Martínez - torrentelinux@gmail.com
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,29 +18,114 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#define STRICT
+#define __USELOCALES__
+
+#include <clocale>
+#include <tchar.h>
+
+#include <windows.h>
+
 #include "LadrilloModular.h"
 #include "minicomClase.h"
 
-LadrilloConCalce lib;
+void Entry(void);
+void Exit(void);
+BOOL setcurrentfont(wchar_t *nfuente, SHORT tamTipoLetra);
 
-int main(int argc, char** argv)
+#pragma startup Entry
+#pragma exit Exit
+
+LadrilloConCalce lib;
+string indicador_linea_comando;
+
+void Exit(void)
 {
-	MiniCom mc;
+	UINT cod_pag;
+
+   cod_pag = GetConsoleOutputCP();
+   if(cod_pag != 850)
+   {
+     // Cambia el juego de caracteres para la entrada/salida estándar
+     SetConsoleOutputCP(850);
+     SetConsoleCP(850);
+   }
+
+   _tsetlocale(LC_ALL, "");
+
+   indicador_linea_comando = "";
+}
+
+void Entry(void)
+{
+	UINT cod_pag;
+
+   indicador_linea_comando = "  ";
+
+   cod_pag = GetConsoleOutputCP();
+   if(cod_pag != 1252)
+   {
+     // Cambia el juego de caracteres para la entrada/salida estándar
+     SetConsoleOutputCP(1252);
+     SetConsoleCP(1252);
+     _tsetlocale(LC_ALL, "Spanish_Argentina.1252");
+
+     // Fuente de caracteres: Lucida Console, 14 pts.
+     setcurrentfont(L"Lucida Console", 14);
+
+     indicador_linea_comando[0] = 187;  // ANSI=187
+   }
+   else
+   {
+     SetConsoleOutputCP(850);
+     SetConsoleCP(850);
+     _tsetlocale(LC_ALL, "Spanish_Argentina.850");
+
+     indicador_linea_comando[0] = 175;  // OEM=175
+   }
+}
+
+// Establece una nueva fuente de caracteres para la consola de textos
+// Devuelve true/false.
+BOOL setcurrentfont(wchar_t *nfuente, SHORT tamTipoLetra)
+{
+        CONSOLE_FONT_INFOEX tipografia = { 0 };
+
+   tipografia.cbSize = sizeof(CONSOLE_FONT_INFOEX);
+   tipografia.dwFontSize.Y = tamTipoLetra;
+   tipografia.FontWeight = FW_NORMAL;
+   tipografia.FontFamily = FF_DONTCARE;
+
+   wcscpy(tipografia.FaceName, nfuente);
+
+   return SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &tipografia);
+}
+
+int _tmain(int argc, _TCHAR** argv)
+{
 	const int CTRL_A = 0x01;
 	const int CTRL_D = 0x04;
 	const int CTRL_G = 0x07;
 	const int CTRL_L = 0x0C;
-        const int CTRL_R = 0x12;
-	char entrada[272] = { "" };
+	const int CTRL_O = 0x0F;
+	const int CTRL_R = 0x12;
+	MiniCom mc;
+	_TCHAR entrada[272] = { _TEXT("") };
 
-    *(lib.iostream.cout) << "Minicom 1.0" << endl;
+   *(lib.iostream.cout) << "Minicom 1.0" << endl;
 
-    while(true)
-    {
-      mc.indicador("¯ ");
+   mc.informativo(false);
+   mc.cmd("ver");  // Muestra la versión del intérprete de comandos 'cmd'.
+   mc.informativo(true);
+
+   while(true)
+   {
+      mc.indicador(indicador_linea_comando.c_str());
       lib.mem.memset(entrada, 0, 256);
 
       lib.iostream.cin->getline(entrada, 256);
+
+	// 1º responde a los comandos internos
 
       if(*entrada == CTRL_A)
       {
@@ -69,11 +154,25 @@ int main(int argc, char** argv)
           continue;
       }
 
+      if(*entrada == CTRL_O)
+      {
+	 mc.contraer();
+	 continue;
+      }
+
       if(lib.cstring.strcmp(entrada, "ayuda") == 0)
       {
 	mc.ayuda();
 	continue;
       }
+
+      if(lib.cstring.strcmp(entrada, "lengua") == 0)
+      {
+          mc.lengua();
+          continue;
+      }
+
+	// 2º responde a los comandos externos
 
       string comando(entrada);
       int npos = comando.find("cmd");
@@ -97,10 +196,12 @@ int main(int argc, char** argv)
 	continue;
       }
 
-      *(lib.iostream.cout) << "Comando no reconocido: " << entrada << endl;
-    }  // fin while()
+      *(lib.iostream.cout) << "Comando no reconocido: " << entrada << endl
+                           << "Ingrese comando >> ayuda << para conocer los comandos de Minicom."
+                           << endl;
+
+   }  // fin while()
 
     *(lib.iostream.cout) << endl << "Finalizando..." << endl;
     return 0;
 }
-

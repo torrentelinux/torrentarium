@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{697D1D70-2D8F-4502-BBAB-11E83BCDC36F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\LadrilloModular\LadrilloModular.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="minicom.cbproj">
+            <Dependencies>..\LadrilloModular\LadrilloModular.cbproj</Dependencies>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="LadrilloModular">
+        <MSBuild Projects="..\LadrilloModular\LadrilloModular.cbproj"/>
+    </Target>
+    <Target Name="LadrilloModular:Clean">
+        <MSBuild Projects="..\LadrilloModular\LadrilloModular.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LadrilloModular:Make">
+        <MSBuild Projects="..\LadrilloModular\LadrilloModular.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="minicom" DependsOnTargets="LadrilloModular">
+        <MSBuild Projects="minicom.cbproj"/>
+    </Target>
+    <Target Name="minicom:Clean" DependsOnTargets="LadrilloModular:Clean">
+        <MSBuild Projects="minicom.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="minicom:Make" DependsOnTargets="LadrilloModular:Make">
+        <MSBuild Projects="minicom.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="LadrilloModular;minicom"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="LadrilloModular:Clean;minicom:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="LadrilloModular:Make;minicom:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
