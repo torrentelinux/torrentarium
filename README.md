@@ -2,10 +2,10 @@
 
 Aplicaciones realizadas en C/C++ para Windows y en Vala para Linux.<br>
 
-Proyecto OpenProgram.exe: construído con Embarcadero C++ Builder.<br>
+<b>Proyecto OpenProgram.exe</b>: construído con Embarcadero C++ Builder.<br>
 Soporta 32 y 64 bits, Windows Vista, 7, 8, 8.1, 10, 2008, 2012, 2016 y 2019.<br>
 
-Proyecto wciclar.exe: construído con Embarcadero RAD Studio 10.2 Tokyo, 32 bits.<br>
+<b>Proyecto wciclar.exe</b>: construído con Embarcadero RAD Studio 10.2 Tokyo, 32 bits.<br>
 
 <b>Proyecto minicom.exe</b>: mini intérprete de comandos.<br> 
 Construído con Embarcadero RAD Studio 10.3.3 Rio, 32 bits.<br>
