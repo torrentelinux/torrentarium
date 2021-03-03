@@ -1,0 +1,116 @@
+// Proyecto: mic.cbproj
+// Documento: minicom.docu.txt - versión 1.3 - Marzo de 2021.
+// Autor: Octulio Biletán - torrentelinux@gmail.com
+//
+// Referencias:
+// http://docwiki.embarcadero.com/RADStudio/Sydney/en/Setlocale,_wsetlocale
+// https://docs.microsoft.com/en-us/cpp/standard-library/string-functions?view=vs-2019
+// https://docs.microsoft.com/en-us/cpp/standard-library/string?view=msvc-160
+// https://docs.microsoft.com/en-us/cpp/standard-library/locale?view=msvc-160
+// https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setlocale-wsetlocale?view=msvc-160
+// https://support.microsoft.com/en-us/help/99261/how-to-performing-clear-screen-cls-in-a-console-application
+//
+// Licencia: GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007.
+//
+// Descripción:
+// Código fuente para compilador Embarcadero C++ Builder 2010, 10.2, 10.3 y versiones posteriores.
+// Escrito en el lenguaje de programación C++.
+// Minicom: Mini Intérprete de Comandos (mic) para Windows.
+//          Orientado para administradores de sistemas y usuarios avanzados en Sistemas Operativos.
+//
+// Fecha de creación: 14-Agosto-2020
+// ----------------------------------------------------------
+
+-- Residencia --
+Todo el proyecto puede ser descargado desde el sitio de GitHub:
+https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio10.3
+Seleccione preferentemente el archivo minicom.7z porque contiene los códigos fuentes
+para las diferentes versiones del compilador Embarcadero C++ Builder.
+
+-- La herramienta --
+La herramienta de programación que Usted necesita para que este proyecto funcione en
+su computadora es C++ Builder y lo invito a que visite el siguiente sitio
+www.embarcadero.com/es/products/cbuilder/start-for-free
+para descargar una versión de prueba. También se cuenta con otro producto y que es gratuito,
+se llama C++ Builder Community Edition, busque y descargue en el sitio de Embarcadero.
+
+ -- Usos --
+ Minicom consta de cinco comandos internos: ayuda, lengua, com, cmd y salir.
+ » cmd dir	--> invoca al intérprete de comandos elegido por el usuario y muestra el contenido del directorio vigente.
+ » ayuda	-->> muestra una ayuda explicativa en pantalla.
+ » cmd cmd /?   --> invoca al intérprete de comandos elegido por el usuario y muestra la ayuda del mismo.
+ » cmd start explorer .  --> Mediante Explorer se visualiza la carpeta vigente en una nueva ventana.
+ » cmd start	--> invoca al intérprete de comandos elegido por el usuario en una nueva ventana.
+ » cmd wmic cpu list brief
+ » com listar	--> muestra el contenido de %base%\config\shells.
+ » com cambiar 1  --> cambia el intérprete de comandos por el nº de orden 1 que se encuentra en fichero 'shells'.
+ » com borrar	--> borra de la memoria el intérprete de comandos que es invocado por 'cmd'.
+ » com          --> informa cuál es el intérprete de comandos vigente en mic.exe
+ » ^Z		--> sale de minicom/mic.
+ » ^D		--> sale de minicom/mic.
+ » salir	--> sale de minicom/mic.
+ » ^L		-->> borra la pantalla.
+ » lengua	--> informa la config. actual de minicom en cuanto a idioma/región
+		    este comando es similar a 'locale'.
+
+ El comando 'com' consta de tres subórdenes: borrar, cambiar y listar.
+ El comando 'cmd' es el responsable de invocar al intérprete de comandos del S.O.
+
+-- Variables de entorno --
+Estas son las vars. de entorno que utiliza mic.exe:
+	COMSPEC	--> contiene el intérprete de comandos definido por el Sistema.
+	base	--> contiene el directorio base de trabajo para minicom.
+
+Se pueden utilizar los comandos set y setx para crear/modificar/eliminar variables de entorno
+del Sistema Operativo Windows. Use desde mic así:
+	cmd set			--> muestra las vars. defs. en el Sistema.
+	cmd setx /?|more	--> muestra una breve ayuda con pausa.
+	cmd setx base c:\base /m    --> hace "base=c:\base" y la registra en el S.O. para usos posteriores.
+				    --> debe salir y volver a entrar a mic.exe para que sea vista por todas
+				    --> las aplicaciones, use el comando 'cmd set' para ver a la misma.
+
+-- Ficheros utilizados --
+Se utiliza el fichero %base%\config\shells para conocer/cambiar el intérprete de comandos que será
+invocado por la orden 'cmd' de minicom.
+Mediante la orden 'com' de minicom se puede conocer/cambiar/borrar el intérprete de comandos que es
+invocado por 'cmd'.
+Por ejemplo, el contenido de %base%\config\shells puede ser el siguiente:
+___________________________________
+	c:\windows\system32\cmd.exe
+	_comando_nulo_
+___________________________________
+Básicamente contiene dos líneas de texto, la 1º línea tiene la ubicación y el nombre exacto del intérprete
+de comandos de Windows (command prompt) y la última línea no tiene ninguna validez como programa ejecutable.
+Se pueden agregar más intérpretes de comandos para permitir que el usuario pueda elegir uno de ellos.
+Use Usted un editor de textos que puede ser el Bloc de Notas (notepad.exe) o cualquier otro de su gusto
+para crear/modificar el fichero shells.
+
+El fichero que documenta esta aplicación se llama minicom.docu.txt, el mismo se encuentra en el
+directorio %base%\biblioteca\docu\, puede abrir y leer este documento de diferentes maneras:
+	(a) type %base%\biblioteca\docu\minicom.docu.txt
+	(b) type %base%\biblioteca\docu\minicom.docu.txt|more
+	(c) more %base%\biblioteca\docu\minicom.docu.txt
+	(d) cmd %base%\biblioteca\docu\minicom.docu.txt
+	(e) cmd notepad %base%\biblioteca\docu\minicom.docu.txt
+
+Los casos a, b y c son para trabajar desde cmd.exe de Windows.
+Los casos d y e son para trabajar desde minicom.
+
+-- Directorio de mic.exe --
+El directorio %base%\programa\ es el lugar preferido para alojar el programa minicom.
+
+-- Sugerencias --
+   Sugerencias para añadir al proyecto minicom.
+
+   Comandos internos para ficheros:
+   lsfile, rmfile, mkfile, chfile
+   lf, rf, mf, cf
+
+   Comandos internos para directorios:
+   lsdir, rmdir, mkdir, chdir
+   ld, rd, md, cd
+
+   Tratamiento de vars. de entornos: SHELL=, OSTYPE=, TMPPATH, TERM=
+
+   Uso de mic.exe como shell de Windows (reemplazo de explorer.exe).
+_____________________________________________________________
