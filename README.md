@@ -8,8 +8,9 @@ Soporta 32 y 64 bits, Windows Vista, 7, 8, 8.1, 10, 2008, 2012, 2016 y 2019.<br>
 <b>Proyecto wciclar.exe</b>: construído con Embarcadero RAD Studio 10.2 Tokyo, 32 bits.<br>
 
 <b>Proyecto mic.exe</b>: mini intérprete de comandos (minicom).<br> 
-Construído con Embarcadero RAD Studio 10.3.3 Rio, 32 bits.<br>
+Construído con Embarcadero RAD Studio/C++ Builder, 32 bits.<br>
 Ir a directorio: https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio10.3/minicom<br>
+Documentación: https://github.com/torrentelinux/torrentarium/blob/master/base/biblioteca/docu/minicom.docu.txt<br>
 
 Ultima actualización: 03-Mar-2021.<br>
 
