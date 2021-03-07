@@ -9,6 +9,8 @@
 // https://docs.microsoft.com/en-us/cpp/standard-library/locale?view=msvc-160
 // https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setlocale-wsetlocale?view=msvc-160
 // https://support.microsoft.com/en-us/help/99261/how-to-performing-clear-screen-cls-in-a-console-application
+// https://foro.elhacker.net/windows/arrancar_un_programa_sin_llegar_a_ver_el_escritorio-t431583.0.html
+// https://superuser.com/questions/675510/is-there-a-way-to-start-any-program-instead-of-windows-explorer
 //
 // Licencia: GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007.
 //
@@ -41,11 +43,12 @@ se llama C++ Builder Community Edition, busque y descargue en el sitio de Embarc
  » cmd cmd /?   --> invoca al intérprete de comandos elegido por el usuario y muestra la ayuda del mismo.
  » cmd start explorer .  --> Mediante Explorer se visualiza la carpeta vigente en una nueva ventana.
  » cmd start	--> invoca al intérprete de comandos elegido por el usuario en una nueva ventana.
+ » cmd runas /user:administrator cmd    --> invoca a 'cmd.exe' mediante la cuenta de usuario 'administrator'.
  » cmd wmic cpu list brief
  » com listar	--> muestra el contenido de %base%\config\shells.
  » com cambiar 1  --> cambia el intérprete de comandos por el nº de orden 1 que se encuentra en fichero 'shells'.
  » com borrar	--> borra de la memoria el intérprete de comandos que es invocado por 'cmd'.
- » com          --> informa cuál es el intérprete de comandos vigente en mic.exe
+ » com          --> informa cuál es el estado actual de mic.exe estando en ejecución.
  » ^Z		--> sale de minicom/mic.
  » ^D		--> sale de minicom/mic.
  » salir	--> sale de minicom/mic.
@@ -53,8 +56,11 @@ se llama C++ Builder Community Edition, busque y descargue en el sitio de Embarc
  » lengua	--> informa la config. actual de minicom en cuanto a idioma/región
 		    este comando es similar a 'locale'.
 
- El comando 'com' consta de tres subórdenes: borrar, cambiar y listar.
+ El comando 'com' consta de cinco subórdenes: borrar, cambiar, listar, reiniciar e idr.
  El comando 'cmd' es el responsable de invocar al intérprete de comandos del S.O.
+ El comando externo '%base%\programa\rmic.cmd' es más útil que 'com reiniciar' para reiniciar a mic.exe de la memoria.
+ Por ejemplo cuando se ha modificado alguna variable de entorno maestra del S.O. y se quiere actualizar el entorno
+ de trabajo de minicom.
 
 -- Variables de entorno --
 Estas son las vars. de entorno que utiliza mic.exe:
