@@ -18,6 +18,8 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include <string>
+#include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -25,11 +27,28 @@ class MiniCom
 {
    private:
 	bool es_informativo;
+        string indicador;
 	string comspec;
+        string var_base;
+        ostringstream ncf_shells;  // Nombre completo de fichero shells
+        ifstream if_shells;  //  Fichero de lectura 'shells'
+
+	void reiniciar_minicom(void);
+	void listar_shells(void);
+        void borrar_shell(void);
+	void guardarEstado(void);
+        void recuperarEstado(void);
+
+        void cambiar_shell(string npos);
+	_TCHAR *dir_vigente(void);
+        BOOL titular(const _TCHAR *ti);
 
    public:
 	MiniCom();
 	~MiniCom();
+
+        // Configura básicamente el intérprete de comandos a invocar.
+        void comando(_TCHAR *secuencia_comando);
 
 	// Informa qué lengua local está usando minicom.
 	void lengua(void);
@@ -46,8 +65,11 @@ class MiniCom
 	// Ejecuta comandos externos a minicom.
 	void cmd(char *cmd);
 
+	// Guarda el indicador de petición de comandos.
+	void guardar_indicador(const char *ipc);
+
 	// Muestra en pantalla el indicador de petición de comandos.
-	void indicador(const char *ipc);
+	void mostrar_indicador(void);
 
 	// Borra la pantalla
 	void borrar(void);

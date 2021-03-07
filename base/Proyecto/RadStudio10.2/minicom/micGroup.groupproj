@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{697D1D70-2D8F-4502-BBAB-11E83BCDC36F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\LadrilloModular\LadrilloModular.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="mic.cbproj">
+            <Dependencies>..\LadrilloModular\LadrilloModular.cbproj</Dependencies>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="LadrilloModular">
+        <MSBuild Projects="..\LadrilloModular\LadrilloModular.cbproj"/>
+    </Target>
+    <Target Name="LadrilloModular:Clean">
+        <MSBuild Projects="..\LadrilloModular\LadrilloModular.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LadrilloModular:Make">
+        <MSBuild Projects="..\LadrilloModular\LadrilloModular.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="mic" DependsOnTargets="LadrilloModular">
+        <MSBuild Projects="mic.cbproj"/>
+    </Target>
+    <Target Name="mic:Clean" DependsOnTargets="LadrilloModular:Clean">
+        <MSBuild Projects="mic.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mic:Make" DependsOnTargets="LadrilloModular:Make">
+        <MSBuild Projects="mic.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="LadrilloModular;mic"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="LadrilloModular:Clean;mic:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="LadrilloModular:Make;mic:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
