@@ -1,0 +1,208 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{BA0035E1-C4AB-4B87-A459-8B71D79ACBA9}</ProjectGuid>
+        <ProjectVersion>18.1</ProjectVersion>
+        <FrameworkType>VCL</FrameworkType>
+        <AppType>Application</AppType>
+        <MainSource>OpenProgram.cpp</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <RunBCCOutOfProcess>true</RunBCCOutOfProcess>
+        <SubProcessesNumber>2</SubProcessesNumber>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.9.16.10;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.9.16.10;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>11274</VerInfo_Locale>
+        <Custom_Styles>Luna|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Luna.vsf;Sky|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Sky.vsf;Windows10|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10.vsf</Custom_Styles>
+        <ShowGeneralMessages>true</ShowGeneralMessages>
+        <AllPackageLibs>rtl.lib;vcl.lib;vclx.lib;VclSmp.lib</AllPackageLibs>
+        <IncludePath>C:\RadStudio10.1\Projects\;$(IncludePath)</IncludePath>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
+        <Multithreaded>true</Multithreaded>
+        <SanitizedProjectName>OpenProgram</SanitizedProjectName>
+        <_TCHARMapping>wchar_t</_TCHARMapping>
+        <ILINK_LibraryPath>C:\RadStudio10.1\Projects\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ProjectType>CppVCLApplication</ProjectType>
+        <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+        <DynamicRTL>true</DynamicRTL>
+        <UsePackages>true</UsePackages>
+        <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+        <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+        <BCC_wpar>false</BCC_wpar>
+        <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+        <BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <VerInfo_Build>10</VerInfo_Build>
+        <Icon_MainIcon>OpenProgram_Icon.ico</Icon_MainIcon>
+        <VerInfo_MinorVer>9</VerInfo_MinorVer>
+        <VerInfo_Release>16</VerInfo_Release>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
+        <PackageImports>appanalytics;bcbsmp;bindcomp;bindcompfmx;bindcompvcl;bindengine;dbrtl;dsnap;fmx;fmxase;fmxdae;fmxobj;IndyCore;IndyProtocols;IndySystem;PngComponentsC;PowerPDFCR;rtl;svn;tethering;vcl;vclactnband;vcldb;vcldsnap;vclimg;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.9.16.10;Comments=</VerInfo_Keys>
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <Defines>_DEBUG;$(Defines)</Defines>
+        <BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+        <BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+        <DCC_Define>DEBUG</DCC_Define>
+        <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+        <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+        <BCC_StackFrames>true</BCC_StackFrames>
+        <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+        <TASM_Debugging>Full</TASM_Debugging>
+        <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+        <BCC_EnableCPPExceptions>true</BCC_EnableCPPExceptions>
+        <BCC_DisableFramePtrElimOpt>true</BCC_DisableFramePtrElimOpt>
+        <BCC_DisableSpellChecking>true</BCC_DisableSpellChecking>
+        <CLANG_UnwindTables>true</CLANG_UnwindTables>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <BCC_InstructionSet>6</BCC_InstructionSet>
+        <VerInfo_Release>17</VerInfo_Release>
+        <VerInfo_Build>14</VerInfo_Build>
+        <BCC_NestedComments>true</BCC_NestedComments>
+        <VerInfo_Keys>CompanyName=;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.11.17.14;InternalName=OpenProgram;LegalCopyright=Octulio Biletan.;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=;ProductVersion=1.11.17.14;Comments=torrentelinux@gmail.com</VerInfo_Keys>
+        <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+        <VerInfo_MinorVer>11</VerInfo_MinorVer>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>OpenProgram_Icon.ico</Icon_MainIcon>
+        <VerInfo_Debug>true</VerInfo_Debug>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;vclx.bpi;VclSmp.bpi</LinkPackageImports>
+        <AppEnableHighDPI>true</AppEnableHighDPI>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.9.16.10;Comments=</VerInfo_Keys>
+        <BCC_InstructionSet>6</BCC_InstructionSet>
+        <ILINK_UserVersion>1.11</ILINK_UserVersion>
+        <ILINK_Description>32 bits.</ILINK_Description>
+        <BCC_NestedComments>true</BCC_NestedComments>
+        <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+        <ILINK_MapFileType>None</ILINK_MapFileType>
+        <ILINK_ImageComment>OpenProgram.exe.</ILINK_ImageComment>
+        <BCC_OptimizeForSize>true</BCC_OptimizeForSize>
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <Defines>NDEBUG;$(Defines)</Defines>
+        <TASM_Debugging>None</TASM_Debugging>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <Debugger_RunParams>/i</Debugger_RunParams>
+        <DynamicRTL>false</DynamicRTL>
+        <VerInfo_Build>14</VerInfo_Build>
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <VerInfo_Release>17</VerInfo_Release>
+        <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+        <BCC_OptimizeForSize>true</BCC_OptimizeForSize>
+        <BCC_NestedComments>true</BCC_NestedComments>
+        <VerInfo_MinorVer>11</VerInfo_MinorVer>
+        <BCC_InstructionSet>6</BCC_InstructionSet>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>OpenProgram_Icon.ico</Icon_MainIcon>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;vclx.bpi;VclSmp.bpi</LinkPackageImports>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=Opens a program, folder, document, or internet url.;FileVersion=1.11.17.14;InternalName=OpenProgram;LegalCopyright=Octulio Biletan;LegalTrademarks=;OriginalFilename=OpenProgram.exe;ProductName=OpenProgram;ProductVersion=1.11.17.14;E-mail=torrentelinux@gmail.com</VerInfo_Keys>
+        <VerInfo_PreRelease>true</VerInfo_PreRelease>
+        <AppEnableHighDPI>true</AppEnableHighDPI>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+    </PropertyGroup>
+    <ItemGroup>
+        <CppCompile Include="OpenProgram.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="OpenProgramClass.cpp">
+            <DependentOn>OpenProgramClass.h</DependentOn>
+            <BuildOrder>1</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="OpenProgramDefs.cpp">
+            <DependentOn>OpenProgramDefs.h</DependentOn>
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="OpenProgramDialog.cpp">
+            <Form>frmOpenProgram</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>OpenProgramDialog.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <FormResources Include="OpenProgramDialog.dfm"/>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>CppVCLApplication</Borland.ProjectType>
+        <BorlandProject>
+            <CPlusPlusBuilder.Personality>
+                <Source>
+                    <Source Name="MainSource">OpenProgram.cpp</Source>
+                </Source>
+                <ProjectProperties>
+                    <ProjectProperties Name="AutoShowDeps">True</ProjectProperties>
+                    <ProjectProperties Name="ManagePaths">True</ProjectProperties>
+                    <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+                    <ProjectProperties Name="IndexFiles">False</ProjectProperties>
+                </ProjectProperties>
+            </CPlusPlusBuilder.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Cpp.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>
