@@ -20,6 +20,8 @@ class LadrilloConCalce
         _ctime    ctime;
         _mem      mem;
         _cprocess cprocess;
+        _cdir     cdir;
+        _clocale  clocale;
         _iostream iostream;
 
         LadrilloConCalce();

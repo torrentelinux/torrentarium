@@ -60,11 +60,22 @@ LadrilloConCalce::LadrilloConCalce()
    // Grupo de funciones de mem.h
    mem.memset = memset;
 
+   // Grupo de funciones de clocale
+   clocale.setlocale = setlocale;
+
    // Grupo de funciones de cstring
    cstring.strcmp = strcmp;
+   cstring.strlwr = strlwr;
+   cstring.strchr = strchr;
+   cstring.wcscpy = wcscpy;
+
+   // Grupo de funciones de cdir
+   cdir.getcurdir = getcurdir;
 
    // Grupo de funciones de cstdlib
    cstdlib.exit = exit;
+   cstdlib.getenv = getenv;
+   cstdlib.putenv = putenv;
 
    // Grupo de funciones de cctype
    cctype.isdigit = isdigit;
@@ -94,6 +105,7 @@ LadrilloConCalce::LadrilloConCalce()
    cprocess.execve = execve;
    cprocess.execvp = execvp;
    cprocess.execvpe = execvpe;
+   cprocess.getpid = getpid;
 
    // Objeto C++ de la salida estándar con error del sistema
    iostream.cerr = &cerr;
@@ -118,6 +130,9 @@ LadrilloConCalce::~LadrilloConCalce()
 
    // Grupo de funciones de cstring
    memset(&cstring, 0, sizeof(cstring));
+
+   // Grupo de funciones de cdir
+   memset(&cdir, 0, sizeof(cdir));
 
    // Grupo de funciones de cstdlib
    memset(&cstdlib, 0, sizeof(cstdlib));

@@ -15,8 +15,10 @@
 #include <cstdlib>
 #include <cctype>
 #include <ctime>
+#include <clocale>
 
 #include <cprocess.h>
+#include <cdir.h>
 #include <conio.h>
 #include <mem.h>
 
@@ -86,6 +88,9 @@ struct _mem
 struct _cstring
 {
    int (*strcmp)(const char *txt1, const char *txt2);
+   char* (*strlwr)(char *__s);
+   const char* (*strchr)(const char *__s, int __c);
+   wchar_t*  (*wcscpy)(wchar_t *__dst, const wchar_t *__src);
 };
 
 struct _cstdlib
@@ -95,6 +100,8 @@ struct _cstdlib
 #else
     void (*exit)(int __status);
 #endif
+   char* (*getenv)(const char *__name);
+   int (*putenv)(const char *__name);
 };
 
 struct _cctype
@@ -125,6 +132,7 @@ struct _cprocess
     int (*execvpe)(const char * __path, char * const * __argv, char * const * __env);
 
     int (*cwait)(int *_term_stat, int _pid, int _accion);
+    int (*getpid)(void);
 };
 
 struct _cmath
@@ -135,6 +143,18 @@ struct _cmath
 struct _ctime
 {
     char* (*strtime)(char *__timestr);
+
+};
+
+struct _cdir
+{
+   int (*getcurdir)(int __drive, char *__directory);
+
+};
+
+struct _clocale
+{
+   char* (*setlocale)(int __category, const char *__locale);
 
 };
 
