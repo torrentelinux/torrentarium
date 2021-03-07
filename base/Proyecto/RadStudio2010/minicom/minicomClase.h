@@ -27,11 +27,13 @@ class MiniCom
 {
    private:
 	bool es_informativo;
+        string indicador;
 	string comspec;
         string var_base;
         ostringstream ncf_shells;  // Nombre completo de fichero shells
         ifstream if_shells;  //  Fichero de lectura 'shells'
 
+	void reiniciar_minicom(void);
 	void listar_shells(void);
         void borrar_shell(void);
 	void guardarEstado(void);
@@ -63,8 +65,11 @@ class MiniCom
 	// Ejecuta comandos externos a minicom.
 	void cmd(char *cmd);
 
+	// Guarda el indicador de petición de comandos.
+	void guardar_indicador(const char *ipc);
+
 	// Muestra en pantalla el indicador de petición de comandos.
-	void indicador(const char *ipc);
+	void mostrar_indicador(void);
 
 	// Borra la pantalla
 	void borrar(void);

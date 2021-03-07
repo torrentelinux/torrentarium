@@ -66,7 +66,9 @@ MiniCom::MiniCom()
    DrawMenuBar(*id_minicom);
 
    es_informativo = true;
+   indicador = ">> ";
    comspec = "";
+   var_base = "";
 
    if(cpp.cstdlib.getenv("base"))
      var_base = cpp.cstdlib.getenv("base");  // Toma variable de entorno 'base=<contenido>'
@@ -248,12 +250,6 @@ void MiniCom::cmd(char *cmd)
    SetConsoleCP(1252);
 }
 
-// Muestra en pantalla el indicador de petición de comandos.
-void MiniCom::indicador(const char *ipc)
-{
-   *(cpp.iostream.cout) << ipc << flush;
-}
-
 // Borra toda la pantalla
 void MiniCom::borrar(void)
 {
@@ -321,7 +317,13 @@ void MiniCom::comando(_TCHAR *secuencia_comando)
    if(parte1 == "com")
    {
      if(parte2.empty())
+     {
+       *(cpp.iostream.cout) << "Ubicación vigente de minicom: " << _argv[0] << endl;
        *(cpp.iostream.cout) << "Intérprete de comandos activo: " << comspec << endl;
+       *(cpp.iostream.cout) << "Directorio base vigente: " << var_base << endl;
+       *(cpp.iostream.cout) << "Indicador de petición de comando: " << indicador << endl;
+       *(cpp.iostream.cout) << "ID de minicom: " << cpp.cprocess.getpid() << endl;
+     }
      else
        if(parte2 == "listar")
          listar_shells();
@@ -332,10 +334,49 @@ void MiniCom::comando(_TCHAR *secuencia_comando)
            if(parte2 == "cambiar")
              cambiar_shell(parte3);
            else
-             cerr << "Error: parámetro no reconocido." << endl;
+             if(parte2 == "reiniciar")
+               reiniciar_minicom();
+             else
+               if(parte2 == "idr")
+                 guardar_indicador(parte3.c_str());
+               else
+                 *(cpp.iostream.cerr) << "Error: parámetro no reconocido." << endl;
    }
    else
-     cerr << "Error: comando no reconocido." << endl;
+     *(cpp.iostream.cerr) << "Error: comando no reconocido." << endl;
+}
+
+// Guarda el indicador de petición de comandos.
+void MiniCom::guardar_indicador(const char *ipc)
+{
+   if(ipc == "" or ipc == NULL or *ipc == '\0')
+     indicador = "» ";
+   else
+   {
+     indicador = ipc;
+     indicador.append(" ");
+   }
+}
+
+// Muestra en pantalla el indicador de petición de comandos.
+void MiniCom::mostrar_indicador(void)
+{
+   *(cpp.iostream.cout) << indicador << flush;
+}
+
+// Reinicia minicom
+void MiniCom::reiniciar_minicom(void)
+{
+	int status = 0;
+
+   *(cpp.iostream.cout) << "Reiniciando " << _argv[0] << " ..." << endl;
+
+   status = cpp.cprocess.execl(_argv[0], _argv[0], NULL);
+   if(status == -1)
+   {
+     *(cpp.iostream.cerr) << "ERROR: no se pudo reiniciar " << _argv[0];
+     perror(" <>");
+   }
 }
 
 void MiniCom::listar_shells(void)
@@ -430,11 +471,13 @@ void MiniCom::ayuda(void)
 			<< "Comandos admitidos en Minicom:" << endl
 			<< "* salir : sale de minicom." << endl
 			<< "* lengua: informa qué lengua y código de página local está activa." << endl
-			<< "* com [listar|borrar|cambiar] : configura básicamente el intérprete de comandos a invocar." << endl
-                        << "      Al ejecutar 'com' sin argumentos se visualiza la shell en curso." << endl
+			<< "* com [listar|borrar|cambiar|idr] : configura básicamente el intérprete de comandos a invocar." << endl
+                        << "      Al ejecutar 'com' sin argumentos te informa cuál es el estado actual de mic.exe estando en ejecución." << endl
                         << "      listar: Muestra una lista enumerada de shells disponibles en el sistema." << endl
                         << "      borrar: Borra la shell actual en curso." << endl
                         << "      cambiar <nº>: Cambia la shell actual por otra. Use 'com listar' para conocer el nº de orden." << endl
+                        << "      reiniciar: Reinicia minicom." << endl
+                        << "      idr <caracter>: Cambia por otro el indicador de petición de comando elegido por el usuario." << endl
 			<< "* ayuda : muestra esta ayuda en pantalla." << endl
 			<< "* cmd   : ejecuta comandos externos, por ejemplo clear." << endl
 			<< endl

@@ -50,6 +50,7 @@ void Exit(void)
    }
 
    lib.clocale.setlocale(LC_ALL, "");
+   setcurrentfont(L"Lucida Console", 14);
    indicador_linea_comando = "";
 }
 
@@ -57,7 +58,7 @@ void Entry(void)
 {
 	UINT cod_pag;
 
-   indicador_linea_comando = "  ";
+   indicador_linea_comando = " ";
 
    cod_pag = GetConsoleOutputCP();
    if(cod_pag != 1252)
@@ -67,9 +68,6 @@ void Entry(void)
      SetConsoleCP(1252);
      lib.clocale.setlocale(LC_ALL, "Spanish_Argentina.1252");
 
-     // Fuente de caracteres: Lucida Console, 14 pts.
-     setcurrentfont(L"Lucida Console", 14);
-
      indicador_linea_comando[0] = 187;  // ANSI=187
    }
    else
@@ -78,11 +76,11 @@ void Entry(void)
      SetConsoleCP(850);
      lib.clocale.setlocale(LC_ALL, "Spanish_Argentina.850");
 
-     // Fuente de caracteres: Lucida Console, 14 pts.
-     setcurrentfont(L"Lucida Console", 14);
-
      indicador_linea_comando[0] = 175;  // OEM=175
    }
+
+   // Fuente de caracteres: Lucida Console, 14 pts.
+   setcurrentfont(L"Lucida Console", 14);
 }
 
 // Establece una nueva fuente de caracteres para la consola de textos
@@ -149,9 +147,12 @@ int _tmain(int argc, _TCHAR** argv)
    mc.cmd("ver");  // Muestra la versión del intérprete de comandos vigente en el Sistema.
    mc.informativo(true);
 
+   // Guarda el indicador de la línea de comandos
+   mc.guardar_indicador(indicador_linea_comando.c_str());
+
    while(true)
    {
-      mc.indicador(indicador_linea_comando.c_str());
+      mc.mostrar_indicador();
       lib.mem.memset(entrada, 0, 256);
 
       lib.iostream.cin->getline(entrada, 256);
