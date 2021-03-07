@@ -105,6 +105,7 @@ LadrilloConCalce::LadrilloConCalce()
    cprocess.execve = execve;
    cprocess.execvp = execvp;
    cprocess.execvpe = execvpe;
+   cprocess.getpid = getpid;
 
    // Objeto C++ de la salida estándar con error del sistema
    iostream.cerr = &cerr;

@@ -132,6 +132,7 @@ struct _cprocess
     int (*execvpe)(const char * __path, char * const * __argv, char * const * __env);
 
     int (*cwait)(int *_term_stat, int _pid, int _accion);
+    int (*getpid)(void);
 };
 
 struct _cmath
