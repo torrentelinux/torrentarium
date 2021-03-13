@@ -12,7 +12,7 @@ Construído con Embarcadero RAD Studio/C++ Builder, 32 bits.<br>
 Ir a directorio: https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio10.3/minicom<br>
 Documentación: https://github.com/torrentelinux/torrentarium/blob/master/base/biblioteca/docu/minicom.docu.txt<br>
 
-Ultima actualización: 07-Mar-2021.<br>
+Ultima actualización: 13-Mar-2021.<br>
 
 Desarrollador principal: <a href="https://ar.linkedin.com/in/eugenio-mart%C3%ADnez-ob1">Eugenio Martínez</a>[<a href="https://www.bing.com/search?q=octulio+bilet%C3%A1n">Octulio Biletán</a>][Edmund Muslok].<br>
 Dirección de contacto: torrentelinux@gmail.com<br>
