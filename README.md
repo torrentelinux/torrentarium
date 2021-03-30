@@ -15,6 +15,8 @@ Documentación: https://github.com/torrentelinux/torrentarium/blob/master/base/b
 <b>Proyecto CentroAplicaciones.exe</b>: centro de aplicaciones para asistir al usuario en la instalación de Oracle JDeveloper IDE y de Oracle Java JDK 8.<br>
 Construído con Embarcadero RAD Studio/C++ Builder 2010, 32 bits. El proyecto es compatible con versiones posteriores.<br>
 Visitar directorio base/Proyecto/RadStudio2010/CentroAplicaciones/<br>
+<a href="https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio2010/CentroAplicaciones">Clic aqui.</a>
+
 Ultima actualización: 30-Mar-2021.<br>
 
 Desarrollador principal: <a href="https://ar.linkedin.com/in/eugenio-mart%C3%ADnez-ob1">Eugenio Martínez</a>[<a href="https://www.bing.com/search?q=octulio+bilet%C3%A1n">Octulio Biletán</a>][Edmund Muslok].<br>
