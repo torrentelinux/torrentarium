@@ -74,10 +74,12 @@ void __fastcall TfrmPrincipal::lblAplic1Click(TObject *Sender)
      error_shell = ShellExecute(NULL, L"open", instalador[0].c_str(), NULL, NULL, SW_SHOWNORMAL);
      if((int)error_shell <= 32)
      {
-    	  _TCHAR msj[528] = _TEXT("");
+	  String condicion;
 
-       _stprintf(msj, _TEXT("Error %d en: %ls"), (int)error_shell, instalador[0].c_str());
-       Application->MessageBox(msj, _TEXT("--- Error ---"), MB_ICONERROR);
+       condicion = L"Error " + String((int)error_shell) + L" en:\n" + instalador[0].c_str();
+       ShowMessage(condicion);
+
+       sbBarraDeEstado->SimpleText = L"Error.";
      }
      else
      {
@@ -172,16 +174,35 @@ void __fastcall TfrmPrincipal::lblAplic2Click(TObject *Sender)
      error_shell = ShellExecute(NULL, L"open", L"7za.exe", parametros.c_str(), NULL, SW_SHOWNORMAL);
      if((int)error_shell <= 32)
      {
-    	  _TCHAR msj[528] = _TEXT("");
+          String condicion;
 
-       _stprintf(msj, _TEXT("Error %d con 7za.exe: %ls"), (int)error_shell, parametros.c_str());
-       Application->MessageBox(msj, _TEXT("--- Error ---"), MB_ICONERROR);
+       condicion = L"Error " + String((int)error_shell) + L" con 7za.exe: " + parametros.c_str();
+       ShowMessage(condicion);
+
        sbBarraDeEstado->SimpleText = L"Error.";
      }
      else
      {
-       Sleep(950);
-       sbBarraDeEstado->SimpleText = L"Aplicación iniciada.";
+       Sleep(997);
+       sbBarraDeEstado->SimpleText = L"-1-Aplicación iniciada.";
+
+       // Crea un archivo como acceso directo (.lnk) a jdeveloper.exe en el escritorio.
+       parametros = String(L"JDev12c.lnk") + L" " +
+                    dlgAbrirDir->FileName + L"\\jdeveloper\\" + L"jdeveloper.exe" + L" " +
+                    dlgAbrirDir->FileName + L"\\jdeveloper\\" + L" " +
+                    L"\"Oracle JDeveloper 12c\"";
+
+       error_shell = ShellExecute(NULL, L"open", L"wCrearAtajo.vbs", parametros.c_str(), NULL, SW_SHOWNORMAL);
+       if((int)error_shell <= 32)
+       {
+         ShowMessage(L"No se pudo crear acceso directo en el escritorio.");
+         sbBarraDeEstado->SimpleText = L"Error al crear acceso directo.";
+       }
+       else
+       {
+         Sleep(750);
+         sbBarraDeEstado->SimpleText = L"-2-Aplicación iniciada.";
+       }
      }
    }
    else
@@ -219,10 +240,11 @@ void __fastcall TfrmPrincipal::lblPathClick(TObject *Sender)
      error_shell = ShellExecute(NULL, L"open", L"rundll32.exe", parametros.c_str(), NULL, SW_SHOWNORMAL);
      if((int)error_shell <= 32)
      {
-    	  _TCHAR msj[528] = _TEXT("");
+          String condicion;
 
-       _stprintf(msj, _TEXT("Error %d en: %ls"), (int)error_shell, parametros.c_str());
-       Application->MessageBox(msj, _TEXT("--- Error ---"), MB_ICONERROR);
+       condicion = L"Error " + String((int)error_shell) + L" en: " + parametros.c_str();
+       ShowMessage(condicion);
+
        sbBarraDeEstado->SimpleText = L"Error.";
      }
      else
@@ -287,10 +309,11 @@ void __fastcall TfrmPrincipal::lblJavaClick(TObject *Sender)
      error_shell = ShellExecute(NULL, L"open", L"https://www.java.com/es/", NULL, NULL, SW_SHOWNORMAL);
      if((int)error_shell <= 32)
      {
-    	  _TCHAR msj[528] = _TEXT("");
+          String condicion;
 
-       _stprintf(msj, _TEXT("Error %d en: navegador"), (int)error_shell);
-       Application->MessageBox(msj, _TEXT("--- Error ---"), MB_ICONERROR);
+       condicion = L"Error " + String((int)error_shell) + L" en: navegador.";
+       ShowMessage(condicion);
+
        sbBarraDeEstado->SimpleText = L"Error.";
      }
      else
@@ -313,10 +336,11 @@ void __fastcall TfrmPrincipal::lblRevisarPathClick(TObject *Sender)
      error_shell = ShellExecute(NULL, L"open", L"cmd.exe", parametros.c_str(), NULL, SW_SHOWNORMAL);
      if((int)error_shell <= 32)
      {
-    	  _TCHAR msj[528] = _TEXT("");
+          String condicion;
 
-       _stprintf(msj, _TEXT("Error %d en: consola"), (int)error_shell);
-       Application->MessageBox(msj, _TEXT("--- Error ---"), MB_ICONERROR);
+       condicion = L"Error " + String((int)error_shell) + L" en: consola.";
+       ShowMessage(condicion);
+
        sbBarraDeEstado->SimpleText = L"Error.";
      }
      else
