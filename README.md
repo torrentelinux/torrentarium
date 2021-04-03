@@ -17,6 +17,7 @@ Construído con Embarcadero RAD Studio/C++ Builder 2010, 32 bits. El proyecto es
 Visitar directorio base/Proyecto/RadStudio2010/CentroAplicaciones/<br>
 <a href="https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio2010/CentroAplicaciones">Clic aqui.</a>
 
+<b>Importante:</b> aquí noy hay código fuente en Pascal. Ver fichero "error-github.png".<br>
 Ultima actualización: 03-Abr-2021.<br>
 
 Desarrollador principal: <a href="https://ar.linkedin.com/in/eugenio-mart%C3%ADnez-ob1">Eugenio Martínez</a>[<a href="https://www.bing.com/search?q=octulio+bilet%C3%A1n">Octulio Biletán</a>][Edmund Muslok].<br>
