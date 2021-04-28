@@ -14,11 +14,13 @@ Documentación: https://github.com/torrentelinux/torrentarium/blob/master/base/b
 
 <b>Proyecto CentroAplicaciones.exe</b>: centro de aplicaciones para asistir al usuario en la instalación de Oracle JDeveloper IDE y Oracle Java JDK 8.<br>
 Construído con Embarcadero RAD Studio/C++ Builder 2010, 32 bits. El proyecto es compatible con versiones posteriores.<br>
-Visitar directorio base/Proyecto/RadStudio2010/CentroAplicaciones/<br>
+Visitar directorios:<br>
+** base/Proyecto/RadStudio2010/CentroAplicaciones/<br>
+** base/Proyecto/RadStudio10.2/CentroDeAplicaciones/<br>
 <a href="https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio2010/CentroAplicaciones">Clic aqui.</a>
 
 <b>Importante:</b> aquí noy hay código fuente en Pascal. Ver fichero "error-github.png".<br>
-Ultima actualización: 03-Abr-2021.<br>
+Ultima actualización: 28-Abr-2021.<br>
 
 Desarrollador principal: <a href="https://ar.linkedin.com/in/eugenio-mart%C3%ADnez-ob1">Eugenio Martínez</a>[<a href="https://www.bing.com/search?q=octulio+bilet%C3%A1n">Octulio Biletán</a>][Edmund Muslok].<br>
 Dirección de contacto: torrentelinux@gmail.com<br>
