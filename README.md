@@ -12,12 +12,13 @@ Construído con Embarcadero RAD Studio/C++ Builder, 32 bits.<br>
 Ir a directorio: https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio10.3/minicom<br>
 Documentación: https://github.com/torrentelinux/torrentarium/blob/master/base/biblioteca/docu/minicom.docu.txt<br>
 
-<b>Proyecto CentroAplicaciones.exe</b>: centro de aplicaciones para asistir al usuario en la instalación de Oracle JDeveloper IDE y Oracle Java JDK 8.<br>
+<b>Proyecto CentroAplicaciones.exe</b>: centro de aplicaciones para asistir al usuario en la instalación de Oracle JDeveloper IDE y Oracle Java JDK.<br>
 Construído con Embarcadero RAD Studio/C++ Builder 2010, 32 bits. El proyecto es compatible con versiones posteriores.<br>
 Visitar directorios:<br>
 ** base/Proyecto/RadStudio2010/CentroAplicaciones/<br>
 ** base/Proyecto/RadStudio10.2/CentroDeAplicaciones/<br>
-<a href="https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio2010/CentroAplicaciones">Clic aqui.</a>
+** base/deposito/CentroAplicaciones.7z (proyectos completos).<br>
+<a href="https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio2010/CentroAplicaciones">Empieze por aquí.</a>
 
 <b>Importante:</b> aquí noy hay código fuente en Pascal. Ver fichero "error-github.png".<br>
 Ultima actualización: 28-Abr-2021.<br>
