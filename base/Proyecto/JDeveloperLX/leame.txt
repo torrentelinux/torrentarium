@@ -1,0 +1,22 @@
+Envío de mensajes de texto desde una computadora hacia un teléfono celular.
+Comunicación a la API de WhatsApp mediante lenguaje Java.
+
+Ejecuta el proceso 'arg' y espera su finalización
+    int estado = new ProcessBuilder(arg).inheritIO().start().waitFor();
+
+Navegadores de páginas HTML que pueden ser invocados desde ProcessBuilder():
+En Windows:
+    String aplic = "C:\\Program Files (x86)\\Slimjet\\slimjet.exe";
+    String aplic = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
+
+En Linux:
+    String aplic = "/usr/bin/firefox";
+
+::Referencias::
+ Ejemplo de nº tel. celular --> https://wa.me/5493811234569
+ https://countrycode.org/
+ https://faq.whatsapp.com/general/chats/how-to-use-click-to-chat/?lang=es
+ https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html
+
+________________________
+Octulio Biletán - 10:15 a.m. domingo, 23 de mayo de 2021
