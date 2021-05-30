@@ -22,6 +22,7 @@ Visitar directorios:<br>
 
 <b>Proyecto PalomaMensajera</b>: aplicación escrita en lenguaje Java.<br>
 Construído con Oracle JDeveloper 12c, en Linux y en Windows. El código fuente es compatible con otros entornos de programación.<br>
+En el directorio depósito/ se encuentra el proyecto completo PalomaMensajera.tar.gz<br>
 Visitar directorio:<br>
 ** base/Proyecto/JDeveloperLX/PalomaMensajera/<br>
 
