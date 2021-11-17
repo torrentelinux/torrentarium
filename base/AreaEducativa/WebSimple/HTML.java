@@ -20,8 +20,11 @@ import javax.servlet.http.HttpServletResponse;
  * setGenerator(String g)
  * setAuthor(String a)
  * setDescription(String d)
+ * putHorizontalLine(String hl)
  * putTitle(String t)
  * putText(String t)
+ * putTextBr(String t)
+ * putTextColor(String bg, String fg, String t)
  * alignCenter(String c)
  * putTitle1(String t)
  * </pre></blockquote>
@@ -133,7 +136,7 @@ public final class HTML
         hoja.print(t);
         hoja.print("</span>");
     }
-            
+
     void putTextBr(String t)
     {
         if(t.isEmpty())
@@ -174,22 +177,27 @@ public final class HTML
             hoja.println("</h1><br>");
         }
     }
-    
+
+    // Pone una línea horizontal de longitud 'hl'.
+    // La longitud puede ser entre 1 y 100 inclusive.
+    // El grosor de la línea es siempre constante.
     void putHorizontalLine(String hl)
     {
         Integer valor = new Integer(hl);
         String ancho;
-        
+
         if(hl.isEmpty())
             ancho = "100";
         else
             ancho = hl;
-        
-        if(valor < 0 || valor > 100)
+
+        if(valor < 1 || valor > 100)
             ancho = "100";
-        
+
         hoja.print("<hr width=\"");
         hoja.print(ancho);
+
+        // El valor 'hl' es porcentual y el grosor es 1.
         hoja.print("%\" size=\"1\">");
     }
 }
