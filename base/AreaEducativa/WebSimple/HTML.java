@@ -1,7 +1,7 @@
 // Módulo   : HTML.java
 // Autor    : Eugenio Martínez - Nov. de 2021
 // Propósito: Define la clase HTML. 
-//            Mediante esta clase se puede construir una página de texto con formato HTML.
+//            Mediante esta clase se puede construir dinámicamente una página de texto con formato HTML.
 // Referencias: https://es.wikipedia.org/wiki/HTML
 // __________________________________________________________________________
 
@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  * openHead() y closeHead()
  * openBody() y closeBody()
  * setGenerator(String g)
+ * setAuthor(String a)
+ * setDescription(String d)
  * putTitle(String t)
  * putText(String t)
  * alignCenter(String c)
@@ -88,7 +90,7 @@ public final class HTML
         hoja.println("</body>");
     }        
     
-    // Identifica el generador de html a través de la etiqueta 'meta'
+    // Identifica el generador de la página html a través de la etiqueta 'meta'
     // Usar dentro del bloque '<head>'
     void setGenerator(String g)
     {
@@ -97,6 +99,24 @@ public final class HTML
         hoja.println("\">");
     }
     
+    // Identifica el autor de la página html a través de la etiqueta 'meta'
+    // Usar dentro del bloque '<head>'
+    void setAuthor(String a)
+    {
+        hoja.print("<meta name=\"author\" content=\"");
+        hoja.print(a);
+        hoja.println("\">");
+    }
+
+    // Define la descripción de la página html a través de la etiqueta 'meta'
+    // Usar dentro del bloque '<head>'
+    void setDescription(String d)
+    {
+        hoja.print("<meta name=\"description\" content=\"");
+        hoja.print(d);
+        hoja.println("\">");
+    }
+
     void putTitle(String t)
     {
         hoja.println("<title>" + t + "</title>");
