@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * La clase {@code HTML} permite manipular las etiquetas del lenguaje HTML a través de métodos.<br>
+ * La clase {@code HTML}  permite manipular las etiquetas del lenguaje HTML a través de métodos.<br>
  * Los métodos definidos son:<br>
  * <blockquote><pre>
  * HTML(HttpServletResponse r) - constructor de la clase.
@@ -25,7 +25,10 @@ import javax.servlet.http.HttpServletResponse;
  * putText(String t)
  * putTextBr(String t)
  * putTextColor(String bg, String fg, String t)
- * alignCenter(String c)
+ * String alignCenter(String c)
+ * String bold(String b)
+ * String underline(String u)
+ * String italic(String i)
  * putTitle1(String t)
  * </pre></blockquote>
  * <b>Uso simple:</b><br>
@@ -52,7 +55,7 @@ public final class HTML
 
         // Establece como respuesta el tipo de contenido texto/html
         r.setContentType("text/html");
-        
+
         // La codificación del texto es UTF-8
         r.setCharacterEncoding("UTF-8");
     }
@@ -61,7 +64,7 @@ public final class HTML
     {
         // Pone la declaración del tipo de documento (DTD)
         hoja.println("<!DOCTYPE HTML>");
-        
+
         // Empieza la página HTML
         hoja.println("<html>");
     }
@@ -155,6 +158,27 @@ public final class HTML
     String alignCenter(String c)
     {
         return "align=center^" + c;
+    }
+
+    // Se coloca al texto 'b' en negrita.
+    // Devuelve el texto en negrita.
+    String bold(String b)
+    {
+        return "<b>" + b + "</b>";
+    }
+
+    // Se coloca subrayado a texto 'u'.
+    // Devuelve el texto subrayado.
+    String underline(String u)
+    {
+        return "<u>" + u + "</u>";
+    }
+
+    // Se coloca el estilo cursiva a texto 'i'.
+    // Devuelve el texto en itálica.
+    String italic(String i)
+    {
+        return "<i>" + i + "</i>";
     }
 
     // Pone texto 't' a 1º Nivel de encabezamento (Heading level 1)
