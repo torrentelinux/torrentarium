@@ -1,9 +1,9 @@
 #!/bin/sh
-# Eugenio Martínez - Marzo de 2007
-# Ultima actualización: Diciembre de 2021
+# Eugenio MartÃ­nez - Marzo de 2007
+# Ultima actualizaciÃ³n: Diciembre de 2021
 # Reinicia la computadora utilizando el comando /sbin/shutdown
 #
-# avance de línea
+# avance de lÃ­nea
 avlinea='-n -e \n'
 
 # expulsar disco compacto o no (1/0)
@@ -16,8 +16,8 @@ fn_error()
 
 fn_autor()
 {
-    echo "Realizado por Eugenio Martínez - Diciembre de 2021"
-    echo "Ultima actualización: vie 31 dic 2021 13:48:08 -03"
+    echo "Realizado por Eugenio MartÃ­nez - Diciembre de 2021"
+    echo "Ultima actualizaciÃ³n: vie 31 dic 2021 13:48:08 -03"
     echo "torrentelinux@gmail.com - https://sites.google.com/site/torrentelinux/"
 }
 
@@ -25,13 +25,13 @@ fn_ayuda()
 {
     echo "** Ayuda **"
     echo "Reinicia la computadora."
-    echo "Uso: reiniciar [ayuda] [rapido | rápido | seguro | autor]"
+    echo "Uso: reiniciar [ayuda] [rapido | rÃ¡pido | seguro | autor]"
     echo " "
     echo "ayuda     -> muestra esta ayuda"
     echo "rapido"
-    echo "rápido    -> reinicio rápido de la computadora, no expulsa el disco compacto"
-    echo "seguro    -> reinicio seguro de la computadora (por omisión), sí expulsa el disco compacto"
-    echo "autor     -> muestra el nombre del autor de esta aplicación"
+    echo "rÃ¡pido    -> reinicio rÃ¡pido de la computadora, no expulsa el disco compacto"
+    echo "seguro    -> reinicio seguro de la computadora (por omisiÃ³n), sÃ­ expulsa el disco compacto"
+    echo "autor     -> muestra el nombre del autor de esta aplicaciÃ³n"
     echo $avlinea
     echo "Ejemplo: reiniciar rapido"
     echo "         reiniciar autor"
@@ -58,7 +58,7 @@ registrar_reinicio()
   else
     echo "Comando reiniciar --- Aviso: " `date +%c` "Usuario: "$LOGNAME@$equipo "Terminal: "`tty` >> /var/tmp/reinicio.$LOGNAME.log
     tail --lines=1 /var/tmp/reinicio.$LOGNAME.log | mail -v -s Reiniciar root@$equipo
-    echo "¡¡¡ Usuario no autorizado !!!"
+    echo "Â¡Â¡Â¡ Usuario no autorizado !!!"
   fi
 }
 
@@ -75,7 +75,7 @@ expulsar_cdrom()
 
 reinicio_seguro()
 {
-  local mensaje=$HOSTNAME": reinicio seguro del sistema se ejecutará en 1 minuto..."
+  local mensaje=$HOSTNAME": reinicio seguro del sistema se ejecutarÃ¡ en 1 minuto..."
   
   echo "Reiniciando..."
   
@@ -88,7 +88,7 @@ reinicio_seguro()
   /sbin/shutdown -t3 -r +1 $mensaje
 }
 
-echo "reiniciar v2.03.18"
+echo "reiniciar v2.12.21"
 echo $avlinea
 
 if [ $# -eq 0 ] ; then
@@ -98,10 +98,10 @@ else
     'ayuda' | '--ayuda')
              fn_ayuda
              ;;
-	'rpd' | 'rapido' | 'rápido')
+	'rpd' | 'rapido' | 'rÃ¡pido')
 	     registrar_reinicio
 	     /bin/sync
-	     /sbin/shutdown -t3 -r now "Reinicio rápido en ejecución ..."
+	     /sbin/shutdown -t3 -r now "Reinicio rÃ¡pido en ejecuciÃ³n ..."
 	     ;;
 	'sgr' | 'seguro')
 	     reinicio_seguro
