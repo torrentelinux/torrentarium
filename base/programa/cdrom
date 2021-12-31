@@ -1,0 +1,92 @@
+#!/bin/sh
+# Eugenio Martínez - Junio de 2003
+# Ultima actualizacion: dom 25 mar 2018 11:49:11 ART
+# Gestiona la unidad de disco compacto (CD-ROM)
+
+# avance de línea
+avlinea='-n -e \n'
+
+# unidad de disco compacto
+dcompac=$base/dispositivo/cdrom
+
+fn_ayuda()
+{
+    echo "Ejecute cdrom ayuda para conocer sus comandos."
+}
+
+fn_autor()
+{
+    echo "Realizado por Eugenio Martínez - Marzo de 2018"
+    echo "Ultima actualización: dom 25 mar 2018 11:48:19 ART"
+    echo "torrentelinux@gmail.com - http://torrentelinux.meximas.com"
+}
+
+echo "cdrom v2.03.18"
+echo $avlinea
+
+if [ $# -eq 0 ] ; then
+  fn_ayuda
+else
+  case $1 in
+        'ayuda' | '--ayuda')
+	     echo "** Ayuda **"
+	     echo "Gestiona la unidad de disco compacto (CD-ROM)"
+             echo "Uso: cdrom [ayuda] [expulsar | cerrar | montar | desmontar | estado | info | autor]"
+	     echo " "
+	     echo "ayuda     -> muestra esta ayuda"
+	     echo "expulsar  -> desmonta el CD-ROM y abre la bandeja"
+	     echo "abrir     -> idem a expulsar"
+	     echo "cerrar    -> cierra la bandeja del CD-ROM pero no lo monta"
+	     echo "montar    -> cierra la bandeja y monta el CD-ROM"
+	     echo "desmontar -> desmontar el CD-ROM"
+	     echo "estado    -> muestra el estado de su montaje"
+             echo "info      -> muestra una descripción sobre el CD-ROM"
+	     echo "autor     -> muestra el nombre del autor de esta aplicación"
+             echo $avlinea
+             echo "Ejemplo: cdrom expulsar"
+	     echo "         cdrom montar"
+	     echo $avlinea
+             ;;
+	'expulsar')
+	     expulsar
+	     ;;
+        'abrir')
+	     expulsar
+	     ;;
+	'cerrar')
+	     echo "Cerrando bandeja de disco compacto ..."
+	     /usr/bin/eject -t $dcompac
+	     ;;
+	'montar')
+	     /usr/bin/eject -t $dcompac
+	     /bin/sync
+	     /bin/sleep 5
+	     /bin/sync
+	     montar compacto
+	     ;;
+	'desmontar')
+	     desmontar compacto
+	     ;;
+	'estado')
+	     echo -n "Estado actual del disco compacto: "
+	     status=`grep 'compacto' /etc/mtab`
+	     if [ "$status" = "" ] ; then
+	       echo "no montado."
+	     else
+	       echo "montado." 
+	       echo $status
+	     fi
+	     ;;
+        'info')
+	     echo "Descripción del disco compacto:"
+	     /usr/bin/isoinfo -d -i $dcompac
+	     ;;
+	'autor')
+	     fn_autor
+	     ;;
+        *)
+             echo "Comando no reconocido: $1"
+             fn_ayuda
+             ;;
+  esac
+fi

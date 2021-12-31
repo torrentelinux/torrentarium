@@ -1,0 +1,117 @@
+#!/bin/sh
+# Eugenio Martínez - Marzo de 2007
+# Ultima actualización: Diciembre de 2021
+# Reinicia la computadora utilizando el comando /sbin/shutdown
+#
+# avance de línea
+avlinea='-n -e \n'
+
+# expulsar disco compacto o no (1/0)
+expulsar=0
+
+fn_error()
+{
+    echo "Ejecute reiniciar ayuda para conocer sus comandos."
+}
+
+fn_autor()
+{
+    echo "Realizado por Eugenio Martínez - Diciembre de 2021"
+    echo "Ultima actualización: vie 31 dic 2021 13:48:08 -03"
+    echo "torrentelinux@gmail.com - https://sites.google.com/site/torrentelinux/"
+}
+
+fn_ayuda()
+{
+    echo "** Ayuda **"
+    echo "Reinicia la computadora."
+    echo "Uso: reiniciar [ayuda] [rapido | rápido | seguro | autor]"
+    echo " "
+    echo "ayuda     -> muestra esta ayuda"
+    echo "rapido"
+    echo "rápido    -> reinicio rápido de la computadora, no expulsa el disco compacto"
+    echo "seguro    -> reinicio seguro de la computadora (por omisión), sí expulsa el disco compacto"
+    echo "autor     -> muestra el nombre del autor de esta aplicación"
+    echo $avlinea
+    echo "Ejemplo: reiniciar rapido"
+    echo "         reiniciar autor"
+    echo $avlinea
+    echo "Comentario: deja un registro en /var/log/reinicio cuando el usuario es 'root'."
+    echo "            Deja registrado los usuarios no autorizados en /var/tmp/"
+    echo $avlinea
+}
+
+registrar_reinicio()
+{
+  if [ "$REMOTEHOST" != "" ] ; then
+    equipo=$REMOTEHOST
+  else
+    equipo=$HOSTNAME
+  fi
+
+  if [ "$UID" = "0" ] ; then
+    echo "----------------------" >> /var/log/reinicio
+    date +%c >> /var/log/reinicio
+    hostname >> /var/log/reinicio
+    echo "reiniciar: comando ejecutado por "$LOGNAME"." >> /var/log/reinicio
+    expulsar=1
+  else
+    echo "Comando reiniciar --- Aviso: " `date +%c` "Usuario: "$LOGNAME@$equipo "Terminal: "`tty` >> /var/tmp/reinicio.$LOGNAME.log
+    tail --lines=1 /var/tmp/reinicio.$LOGNAME.log | mail -v -s Reiniciar root@$equipo
+    echo "¡¡¡ Usuario no autorizado !!!"
+  fi
+}
+
+expulsar_cdrom()
+{
+  cd /
+  sync
+  sleep 3
+  sync
+  cdrom expulsar
+  sleep 5
+  cdrom cerrar
+}
+
+reinicio_seguro()
+{
+  local mensaje=$HOSTNAME": reinicio seguro del sistema se ejecutará en 1 minuto..."
+  
+  echo "Reiniciando..."
+  
+  registrar_reinicio
+  if [ $expulsar = 1 ] ; then
+    expulsar_cdrom
+  fi
+  
+  /base/programa/luces
+  /sbin/shutdown -t3 -r +1 $mensaje
+}
+
+echo "reiniciar v2.03.18"
+echo $avlinea
+
+if [ $# -eq 0 ] ; then
+  reinicio_seguro
+else
+  case $1 in
+    'ayuda' | '--ayuda')
+             fn_ayuda
+             ;;
+	'rpd' | 'rapido' | 'rápido')
+	     registrar_reinicio
+	     /bin/sync
+	     /sbin/shutdown -t3 -r now "Reinicio rápido en ejecución ..."
+	     ;;
+	'sgr' | 'seguro')
+	     reinicio_seguro
+	     ;;
+	'autor')
+	     fn_autor
+	     ;;
+        *)
+             echo "Comando no reconocido: $1"
+             fn_error
+             ;;
+  esac
+fi

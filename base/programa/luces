@@ -1,0 +1,5 @@
+#!/bin/sh
+# luces
+# Eugenio Martinez - febrero de 2003
+# Prende/apaga las luces del teclado
+/usr/bin/setleds +num +caps +scroll ; sleep 2 ; /usr/bin/setleds -num -caps -scroll
