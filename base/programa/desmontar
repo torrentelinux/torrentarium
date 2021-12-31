@@ -1,0 +1,9 @@
+#!/bin/sh
+# Eugenio Martínez - Agosto de 2002
+# Ultima actualizaciÃ³n: vie 31 dic 2021 12:00:30 -03
+#
+echo "Desmontando /base/disco/$1 ..."
+/bin/sync
+/bin/sleep 3
+/bin/sync
+/bin/umount $2 /base/disco/$1

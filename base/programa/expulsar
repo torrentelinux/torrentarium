@@ -1,0 +1,9 @@
+#!/bin/sh
+# Expulsa el disco compacto de su unidad de disco
+# Eugenio Martinez - Junio de 2003
+# Ultima actualización: vie 31 dic 2021 12:01:18 -03
+#
+echo "Expulsando disco compacto (CD-ROM) ..."
+/bin/sync
+/bin/sleep 3
+/usr/bin/eject $base/dispositivo/cdrom

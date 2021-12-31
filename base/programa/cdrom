@@ -2,11 +2,17 @@
 # Eugenio Martínez - Junio de 2003
 # Ultima actualizacion: vie 31 dic 2021 14:24:11 ART
 # Gestiona la unidad de disco compacto (CD-ROM)
+# Importante: debe estar definida la variable de entorno 'base'
+# Por ejemplo: base=/base
+# Poner la definición de 'base' en "~/.bash_profile"
+#
 
 # avance de línea
 avlinea='-n -e \n'
 
 # unidad de disco compacto
+# Enlace simbólico: /base/dispositivo/cdrom
+# Dispositivo real: /dev/sr0
 dcompac=$base/dispositivo/cdrom
 
 fn_ayuda()
@@ -28,10 +34,10 @@ if [ $# -eq 0 ] ; then
   fn_ayuda
 else
   case $1 in
-        'ayuda' | '--ayuda')
+	'ayuda' | '--ayuda')
 	     echo "** Ayuda **"
 	     echo "Gestiona la unidad de disco compacto (CD-ROM)"
-             echo "Uso: cdrom [ayuda] [expulsar | cerrar | montar | desmontar | estado | info | autor]"
+	     echo "Uso: cdrom [ayuda] [expulsar | cerrar | montar | desmontar | estado | info | autor]"
 	     echo " "
 	     echo "ayuda     -> muestra esta ayuda"
 	     echo "expulsar  -> desmonta el CD-ROM y abre la bandeja"
@@ -40,17 +46,17 @@ else
 	     echo "montar    -> cierra la bandeja y monta el CD-ROM"
 	     echo "desmontar -> desmontar el CD-ROM"
 	     echo "estado    -> muestra el estado de su montaje"
-             echo "info      -> muestra una descripción sobre el CD-ROM"
+	     echo "info      -> muestra una descripción sobre el CD-ROM"
 	     echo "autor     -> muestra el nombre del autor de esta aplicación"
-             echo $avlinea
-             echo "Ejemplo: cdrom expulsar"
+	     echo $avlinea
+	     echo "Ejemplo: cdrom expulsar"
 	     echo "         cdrom montar"
 	     echo $avlinea
-             ;;
+	     ;;
 	'expulsar')
 	     expulsar
 	     ;;
-        'abrir')
+	'abrir')
 	     expulsar
 	     ;;
 	'cerrar')
@@ -77,7 +83,7 @@ else
 	       echo $status
 	     fi
 	     ;;
-        'info')
+	'info')
 	     echo "Descripción del disco compacto:"
 	     /usr/bin/isoinfo -d -i $dcompac
 	     ;;

@@ -1,0 +1,6 @@
+#!/bin/sh
+# Eugenio Martinez - Setiembre de 2002
+# Ultima actualización: vie 31 dic 2021 12:01:58 -03
+
+echo "Montando /base/disco/$1 ..."
+/bin/mount $2 /base/disco/$1
