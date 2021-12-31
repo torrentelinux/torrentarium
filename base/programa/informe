@@ -1,5 +1,6 @@
 #!/bin/sh
 # informe: muestra un informe breve sobre la computadora y el S.O.
+# Ponga permisos de ejecución: chmod +755 informe
 # Eugenio Martínez - Dic-2021
 #
 
