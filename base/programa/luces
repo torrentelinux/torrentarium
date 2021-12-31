@@ -2,4 +2,5 @@
 # luces
 # Eugenio Martinez - febrero de 2003
 # Prende/apaga las luces del teclado
-/usr/bin/setleds +num +caps +scroll ; sleep 2 ; /usr/bin/setleds -num -caps -scroll
+# Ultima actualización: vie 31 dic 2021 14:35:01 -ART
+/usr/bin/setleds -D +num +caps +scroll ; sleep 2 ; /usr/bin/setleds -D -num -caps -scroll
