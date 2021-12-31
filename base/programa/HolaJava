@@ -1,0 +1,21 @@
+#!/usr/bin/java --source 11
+// Permisos: chmod +x
+// Ejecute: ./HolaJava
+// Referencias:
+//      (1) https://nipafx.dev/scripting-java-shebang/
+//      (2) https://dev.java/learn/launching-single-file-source-code-programs/
+// ---------------------------------------------------------------------------
+public class HolaJava
+{
+    public static void main(String[] args)
+    {
+	try
+	{
+	    System.out.println("¡Hola a todos! " + args[0]);
+	}
+	catch(Exception e)
+	{
+	    System.err.println("Error: Falta argumento.\nCausa: " + e.getMessage());
+	}
+    }
+}
