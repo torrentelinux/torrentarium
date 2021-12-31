@@ -27,8 +27,8 @@ Visitar directorio:<br>
 ** base/Proyecto/JDeveloperLX/PalomaMensajera/<br>
 
 <b>Aplicaciones para Linux</b>
-Distribuciones soportadas con soporte a RPM: CentOS, Fedora, RedHat, Oracle.
-Distribuciones soportadas con soporte a DEB: Debian, MX-Linux.
+Distribuciones soportadas con soporte a RPM: CentOS, Fedora, RedHat, Oracle.<br>
+Distribuciones soportadas con soporte a DEB: Debian, MX-Linux.<br>
 Visitar directorio:<br>
 ** https://github.com/torrentelinux/torrentarium/tree/master/base/programa/<br>
 
