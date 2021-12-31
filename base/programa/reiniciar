@@ -2,11 +2,13 @@
 # Eugenio Martínez - Marzo de 2007
 # Ultima actualización: Diciembre de 2021
 # Reinicia la computadora utilizando el comando /sbin/shutdown
+# Muestra una ayuda: reiniciar ayuda
 #
-# avance de línea
+
+# Define el avance de línea
 avlinea='-n -e \n'
 
-# expulsar disco compacto o no (1/0)
+# Controla la expulsión del disco compacto: sí o no (1/0)
 expulsar=0
 
 fn_error()
@@ -76,14 +78,14 @@ expulsar_cdrom()
 reinicio_seguro()
 {
   local mensaje=$HOSTNAME": reinicio seguro del sistema se ejecutará en 1 minuto..."
-  
+
   echo "Reiniciando..."
-  
+
   registrar_reinicio
   if [ $expulsar = 1 ] ; then
     expulsar_cdrom
   fi
-  
+
   /base/programa/luces
   /sbin/shutdown -t3 -r +1 $mensaje
 }
