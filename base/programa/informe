@@ -1,0 +1,80 @@
+#!/bin/sh
+# informe: muestra un informe breve sobre la computadora y el S.O.
+# Eugenio Martínez - Dic-2021
+#
+
+fn_color()
+{
+    if [ $1 == "rojo" ] ; then
+	echo -en "\033[0;31m"
+	return
+    fi
+
+    if [ $1 == "verde" ] ; then
+	echo -en "\033[0;32m"
+	return
+    fi
+
+    if [ $1 == "normal" ] ; then
+	echo -en "\033[0;39m"
+    else
+	echo "Color incorrecto: "$1
+    fi
+}
+
+fn_breve()
+{
+    fn_color verde
+    echo "[Informe breve de su computadora y S.O.]"
+    fn_color normal
+    dmesg -TL|head
+    echo .........
+    dmesg -TL|tail
+    sleep 2
+    fn_color verde
+    echo "[Microprocesador]"
+    fn_color normal
+    # Opcional:
+    x86info|tail -n 8
+    #cat /proc/cpuinfo|grep vendor_id
+    #cat /proc/cpuinfo|grep 'model name'
+    #cat /proc/cpuinfo|grep bogomips
+
+    fn_color verde
+    echo "[Medios de almacenamiento]"
+    fn_color normal
+    lsscsi -s
+
+    nombSO=`cat /etc/system-release`
+    ramTot=`lsmem|grep 'Total on'`
+    nombre=`hostname -f 2> /dev/null`
+    dirIP=`hostname -i 2> /dev/null`
+    idioma=`printenv LANG`
+    zonaHo=`timedatectl | grep -m 1 zone`
+    niveEj=`who -r`
+    usrAct=`who -q`
+    usrVig=`id -un`
+    
+    fn_color verde
+    echo "[Memoria RAM]"
+    fn_color normal
+    echo $ramTot
+    echo "____________"
+
+    echo "Sistema operativo: "$nombSO
+    echo "Nombre de red de la computadora: "$nombre
+    echo "Dir. IP de la computadora: "$dirIP
+    echo "Idioma establecido: "$idioma
+    echo "Zona horaria: "${zonaHo:18}
+    echo "Nivel de ejecución vigente: "$niveEj
+    echo "Usuarios activos: "$usrAct
+    echo "Usted es: "$usrVig
+}
+
+if [ $# -eq 0 ] ; then
+  fn_breve
+else
+    fn_color rojo
+    echo "Aviso: Ejecute 'informe' sin argumentos."
+    fn_color normal
+fi
