@@ -26,7 +26,7 @@ En el directorio depósito/ se encuentra el proyecto completo PalomaMensajera.ta
 Visitar directorio:<br>
 ** base/Proyecto/JDeveloperLX/PalomaMensajera/<br>
 
-<b>Aplicaciones para Linux</b>
+<b>Aplicaciones para Linux</b><br>
 Distribuciones soportadas con soporte a RPM: CentOS, Fedora, RedHat, Oracle.<br>
 Distribuciones soportadas con soporte a DEB: Debian, MX-Linux.<br>
 Visitar directorio:<br>
