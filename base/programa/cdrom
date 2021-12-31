@@ -1,6 +1,6 @@
 #!/bin/sh
 # Eugenio Martínez - Junio de 2003
-# Ultima actualizacion: dom 25 mar 2018 11:49:11 ART
+# Ultima actualizacion: vie 31 dic 2021 14:24:11 ART
 # Gestiona la unidad de disco compacto (CD-ROM)
 
 # avance de línea
@@ -16,12 +16,12 @@ fn_ayuda()
 
 fn_autor()
 {
-    echo "Realizado por Eugenio Martínez - Marzo de 2018"
-    echo "Ultima actualización: dom 25 mar 2018 11:48:19 ART"
-    echo "torrentelinux@gmail.com - http://torrentelinux.meximas.com"
+    echo "Realizado por Eugenio Martínez - Diciembre de 2021"
+    echo "Ultima actualización: vie 31 dic 2021 14:24:11 -ART"
+    echo "torrentelinux@gmail.com - https://sites.google.com/site/torrentelinux/"
 }
 
-echo "cdrom v2.03.18"
+echo "cdrom v2.12.21"
 echo $avlinea
 
 if [ $# -eq 0 ] ; then
