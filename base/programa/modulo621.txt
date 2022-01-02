@@ -1,0 +1,548 @@
+	Torrente Utilidades
+	 - edición 2022 --
+
+
+modulo621 es un fichero para ser acoplado o montado en un sistema Linux.
+
+<< Area de descarga >>
+https://u.pcloud.link/publink/show?code=kZ4I1h7Z5TAxbJqo2i0JgaDaBWkvm5DOKvQ7&lang=es#folder=11670005309&tpl=publicfoldergrid
+
+Para comprobar la integridad de modulo621 después de haberlo descargado, ejecute:
+sha512sum -c modulo621.SHA512
+
+En Oracle Linux/CentOS Linux, ejecute los siguientes comandos:
+(1) Crear el directorio: mkdir /base&&mkdir /base/disco&&mkdir /base/disco/virtual/
+(2) Acoplar modulo621 en directorio virtual: mount -t auto modulo621 /base/disco/virtual
+(3) Mostrar el contenido: vdir /base/disco/virtual/
+
+Y para desacoplar modulo621, ejecute: umount /base/disco/virtual
+
+____________________________________________
+Estructura jerárquica de Torrente Utilidades
+--------------------------------------------
+
+/base/disco/virtual/
+├── base
+│   ├── aplicaciones
+│   ├── biblioteca
+│   │   ├── docu
+│   │   │   └── AndroidPC2021.pdf
+│   │   ├── HolaSimple
+│   │   │   ├── Imagenes
+│   │   │   │   ├── holaSimple01.jpeg
+│   │   │   │   ├── holaSimple02.jpeg
+│   │   │   │   ├── holaSimple03.jpeg
+│   │   │   │   └── holaSimple04.jpeg
+│   │   │   ├── JDeveloper
+│   │   │   │   └── HolaSimple
+│   │   │   │       ├── Cliente
+│   │   │   │       │   ├── clases
+│   │   │   │       │   │   └── HolaSimple
+│   │   │   │       │   │       └── Hola.class
+│   │   │   │       │   ├── Cliente.jpr
+│   │   │   │       │   ├── deploy
+│   │   │   │       │   │   └── hola.jar
+│   │   │   │       │   ├── fuente
+│   │   │   │       │   │   └── HolaSimple
+│   │   │   │       │   │       └── Hola.java
+│   │   │   │       │   └── public_html
+│   │   │   │       └── HolaSimple.jws
+│   │   │   ├── leame.txt
+│   │   │   └── NetBeansLX
+│   │   │       └── HolaSimple
+│   │   │           ├── build
+│   │   │           │   ├── built-jar.properties
+│   │   │           │   ├── classes
+│   │   │           │   │   └── HolaSimple
+│   │   │           │   │       └── Hola.class
+│   │   │           │   ├── empty
+│   │   │           │   └── generated-sources
+│   │   │           │       └── ap-source-output
+│   │   │           ├── build.xml
+│   │   │           ├── dist
+│   │   │           │   ├── HolaSimple.jar
+│   │   │           │   └── README.TXT
+│   │   │           ├── manifest.mf
+│   │   │           ├── nbproject
+│   │   │           │   ├── build-impl.xml
+│   │   │           │   ├── genfiles.properties
+│   │   │           │   ├── private
+│   │   │           │   │   ├── config.properties
+│   │   │           │   │   ├── private.properties
+│   │   │           │   │   └── private.xml
+│   │   │           │   ├── project.properties
+│   │   │           │   └── project.xml
+│   │   │           ├── src
+│   │   │           │   └── HolaSimple
+│   │   │           │       └── Hola.java
+│   │   │           └── test
+│   │   ├── libro
+│   │   │   ├── Algoritmo
+│   │   │   │   ├── analisis-contrase.txt
+│   │   │   │   ├── Analisis-DesOrdenamiento2.jpg
+│   │   │   │   ├── Analisis-DesOrdenamiento.html
+│   │   │   │   └── Analisis-DesOrdenamiento.jpg
+│   │   │   ├── ec++
+│   │   │   │   ├── cpp-extension.pdf
+│   │   │   │   └── ejemplo1.e.cpp
+│   │   │   ├── FallaEnDiscoDuro.pdf
+│   │   │   ├── InfoDic
+│   │   │   │   ├── infodic2.hlp
+│   │   │   │   └── infodic.ico
+│   │   │   ├── LenguajeSQL-SentenciasBasicas.pdf
+│   │   │   ├── MiPrimerContactoConTorrenteLinux.pdf
+│   │   │   ├── mxlinux-19_2-es.pdf
+│   │   │   ├── NotasDeIngles.pdf
+│   │   │   ├── objetos.pdf
+│   │   │   ├── PrincipiosSobreEducacion.pdf
+│   │   │   ├── protocolos-2021.pdf
+│   │   │   ├── TareaParaLaCasa.pdf
+│   │   │   └── vala-manual.pdf
+│   │   ├── Licencias GNU
+│   │   │   ├── gnu-lesser.txt
+│   │   │   ├── gnu-library.txt
+│   │   │   ├── LICENSE
+│   │   │   ├── LICENSE-prog.gnu.txt
+│   │   │   └── modelo-de-biblioteca.txt
+│   │   └── texto
+│   │       ├── amistad.txt
+│   │       ├── codigo-de-particion.txt
+│   │       ├── hierbas
+│   │       │   ├── yuyos-configurar.txt
+│   │       │   ├── yuyos-leame.txt
+│   │       │   ├── yuyos-referencias.txt
+│   │       │   ├── yuyos.txt
+│   │       │   └── yuyos-utf8.txt
+│   │       ├── Java
+│   │       │   ├── jar.txt
+│   │       │   ├── javac.txt
+│   │       │   ├── javah.txt
+│   │       │   ├── javap.txt
+│   │       │   ├── java.txt
+│   │       │   └── jdeps.txt
+│   │       └── reloj
+│   │           ├── lealinux.txt
+│   │           ├── leamsdos.txt
+│   │           ├── macros.h
+│   │           ├── pragma.h
+│   │           ├── reloj.c
+│   │           └── reloj.prj
+│   ├── config
+│   ├── depósito
+│   ├── descarga
+│   ├── disco
+│   │   ├── c
+│   │   ├── compacto -> /mnt/cdrom0
+│   │   ├── compacto1 -> /mnt/cdrom1
+│   │   ├── d
+│   │   ├── duro
+│   │   ├── e
+│   │   ├── flash
+│   │   ├── flash02
+│   │   ├── imagen
+│   │   └── virtual
+│   ├── dispositivo
+│   ├── fuente
+│   │   ├── adn2.cc
+│   │   ├── adn.cc
+│   │   ├── adn.h
+│   │   ├── bsort.cpp
+│   │   ├── hola.c
+│   │   ├── hola++.cpp
+│   │   ├── Java
+│   │   │   ├── hola_1.java
+│   │   │   ├── hola.java
+│   │   │   ├── limpia_pantalla.java
+│   │   │   ├── Parabola.java
+│   │   │   ├── Probability_distribution_Function_Random_Numbers.java
+│   │   │   ├── ps.fragmento.java
+│   │   │   ├── Rand_and_Srand.java
+│   │   │   └── salida.java.txt
+│   │   ├── reloj
+│   │   │   ├── lealinux.txt
+│   │   │   ├── leamsdos.txt
+│   │   │   ├── reloj.c
+│   │   │   ├── reloj.gdt
+│   │   │   └── reloj.gpr
+│   │   ├── tblascii.cpp
+│   │   ├── tblascii.gdt
+│   │   ├── tblascii.gpr
+│   │   ├── vala
+│   │   │   ├── activaWiFi
+│   │   │   ├── activaWiFi.vala
+│   │   │   ├── bsort
+│   │   │   ├── bsort.vala
+│   │   │   ├── Calendario.vala
+│   │   │   ├── desordenar-vector.original.txt
+│   │   │   ├── hola.c
+│   │   │   ├── hola.vala
+│   │   │   ├── VectorNum
+│   │   │   └── VectorNum.vala
+│   │   └── xwindow
+│   │       ├── ejemplo1
+│   │       ├── ejemplo1.c
+│   │       ├── ejemplo2
+│   │       ├── ejemplo2.c
+│   │       ├── listado2.txt
+│   │       ├── logo.gif
+│   │       └── redhat-transparent.png
+│   ├── imagen
+│   ├── incluir
+│   │   ├── ccast.h
+│   │   ├── ccast.utf8.h
+│   │   └── pragma.h
+│   ├── lib
+│   │   ├── bin16
+│   │   ├── bin32
+│   │   └── bin64
+│   ├── multimedios
+│   │   ├── foto
+│   │   ├── gráfico
+│   │   ├── icono
+│   │   ├── música
+│   │   └── video
+│   ├── programa
+│   │   ├── 113x34
+│   │   ├── 170x48
+│   │   ├── 80x25
+│   │   ├── 80x28
+│   │   ├── 80x50
+│   │   ├── 85x24
+│   │   ├── activa-acpi
+│   │   ├── activa-flash
+│   │   ├── activaWiFi
+│   │   ├── apagar
+│   │   ├── apagaWiFi
+│   │   ├── apr
+│   │   ├── avpag
+│   │   ├── bin16
+│   │   ├── bin32
+│   │   │   ├── capsalida
+│   │   │   ├── cf
+│   │   │   ├── ciclar
+│   │   │   ├── ctf
+│   │   │   ├── deth
+│   │   │   ├── glhola
+│   │   │   ├── mvirtual
+│   │   │   ├── probar_tcp_puertos
+│   │   │   ├── reloj
+│   │   │   ├── tblascii
+│   │   │   ├── usuario
+│   │   │   ├── ventana
+│   │   │   └── ventana.elf
+│   │   ├── bin64
+│   │   │   ├── ComprobarEnlace
+│   │   │   ├── hola
+│   │   │   ├── hola++
+│   │   │   ├── LinuxVer
+│   │   │   ├── reloj
+│   │   │   ├── tblascii
+│   │   │   ├── usuario
+│   │   │   └── ventana
+│   │   ├── borrar-cdrw
+│   │   ├── Calculo2N.jar
+│   │   ├── cdrom
+│   │   ├── chip
+│   │   ├── cls
+│   │   ├── comprobar
+│   │   ├── ComprobarHttp
+│   │   ├── conectar
+│   │   ├── confinar
+│   │   ├── consultar
+│   │   ├── correo-leer
+│   │   ├── correo-listar
+│   │   ├── crear-imagen-win-iso
+│   │   ├── desmontar
+│   │   ├── discos
+│   │   ├── discoT
+│   │   ├── eld
+│   │   ├── elm
+│   │   ├── expulsar
+│   │   ├── gotoxy
+│   │   ├── grabar-cdrom
+│   │   ├── grabar-cdrw
+│   │   ├── hay-red
+│   │   ├── HolaJava
+│   │   ├── hola.rexx
+│   │   ├── hola.rexx.sh
+│   │   ├── informe
+│   │   ├── jdev
+│   │   ├── linux2dos
+│   │   ├── linuxVer
+│   │   ├── lsa
+│   │   ├── lua
+│   │   ├── luces
+│   │   ├── man2texto
+│   │   ├── man2txt
+│   │   ├── montaje
+│   │   ├── montar
+│   │   ├── montar.sh
+│   │   ├── mpc
+│   │   ├── nucleo
+│   │   ├── pagefile
+│   │   ├── pantalla
+│   │   ├── paq -> paquete
+│   │   ├── paquete
+│   │   ├── pulse.activar
+│   │   ├── pulse.desactivar
+│   │   ├── reiniciar
+│   │   ├── remoto
+│   │   ├── reparar
+│   │   ├── rpm2tgz
+│   │   ├── rpminfo
+│   │   ├── rpminfo2txt
+│   │   ├── salutacion
+│   │   ├── servicios-activos
+│   │   ├── smbadmin
+│   │   ├── tocarmidi
+│   │   ├── tocarmod
+│   │   ├── tocarmp3
+│   │   ├── tocarmpg
+│   │   ├── tocarmusica
+│   │   ├── tocarwav
+│   │   └── win386
+│   ├── red
+│   │   └── leame.texto
+│   ├── registro
+│   ├── respaldo
+│   ├── seguridad
+│   │   ├── usuarios.cnt
+│   │   ├── usuarios.man.txt
+│   │   └── usuarios.sds
+│   ├── servidor
+│   │   ├── ftp
+│   │   │   ├── ftp-servicio.txt
+│   │   │   └── xStacks.txt
+│   │   └── http
+│   │       └── cgi-bin
+│   │           ├── hola.cpp
+│   │           ├── hola.php
+│   │           └── od_ip.php
+│   ├── sitio
+│   ├── temp
+│   └── usuario
+│       ├── administrador
+│       ├── operador
+│       └── supervisor
+├── dev
+│   ├── autofs
+│   ├── block
+│   │   ├── 11:0 -> ../sr0
+│   │   ├── 7:0 -> ../loop0
+│   │   ├── 7:1 -> ../loop1
+│   │   ├── 7:2 -> ../loop2
+│   │   ├── 8:0 -> ../sda
+│   │   ├── 8:1 -> ../sda1
+│   │   ├── 8:16 -> ../sdb
+│   │   ├── 8:17 -> ../sdb1
+│   │   ├── 8:18 -> ../sdb2
+│   │   ├── 8:19 -> ../sdb3
+│   │   ├── 8:2 -> ../sda2
+│   │   └── 8:3 -> ../sda3
+│   ├── bsg
+│   │   ├── 0:0:0:0
+│   │   ├── 1:0:0:0
+│   │   └── 2:0:0:0
+│   ├── btrfs-control
+│   ├── bus
+│   │   └── usb
+│   │       ├── 001
+│   │       ├── 002
+│   │       ├── 003
+│   │       ├── 004
+│   │       └── 005
+│   ├── cdrom -> sr0
+│   ├── char
+│   │   ├── 10:184 -> ../cpu/microcode
+│   │   ├── 1:3 -> ../null
+│   │   ├── 13:32 -> ../input/mouse0
+│   │   ├── 13:63 -> ../input/mice
+│   │   ├── 13:64 -> ../input/event0
+│   │   ├── 13:65 -> ../input/event1
+│   │   ├── 13:66 -> ../input/event2
+│   │   ├── 13:67 -> ../input/event3
+│   │   ├── 13:68 -> ../input/event4
+│   │   ├── 13:69 -> ../input/event5
+│   │   ├── 13:70 -> ../input/event6
+│   │   ├── 13:71 -> ../input/event7
+│   │   ├── 13:72 -> ../input/event8
+│   │   ├── 13:73 -> ../input/event9
+│   │   ├── 13:74 -> ../input/event10
+│   │   ├── 1:5 -> ../zero
+│   │   ├── 1:8 -> ../random
+│   │   ├── 1:9 -> ../urandom
+│   │   ├── 202:0 -> ../cpu/0/msr
+│   │   ├── 202:1 -> ../cpu/1/msr
+│   │   ├── 203:0 -> ../cpu/0/cpuid
+│   │   ├── 203:1 -> ../cpu/1/cpuid
+│   │   ├── 21:0 -> ../sg0
+│   │   ├── 21:1 -> ../sg1
+│   │   ├── 21:2 -> ../sg2
+│   │   ├── 247:0 -> ../usbmon0
+│   │   ├── 247:1 -> ../usbmon1
+│   │   ├── 247:2 -> ../usbmon2
+│   │   ├── 252:0 -> ../rtc0
+│   │   ├── 4:0 -> ../tty0
+│   │   ├── 4:1 -> ../tty1
+│   │   ├── 4:2 -> ../tty2
+│   │   ├── 5:0 -> ../tty
+│   │   ├── 7:0 -> ../vcs
+│   │   ├── 7:1 -> ../vcs1
+│   │   ├── 7:2 -> ../vcs2
+│   │   ├── 7:3 -> ../vcs3
+│   │   └── 81:0 -> ../video0
+│   ├── console
+│   ├── core -> /proc/kcore
+│   ├── cpu
+│   │   ├── 0
+│   │   │   ├── cpuid
+│   │   │   └── msr
+│   │   ├── 1
+│   │   │   ├── cpuid
+│   │   │   └── msr
+│   │   └── microcode
+│   ├── cpu_dma_latency
+│   ├── crash
+│   ├── disk
+│   │   ├── by-id
+│   │   ├── by-label
+│   │   ├── by-path
+│   │   └── by-uuid
+│   ├── dri
+│   │   ├── card0
+│   │   └── renderD128
+│   ├── fb0
+│   ├── fd -> /proc/self/fd
+│   ├── full
+│   ├── fuse
+│   ├── hidraw0
+│   ├── hidraw1
+│   ├── hidraw2
+│   ├── hpet
+│   ├── hugepages
+│   ├── hwrng
+│   ├── initctl -> /run/systemd/initctl/fifo
+│   ├── input
+│   │   ├── by-id
+│   │   ├── by-path
+│   │   ├── event0
+│   │   ├── event1
+│   │   ├── event10
+│   │   ├── event2
+│   │   ├── event3
+│   │   ├── event4
+│   │   ├── event5
+│   │   ├── event6
+│   │   ├── event7
+│   │   ├── event8
+│   │   ├── event9
+│   │   ├── mice
+│   │   └── mouse0
+│   ├── kmsg
+│   ├── loop0
+│   ├── loop1
+│   ├── loop2
+│   ├── loop-control
+│   ├── lp0
+│   ├── lp1
+│   ├── lp2
+│   ├── mapper
+│   │   └── control
+│   ├── mcelog
+│   ├── mem
+│   ├── mqueue
+│   ├── net
+│   │   └── tun
+│   ├── network_latency
+│   ├── network_throughput
+│   ├── null
+│   ├── nvram
+│   ├── oldmem
+│   ├── port
+│   ├── ppp
+│   ├── ptmx
+│   ├── pts
+│   │   ├── 0
+│   │   ├── 1
+│   │   └── ptmx
+│   ├── random
+│   ├── raw
+│   │   └── rawctl
+│   ├── rfkill
+│   ├── rtc -> rtc0
+│   ├── rtc0
+│   ├── sda
+│   ├── sda1
+│   ├── sda2
+│   ├── sda3
+│   ├── sdb
+│   ├── sdb1
+│   ├── sdb2
+│   ├── sdb3
+│   ├── sg0
+│   ├── sg1
+│   ├── sg2
+│   ├── shm
+│   ├── snapshot
+│   ├── snd
+│   │   ├── by-path
+│   │   ├── controlC0
+│   │   ├── hwC0D2
+│   │   ├── pcmC0D0c
+│   │   ├── pcmC0D0p
+│   │   ├── pcmC0D1p
+│   │   ├── pcmC0D2c
+│   │   ├── seq
+│   │   └── timer
+│   ├── sr0
+│   ├── stderr -> /proc/self/fd/2
+│   ├── stdin -> /proc/self/fd/0
+│   ├── stdout -> /proc/self/fd/1
+│   ├── tty
+│   ├── tty0
+│   ├── tty1
+│   ├── tty2
+│   ├── uhid
+│   ├── uinput
+│   ├── urandom
+│   ├── usbmon0
+│   ├── usbmon1
+│   ├── usbmon2
+│   ├── v4l
+│   │   └── by-path
+│   ├── vbi0
+│   ├── vcs
+│   ├── vcs1
+│   ├── vcs2
+│   ├── vcs3
+│   ├── vcsa
+│   ├── vcsa1
+│   ├── vcsa2
+│   ├── vcsa3
+│   ├── vfio
+│   │   └── vfio
+│   ├── vga_arbiter
+│   ├── vhci
+│   ├── vhost-net
+│   ├── video0
+│   ├── watchdog
+│   ├── watchdog0
+│   └── zero
+├── lost+found
+├── mnt
+│   ├── cdrom
+│   ├── cdrom0
+│   └── cdrom1
+├── modulo621
+└── proc
+
+130 directories, 383 files
+
+___________
+Referencias
+-----------
+
+(1) https://sites.google.com/site/torrentelinux/
+(2) https://u.pcloud.link/publink/show?code=kZ4I1h7Z5TAxbJqo2i0JgaDaBWkvm5DOKvQ7&lang=es#folder=11670005309&tpl=publicfoldergrid
+
+________Octulio Biletán_______
