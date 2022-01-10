@@ -1,0 +1,77 @@
+	Torrente Utilidades
+	en contínuo cambio
+	-- edición 2022 --
+
+
+modulo921 es un fichero para ser acoplado o montado en un sistema Windows.
+
+<< Area de descarga >>
+https://u.pcloud.link/publink/show?code=kZ4I1h7Z5TAxbJqo2i0JgaDaBWkvm5DOKvQ7&lang=es#folder=11670005309&tpl=publicfoldergrid
+
+Para comprobar la integridad de modulo921.vhd después de haberlo descargado, ejecute:
+sha512sum -c modulo921.SHA512
+
+Para acoplar en Windows, ejecute los siguientes pasos:
+(1) Abrir Panel de control\Sistema y seguridad
+(2) Seleccionar Herramientas administrativas\Crear y formatear particiones del disco duro (diskmgmt.msc)
+(3) Seleccionar opción de menú de Administración de discos <Acción\Exponer VHD>
+(4) Seleccionar la ubicación del archivo modulo921.vhd en su disco duro
+    y presione botón [Examinar] luego [Abrir] y por último [Aceptar]
+
+El sistema Windows le asignará automáticamente una letra de unidad de disco, por ejemplo L:
+Y para desacoplar modulo921.vhd, ejecute los siguientes pasos:
+(1) Seleccionar 'Disco nn' que está asociado con la letra asignada, por ejemplo L:
+(2) Seleccionar opción de menú de Administración de discos <Acción\Todas las tareas\Ocultar VHD>
+(3) Presionar botón [Aceptar]
+
+____________________________________________
+Estructura jerárquica de Torrente Utilidades
+--------------------------------------------
+
+L:\
+└───base
+    ├───programa
+    │   ├───bin16
+    │   ├───bin32
+    │   └───bin64
+    ├───aplicaciones
+    ├───biblioteca
+    ├───config
+    ├───depósito
+    ├───descarga
+    ├───fuente
+    ├───imagen
+    ├───incluir
+    ├───lib
+    │   ├───bin16
+    │   ├───bin32
+    │   └───bin64
+    ├───multimedios
+    ├───red
+    ├───registro
+    ├───seguridad
+    ├───sitio
+    ├───temp
+    ├───usuario
+    │   ├───administrador
+    │   ├───supervisor
+    │   └───operador
+    ├───respaldo
+    ├───servidor
+    │   ├───ftp
+    │   └───http
+    │       └───cgi-bin
+    │           └───hola-cpp
+    │               ├───Debug
+    │               └───Release
+    └───disco
+        └───virtual
+
+___________
+Referencias
+-----------
+
+(1) https://sites.google.com/site/torrentelinux/
+(2) https://u.pcloud.link/publink/show?code=kZ4I1h7Z5TAxbJqo2i0JgaDaBWkvm5DOKvQ7&lang=es#folder=11670005309&tpl=publicfoldergrid
+
+________Octulio Biletán_______
