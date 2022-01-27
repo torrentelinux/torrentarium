@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 int lealinea(char *entrada, int max_linea);
+void direct_video(int v);
 void backspace(void);
 void tab(void);
 
@@ -91,6 +92,19 @@ void tab(void)
    gotoxy(wherex()+8, wherey());
 }
 
+/* Activa la salida por pantalla de manera directa o no
+   v = 0 desactivado
+   v = 1 activado
+ */
+void direct_video(int v)
+{
+#ifdef __WIN32__
+   _directvideo = v;  /* para compilador de 32 bits Borland C++ */
+#else
+   directvideo = v;  /* para compilador de 16 bits Borland C++ */
+#endif
+}
+
 void main(void)
 {
 	int edad = 0;
@@ -99,7 +113,7 @@ void main(void)
 	char nombre_apellido[96] = { "" };
 	char numero[3] = { "" };
 
-   directvideo = 0;
+   direct_video(0);
    clrscr();
 
    cputs("<< Ejercicio de programaci¢n C >>");
