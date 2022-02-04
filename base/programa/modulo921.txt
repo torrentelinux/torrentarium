@@ -28,7 +28,9 @@ ____________________________________________
 Estructura jerárquica de Torrente Utilidades
 --------------------------------------------
 
-L:\
+Listado de rutas de carpetas para el volumen MODULO921
+El número de serie del volumen es D602-50F1
+V:.
 └───base
     ├───programa
     │   ├───bin16
@@ -40,6 +42,8 @@ L:\
     ├───depósito
     ├───descarga
     ├───fuente
+    │   └───lib
+    │       └───CWindow
     ├───imagen
     ├───incluir
     ├───lib
@@ -64,8 +68,12 @@ L:\
     │           └───hola-cpp
     │               ├───Debug
     │               └───Release
-    └───disco
-        └───virtual
+    ├───disco
+    │   └───virtual
+    └───Proyecto
+        └───RadStudio10.2
+            └───Win32
+                └───Debug
 
 ___________
 Referencias
@@ -73,5 +81,6 @@ Referencias
 
 (1) https://sites.google.com/site/torrentelinux/
 (2) https://u.pcloud.link/publink/show?code=kZ4I1h7Z5TAxbJqo2i0JgaDaBWkvm5DOKvQ7&lang=es#folder=11670005309&tpl=publicfoldergrid
+(3) https://github.com/microsoft/ms-dos
 
 ________Octulio Biletán_______
