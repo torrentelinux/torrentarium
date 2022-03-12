@@ -1,0 +1,135 @@
+#!/usr/bin/java --source 11
+// OracleLinuxServer
+// Octulio Biletán - Marzo de 2022
+// Acopla o desacopla una imágen ISO de Oracle Linux Server en el sistema de archivos local.
+//
+// Licencia: GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007.
+// Copyright (C) 2022 - Octulio Biletán
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 3
+// of the License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+package oraclelinuxserver;
+
+import java.io.IOException;
+
+/**
+ * @author octulio
+ */
+public class OracleLinuxServer
+{
+    static int ejecutar(String prog, String args) throws IOException, InterruptedException
+    {
+        String comando = prog + " " + args;
+
+//	System.out.println(comando);
+
+        Runtime cmd = Runtime.getRuntime();
+        Process proceso = cmd.exec(comando);
+
+        return proceso.waitFor();
+    }
+
+    static int proceso(String... arg) throws IOException, InterruptedException
+    {
+        int ioerr;
+
+        ioerr = new ProcessBuilder(arg).inheritIO().start().waitFor();
+	return ioerr;
+    }
+
+    static int sistema(String args) throws IOException, InterruptedException
+    {
+		int estado;
+ 
+        // Abre una ventana consola y ejecuta los comandos pasados en 'args'.
+        estado = proceso("/usr/bin/bash", "-c", args);  
+
+        return estado;
+    }
+
+    static int acoplar(String params) throws IOException, InterruptedException 
+    {
+        String aplic = "mount";
+
+        return ejecutar(aplic, params);
+    }
+
+
+    static int desacoplar(String params) throws IOException, InterruptedException 
+    {
+        String aplic = "umount";
+
+        return ejecutar(aplic, params);
+    }
+
+    static int consultarImagen(String args) throws IOException, InterruptedException 
+    {
+        String params = "/usr/bin/mount|/usr/bin/grep";
+        params = params + " " + args;
+
+        return sistema(params);
+    }
+
+    /**
+     * @param args the command line arguments
+     * @throws java.io.IOException
+     * @throws java.lang.InterruptedException
+     */
+    public static void main(String[] args) throws IOException, InterruptedException 
+    {
+        int estado;
+
+        if(args.length > 0)
+        {
+            if( args[0].equals("acoplar") )
+            {
+                // El usuario puede cambiar en las siguientes líneas el nombre completo de la imágen ISO que desea montar/acoplar.
+                System.out.println("Acoplando iso DVD Oracle Linux R7-U9 Server...");
+                estado = acoplar("-v -t auto /base/imagen/Oracle/OracleLinux-R7-U9-Server-x86_64-dvd.iso /base/disco/imagen/");
+
+                System.out.println("status=" + estado);
+            }
+            else
+              if(args[0].equals("desacoplar"))
+              {
+                // El usuario puede cambiar el nombre de la imagen ISO por otra de su criterio personal.
+                System.out.println("Desacoplando iso DVD Oracle Linux R7-U9 Server...");
+                estado = desacoplar("-v /base/disco/imagen/");
+
+                System.out.println("status=" + estado);
+              }
+              else
+                if(args[0].equals("ayuda"))
+		{
+		  System.out.println("Uso: OracleLinuxServer [ayuda | acoplar | desacoplar]");
+		  System.out.println("Descripción: Acopla o desacopla la imagen ISO de Oracle Linux Server en el sistema de archivos local.");
+		  System.out.println("La imagen ISO para acoplar debe estar ubicada en /base/imagen/Oracle/");
+		  System.out.println("y se acopla en /base/disco/imagen/");
+		}
+		else
+		  System.err.println("Opción incorrecta. Escriba ayuda para conocer sus opciones válidas.");
+        }
+        else
+        {
+          System.out.println("OracleLinuxServer:\n");
+
+          estado = consultarImagen("imagen");
+          if(estado > 0)
+            System.out.println("Imagen ISO no acoplada.\nstatus=" + estado);
+          else
+            System.out.println("Imagen ISO acoplada.");
+        }
+    }
+}
