@@ -1,0 +1,23 @@
+#!/bin/sh
+# De.: Comprueba si estás en red.
+# Uso: hay-red
+# Ej.: hay-red
+# Au.: Octulio Biletán - torrentelinux@gmail.com
+
+echo "<<Estado actual de su conexión de red>>"
+echo "Aguarde un momento... "$LOGNAME
+destino='one.one.one.one'
+status=`ping -q -c 7 $destino`
+if [ "$status" = "" ] ; then
+    nmcli -c yes g permissions
+    nmcli -c yes g
+    echo "No hay red hacia el destino "$destino
+else
+    nmcli -c yes g
+    nmcli n connectivity check
+    echo $status
+    echo "<<Direcciones IP activas>>"
+    ip address|grep global
+    echo "Sí hay red."
+fi
+echo Listo $LOGNAME.
