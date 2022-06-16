@@ -5,7 +5,7 @@
 //            Puede modificar la dir. IP y el nº de puerto.
 // Observac.: Para Embarcadero RadStudio 10.2 y versiones superiores.
 //---------------------------------------------------------------------------
-//---------------------------------------------------------------------
+
 #include <tchar.h>
 #include <vcl.h>
 #include <sstream>

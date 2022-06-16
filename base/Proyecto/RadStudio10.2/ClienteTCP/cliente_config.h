@@ -1,4 +1,11 @@
+// Encabezamiento: cliente_config.h
+// Autor: Edmund Muslok -- Mayo de 2022.
+// Propósito: Cliente de TCP que se comunica con un servidor TCP por el puerto 337.
+//            Define la ventana Ajustes.
+//            Puede modificar la dir. IP y el nº de puerto.
+// Observac.: Para Embarcadero RadStudio 10.2 y versiones superiores.
 //----------------------------------------------------------------------------
+
 #ifndef cliente_configH
 #define cliente_configH
 //----------------------------------------------------------------------------
