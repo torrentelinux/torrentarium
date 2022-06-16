@@ -1,6 +1,6 @@
 // cliente_tcp.h
 // Edmund Muslok -- Mayo de 2022
-// Cliente de TCP que se comunica con un servidor TCP por el puerto 337
+// Cliente de TCP que se comunica con un servidor TCP por el puerto 337.
 //---------------------------------------------------------------------------
 
 #ifndef cliente_tcpH
