@@ -1,6 +1,10 @@
-// cliente_tcp.cpp
-// Edmund Muslok -- Mayo de 2022
-// Cliente de TCP que se comunica con un servidor TCP por el puerto 337
+// Módulo: cliente_tcp.cpp
+// Autor: Edmund Muslok -- Mayo de 2022
+// Propósito: Cliente de TCP que se comunica con un servidor TCP por el puerto 337.
+//            Define la ventana Cliente TCP.
+//            Puede enviar un mensaje de texto al servidor destino para que sea procesado
+//            y emita una respuesta inmediata hacia el cliente.
+// Observac.: Para Embarcadero RadStudio 10.2 y versiones superiores.
 //---------------------------------------------------------------------------
 
 #include <tchar.h>
@@ -18,6 +22,9 @@ TfrmClienteTCP *frmClienteTCP;
 __fastcall TfrmClienteTCP::TfrmClienteTCP(TComponent* Owner)
 	: TForm(Owner)
 {
+   SocketCliente->Address = "127.0.0.1";
+   SocketCliente->Port = 337;
+
    edtComando->Enabled = false;
    btnEnviar->Enabled = false;
 }
@@ -27,8 +34,6 @@ void __fastcall TfrmClienteTCP::btnConectarClick(TObject *Sender)
 {
    // Activa la conexión cliente hacia el servidor
    SocketCliente->Active = true;
-   SocketCliente->Address = "127.0.0.1";
-   SocketCliente->Port = 337;
 
    edtComando->Enabled = true;
    btnEnviar->Enabled = true;
@@ -61,6 +66,7 @@ void __fastcall TfrmClienteTCP::btnEnviarClick(TObject *Sender)
 
    // Envía al servidor el mensaje
    SocketCliente->Socket->SendText(texto);
+   mmSalida->Lines->Append("------\r\n");
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmClienteTCP::btnBorrarClick(TObject *Sender)
@@ -77,14 +83,16 @@ void __fastcall TfrmClienteTCP::btnSalirClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TfrmClienteTCP::SocketClienteConnecting(TObject *Sender, TCustomWinSocket *Socket)
 {
-   mmSalida->Text = mmSalida->Text + "Conectando al servidor.\r\n";
+   mmSalida->Text = mmSalida->Text + "Conectando al servidor "+ SocketCliente->Address +" ...\r\n";
    btnConectar->Caption = "[Desconectar]";
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmClienteTCP::SocketClienteDisconnect(TObject *Sender, TCustomWinSocket *Socket)
 {
-   mmSalida->Text = mmSalida->Text + "Desconectado.\r\n";
    SocketCliente->Close();
+
+   mmSalida->Text = mmSalida->Text + "Desconectado.\r\n";
+   mmSalida->Lines->Append("------\r\n");
 
    btnEnviar->Enabled = false;
    edtComando->Enabled = false;
@@ -150,7 +158,15 @@ void __fastcall TfrmClienteTCP::btnConfigClick(TObject *Sender)
 	String salida;
 
    respuesta = DlgAjustes->ShowModal();
-   salida = respuesta + " " + DlgAjustes->DirIP + " " + DlgAjustes->mePuerto->Text;
+   if(respuesta == 1)
+   {
+     salida = "Dirección IP:Puerto TCP = " + DlgAjustes->DirIP + ":" + DlgAjustes->PuertoTCP;
+
+     SocketCliente->Address = DlgAjustes->DirIP;
+     SocketCliente->Port = DlgAjustes->PuertoTCP.ToInt();
+   }
+   else
+     salida = "No hubo cambios en Dirección IP:Puerto TCP";
 
    mmSalida->Text = mmSalida->Text + salida;
    mmSalida->Lines->Append("-------\r\n");

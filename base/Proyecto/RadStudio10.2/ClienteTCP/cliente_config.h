@@ -26,11 +26,14 @@ __published:
 	TStaticText *StaticText2;
 	TMaskEdit *mePuerto;
 	TStatusBar *StatusBar1;
+	TButton *btnBorrar;
 	void __fastcall OKBtnClick(TObject *Sender);
 	void __fastcall CancelBtnClick(TObject *Sender);
+	void __fastcall btnBorrarClick(TObject *Sender);
 private:
 public:
-        String DirIP;
+	String DirIP;
+        String PuertoTCP;
 	virtual __fastcall TDlgAjustes(TComponent* AOwner);
 };
 //----------------------------------------------------------------------------

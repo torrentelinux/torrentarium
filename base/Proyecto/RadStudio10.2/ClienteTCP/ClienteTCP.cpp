@@ -1,12 +1,15 @@
 // Programa: ClienteTCP.cpp
 // Autor: Edmund Muslok -- Mayo de 2022.
 // Propósito: Cliente de TCP que se comunica con un servidor TCP por el puerto 337.
+//            El nº de puerto puede ser cambiado durante la ejecución de ClienteTCP.EXE
 // Observac.: Para Embarcadero RadStudio 10.2 y versiones superiores.
 //---------------------------------------------------------------------------
 
 #include <tchar.h>
 #include <vcl.h>
 //---------------------------------------------------------------------------
+#include <Vcl.Styles.hpp>
+#include <Vcl.Themes.hpp>
 USEFORM("cliente_tcp.cpp", frmClienteTCP);
 USEFORM("cliente_config.cpp", DlgAjustes);
 //---------------------------------------------------------------------------
@@ -16,6 +19,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
+		TStyleManager::TrySetStyle("Glossy");
 		Application->CreateForm(__classid(TfrmClienteTCP), &frmClienteTCP);
 		Application->CreateForm(__classid(TDlgAjustes), &DlgAjustes);
 		Application->Run();
