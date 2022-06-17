@@ -1,0 +1,36 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{5921702C-BBEA-49FE-83E5-87342251CCF2}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="ClienteTCP.cbproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ClienteTCP">
+			<MSBuild Projects="ClienteTCP.cbproj"/>
+		</Target>
+		<Target Name="ClienteTCP:Clean">
+			<MSBuild Targets="Clean" Projects="ClienteTCP.cbproj"/>
+		</Target>
+		<Target Name="ClienteTCP:Make">
+			<MSBuild Targets="Make" Projects="ClienteTCP.cbproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ClienteTCP"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ClienteTCP:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ClienteTCP:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
