@@ -36,4 +36,3 @@ Visitar directorio:<br>
 Ultima actualización: 15-Jul-2022.<br>
 
 Desarrollador principal: <a href="https://ar.linkedin.com/in/eugenio-mart%C3%ADnez-ob1">Eugenio Martínez</a>[<a href="https://www.bing.com/search?q=octulio+bilet%C3%A1n">Octulio Biletán</a>][Edmund Muslok].<br>
-Dirección de contacto: torrentelinux@gmail.com<br>
