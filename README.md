@@ -33,7 +33,7 @@ Visitar directorio:<br>
 ** https://github.com/torrentelinux/torrentarium/tree/master/base/programa/<br>
 
 <b>Importante:</b> aquí noy hay código fuente en Pascal. Ver fichero "error-github.png".<br>
-Ultima actualización: 18-Jun-2022.<br>
+Ultima actualización: 15-Jul-2022.<br>
 
 Desarrollador principal: <a href="https://ar.linkedin.com/in/eugenio-mart%C3%ADnez-ob1">Eugenio Martínez</a>[<a href="https://www.bing.com/search?q=octulio+bilet%C3%A1n">Octulio Biletán</a>][Edmund Muslok].<br>
 Dirección de contacto: torrentelinux@gmail.com<br>
