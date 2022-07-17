@@ -12,7 +12,17 @@
 
 #if defined(__linux__)
 #  include <unistd.h>
-#else
+#endif
+
+#if defined(__CYGWIN__)
+#  include <unistd.h>
+#endif
+
+#if defined(__BORLANDC__)
+#  include <dos.h>
+#endif
+
+#if defined(_Windows)
 #  include <windows.h>
 #  include <synchapi.h>
 #endif
@@ -55,7 +65,7 @@ int main()
 	for(int b = 0; b < nroBancos; b++)
 	{
 	  cout << "Banco nro. " << b << endl;
-	
+
 	  banco[b].memoria = new unsigned char[tope];
 	  for(i = 0; i < tope; i++)
 	    banco[b].memoria[i] = '0';
