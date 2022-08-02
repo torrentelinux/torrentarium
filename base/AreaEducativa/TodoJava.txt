@@ -1,0 +1,160 @@
+***										***
+	Todo lo que se necesita para aprender/estudiar/investigar/enseñar
+			el lenguaje de programación Java
+***										***
+
+
+Sitio oficial de Java:
+http://www.java.com
+
+Java para desarolladores: para conseguir los paquetes Java Platform (JDK) y/o NetBeans IDE con JDK.
+http://www.oracle.com/technetwork/es/java/javase/downloads/index.html
+
+Punto base de toda la documentación que Oracle ofrece sobre Java:
+http://docs.oracle.com/javase/8/docs
+
+Los tutoriales de Java:
+http://docs.oracle.com/javase/tutorial/getStarted/index.html
+
+Programa "Hola a todos" para Windows:
+http://docs.oracle.com/javase/tutorial/getStarted/cupojava/win32.html
+
+Explicación de los mensajes típicos de errores en Windows que aparecen
+durante la compilación de código Java:
+http://docs.oracle.com/javase/tutorial/getStarted/problems/index.html
+
+Jar to Exe: convierte ficheros .jar a .exe
+	(1) http://www.jar2exe.com/
+	(2) http://launch4j.sourceforge.net/
+
+Navegadores de páginas HTML a usar:
+        Seamonkey de Mozilla.
+        Firefox de Mozilla.
+        Slimjet de FlashPeak.
+        Vivaldi Technologies AS.
+        UC Browser de UCWeb Inc.
+        Internet Explorer de Windows.
+        Chrome de Google.
+
+Editor de textos para programadores: Notepad2
+http://www.flos-freeware.ch/notepad2.html
+
+Intérprete de comandos avanzado para programadores/administradores 'Take Command'.
+https://jpsoft.com/
+
+Buscar ejemplos sencillos de programas en Java:
+En Google.com, escribir lo siguiente:
+        (1) ejemplos sencillos de programas en java
+        (2) como comparar cadenas de caracteres en java
+Y mostrará en nuestro navegador los resultados encontrados tras hacer esta consulta.
+
+Sitio para aprender/estudiar sobre programación en Java, HTML, SQL y Android
+http://www.edu4java.com/es/index.html
+
+Sitio con contenidos sobre programación en lenguaje Java:
+http://www.sanfoundry.com
+
+Ejemplos de programación en Java:
+https://www.sanfoundry.com/java-programming-examples/
+
+Sitio de IBM con mucha información sobre Java:
+https://www.ibm.com/developerworks/ssa/java/newto/index.html
+
+Netbeans IDE: Entorno de desarrollo para programar con JDK de Oracle.
+http://www.oracle.com/technetwork/es/java/javase/downloads/jdk-netbeans-jsp-3413139-esa.html
+
+Oracle JDeveloper IDE: Entorno de desarrollo para programar con JDK de Oracle.
+http://www.oracle.com/technetwork/developer-tools/jdev/overview/index.html
+http://download.oracle.com/otn/java/jdeveloper/12.2.1.3.0/jdev_suite_122130.jar
+http://download.oracle.com/otn/java/jdeveloper/12.2.1.3.0/jdev_suite_122130_linux64.bin
+
+Oracle JDeveloper Studio Edition 12.2.1.4.0 - edición completa -
+Oracle JDeveloper Java Edition 12.2.1.4.0 - edición portable -
+https://www.oracle.com/ar/tools/downloads/jdeveloper-12c-downloads.html
+
+https://www.oracle.com/ar/database/technologies/jdeveloper-extensions.html
+https://www.oracle.com/ar/tools/downloads/application-development-framework-downloads.html
+
+https://www.excelsior-usa.com/articles/java-to-exe.html
+
+Netbeans+Java para Windows/Linux:
+http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html
+
+Bluej IDE: Entorno de desarrollo para programar en Java con el apoyo de Oracle.
+https://bluej.org/
+https://www.bluej.org/doc/documentation.html
+
+Nitro PDF: Lector de ficheros .pdf e impresora virtual.
+http://www.nitropdf.com
+
+Curso de Java: Angel Franco Garcia.
+http://www.sc.ehu.es/sbweb/fisica_/java/java.xhtml
+
+Buscar texto en la internet
+https://www.bing.com/search?q=find+text+in+files+java+String+class&qs=n&form=QBRE&sp=-1&pq=find+text+in+files+java+string+class&sc=1-36&sk=&cvid=82BD073B7BE14550B05122A3F2475D72
+
+Search for string in text file in Java
+https://technojeeves.com/index.php/aliasjava1/71-search-for-string-in-text-file-in-java
+
+Apache NetBeans 12.1 para Windows/Linux:
+https://netbeans.apache.org/download/nb121/nb121.html
+
+-------------------------------------------------
+Documentación de Oracle JDK 9:
+https://docs.oracle.com/javase/9/index.html
+
+Documentación de Java SE/SDK 9:
+https://docs.oracle.com/javase/9/docs/api/overview-summary.html
+---------------------------------------------------------------
+Portal de Oracle Java, Argentina:
+https://www.oracle.com/ar/java/index.html
+---------------------------------------------------------------
+Tutorial sobre ventanas de diálogos: How To Make Dialogs.
+https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html
+---------------------------------------------------------------
+Documentación de ayuda: método printf()
+https://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html#printf-java.lang.String-java.lang.Object...-
+https://docs.oracle.com/javase/10/docs/api/java/io/PrintStream.html#printf%28java.lang.String,java.lang.Object...%29
+---------------------------------------------------------------
+Java® Platform, Standard Edition & Java Development Kit
+Version 10 API Specification:
+https://docs.oracle.com/javase/10/docs/api/overview-summary.html
+---------------------------------------------------------------
+NetBeans Developing Applications with NetBeans IDE:
+https://docs.oracle.com/netbeans/nb82/netbeans/NBDAG/toc.htm
+---------------------------------------------------------------
+Cómo realizar cambios en la apariencia gráfica de un programa Java:
+https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+---------------------------------------------------------------
+Java Deploy
+https://netbeans.org/kb/articles/javase-deploy.html
+---------------------------------------------------------------
+Programación de Sockets en Java
+https://docs.oracle.com/javase/tutorial/networking/sockets/readingWriting.html
+https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/networking/sockets/examples/EchoClient.java
+https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/networking/sockets/examples/EchoServer.java
+https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html
+https://datatracker.ietf.org/doc/html/rfc862
+---------------------------------------------------------------
+Developing Applications with Oracle JDeveloper
+13 Implementing Java Swing User Interfaces:
+https://docs.oracle.com/en/middleware/developer-tools/jdeveloper/12.2.1.4/user-guide/implementing-java-swing-user-interfaces.html
+---------------------------------------------------------------
+TServer: servidor de tiempo
+https://github.com/torrentelinux/torrentarium/wiki/TServer:-servidor-de-tiempo
+
+Colección de aplicaciones escritas en C, C++, Java y Vala
+https://github.com/torrentelinux/torrentarium
+---------------------------------------------------------------
+Colores
+https://www.javatpoint.com/java-color-codes
+
+Opciones de menú
+https://www.javatpoint.com/java-jmenuitem-and-jmenu
+---------------------------------------------------------------
+
+
+_________
+Documento
+	Creado por: Octulio Biletán <-> torrentelinux@gmail.com <-> sites.google.com/site/torrentewindows/home
+	Fecha: 07:11 p.m. martes, 02 de agosto de 2022
