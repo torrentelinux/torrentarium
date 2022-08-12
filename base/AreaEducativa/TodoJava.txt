@@ -28,13 +28,13 @@ Jar to Exe: convierte ficheros .jar a .exe
 	(2) http://launch4j.sourceforge.net/
 
 Navegadores de páginas HTML a usar:
-        Seamonkey de Mozilla.
+        Seamonkey de Mozilla.		--> el más recomendado.
         Firefox de Mozilla.
         Slimjet de FlashPeak.
         Vivaldi Technologies AS.
         UC Browser de UCWeb Inc.
         Internet Explorer de Windows.
-        Chrome de Google.
+        Chrome de Google.		--> el menos recomendado.
 
 Editor de textos para programadores: Notepad2
 http://www.flos-freeware.ch/notepad2.html
@@ -59,10 +59,29 @@ https://www.sanfoundry.com/java-programming-examples/
 
 Sitio de IBM con mucha información sobre Java:
 https://www.ibm.com/developerworks/ssa/java/newto/index.html
-
+---------------------------------------------------------------
 Netbeans IDE: Entorno de desarrollo para programar con JDK de Oracle.
+https://www.oracle.com/tools/technologies/netbeans-ide.html
 http://www.oracle.com/technetwork/es/java/javase/downloads/jdk-netbeans-jsp-3413139-esa.html
 
+Apache NetBeans 12.1 para Windows/Linux:
+https://netbeans.apache.org/download/nb121/nb121.html
+
+Java Deploy
+https://netbeans.org/kb/articles/javase-deploy.html
+
+Netbeans archive
+https://archive.apache.org/dist/netbeans/
+
+Netbeans+Java para Windows/Linux:
+http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html
+
+NetBeans Developing Applications with NetBeans IDE:
+https://docs.oracle.com/netbeans/nb82/netbeans/NBDAG/toc.htm
+---------------------------------------------------------------
+Java archive
+https://www.oracle.com/java/technologies/downloads/archive/
+---------------------------------------------------------------
 Oracle JDeveloper IDE: Entorno de desarrollo para programar con JDK de Oracle.
 http://www.oracle.com/technetwork/developer-tools/jdev/overview/index.html
 http://download.oracle.com/otn/java/jdeveloper/12.2.1.3.0/jdev_suite_122130.jar
@@ -76,9 +95,6 @@ https://www.oracle.com/ar/database/technologies/jdeveloper-extensions.html
 https://www.oracle.com/ar/tools/downloads/application-development-framework-downloads.html
 
 https://www.excelsior-usa.com/articles/java-to-exe.html
-
-Netbeans+Java para Windows/Linux:
-http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html
 
 Bluej IDE: Entorno de desarrollo para programar en Java con el apoyo de Oracle.
 https://bluej.org/
@@ -95,10 +111,6 @@ https://www.bing.com/search?q=find+text+in+files+java+String+class&qs=n&form=QBR
 
 Search for string in text file in Java
 https://technojeeves.com/index.php/aliasjava1/71-search-for-string-in-text-file-in-java
-
-Apache NetBeans 12.1 para Windows/Linux:
-https://netbeans.apache.org/download/nb121/nb121.html
-
 -------------------------------------------------
 Documentación de Oracle JDK 9:
 https://docs.oracle.com/javase/9/index.html
@@ -120,14 +132,8 @@ Java® Platform, Standard Edition & Java Development Kit
 Version 10 API Specification:
 https://docs.oracle.com/javase/10/docs/api/overview-summary.html
 ---------------------------------------------------------------
-NetBeans Developing Applications with NetBeans IDE:
-https://docs.oracle.com/netbeans/nb82/netbeans/NBDAG/toc.htm
----------------------------------------------------------------
 Cómo realizar cambios en la apariencia gráfica de un programa Java:
 https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
----------------------------------------------------------------
-Java Deploy
-https://netbeans.org/kb/articles/javase-deploy.html
 ---------------------------------------------------------------
 Programación de Sockets en Java
 https://docs.oracle.com/javase/tutorial/networking/sockets/readingWriting.html
@@ -152,9 +158,15 @@ https://www.javatpoint.com/java-color-codes
 Opciones de menú
 https://www.javatpoint.com/java-jmenuitem-and-jmenu
 ---------------------------------------------------------------
+--JSP Tutorial--
+https://www.javaguides.net/2019/01/jsp-jdbc-mysql-example.html
+https://github.com/RameshMF/JSP-Tutorial
+---------------------------------------------------------------
+Eclipse IDE
+https://eclipseide.org/release/
 
 
 _________
 Documento
 	Creado por: Octulio Biletán <-> torrentelinux@gmail.com <-> sites.google.com/site/torrentewindows/home
-	Fecha: 07:11 p.m. martes, 02 de agosto de 2022
+	Fecha: 12:33 p.m. viernes, 12 de agosto de 2022.
