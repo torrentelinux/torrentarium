@@ -33,12 +33,26 @@ Navegadores de páginas HTML a usar:
         Slimjet de FlashPeak.
         Vivaldi Technologies AS.
         UC Browser de UCWeb Inc.
+	Microsoft Edge.
         Internet Explorer de Windows.
         Chrome de Google.		--> el menos recomendado.
+---------------------------------------------------------------
+Editores de textos para programadores
+    Notepad2:
+    http://www.flos-freeware.ch/notepad2.html
 
-Editor de textos para programadores: Notepad2
-http://www.flos-freeware.ch/notepad2.html
+    Sublime:
+    https://www.sublimetext.com/
+    En Wikipedia:
+    https://es.wikipedia.org/wiki/Sublime_Text
 
+    jEdit:
+    http://www.jedit.org/index.php
+    https://sourceforge.net/projects/jedit/
+
+    Notepad++
+    https://notepad-plus-plus.org/
+---------------------------------------------------------------
 Intérprete de comandos avanzado para programadores/administradores 'Take Command'.
 https://jpsoft.com/
 
@@ -47,7 +61,11 @@ En Google.com, escribir lo siguiente:
         (1) ejemplos sencillos de programas en java
         (2) como comparar cadenas de caracteres en java
 Y mostrará en nuestro navegador los resultados encontrados tras hacer esta consulta.
-
+Otros buscadores:
+    https://search.slimjet.org/en/index.php
+    https://duckduckgo.com/
+    https://www.bing.com
+    
 Sitio para aprender/estudiar sobre programación en Java, HTML, SQL y Android
 http://www.edu4java.com/es/index.html
 
@@ -169,4 +187,4 @@ https://eclipseide.org/release/
 _________
 Documento
 	Creado por: Octulio Biletán <-> torrentelinux@gmail.com <-> sites.google.com/site/torrentewindows/home
-	Fecha: 12:33 p.m. viernes, 12 de agosto de 2022.
+	Fecha: 04:15 p.m. viernes, 12 de agosto de 2022.
