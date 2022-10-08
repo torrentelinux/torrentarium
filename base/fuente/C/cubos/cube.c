@@ -1,11 +1,13 @@
 /* cube.c
- Compilar en Cygwin64: gcc cube.c -s -v -o cube.exe
+>Compilar en Cygwin64: gcc cube.c -s -v -o cube.exe
  Guardar el fuente en codificaci¢n OEM/850 y modificar el fondo con
  c¢digos en el rango 128~255. Dejar sin cambios en la localizaci¢n 'C'.
  En la consola de textos bash:
  Ir a Options/Text y efectuar cambios en "Locale" y "Character set".
  Para detener la ejecuci¢n: Ctrl+C.
- Ajustes realizados por Octulio Bilet n para Cygwin/Windows 32/64 bits.
+>Compilar en CentOS Linux: gcc cube.c -std=gnu99 -lm -s -v -o cube
+ Ajustes realizados por Octulio Bilet n para Cygwin/Windows 32/64 bits
+ y para CentOS Linux.
  Referencias:
 	https://github.com/servetgulnaroglu/cube.c/blob/master/cube.c
 */
