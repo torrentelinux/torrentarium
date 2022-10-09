@@ -73,17 +73,19 @@ void calculateForSurface(float cubeX, float cubeY, float cubeZ, int ch) {
 }
 
 int main() {
+  /* Borra la pantalla */
   printf("\x1b[2J");
+
   while (1) {
     memset(buffer, backgroundASCIICode, width * height);
     memset(zBuffer, 0, width * height * 4);
-    cubeWidth = 20;
-    horizontalOffset = -2 * cubeWidth;
+    cubeWidth = 23;
+    horizontalOffset = -1 * cubeWidth;
     // first cube
     for (float cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) {
       for (float cubeY = -cubeWidth; cubeY < cubeWidth;
            cubeY += incrementSpeed) {
-        calculateForSurface(cubeX, cubeY, -cubeWidth, '@');
+        calculateForSurface(cubeX, cubeY, -cubeWidth, 'x');
         calculateForSurface(cubeWidth, cubeY, cubeX, '$');
         calculateForSurface(-cubeWidth, cubeY, -cubeX, '~');
         calculateForSurface(-cubeX, cubeY, cubeWidth, '#');
@@ -91,8 +93,9 @@ int main() {
         calculateForSurface(cubeX, cubeWidth, cubeY, '+');
       }
     }
+
     cubeWidth = 10;
-    horizontalOffset = 1 * cubeWidth;
+    horizontalOffset = 3 * cubeWidth;
     // second cube
     for (float cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) {
       for (float cubeY = -cubeWidth; cubeY < cubeWidth;
@@ -105,8 +108,9 @@ int main() {
         calculateForSurface(cubeX, cubeWidth, cubeY, '+');
       }
     }
+
     cubeWidth = 5;
-    horizontalOffset = 8 * cubeWidth;
+    horizontalOffset = 11 * cubeWidth;
     // third cube
     for (float cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) {
       for (float cubeY = -cubeWidth; cubeY < cubeWidth;
