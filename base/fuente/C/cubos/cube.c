@@ -9,7 +9,9 @@
  Ajustes realizados por Octulio Bilet n para Cygwin/Windows 32/64 bits
  y para CentOS Linux.
  Referencias:
+	man screen (UNIX/Linux)
 	https://github.com/servetgulnaroglu/cube.c/blob/master/cube.c
+	https://en.wikipedia.org/wiki/ANSI_escape_code
 */
 
 #include <math.h>
@@ -123,8 +125,11 @@ int main() {
         calculateForSurface(cubeX, cubeWidth, cubeY, '+');
       }
     }
+
+    /* Coloca el cursor en la posici¢n superior izquierda */
     printf("\x1b[H");
     for (int k = 0; k < width * height; k++) {
+
       putchar(k % width ? buffer[k] : 10);
     }
 
