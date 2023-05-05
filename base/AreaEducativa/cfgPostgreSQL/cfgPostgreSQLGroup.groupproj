@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D79B8F72-3FE4-4BA7-A036-91FA0B4059B7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="cfgPostgres.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="cfgPG.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="cfgPostgres">
+        <MSBuild Projects="cfgPostgres.cbproj"/>
+    </Target>
+    <Target Name="cfgPostgres:Clean">
+        <MSBuild Projects="cfgPostgres.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cfgPostgres:Make">
+        <MSBuild Projects="cfgPostgres.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="cfgPG">
+        <MSBuild Projects="cfgPG.cbproj"/>
+    </Target>
+    <Target Name="cfgPG:Clean">
+        <MSBuild Projects="cfgPG.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cfgPG:Make">
+        <MSBuild Projects="cfgPG.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="cfgPostgres;cfgPG"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="cfgPostgres:Clean;cfgPG:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="cfgPostgres:Make;cfgPG:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
