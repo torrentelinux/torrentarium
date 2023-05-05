@@ -2,7 +2,9 @@
 // formPrincipal.cpp
 // Octulio Biletán * Mayo de 2023
 // Modelo Educativo de aplicación para Windows.
-// Lee fichero postgresql.conf
+// Lee fichero postgresql.conf y muestra sus opciones en un formulario.
+// Compilador C++ utilizado en Windows: Embarcadero C++ Builder 10.2.
+
 
 #include <vcl.h>
 #pragma hdrstop
