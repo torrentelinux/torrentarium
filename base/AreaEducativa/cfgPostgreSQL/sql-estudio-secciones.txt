@@ -1,0 +1,33 @@
+[1]Archivo de configuración postgresql.conf en Windows: PostgreSQL Configuration File.
+c:\Bitnami\wappstack-7.1.18-1\postgresql\data\
+Secciones
+	FILE LOCATIONS
+	CONNECTIONS AND AUTHENTICATION
+	RESOURCE USAGE (except WAL)
+	WRITE-AHEAD LOG
+	REPLICATION
+	QUERY TUNING
+	REPORTING AND LOGGING
+	PROCESS TITLE
+	STATISTICS
+	AUTOVACUUM
+	CLIENT CONNECTION DEFAULTS
+	LOCK MANAGEMENT
+	VERSION AND PLATFORM COMPATIBILITY
+	ERROR HANDLING
+	CONFIG FILE INCLUDES
+	CUSTOMIZED OPTIONS
+
+[2]Archivo de configuración pg_hba.conf en Windows: PostgreSQL Client Authentication Configuration File.
+c:\Bitnami\wappstack-7.1.18-1\postgresql\data\
+(hba=host-based authentication=autenticación basada en el equipo).
+Secciones
+	IPv4 local connections
+	IPv6 local connections
+	Replication connections
+
+[3]Referencias
+https://runebook.dev/es/docs/postgresql/auth-pg-hba-conf
+https://www.postgresql.org/docs/current/runtime-config-connection.html
+______________________
+Octulio Biletán * 05:54 p.m. jueves, 20 de abril de 2023
