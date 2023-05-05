@@ -1,4 +1,4 @@
-[1]Archivo de configuraci髇 postgresql.conf en Windows: PostgreSQL Configuration File.
+[1]Archivo de configuraci贸n postgresql.conf en Windows: PostgreSQL Configuration File.
 c:\Bitnami\wappstack-7.1.18-1\postgresql\data\
 Secciones
 	FILE LOCATIONS
@@ -18,9 +18,9 @@ Secciones
 	CONFIG FILE INCLUDES
 	CUSTOMIZED OPTIONS
 
-[2]Archivo de configuraci髇 pg_hba.conf en Windows: PostgreSQL Client Authentication Configuration File.
+[2]Archivo de configuraci贸n pg_hba.conf en Windows: PostgreSQL Client Authentication Configuration File.
 c:\Bitnami\wappstack-7.1.18-1\postgresql\data\
-(hba=host-based authentication=autenticaci髇 basada en el equipo).
+(hba=host-based authentication=autenticaci贸n basada en el equipo).
 Secciones
 	IPv4 local connections
 	IPv6 local connections
@@ -33,4 +33,4 @@ https://www.postgresql.org/docs/current/runtime-config-connection.html
 [4] Herramienta de programaci贸n:
 Embarcadero Rad Studio 10.2 para Windows, lenguaje C++.
 ______________________
-Octulio Bilet醤 * 05:54 p.m. jueves, 20 de abril de 2023
+Octulio Bilet谩n * 05:54 p.m. jueves, 20 de abril de 2023
