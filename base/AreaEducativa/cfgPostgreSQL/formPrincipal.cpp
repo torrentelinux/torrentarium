@@ -5,7 +5,6 @@
 // Lee fichero postgresql.conf y muestra sus opciones en un formulario.
 // Compilador C++ utilizado en Windows: Embarcadero C++ Builder 10.2.
 
-
 #include <vcl.h>
 #pragma hdrstop
 
@@ -13,7 +12,7 @@
 #include "ConfigFile.h"
 
 // Funciones de cfgPG.dll
-__declspec(dllimport) String ayudaGeneral(void);
+#include "cfgPGSQL.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -125,4 +124,3 @@ void __fastcall TfrmPrincipal::btnAyudaClick(TObject *Sender)
 
 }
 //---------------------------------------------------------------------------
-

@@ -3,7 +3,7 @@
 // Modelo Educativo de aplicación para Windows.
 // Lee ficheros .conf
 // Delara la clase TConfigFile.
-
+// Forma parte del proyecto cfgPostgres.cbproj
 
 #include <vcl.h>
 

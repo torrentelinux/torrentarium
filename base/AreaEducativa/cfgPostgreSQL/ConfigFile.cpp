@@ -3,11 +3,11 @@
 // Modelo Educativo de aplicación para Windows.
 // Define las funciones miembros de la clase TConfigFile.
 
-
 #ifndef UNICODE
 #define UNICODE
 #endif
 
+#include <vcl.h>
 #include <stdio.h>
 #include "ConfigFile.h"
 

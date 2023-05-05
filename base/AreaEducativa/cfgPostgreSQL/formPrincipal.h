@@ -1,4 +1,14 @@
 //---------------------------------------------------------------------------
+// Encabezamiento: formPrincipal.h
+// Autor: Octulio Biletán * Mayo de 2023
+// Propósito:
+// Permite hacer modificaciones sobre el archivo de configuración de PostgreSQL.
+// Declaración de la clase TfrmPrincipal.
+// Fichero c:\Bitnami\wappstack-x.x.xx-x\postgresql\data\postgresql.conf.
+// Modelo Educativo de aplicación para Windows.
+// Forma parte del proyecto cfgPostgres.cbproj.
+// Compilador C++: Embarcadero C++ Builder 10.2 para Windows.
+//---------------------------------------------------------------------------
 
 #ifndef formPrincipalH
 #define formPrincipalH
@@ -17,6 +27,9 @@ class TfrmPrincipal : public TForm
 {
 __published:	// IDE-managed Components
 	TButton *btnCerrar;
+	TButton *btnSeleccionar1;
+	TButton *btnSeleccionar2;
+	TButton *btnAyuda;
 	TStatusBar *stbEstado;
 	TPageControl *PageControlPrincipal;
 	TTabSheet *Hoja1;
@@ -26,21 +39,18 @@ __published:	// IDE-managed Components
 	TTabSheet *Hoja5;
 	TStaticText *StaticText1;
 	TStaticText *StaticText2;
+	TStaticText *StaticText3;
+	TLabel *Label1;
+	TLabel *Label2;
+	TLabel *Label3;
 	TOpenTextFileDialog *dlgAbrirConfig;
-	TButton *btnSeleccionar1;
 	TEdit *edtLinea1;
 	TEdit *edtLinea2;
-	TButton *btnSeleccionar2;
-	TStaticText *StaticText3;
 	TEdit *edtListenAddr;
-	TLabel *Label1;
 	TEdit *edtPort;
-	TLabel *Label2;
 	TEdit *edtMaxConn;
-	TMemo *mmMensajes;
-	TLabel *Label3;
 	TEdit *edtShareBuff;
-	TButton *btnAyuda;
+	TMemo *mmMensajes;
 	void __fastcall btnCerrarClick(TObject *Sender);
 	void __fastcall btnSeleccionar1Click(TObject *Sender);
 	void __fastcall btnSeleccionar2Click(TObject *Sender);
