@@ -29,5 +29,8 @@ Secciones
 [3]Referencias
 https://runebook.dev/es/docs/postgresql/auth-pg-hba-conf
 https://www.postgresql.org/docs/current/runtime-config-connection.html
+
+[4] Herramienta de programaci√≥n:
+Embarcadero Rad Studio 10.2 para Windows, lenguaje C++.
 ______________________
 Octulio Bilet·n * 05:54 p.m. jueves, 20 de abril de 2023
