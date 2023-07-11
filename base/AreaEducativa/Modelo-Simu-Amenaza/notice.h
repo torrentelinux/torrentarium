@@ -1,7 +1,7 @@
-// SimulaciÛn de una eventual amenaza inform·tica/digital al sistema
+// Simulaci√≥n de una eventual amenaza inform√°tica/digital al sistema
 
 /*
-  notice.h is copyright (C) 2023 by Eugenio MartÌnez.
+  notice.h is copyright (C) 2023 by Eugenio Mart√≠nez.
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@
 //---------------------------------------------------------------------------
 class Tfrm : public TForm
 {
-__published:	// IDE-managed Components
+__published:	// Componentes gestionados por el IDE
 	TMemo *mm;
 	TButton *ttn;
 	TTimer *mr;
@@ -40,10 +40,10 @@ __published:	// IDE-managed Components
 	void __fastcall mrTimer(TObject *Sender);
 	void __fastcall mmMouseUp(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y);
 
-private:	// User declarations
+private:	// Las declaraciones del usuario - privado
 	bool estado;
 
-public:		// User declarations
+public:		// Las declaraciones del usuario - p√∫blico
 	__fastcall Tfrm(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
