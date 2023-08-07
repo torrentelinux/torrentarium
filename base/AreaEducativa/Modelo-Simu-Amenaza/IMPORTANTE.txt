@@ -1,3 +1,6 @@
 Compile este proyecto con Embarcadero RAD Studio/C++ Builder, la versión más reciente que tenga a mano.
 Esta aplicación es para prácticas de seguridad informática únicamente.
 |/*\|
+
+Sitio sobre CiberSeguridad:
+https://www.pcrisk.es/guias-de-desinfeccion/12109-rhysida-ransomware
