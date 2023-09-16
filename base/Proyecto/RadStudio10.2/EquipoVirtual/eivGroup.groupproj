@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D2E2F98D-3441-4E7E-83E5-58C3995D5891}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="eiv.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="eiv">
+        <MSBuild Projects="eiv.cbproj"/>
+    </Target>
+    <Target Name="eiv:Clean">
+        <MSBuild Projects="eiv.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="eiv:Make">
+        <MSBuild Projects="eiv.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="eiv"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="eiv:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="eiv:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
