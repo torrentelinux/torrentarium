@@ -1,4 +1,6 @@
 // eiVirtual.cpp
+// Octulio Biletán * Setiembre de 2023
+// Proyecto eiv.cbproj en desarrollo permanente...
 
 #include <tchar.h>
 #include <iostream>
@@ -184,8 +186,7 @@ string Comando::comandos()
 	ostringstream listado;
 
    listado << cmdAyuda() << ", " << cmdApagar() << ", "
-	   << cmdBorrarPantalla() << ", "
-           << cmdCerrar()
+	   << cmdBorrarPantalla() << ", " << cmdCerrar()
 	   << ends;
 
    return listado.str();
@@ -240,4 +241,3 @@ int Comando::ejecutar(int status)
 
    return status;
 }
-
