@@ -1,6 +1,10 @@
-// eiVirtual.cpp
-// Octulio Biletán * Setiembre de 2023
-// Proyecto eiv.cbproj en desarrollo permanente...
+// Proyecto: eiv.cbproj
+// Módulo: eiVirtual.cpp
+// Autor: Octulio Biletán * Setiembre de 2023
+// Propósito: exponer los principios básicos de virtualización, simulación y emulación para enseñar en C++.
+//            El sistema informático propuesto puede estar funcionando como un todo local, remoto o híbrido.
+//            La plataforma de desarrollo es en: Windows 64 bits.
+// Obs.: El proyecto eiv.cbproj permanece abierto para su desarrollo permanente...
 
 #include <tchar.h>
 #include <iostream>
@@ -24,12 +28,6 @@ MaquinaVirtual::~MaquinaVirtual()
    pausa(3);
 }
 
-// status = 0  -> apagar
-// status = 1  -> encender
-// status = 2  -> reiniciar
-// status = 3  -> suspender
-// status = 4  -> hibernar
-// status = -1 -> error
 int MaquinaVirtual::MVencender(int status)
 {
    SetConsoleCP(cp_fijado());
@@ -61,13 +59,31 @@ void MaquinaVirtual::pausa(int t)
    Sleep(t*1000);
 }
 
+// status = 0  -> apagar
+// status = 1  -> encender
+// status = 2  -> reiniciar
+// status = 3  -> suspender
+// status = 4  -> hibernar
+// status = -1 -> error
 int MaquinaVirtual::condicion(const int status)
 {
-   if(status == apagar)
-     cout << "Código de salida: " << status << endl;
+   switch(status)
+   {
+     case apagar: cout << "Código de salida: " << status << endl;
+                  break; 
 
-   if(status == encender)
-     MVencender(status);
+     case encender: MVencender(status);
+		    break;
+
+     case reiniciar:
+     case suspender:
+     case hibernar:   break;
+
+     case error:  cerr << "Código de condición errónea." << endl;
+		  break;
+
+     default: clog << "Código de estado inaceptable: " << status << endl;
+   }
 
    return status;
 }
@@ -120,6 +136,8 @@ Sesion::~Sesion()
    pausa(1);
 }
 
+// Inicia sesión con el apoyo de un servidor de SQL, local/remoto, para otorgar
+// permisos de acceso a usuarios.
 int Sesion::iniciar(int status)
 {
    cout << "Iniciando sesión..." << endl;

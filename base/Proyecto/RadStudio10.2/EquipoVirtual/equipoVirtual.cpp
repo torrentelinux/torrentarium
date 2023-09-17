@@ -1,6 +1,11 @@
+// Proyecto: eiv.cbproj
 // Programa: equipoVirtual.cpp
-// Descripción: equipo virtual informático: principios básicos para enseñar virtualización en C++
-// Autor: Octulio Biletán * 2023
+// Autor: Octulio Biletán
+// Propósito: exponer los principios básicos de virtualización, simulación y emulación para enseñar en C++.
+//            El sistema informático propuesto puede estar funcionando como un todo local, remoto o híbrido.
+//            La plataforma de desarrollo es en: Windows 64 bits.
+// Versión: Setiembre de 2023.
+// Obs.: El proyecto eiv.cbproj permanece abierto para su desarrollo permanente...
 
 #include <tchar.h>
 #include "eiv.h"
