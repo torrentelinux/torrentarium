@@ -1,0 +1,16 @@
+Ejercicios de programación en seudocódigo
+Uso de la herramienta PSeInt en Windows y en Linux.
+
+Enunciado nº 1:
+La abuelita quiere repartir su último sueldo con sus familiares: hijos y nietos.
+Ella tiene dos hijos y tres nietos.
+Ella quiere percibir el 14 % de su sueldo completo y darle un 5 % más a cada uno
+de sus hijos y darle un 2 % más a cada uno de sus nietos.
+Se pide ingresar el sueldo completo de la abuelita por teclado. El sueldo debe ser
+una cantidad mayor a 1,00 y menor a 1.000.000,00 y si no se cumple esta condición
+mostrar en pantalla un mensaje de error.
+Realizar los cálculos necesarios para repartir el sueldo entre sus familiares y
+mostrar en pantalla los montos de dinero que le corresponde a cada uno de ellos.
+
+___________________________________
+Octulio Biletán * Noviembre de 2023
