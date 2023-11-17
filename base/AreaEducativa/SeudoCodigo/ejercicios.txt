@@ -12,5 +12,9 @@ mostrar en pantalla un mensaje de error.
 Realizar los cálculos necesarios para repartir el sueldo entre sus familiares y
 mostrar en pantalla los montos de dinero que le corresponde a cada uno de ellos.
 
+______________
+Más ejercicios
+* Código fuente en "La Web del Programador"
+  https://www.lawebdelprogramador.com/codigo/Pseudocodigo-Diagramas-de-Flujo/index1.html
 ___________________________________
 Octulio Biletán * Noviembre de 2023
