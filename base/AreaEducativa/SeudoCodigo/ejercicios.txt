@@ -16,5 +16,6 @@ ______________
 Más ejercicios
 * Código fuente en "La Web del Programador"
   https://www.lawebdelprogramador.com/codigo/Pseudocodigo-Diagramas-de-Flujo/index1.html
+  https://www.lawebdelprogramador.com/foros/Pseudocodigo-Diagramas-de-Flujo/index1.html
 ___________________________________
 Octulio Biletán * Noviembre de 2023
