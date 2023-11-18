@@ -17,5 +17,10 @@ Más ejercicios
 * Código fuente en "La Web del Programador"
   https://www.lawebdelprogramador.com/codigo/Pseudocodigo-Diagramas-de-Flujo/index1.html
   https://www.lawebdelprogramador.com/foros/Pseudocodigo-Diagramas-de-Flujo/index1.html
+_____________________
+Documentación digital
+* Estudio comparativo entre Pseint y Raptor basado en la estructura While (es descargable).
+  https://editorialalema.org/libros/index.php/alema/article/view/7/8
+
 ___________________________________
 Octulio Biletán * Noviembre de 2023
