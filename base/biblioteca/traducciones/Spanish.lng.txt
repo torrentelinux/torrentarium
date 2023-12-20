@@ -1,2 +1,2 @@
 Traducción al español los mensajes de la aplicación WLU_x64.exe/WLU_x86.exe
-Windows Login Unlocker v2.1.7
+Windows Login Unlocker v2.3.0.6400
