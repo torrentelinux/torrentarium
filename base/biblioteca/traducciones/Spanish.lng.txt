@@ -9,5 +9,5 @@ Corre en Windows 32 bits y 64 bits. Soporta diversos idiomas (ruso, inglés, esp
 CryptoNick Soft™ <·> https://github.com/CryptoNickSoft/
 _____________________________________________________________
 ¿Dónde descargar?
-Buscar en la internet mediante cualquier buscador de su gusto (Startpage, You, DuckDuckGo, Yandex, Bing, Aol, Google, etc.)
+Buscar en la internet mediante cualquier buscador de su gusto (Startpage, You, DuckDuckGo, Yandex, Bing, Aol, Yahoo!, Google, etc.)
 la aplicación "Windows Login Unlocker".
