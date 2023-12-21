@@ -5,7 +5,9 @@ _____________________________________________________________
 La aplicación está diseñada para restablecer/cambiar contraseñas o desbloquear cuentas del sistema Windows.
 Con su ayuda, puedes restaurar el acceso a cualquier cuenta de Windows, ya sea un perfil local o una cuenta de Microsoft.
 Te permite recuperar el acceso al sistema sin dañar archivos del sistema ni reinstalar el sistema operativo.
+Puedes crear una nueva cuenta de usuario y asignarle la contraseña.
 Corre en Windows 32 bits y 64 bits. Soporta diversos idiomas (ruso, inglés, español, alemán, francés, ucraniano, chino).
+Muy útil para realizar peritaje informático a PC, notebook, netbook.
 CryptoNick Soft™ <·> https://github.com/CryptoNickSoft/
 _____________________________________________________________
 ¿Dónde descargar?
