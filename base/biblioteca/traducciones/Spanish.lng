@@ -1,0 +1,282 @@
+﻿; Tranlation to Spanish Octulio Biletán (2023-12-16)
+Atención
+Correcto
+Seleccione el sistema operativo Windows para editar las propiedades de la cuenta:
+Seleccione la cuenta de usuario cuya contraseña desea restablecer y haga clic en:
+Localizar el archivo de información del controlador
+Sistema Raíz
+Sistema Operativo
+Dormido
+Estilo
+Tamaño de la partición
+Nombre de usuario
+Grupo
+ID Live
+Contraseña
+Bloqueado
+Deshabilitado
+Nunca expira
+RID
+Hex
+Descripción
+Nombre completo del usuario
+Cuenta de ingresos
+Ultimo ingreso
+Contraseña última vez asignada
+Expira la cuenta
+Ingresos fallidos
+Ultima contraseña incorrecta
+Reinicia\Desbloquea
+Nuevo Usuario
+Elude
+Opciones
+Recupero
+Respaldo
+Pase el cursor sobre un objeto para obtener una ayudita...
+Clic sobre la imagen para cargar una nueva imagen desde el archivo:
+Por favor elija un sistema operativo para la edición de cuentas...
+Por favor elija una cuenta de usuario para editar sus propiedades...
+Desbloquea la cuenta y reinicia la contraseña
+Cree un nuevo usuario con derechos de Administrador
+Permite eludir la solicitud de la contraseña del usuario
+Herramientas e información adicional sobre aplicaciones
+Restaure a partir de una copia respaldo la base de datos del usuario
+Cree un respaldo de la base de datos del usuario
+Espere por favor...
+Fecha actual:
+Por favor haz clic en el botón para guardar la información del usuario
+Cierra la ventana de información del usuario
+Por favor ingrese el nombre del usuario deseado...
+Si quiere crear un nuevo usuario ingrese su nombre y haga clic [Aceptar]
+Cierra la ventana de creación nuevo usuario
+Por favor ingrese su contraseña...
+Por favor ingrese la nueva contraseña y haga clic [Aceptar]
+Cierra la ventana cambia contraseña
+¡Error al cargar datos del registro!
+Por favor espere, están siendo examinadas las particiones...
+Por favor espere, conectando disco virtual...
+Por favor elija un usuario para recibir información...
+¡Por favor espere la finalización de las actividades actuales!
+¡Reinicio correcto de la contraseña!
+¡Error de acceso a la base de datos del usuario!
+Por favor seleccione el usuario para reiniciar contraseña y desbloquear...
+La cuenta del usuario:
+está eliminada!
+El nuevo usuario:
+está creado!
+¡Sistema operativo no detectado!
+Fichero información del dispositivo
+¡Se planificó la tarea de cambio de contraseña!
+Encontré la carpeta del perfil del usuario:
+Puedes eliminarlo manualmente...
+Agregar nuevo miembro al grupo
+Agregar Usuario:
+al grupo '
+'
+El usuario ha sido agregado al
+grupo '
+El usuario:
+ya es miembro
+del
+Está prohibido privar
+los derechos del usuario:
+Load
+Salir del grupo
+Quita el usuario:
+de '
+no es miembro
+de '
+Crear respaldo
+Ya existe un respaldo de la base de datos del usuario.
+fecha de creación:
+¿Sobreescribo?
+¡Se creó el respaldo de la base de datos del usuario!
+¡Error al crear el respaldo!
+¿Crea el respaldo de la base de datos del usuario?
+Restaurar respaldo
+¿Restaura respaldo de la base de datos del usuario?
+¡Se recuperó el respaldo de la base de datos del usuario!
+Recupera base de datos
+¡Falló el recupero!
+¡No se encontró el respaldo de la base de datos del usuario!
+Deshabilita usuario
+Usuario Windows
+Usuario local de Windows
+Biblioteca del Sistema no se encuentra:
+¿Seguro que quiere cerrar el programa?
+Limpia el historial del usuario
+¡Limpiado el historial del usuario!
+Algo salió mal...
+¡La cuenta está habilitada!
+¡La cuenta está deshabilitada!
+¡Reiniciada la contraseña del usuario!
+Tipo
+Nombre del dispositivo
+Etiqueta del volumen
+Ultimo acceso
+Línea de comando
+Tipo arranque
+PIN
+Info
+#
+Habilitar usuario
+Refrescar lista
+Limpiar el historial
+Modo Eludir
+Explorar Archivos
+Administrador de Tareas
+Editor del Registro
+Intérprete de comandos
+Ejecutar
+Administrador de discos
+Propiedades
+Cancela Tareas
+Hibernación
+Reinicia código PIN
+Montar Disco Virtual
+Disco
+Donar
+Sobre...
+Cambia contraseña
+Reinicia contraseña
+Administradores
+Eliminar Usuario
+Quitar del grupo
+Agregar a grupo
+Nuevo Usuario
+Deshabilita
+Habilita
+para el usuario
+deshabilitado
+habilitado
+Controlador
+Carga Controlador
+Código de salida
+¿Le gustó el proyecto? ¿Quieres que se desarrolle? Proporcione asistencia financiera. Transfiere un monto cualquiera a una de estas billeteras:
+Utilitario para realizar cambios en el sistema de autenticación
+Idea, desarrollo, interfaz, prueba
+La aplicación se creó con la asistencia técnica
+Build
+Código PIN
+Contraseña en blanco
+Nombre de usuario:
+Nombre completo del usuario:
+Descripción:
+Miembro del grupo:
+Información del Usuario
+Ayudita de contraseña:
+Ultimo inicio:
+Nº de ingresos:
+Por favor elija la trayectoria a guardar:
+Ultima contraseña incorrecta:
+Ingresos fallidos:
+Expira la cuenta:
+Ultimo cambio de contraseña:
+El usuario debe cambiar la contraseña en la siguiente sesión
+El usuario no puede cambiar la contraseña
+La contraseña nunca expira
+Cuenta deshabilitada
+Cuenta bloqueada
+No requiere contraseña
+Apropiación RID
+ID Microsoft
+Guardar
+Aceptar
+¡No se seleccionó usuario o no está disponible el disco!
+ !guardado!
+¿Abro para leer el fichero en Bloc de Notas?
+¡Error al crear fichero!
+Por favor selecciona otro lugar para almacenar...
+Detectado Windows Live
+Usuario local Windows
+¡Error de acceso en el fichero registro!
+¡Error de escritura de datos!
+Reinicia la contraseña del usuario:
+Reinicia el código PIN del usuario:
+Reinicio de PIN correcto
+PIN no reiniciado
+Elimina al usuario:
+¡Canceladas las tareas planificadas!
+La arquitectura de la biblioteca es incorrecta:
+El modo 'Sleep' no se encuentra deshabilitado
+Error de acceso a fichero:
+está eliminado!
+Por favor seleccione el usuario a eliminar...
+Modo 'Sleep' deshabilitado
+Eludir Contraseña de Windows
+Felicitaciones
+y ¿desbloquea la cuenta?
+Esta es una cuenta 'Windows Live' asociada con:
+¿Reinicia la contraseña y transfiere la cuenta a una cuenta local?
+Cancelar
+Por favor ingrese la nueva contraseña:
+Por favor ingrese el nombre del usuario:
+Por favor seleccione el Explorador de Ficheros:
+Por favor seleccione un fichero:
+Lo siento, partición de disco
+no disponible
+¡La acción no se pudo realizar!
+parece estar HIBERNADO.
+¿DESHABILITA MODO HIBERNAR?
+(consecuencias desconocidas)
+¡Está prohibido borrar cuentas incorporadas!
+Nombre del usuario:
+Por favor salga del programa y REINICIA EL SISTEMA WINDOWS SELECCIONADO. Luego usa 'Reiniciar' para evitar la hibernación (no usar los comandos 'Cerrar' o 'Apagar').
+El sistema Windows de la unidad seleccionada parece estar HIBERNADO. Modificar los datos en dicha unidad podría ser peligroso. El sistema Windows puede que No arranque correctamente después de la modificación, todos los cambios pueden perderse O que el sistema de archivos pueda dañarse.
+Esta característica de Windows permite eludir la solicitud de contraseña, sin la necesidad de cambiar contraseña. Funciona temporariamente mientras se inicia el subsistema de autenticación de Windows.
+Está listo para eludir la solicitud de contraseña:
+Haz clic en [Aceptar] para proceder.
+Reinicie ahora su computadora y entre a Windows automáticamente sin contraseña sobre cualquier cuenta de usuario. Tiene una sola oportunidad para hacerlo.
+Observe que el subsistema de autenticación de Windows retornará a su estado normal después del siguiente reinicio.
+Sí
+No
+<blanco>
+<desco.>
+¡El registro está bloqueado!
+Desbloquear el registro 'SAM' en el Editor del Registro y actualizar la lista
+Admin
+Users
+Guest
+Hijack
+Otro
+¡Sistema inactivo no hallado! Posibles soluciones:
+¡El programa no se ejecuta con el sistema en ejecución!
+* ejecute el programa desde cualquier WinPE (LiveCD).
+¡No se halló la partición con el sistema instalado!
+* instale controlador M.2 PCIe NVMe SSD;
+* deshabilite el controlador de encriptación BitLocker.
+Crear un nuevo usuario
+Reinicia\Desbloquea
+Nuevo Usuario
+Eludir
+Opciones
+Restaurar
+Respaldar
+Desbloquear
+Por favor selecciona el disco bloqueado:
+Por favor ingresa la clave de recuperación o la trayectoria a fichero:
+Selecciona el fichero clave...
+Por favor especifica la trayectoria al fichero clave de recuperación:
+Por favor ingresa la clave de recuperación:
+Codificación incorrecta del fichero:
+Requiere
+Apagar
+Reinicia PC
+Apaga PC
+Estado
+Contraseña
+Bloquea
+Desboquea
+Descripción del grupo:
+¡La aplicación debería correr en el mismo modo de ejecución que el sistema (64 bits)!
+Nombre Computadora
+Versión NT
+¡Hecho!
+Pantalla Bienvenida
+Muestra usuario
+Oculta usuario
+Muestra todos los usuarios activos
+Línea de comando
+En la pantalla de bienvenida
+Devolver
+En lugar de
