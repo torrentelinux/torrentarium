@@ -1,2 +1,7 @@
 Traducción al español los mensajes de la aplicación WLU_x64.exe/WLU_x86.exe
 Windows Login Unlocker v2.3.0.6400
+__________________________________
+]<>]Finalidad[<>[
+La aplicación está diseñada para restablecer/cambiar contraseñas o desbloquear cuentas del sistema Windows.
+Con su ayuda, puedes restaurar el acceso a cualquier cuenta de Windows, ya sea un perfil local o una cuenta de Microsoft.
+Te permite recuperar el acceso al sistema sin dañar archivos del sistema ni reinstalar el sistema operativo.
