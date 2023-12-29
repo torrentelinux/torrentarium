@@ -1,13 +1,22 @@
-Proyecto: AgPeSQL.cbproj
-Autor: Octulio Biletán.
+Proyecto : AgPeSQL.cbproj
+Autor    : Octulio Biletán.
 Propósito: Visualizar el contenido de una tabla llamada 'contactos' en un control TDBGrid.
            Acceder a la base de datos 'agenda' alojada en el servidor SQL.
            Desarrollar una aplicación de escritorio mediante la técnica 'low-code'.
-Compilador: Embarcadero C++ Builder 10.4 CE.
+Compilador: Embarcadero C++ Builder 10.2 y 10.4 CE.
 Ambiente de desarrollo: Windows Server 2016 Std, 64 bits.
-Servidor SQL: Laragon v6.0
-Fecha: 29:Dic:2023
-Licencia de la aplicación: Software Libre.
+Servidor : Laragon v6.0 * PostgreSQL * Apache HTTPD
+Fecha    : 29:Dic:2023
+Licencia : Software Libre.
+Fuentes  : https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio10.4/AgendaPersonal-SQL
+Binarios : https://github.com/torrentelinux/torrentarium/blob/master/base/Proyecto/RadStudio10.4/AgendaPersonal-SQL-completo64bits.7z
+Controles: VCL, FireDAC.
+	   TFDPhysPgDriverLink, TFDConnection, TFDGUIxLoginDialog, TFDQuery,
+	   TDataSetProvider, TDataSource, TIntegerField, TWideStringField, TDBGrid.
+Bibliotecas
+dinámicas  : BORLNDMM.DLL, CC64250MT.DLL,
+	     rtl250.bpl, vcl250.bpl, dbrtl250.bpl, vcldb250.bpl, dsnap250.bpl,
+	     FireDAC250.bpl, FireDACCommonDriver250.bpl, FireDACCommon250.bpl, vclFireDAC250.bpl, FireDACPgDriver250.bpl
 _____________________________________________________________
 --* Para la conexión a PostgreSQL, 32 bits, versión 9.3.5
  Mínimamente necesarios: libpq.dll y libintl.dll
