@@ -11,7 +11,7 @@ object ModuloDatos: TModuloDatos
       'User_Name=postgres'
       'Server=localhost'
       'Port=5432'
-      'Password=poiu'
+      'Password=xxxx'
       'Database=agenda'
       'DriverID=PG')
     LoginDialog = FDVCLLoginDialog1
