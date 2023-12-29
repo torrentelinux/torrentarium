@@ -13,8 +13,7 @@
 
 TModuloDatos *ModuloDatos;
 //---------------------------------------------------------------------------
-__fastcall TModuloDatos::TModuloDatos(TComponent* Owner)
-	: TDataModule(Owner)
+__fastcall TModuloDatos::TModuloDatos(TComponent* Owner) : TDataModule(Owner)
 {
 }
 //---------------------------------------------------------------------------

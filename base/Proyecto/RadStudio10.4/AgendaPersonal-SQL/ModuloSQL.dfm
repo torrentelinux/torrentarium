@@ -1,10 +1,10 @@
 object ModuloDatos: TModuloDatos
   OldCreateOrder = False
-  Height = 240
-  Width = 377
+  Height = 219
+  Width = 302
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    Left = 64
-    Top = 80
+    Left = 192
+    Top = 8
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
@@ -15,14 +15,14 @@ object ModuloDatos: TModuloDatos
       'Database=agenda'
       'DriverID=PG')
     LoginDialog = FDVCLLoginDialog1
-    Left = 143
-    Top = 16
+    Left = 119
+    Top = 48
   end
   object FDVCLLoginDialog1: TFDGUIxLoginDialog
     Provider = 'Forms'
     Caption = 'FireDAC Inicio de sesi'#243'n'
-    Left = 144
-    Top = 128
+    Left = 40
+    Top = 8
   end
   object FDQuery1: TFDQuery
     Filtered = True
@@ -33,8 +33,8 @@ object ModuloDatos: TModuloDatos
     FormatOptions.StrsTrim2Len = True
     SQL.Strings = (
       'SELECT * FROM contactos')
-    Left = 184
-    Top = 80
+    Left = 72
+    Top = 96
     object FDQuery1codigo: TIntegerField
       FieldName = 'codigo'
       Origin = 'codigo'
@@ -68,12 +68,12 @@ object ModuloDatos: TModuloDatos
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = FDQuery1
-    Left = 304
-    Top = 56
+    Left = 112
+    Top = 152
   end
   object DataSource1: TDataSource
     DataSet = FDQuery1
-    Left = 280
-    Top = 136
+    Left = 24
+    Top = 152
   end
 end

@@ -1,4 +1,7 @@
-//---------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+/* Agenda Personal * SQL						      */
+// Leer docu/AgendaPersonalSQL.txt para más información acerca de este proyecto
+//------------------------------------------------------------------------------
 
 #ifndef ModuloSQLH
 #define ModuloSQLH
@@ -38,14 +41,14 @@ __published:	// IDE-managed Components
 	TFDConnection *FDConnection1;
 	TFDGUIxLoginDialog *FDVCLLoginDialog1;
 	TFDQuery *FDQuery1;
+	TDataSetProvider *DataSetProvider1;
+	TDataSource *DataSource1;
 	TIntegerField *FDQuery1codigo;
 	TWideStringField *FDQuery1nombre;
 	TWideStringField *FDQuery1apellido;
 	TWideStringField *FDQuery1correoe;
 	TWideStringField *FDQuery1sitio1;
 	TWideStringField *FDQuery1sitio2;
-	TDataSetProvider *DataSetProvider1;
-	TDataSource *DataSource1;
 private:	// User declarations
 public:		// User declarations
 	__fastcall TModuloDatos(TComponent* Owner);

@@ -1,4 +1,7 @@
-//---------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+/* Agenda Personal * SQL						      */
+// Leer docu/AgendaPersonalSQL.txt para más información acerca de este proyecto
+//------------------------------------------------------------------------------
 
 #ifndef AgendaPersonalH
 #define AgendaPersonalH
