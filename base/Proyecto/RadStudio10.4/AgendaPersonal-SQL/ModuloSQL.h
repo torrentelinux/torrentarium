@@ -49,6 +49,10 @@ __published:	// IDE-managed Components
 	TWideStringField *FDQuery1correoe;
 	TWideStringField *FDQuery1sitio1;
 	TWideStringField *FDQuery1sitio2;
+	TWideStringField *FDQuery1alias;
+	TWideStringField *FDQuery1telefono;
+	TWideStringField *FDQuery1Telegrammsj;
+	TWideStringField *FDQuery1Xmsj;
 private:	// User declarations
 public:		// User declarations
 	__fastcall TModuloDatos(TComponent* Owner);

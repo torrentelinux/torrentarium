@@ -9,9 +9,9 @@ object ModuloDatos: TModuloDatos
   object FDConnection1: TFDConnection
     Params.Strings = (
       'User_Name=postgres'
+      'Password=xxxx'
       'Server=localhost'
       'Port=5432'
-      'Password=xxxx'
       'Database=agenda'
       'DriverID=PG')
     LoginDialog = FDVCLLoginDialog1
@@ -28,6 +28,9 @@ object ModuloDatos: TModuloDatos
     Filtered = True
     CachedUpdates = True
     FilterChanges = [rtModified, rtInserted, rtDeleted, rtUnmodified, rtHasErrors]
+    DetailFields = 
+      'alias;apellido;codigo;correo-e;nombre;sitio1;sitio2;telefono;Tel' +
+      'egram-msj;X-msj'
     Connection = FDConnection1
     FormatOptions.AssignedValues = [fvStrsTrim2Len]
     FormatOptions.StrsTrim2Len = True
@@ -64,6 +67,26 @@ object ModuloDatos: TModuloDatos
       FieldName = 'sitio2'
       Origin = 'sitio2'
       Size = 80
+    end
+    object FDQuery1alias: TWideStringField
+      FieldName = 'alias'
+      Origin = 'alias'
+      Size = 8190
+    end
+    object FDQuery1telefono: TWideStringField
+      FieldName = 'telefono'
+      Origin = 'telefono'
+      Size = 8190
+    end
+    object FDQuery1Telegrammsj: TWideStringField
+      FieldName = 'Telegram-msj'
+      Origin = '"Telegram-msj"'
+      Size = 8190
+    end
+    object FDQuery1Xmsj: TWideStringField
+      FieldName = 'X-msj'
+      Origin = '"X-msj"'
+      Size = 8190
     end
   end
   object DataSetProvider1: TDataSetProvider

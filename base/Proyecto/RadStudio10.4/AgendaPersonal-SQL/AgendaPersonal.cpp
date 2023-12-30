@@ -2,6 +2,9 @@
 /* Agenda Personal * SQL						      */
 // Leer docu/AgendaPersonalSQL.txt para más información acerca de este proyecto
 //------------------------------------------------------------------------------
+// Añadir...
+// SELECT * FROM "pg_config" WHERE ("name" = 'VERSION')
+//
 
 #include <vcl.h>
 #include <fstream>
@@ -10,7 +13,6 @@
 #include "AgendaPersonal.h"
 #include "ModuloSQL.h"
 //---------------------------------------------------------------------------
-
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 
@@ -20,10 +22,16 @@ TfrmPrincipal *frmPrincipal;
 __fastcall TfrmPrincipal::TfrmPrincipal(TComponent* Owner) : TForm(Owner)
 {
    // 1ro. el constructor luego el evento crear form...
-   constY = mmMensajes->Top - 4;
+   constY = mmMensajes->Height;
 
    // En el comienzo... SQL está desconectado.
    conectado = false;
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmPrincipal::FormClick(TObject *Sender)
+{
+   sbMensajes->SimpleText = "";
+   mmMensajes->SetFocus();
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmPrincipal::FormCreate(TObject *Sender)
@@ -32,10 +40,12 @@ void __fastcall TfrmPrincipal::FormCreate(TObject *Sender)
 
    ModuloDatos = new TModuloDatos(this);
 
+   // Dimensiones iniciales de la ventana principal
    Left   = 8;
    Top    = 8;
    Width  = 460;
    Height = 360;
+   // ----------------------\/---------------------
 
    status = conectarSQL();
    if(status)
@@ -52,11 +62,13 @@ void __fastcall TfrmPrincipal::FormCreate(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TfrmPrincipal::FormResize(TObject *Sender)
 {
-   mmMensajes->Top = (Height / 2) + (mmMensajes->Height / 2) + constY;
-   mmMensajes->Left = 8;
+   // Ubica la caja de mensajes al pie de la ventana principal
+   mmMensajes->Left = 8;  // eje X
+   mmMensajes->Top  = (Height - 64) - constY;  // eje Y
 
+   // Ajusta los anchos de la caja de mensajes y la grilla de celdas
    mmMensajes->Width = Width - 32;
-   DBGrid1->Width = Width - 32;
+   DBAgenda->Width   = Width - 32;
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmPrincipal::tbtnConectarClick(TObject *Sender)
@@ -93,6 +105,28 @@ void __fastcall TfrmPrincipal::tbtnDesconectarClick(TObject *Sender)
      sbMensajes->SimpleText = "No se pudo desconectar del servidor SQL.";
 }
 //---------------------------------------------------------------------------
+void __fastcall TfrmPrincipal::tbtnGrillaClick(TObject *Sender)
+{
+   if(DBAgenda->Visible)
+   {
+     DBAgenda->Visible    = false;
+     DBNavegador->Visible = false;
+     SpinButton1->Visible = false;
+
+     sbMensajes->SimpleText = "Planilla oculta.";
+     mmMensajes->SetFocus();
+   }
+   else
+   {
+     DBAgenda->Visible    = true;
+     DBNavegador->Visible = true;
+     SpinButton1->Visible = true;
+
+     sbMensajes->SimpleText = "Planilla visible.";
+     DBAgenda->SetFocus();
+   }
+}
+//---------------------------------------------------------------------------
 void __fastcall TfrmPrincipal::tbtnSalirClick(TObject *Sender)
 {
    sbMensajes->SimpleText = "Saliendo de la aplicación...";
@@ -107,6 +141,41 @@ void __fastcall TfrmPrincipal::tbtnSalirClick(TObject *Sender)
    Close();
 }
 //---------------------------------------------------------------------------
+void __fastcall TfrmPrincipal::DBNavegadorClick(TObject *Sender, TNavigateBtn Button)
+{
+   if(Button == nbApplyUpdates)
+   {
+     mmMensajes->Lines->Append(tiempoActual());
+     mmMensajes->Lines->Append("Actualización ejecutada. ");
+   }
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmPrincipal::SpinButton1UpClick(TObject *Sender)
+{
+   if(DBAgenda->Height == 64)
+   {
+     sbMensajes->SimpleText = "Se alcanzó el tope superior.";
+     return;
+   }
+
+   DBAgenda->Height -= 4;
+   sbMensajes->SimpleText = "Reduciendo tamaño...";
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmPrincipal::SpinButton1DownClick(TObject *Sender)
+{
+   int Y = DBAgenda->Top + DBAgenda->Height;
+
+   if(Y == mmMensajes->Top)
+   {
+     sbMensajes->SimpleText = "Se alcanzó el tope inferior.";
+     return;
+   }
+
+   DBAgenda->Height += 4;
+   sbMensajes->SimpleText = "Aumentando tamaño...";
+}
+//---------------------------------------------------------------------------
 bool TfrmPrincipal::conectarSQL(void)
 {
 	bool status = false;  // false: desconectado
@@ -115,7 +184,7 @@ bool TfrmPrincipal::conectarSQL(void)
    {
      ModuloDatos->FDVCLLoginDialog1->Caption = "Inicio de sesión";
      ModuloDatos->FDConnection1->Connected = true;
-     DBGrid1->DataSource->DataSet->Active = true;
+     DBAgenda->DataSource->DataSet->Active = true;
 
      mmMensajes->Lines->Append(tiempoActual());
      mmMensajes->Lines->Append("Aviso: Conexión establecida al servidor SQL.");
@@ -142,7 +211,7 @@ bool TfrmPrincipal::desconectarSQL(void)
    {
      ModuloDatos->FDVCLLoginDialog1->Caption = "Inicio de sesión";
      ModuloDatos->FDConnection1->Connected = false;
-     DBGrid1->DataSource->DataSet->Active = false;
+     DBAgenda->DataSource->DataSet->Active = false;
 
      mmMensajes->Lines->Append(tiempoActual());
      mmMensajes->Lines->Append("Aviso: Desconexión completada al servidor SQL.");
@@ -189,4 +258,5 @@ bool TfrmPrincipal::estadoSQL(void)
 {
    return conectado;
 }
+//---------------------------------------------------------------------------
 

@@ -2,9 +2,6 @@
 /* Agenda Personal * SQL						      */
 // Leer docu/AgendaPersonalSQL.txt para más información acerca de este proyecto
 //------------------------------------------------------------------------------
-/* Agenda Personal * SQL						      */
-// Leer docu/AgendaPersonalSQL.txt para más información acerca de este proyecto
-//------------------------------------------------------------------------------
 
 #ifndef _WIN64
 #error "Debe compilar a Windows 64 bits.
