@@ -1,0 +1,55 @@
+Proyecto : AgPeSQL.cbproj
+Programa : AgPeSQL.cpp
+Módulos  : AgendaPersonal.cpp, ModuloSQL.cpp
+Autor    : Octulio Biletán.
+Propósito: Visualizar el contenido de una tabla llamada 'contactos' en un control TDBGrid.
+           Acceder a la base de datos 'agenda' alojada en el servidor SQL.
+           Desarrollar una aplicación de escritorio mediante la técnica 'low-code'.
+Compilador: Embarcadero C++ Builder 10.2 y 10.4 CE.
+Ambiente de desarrollo: Windows Server 2016 Std, 64 bits.
+Servidor : Laragon v6.0 * PostgreSQL * Apache HTTPD
+Fecha    : 29:Dic:2023
+Licencia : Software Libre.
+Fuentes  : https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/RadStudio10.4/AgendaPersonal-SQL
+Binarios : https://github.com/torrentelinux/torrentarium/blob/master/base/Proyecto/RadStudio10.4/AgendaPersonal-SQL-completo64bits.7z
+Controles: VCL, FireDAC.
+	   TFDPhysPgDriverLink, TFDConnection, TFDGUIxLoginDialog, TFDQuery,
+	   TDataSetProvider, TDataSource, TIntegerField, TWideStringField, TDBGrid.
+Bibliotecas
+dinámicas  : BORLNDMM.DLL, CC64250MT.DLL,
+	     rtl250.bpl, vcl250.bpl, dbrtl250.bpl, vcldb250.bpl, dsnap250.bpl,
+	     FireDAC250.bpl, FireDACCommonDriver250.bpl, FireDACCommon250.bpl, vclFireDAC250.bpl, FireDACPgDriver250.bpl
+_____________________________________________________________
+Cadena de conexión a PostgreSQL:
+        DriverID=PG,Port=5432,Server=localhost,Database=agenda,User_Name=postgres,Password=xxxx
+_____________________________________________________________
+Base de datos "agenda" para servidor PostgreSQL:
+	Ejecutar siendo admin. del sistema: psql -U postgres -f AgendaContactos.sql -w
+	La base de datos puede estar residiendo en un servidor local o remoto.
+	El servidor SQL puede estar corriendo en Windows o en Linux.
+_____________________________________________________________
+--* Para la conexión a PostgreSQL, 32 bits, versión 9.3.5
+ Mínimamente necesarios: libpq.dll y libintl.dll
+ Otros: libeay32.dll, ssleay32.dll y zlib1.dll
+ Necesario: msvcr100.dll
+
+--* Para la conexión a PostgreSQL, 32 bits, versión 10.0.23
+  libcrypto-1_1.dll, libiconv-2.dll, libintl-9.dll, libpq.dll
+  libssl-1_1.dll, zlib1.dll
+
+--* Para la conexión a PostgreSQL, 64 bits, versión 14.0.5
+ libcrypto-1_1-x64.dll, libiconv-2.dll, libintl-9.dll, libpq.dll
+ libssl-1_1-x64.dll, libwinpthread-1.dll
+
+--* Referencias: RAD Studio 12 Atenas
+ https://docwiki.embarcadero.com/RADStudio/Athens/en/FireDAC
+ https://docwiki.embarcadero.com/RADStudio/Athens/en/Connect_to_PostgreSQL_(FireDAC)
+_____________________________________________________________
+Download PostgreSQL
+Open source PostgreSQL packages and installers from EDB
+
+https://www.enterprisedb.com/
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+https://www.enterprisedb.com/download-postgresql-binaries
+https://www.postgresql.org/docs/current/install-windows.html
+_____________________________________________________________
