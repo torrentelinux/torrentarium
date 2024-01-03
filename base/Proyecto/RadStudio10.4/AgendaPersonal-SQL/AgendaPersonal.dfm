@@ -1,10 +1,9 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
-  BorderStyle = bsDialog
   Caption = 'Agenda Personal'
-  ClientHeight = 478
-  ClientWidth = 1015
+  ClientHeight = 468
+  ClientWidth = 1005
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -48,19 +47,19 @@ object frmPrincipal: TfrmPrincipal
   end
   object sbMensajes: TStatusBar
     Left = 0
-    Top = 459
-    Width = 1015
+    Top = 449
+    Width = 1005
     Height = 19
     Panels = <>
     SimplePanel = True
     SimpleText = 'Listo.'
-    ExplicitTop = 449
-    ExplicitWidth = 1005
+    ExplicitTop = 459
+    ExplicitWidth = 1015
   end
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 1015
+    Width = 1005
     Height = 29
     Hint = 'Barra de controles'
     BorderWidth = 1
@@ -78,7 +77,7 @@ object frmPrincipal: TfrmPrincipal
     ShowHint = True
     TabOrder = 2
     Transparent = True
-    ExplicitWidth = 1005
+    ExplicitWidth = 1015
     object tbtnConectar: TToolButton
       Left = 0
       Top = 0
@@ -111,8 +110,8 @@ object frmPrincipal: TfrmPrincipal
     object tbtnEditar: TToolButton
       Left = 57
       Top = 0
-      Hint = 'Editar conexi'#243'n.'
-      Caption = 'E'
+      Hint = 'Limpiar datos de conexi'#243'n.'
+      Caption = 'L'
       ImageIndex = 4
       Style = tbsTextButton
       OnClick = tbtnEditarClick

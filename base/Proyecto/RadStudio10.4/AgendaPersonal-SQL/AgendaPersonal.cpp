@@ -131,16 +131,12 @@ void __fastcall TfrmPrincipal::tbtnGrillaClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TfrmPrincipal::tbtnEditarClick(TObject *Sender)
 {
-     // Deshabilitado
-     //ModuloDatos->FDConnection1->ConnectionString = L"DriverID=PG;Port=5432;Server=localhost;Database=agenda;User_Name=postgres";
-   /*ModuloDatos->FDConnection1->Params->Strings[1] = "";
-   ModuloDatos->FDConnection1->Params->Strings[2] = "";
-   ModuloDatos->FDConnection1->Params->Strings[3] = "";
-   ModuloDatos->FDConnection1->Params->Strings[4] = "";
-   ModuloDatos->FDConnection1->Params->Strings[5] = "";*/
+     ModuloDatos->FDConnection1->Params->Clear();
+     ModuloDatos->FDConnection1->ConnectionString = L"DriverID=PG;Server=localhost;Port=5432;Database=agenda;User_Name=postgres";
 
-   ModuloDatos->FDConnection1->Params->Clear();
-   ModuloDatos->FDConnection1->DriverName = "PG";
+     sbMensajes->SimpleText = "Los datos de conexión han sido limpiados satisfactoriamente.";
+     mmMensajes->Lines->Append(tiempoActual());
+     mmMensajes->Lines->Append(sbMensajes->SimpleText);
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmPrincipal::tbtnSalirClick(TObject *Sender)
@@ -297,4 +293,12 @@ bool TfrmPrincipal::estadoSQL(void)
    return conectado;
 }
 //---------------------------------------------------------------------------
+// Deshabilitado
+   /*ModuloDatos->FDConnection1->Params->Strings[1] = "";
+   ModuloDatos->FDConnection1->Params->Strings[2] = "";
+   ModuloDatos->FDConnection1->Params->Strings[3] = "";
+   ModuloDatos->FDConnection1->Params->Strings[4] = "";
+   ModuloDatos->FDConnection1->Params->Strings[5] = "";
+   ModuloDatos->FDConnection1->DriverName = L"PG";*/
+
 

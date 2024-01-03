@@ -13,7 +13,7 @@ object ModuloDatos: TModuloDatos
       'Server=localhost'
       'Database=agenda'
       'User_Name=postgres'
-      'Password=xxxx')
+      'Password=poiu')
     LoginDialog = FDVCLLoginDialog1
     Left = 119
     Top = 48
