@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{27D8F9AC-8F31-4948-8973-751D67C3879B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="AgPeSQL.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AgPeSQL">
+        <MSBuild Projects="AgPeSQL.cbproj"/>
+    </Target>
+    <Target Name="AgPeSQL:Clean">
+        <MSBuild Projects="AgPeSQL.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AgPeSQL:Make">
+        <MSBuild Projects="AgPeSQL.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AgPeSQL"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AgPeSQL:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AgPeSQL:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
