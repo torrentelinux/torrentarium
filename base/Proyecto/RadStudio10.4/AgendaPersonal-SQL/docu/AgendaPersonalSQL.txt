@@ -1,8 +1,10 @@
 Proyecto : AgPeSQL.cbproj
-Autor    : Octulio Bilet醤.
-Prop髎ito: Visualizar el contenido de una tabla llamada 'contactos' en un control TDBGrid.
+Programa : AgPeSQL.cpp
+M贸dulos  : AgendaPersonal.cpp, ModuloSQL.cpp
+Autor    : Octulio Bilet谩n.
+Prop贸sito: Visualizar el contenido de una tabla llamada 'contactos' en un control TDBGrid.
            Acceder a la base de datos 'agenda' alojada en el servidor SQL.
-           Desarrollar una aplicaci髇 de escritorio mediante la t閏nica 'low-code'.
+           Desarrollar una aplicaci贸n de escritorio mediante la t茅cnica 'low-code'.
 Compilador: Embarcadero C++ Builder 10.2 y 10.4 CE.
 Ambiente de desarrollo: Windows Server 2016 Std, 64 bits.
 Servidor : Laragon v6.0 * PostgreSQL * Apache HTTPD
@@ -14,20 +16,28 @@ Controles: VCL, FireDAC.
 	   TFDPhysPgDriverLink, TFDConnection, TFDGUIxLoginDialog, TFDQuery,
 	   TDataSetProvider, TDataSource, TIntegerField, TWideStringField, TDBGrid.
 Bibliotecas
-din醡icas  : BORLNDMM.DLL, CC64250MT.DLL,
+din谩micas  : BORLNDMM.DLL, CC64250MT.DLL,
 	     rtl250.bpl, vcl250.bpl, dbrtl250.bpl, vcldb250.bpl, dsnap250.bpl,
 	     FireDAC250.bpl, FireDACCommonDriver250.bpl, FireDACCommon250.bpl, vclFireDAC250.bpl, FireDACPgDriver250.bpl
 _____________________________________________________________
---* Para la conexi髇 a PostgreSQL, 32 bits, versi髇 9.3.5
- M韓imamente necesarios: libpq.dll y libintl.dll
+Cadena de conexi贸n a PostgreSQL:
+        DriverID=PG,Port=5432,Server=localhost,Database=agenda,User_Name=postgres,Password=xxxx
+_____________________________________________________________
+Base de datos "agenda" para servidor PostgreSQL:
+	Ejecutar siendo admin. del sistema: psql -U postgres -f AgendaContactos.sql -w
+	La base de datos puede estar residiendo en un servidor local o remoto.
+	El servidor SQL puede estar corriendo en Windows o en Linux.
+_____________________________________________________________
+--* Para la conexi贸n a PostgreSQL, 32 bits, versi贸n 9.3.5
+ M铆nimamente necesarios: libpq.dll y libintl.dll
  Otros: libeay32.dll, ssleay32.dll y zlib1.dll
  Necesario: msvcr100.dll
 
---* Para la conexi髇 a PostgreSQL, 32 bits, versi髇 10.0.23
+--* Para la conexi贸n a PostgreSQL, 32 bits, versi贸n 10.0.23
   libcrypto-1_1.dll, libiconv-2.dll, libintl-9.dll, libpq.dll
   libssl-1_1.dll, zlib1.dll
 
---* Para la conexi髇 a PostgreSQL, 64 bits, versi髇 14.0.5
+--* Para la conexi贸n a PostgreSQL, 64 bits, versi贸n 14.0.5
  libcrypto-1_1-x64.dll, libiconv-2.dll, libintl-9.dll, libpq.dll
  libssl-1_1-x64.dll, libwinpthread-1.dll
 
