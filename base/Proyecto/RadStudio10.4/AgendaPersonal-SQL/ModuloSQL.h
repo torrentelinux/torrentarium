@@ -33,6 +33,7 @@
 #include <FireDAC.Comp.BatchMove.hpp>
 #include <FireDAC.Comp.BatchMove.SQL.hpp>
 #include <Datasnap.Provider.hpp>
+#include <Vcl.Dialogs.hpp>
 //---------------------------------------------------------------------------
 class TModuloDatos : public TDataModule
 {
@@ -53,6 +54,7 @@ __published:	// IDE-managed Components
 	TWideStringField *FDQuery1telefono;
 	TWideStringField *FDQuery1Telegrammsj;
 	TWideStringField *FDQuery1Xmsj;
+	TOpenDialog *OpenDialog1;
 private:	// User declarations
 public:		// User declarations
 	__fastcall TModuloDatos(TComponent* Owner);

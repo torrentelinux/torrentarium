@@ -1,9 +1,10 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = 'Agenda Personal'
-  ClientHeight = 468
-  ClientWidth = 1005
+  ClientHeight = 478
+  ClientWidth = 1015
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,11 +13,29 @@ object frmPrincipal: TfrmPrincipal
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnClick = FormClick
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
+  object sbtnGrilla: TSpeedButton
+    Left = 288
+    Top = 35
+    Width = 23
+    Height = 25
+    Hint = 'Ocultar planilla.'
+    Caption = 'X'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = sbtnGrillaClick
+  end
   object mmMensajes: TMemo
     Left = 8
     Top = 352
@@ -29,17 +48,19 @@ object frmPrincipal: TfrmPrincipal
   end
   object sbMensajes: TStatusBar
     Left = 0
-    Top = 449
-    Width = 1005
+    Top = 459
+    Width = 1015
     Height = 19
     Panels = <>
     SimplePanel = True
     SimpleText = 'Listo.'
+    ExplicitTop = 449
+    ExplicitWidth = 1005
   end
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 1005
+    Width = 1015
     Height = 29
     Hint = 'Barra de controles'
     BorderWidth = 1
@@ -57,6 +78,7 @@ object frmPrincipal: TfrmPrincipal
     ShowHint = True
     TabOrder = 2
     Transparent = True
+    ExplicitWidth = 1005
     object tbtnConectar: TToolButton
       Left = 0
       Top = 0
@@ -86,8 +108,17 @@ object frmPrincipal: TfrmPrincipal
       Style = tbsTextButton
       OnClick = tbtnGrillaClick
     end
-    object tbtnSalir: TToolButton
+    object tbtnEditar: TToolButton
       Left = 57
+      Top = 0
+      Hint = 'Editar conexi'#243'n.'
+      Caption = 'E'
+      ImageIndex = 4
+      Style = tbsTextButton
+      OnClick = tbtnEditarClick
+    end
+    object tbtnSalir: TToolButton
+      Left = 76
       Top = 0
       Hint = 'Salir de la aplicaci'#243'n.'
       Caption = 'S'

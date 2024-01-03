@@ -8,12 +8,12 @@ object ModuloDatos: TModuloDatos
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'User_Name=postgres'
-      'Password=xxxx'
-      'Server=localhost'
+      'DriverID=PG'
       'Port=5432'
+      'Server=localhost'
       'Database=agenda'
-      'DriverID=PG')
+      'User_Name=postgres'
+      'Password=poiu')
     LoginDialog = FDVCLLoginDialog1
     Left = 119
     Top = 48
@@ -98,5 +98,9 @@ object ModuloDatos: TModuloDatos
     DataSet = FDQuery1
     Left = 24
     Top = 152
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 240
+    Top = 136
   end
 end
