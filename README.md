@@ -1,7 +1,7 @@
 # torrentarium
 
 Aplicaciones realizadas en C/C++, Java y Vala.<br>
-Hay más proyectos en el directorio base/Proyecto/<br>
+Hay más proyectos en el directorio /torrentarium/base/Proyecto/<br>
 
 <b>Proyecto OpenProgram.exe</b>: construído con Embarcadero C++ Builder.<br>
 Soporta 32 y 64 bits, Windows Vista, 7, 8, 8.1, 10, 2008, 2012, 2016 y 2019.<br>
