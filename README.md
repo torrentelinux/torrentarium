@@ -4,7 +4,7 @@ Aplicaciones realizadas en C/C++, Java y Vala.<br>
 Hay más proyectos en el directorio /torrentarium/base/Proyecto/<br>
 
 <b>Proyecto OpenProgram.exe</b>: construído con Embarcadero C++ Builder.<br>
-Soporta 32 y 64 bits, Windows Vista, 7, 8, 8.1, 10, 2008, 2012, 2016 y 2019.<br>
+Soporta 32 y 64 bits, Windows Vista, 7, 8, 8.1, 10, 2008, 2012, 2016, 2019 y 2022.<br>
 
 <b>Proyecto wciclar.exe</b>: construído con Embarcadero RAD Studio 10.2 Tokyo, 32 bits.<br>
 
@@ -34,6 +34,6 @@ Visitar directorio:<br>
 ** https://github.com/torrentelinux/torrentarium/tree/master/base/programa/<br>
 
 <b>Importante:</b> aquí noy hay código fuente en Pascal. Ver fichero "error-github.png".<br>
-Ultima actualización: 18-Ene-2024.<br>
+Ultima actualización: 21-Ene-2024.<br>
 
 Desarrollador principal: <a href="https://ar.linkedin.com/in/eugenio-mart%C3%ADnez-ob1">Eugenio Martínez</a>[<a href="https://www.bing.com/search?q=octulio+bilet%C3%A1n">Octulio Biletán</a>][Edmund Muslok].<br>
