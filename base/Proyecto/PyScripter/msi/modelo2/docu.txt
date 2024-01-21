@@ -1,4 +1,9 @@
 Modelo de Sistema Informático Comercial.
+Colocar todos los archivos en el directorio:
+c:\base\Proyecto\PyScripter\msi\modelo2\
+
+Referencias:
+https://www.pythonguis.com/tutorials/creating-your-first-pyqt-window/
 
 _____________________________________________________________
 Octulio Biletán * Enero de 2024
