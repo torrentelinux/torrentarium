@@ -16,16 +16,16 @@ import locale
 import os, sys
 
 # Librería PySide2. Hasta Windows Server 2008 R2
-from PySide2.QtCore import *
-from PySide2.QtWidgets import *
-from PySide2.QtGui import *
-from PySide2.QtUiTools import QUiLoader
+#from PySide2.QtCore import *
+#from PySide2.QtWidgets import *
+#from PySide2.QtGui import *
+#from PySide2.QtUiTools import QUiLoader
 
 # Librería PySide6. Hasta Windows Server 2022
-#from PySide6.QtCore import *
-#from PySide6.QtWidgets import *
-#from PySide6.QtGui import *
-#from PySide6.QtUiTools import QUiLoader
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+from PySide6.QtUiTools import QUiLoader
 
 def leerVntAcercaDe()->QWidget:
     ui_file_name = "AcercaDe.ui"
@@ -57,4 +57,4 @@ if __name__ == '__main__':
     vAcercaDe.show()
 
     # Ejecuta la aplicación y luego regresa al S.O.
-    sys.exit(miAplicacion.exec_())
+    sys.exit(miAplicacion.exec())

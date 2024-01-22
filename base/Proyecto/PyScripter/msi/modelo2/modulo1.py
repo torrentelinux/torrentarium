@@ -9,7 +9,7 @@
 # Licence:     Software Libre
 #-------------------------------------------------------------------------------
 #import PySide6 as ps6
-from PySide2.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 
 # Importa todo lo que tiene el programa AplicacionPrincipal.py
 import AplicacionPrincipal as ap
