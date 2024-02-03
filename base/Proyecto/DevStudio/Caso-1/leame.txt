@@ -1,0 +1,5 @@
+Caso-1.cpp
+Uso de la biblioteca 'curl' en C++.
+1º caso de uso de REST.
+Octulio Biletán.
+Febrero de 2024.
