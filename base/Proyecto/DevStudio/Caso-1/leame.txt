@@ -1,5 +1,11 @@
 Caso-1.cpp
-Uso de la biblioteca 'curl' en C++.
-1º caso de uso de REST.
+ejemplo de REST con CURL para Oracle Linux Server (i sorry Windows).
+muestra en pantalla la dir. IP externa de tu conexión a internet.
+entorno: Oracle Developer Studio v12.6
+compilar: g++ -s -v -lcurl -o <ejecutable> <fuente c++>
+ayuda: man 3 curl_global_init
+licencia: Software Libre.
+________________
 Octulio Biletán.
 Febrero de 2024.
+////////////////
