@@ -11,7 +11,7 @@
 from __future__ import unicode_literals
 import os, sys, locale, webbrowser
 
-# Librería PyQt5/PyQt6
+# Modifique aquí para utilizar Librería PyQt5 o también PyQt6
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
 from PyQt6.QtGui import *
@@ -27,9 +27,6 @@ class Mensaje():
         vGraf.exec()
 
 class VentanaPrincipal(QMainWindow):
-    # ubicación local o remota de la docu. básica del Sistema Informático Comercial.
-    self.htmlDocu = "file:///C:/base/Proyecto/PyScripter/msi/modelo4/docu.html"
-
     def __init__(self):
         super(VentanaPrincipal, self).__init__()
         self.vp = loadUi("VentanaPrincipal.ui", self)
@@ -69,6 +66,9 @@ class VentanaPrincipal(QMainWindow):
     # evento respuesta para "Ayuda/Leer Manual Introductorio"
     # abre el navegador web por omisión de Windows para visualizar docu. básica
     def actionLeerManualIntroductorio(self):
+        # ubicación local o remota de la docu. básica del Sistema Informático Comercial.
+        self.htmlDocu = "file:///C:/base/Proyecto/PyScripter/msi/modelo4/docu.html"
+        
         print("Leer manual introductorio: evento accionado.")
         webbrowser.get('windows-default').open(self.htmlDocu)
 
