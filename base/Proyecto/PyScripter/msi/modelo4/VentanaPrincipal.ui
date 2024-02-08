@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>383</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Modelo de Gestión Empresa</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>VentanaPrincipal.ico</normaloff>VentanaPrincipal.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="toolTip">
+     <string>Opción Archivo.</string>
+    </property>
+    <property name="statusTip">
+     <string>Opción Archivo.</string>
+    </property>
+    <property name="title">
+     <string>&amp;Archivo</string>
+    </property>
+    <property name="toolTipsVisible">
+     <bool>true</bool>
+    </property>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuEditar">
+    <property name="statusTip">
+     <string>Opción Editar.</string>
+    </property>
+    <property name="title">
+     <string>&amp;Editar</string>
+    </property>
+    <addaction name="actionPreferencias"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="statusTip">
+     <string>Opción Ayuda.</string>
+    </property>
+    <property name="title">
+     <string>A&amp;yuda</string>
+    </property>
+    <addaction name="actionAcercaDe"/>
+    <addaction name="actionLeerManualIntro"/>
+   </widget>
+   <widget class="QMenu" name="menuSistema">
+    <property name="statusTip">
+     <string>Opción Sistema.</string>
+    </property>
+    <property name="title">
+     <string>&amp;Sistema</string>
+    </property>
+    <addaction name="actionAbrirSesion"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuEditar"/>
+   <addaction name="menuSistema"/>
+   <addaction name="menuAyuda"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="toolTip">
+    <string>Barra de estado.</string>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="statusTip">
+    <string>Modelo de sistema para la gestión de una empresa.</string>
+   </property>
+  </widget>
+  <action name="actionPreferencias">
+   <property name="text">
+    <string>&amp;Preferencias</string>
+   </property>
+   <property name="statusTip">
+    <string>Abre preferencias del Sistema.</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>&amp;Salir</string>
+   </property>
+   <property name="statusTip">
+    <string>Sale de la aplicación.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionAbrirSesion">
+   <property name="text">
+    <string>&amp;Abrir Sesión</string>
+   </property>
+   <property name="toolTip">
+    <string>Abre sesión en el Sistema.</string>
+   </property>
+   <property name="statusTip">
+    <string>Abre sesión en el Sistema.</string>
+   </property>
+  </action>
+  <action name="actionAcercaDe">
+   <property name="text">
+    <string>&amp;Acerca de...</string>
+   </property>
+   <property name="statusTip">
+    <string>Muestra el autor del sistema.</string>
+   </property>
+  </action>
+  <action name="actionLeerManualIntro">
+   <property name="text">
+    <string>&amp;Leer Manual Introductorio</string>
+   </property>
+   <property name="statusTip">
+    <string>Muestra el Manual Introductorio.</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionSalir</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
