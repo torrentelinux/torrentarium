@@ -11,7 +11,7 @@
 from __future__ import unicode_literals
 import os, sys, locale, webbrowser
 
-# Modifique aquí para utilizar Librería PyQt5 o también PyQt6
+# Modificar Librería PyQt5/PyQt6
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
 from PyQt6.QtGui import *
@@ -67,10 +67,10 @@ class VentanaPrincipal(QMainWindow):
     # abre el navegador web por omisión de Windows para visualizar docu. básica
     def actionLeerManualIntroductorio(self):
         # ubicación local o remota de la docu. básica del Sistema Informático Comercial.
-        self.htmlDocu = "file:///C:/base/Proyecto/PyScripter/msi/modelo4/docu.html"
-        
-        print("Leer manual introductorio: evento accionado.")
-        webbrowser.get('windows-default').open(self.htmlDocu)
+        # opcional: https://tu_sitio/tu_carpeta/docu.html
+        self.htmlDocu = "file:///c:/base/Proyecto/PyScripter/msi/modelo4/docu.html"
+        print("Leer manual introductorio: " + self.htmlDocu)
+        webbrowser.open(self.htmlDocu)
 
 def main():
     # ajusta la localía para Español/Argentina en el S.O.
