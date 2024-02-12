@@ -26,7 +26,7 @@ class Mensaje():
         vGraf.setIcon(vGraf.Icon.Information)
         vGraf.exec()
 
-# Las aplicaciones registradas en esta clase son Telegram y WhatsApp
+# Las aplicaciones registradas en esta clase son Google, Google Gmail, Telegram y WhatsApp
 class Aplicaciones():
     def navegador(self, txt_url: str)-> None:
         webbrowser.open(txt_url)
