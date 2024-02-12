@@ -279,7 +279,7 @@
     <string>Modelo de sistema para
 la gestión de una empresa.
 
-Copyright (c) 2023 Compañía.</string>
+Copyright (c) 2024 Compañía.</string>
    </property>
    <property name="centerOnScroll">
     <bool>false</bool>
@@ -320,7 +320,7 @@ Copyright (c) 2023 Compañía.</string>
     </font>
    </property>
    <property name="text">
-    <string>Sistema Informático v1.0</string>
+    <string>Sistema Informático v1.4</string>
    </property>
   </widget>
  </widget>

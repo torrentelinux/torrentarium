@@ -26,6 +26,23 @@ class Mensaje():
         vGraf.setIcon(vGraf.Icon.Information)
         vGraf.exec()
 
+# Las aplicaciones registradas en esta clase son Telegram y WhatsApp
+class Aplicaciones():
+    def navegador(self, txt_url: str)-> None:
+        webbrowser.open(txt_url)
+
+    def BuscadorGoogle(self)-> None:
+        self.navegador("https://www.google.com/")
+
+    def CorreoGoogle(self)-> None:
+        self.navegador("https://mail.google.com/mail/")
+
+    def Telegram(self)-> None:
+        self.navegador("https://www.telegram.org/dl/web")
+
+    def WhatsApp(self)-> None:
+        self.navegador("https://web.whatsapp.com")
+
 class VentanaPrincipal(QMainWindow):
     def __init__(self):
         super(VentanaPrincipal, self).__init__()
@@ -43,6 +60,18 @@ class VentanaPrincipal(QMainWindow):
         # vincula opción de menú "Abrir Sesión" con método 'actionAbrirS'
         self.vp.actionAbrirSesion.triggered.connect(self.actionAbrirS)
 
+        # vincula opción de menú "Telegram" con método 'actionTelegramWeb'
+        self.vp.actionTelegram.triggered.connect(self.actionTelegramWeb)
+
+        # vincula opción de menú "WhatsApp" con método 'actionWhatsAppWeb'
+        self.vp.actionWhatsApp.triggered.connect(self.actionWhatsAppWeb)
+
+        # vincula opción de menú "Google Gmail" con método 'actionGmailWeb'
+        self.vp.actionGoogleGmail.triggered.connect(self.actionGmailWeb)
+
+        # vincula opción de menú "Google" con método 'actionGoogleWeb'
+        self.vp.actionGoogle.triggered.connect(self.actionGoogleWeb)
+
         # vincula opción de menú "Acerca de..." con método 'actionAcerca_de'
         self.vp.actionAcercaDe.triggered.connect(self.actionAcerca_de)
 
@@ -58,6 +87,26 @@ class VentanaPrincipal(QMainWindow):
     def actionAbrirS(self):
         Mensaje().visualizar("Opción no disponible.")
 
+    # evento respuesta para "Aplicaciones/Telegram"
+    def actionTelegramWeb(self):
+        print("Invocando a Telegram Web")
+        Aplicaciones().Telegram()
+
+    # evento respuesta para "Aplicaciones/WhatsApp"
+    def actionWhatsAppWeb(self):
+        print("Invocando a WhatsApp Web")
+        Aplicaciones().WhatsApp()
+
+    # evento respuesta para "Aplicaciones/Google"
+    def actionGoogleWeb(self):
+        print("Invocando a buscador Google")
+        Aplicaciones().BuscadorGoogle()
+
+    # evento respuesta para "Aplicaciones/Google Gmail"
+    def actionGmailWeb(self):
+        print("Invocando a correo-e de Google")
+        Aplicaciones().CorreoGoogle()
+
     # evento respuesta para "Ayuda/Acerca de..."
     def actionAcerca_de(self):
         print("Acerca De: evento accionado.")
@@ -70,8 +119,9 @@ class VentanaPrincipal(QMainWindow):
         # opcional: https://tu_sitio/tu_carpeta/docu.html
         self.htmlDocu = "file:///c:/base/Proyecto/PyScripter/msi/modelo4/docu.html"
         print("Leer manual introductorio: " + self.htmlDocu)
-        webbrowser.open(self.htmlDocu)
+        Aplicaciones().navegador(self.htmlDocu)
 
+# La función main()
 def main():
     # ajusta la localía para Español/Argentina en el S.O.
     locale.setlocale(locale.LC_ALL, 'spanish_argentina')
@@ -95,5 +145,6 @@ def main():
     # devolviendo al S.O. un código de salida.
     sys.exit(miAplicacion.exec())
 
+# Desde aquí comienza todo...
 if __name__ == '__main__':
     main()

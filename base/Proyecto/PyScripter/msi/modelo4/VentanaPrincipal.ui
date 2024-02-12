@@ -27,7 +27,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>29</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
@@ -61,8 +61,15 @@
     <property name="title">
      <string>A&amp;yuda</string>
     </property>
+    <widget class="QMenu" name="menuMesa_de_Ayuda">
+     <property name="title">
+      <string>Mesa de Ayuda</string>
+     </property>
+     <addaction name="actionAsistencia_online"/>
+     <addaction name="actionLeerManualIntro"/>
+    </widget>
+    <addaction name="menuMesa_de_Ayuda"/>
     <addaction name="actionAcercaDe"/>
-    <addaction name="actionLeerManualIntro"/>
    </widget>
    <widget class="QMenu" name="menuSistema">
     <property name="statusTip">
@@ -71,11 +78,66 @@
     <property name="title">
      <string>&amp;Sistema</string>
     </property>
+    <widget class="QMenu" name="menuOperaciones">
+     <property name="title">
+      <string>Operaciones</string>
+     </property>
+     <widget class="QMenu" name="menuGenerar_Informes">
+      <property name="title">
+       <string>Generar Informes</string>
+      </property>
+      <addaction name="actionInforme_de_Ventas"/>
+      <addaction name="actionInforme_de_Compras"/>
+      <addaction name="actionPersonal_Empresa_2"/>
+      <addaction name="actionImprime"/>
+     </widget>
+     <widget class="QMenu" name="menuPersonal_Empresa">
+      <property name="title">
+       <string>Personal Empresa</string>
+      </property>
+      <addaction name="actionSueldos"/>
+      <addaction name="actionAdelantos"/>
+     </widget>
+     <widget class="QMenu" name="menuFacturacion">
+      <property name="title">
+       <string>Facturación</string>
+      </property>
+      <addaction name="actionFactura_digital"/>
+      <addaction name="actionFactura_papel"/>
+     </widget>
+     <addaction name="actionContables"/>
+     <addaction name="actionVentas"/>
+     <addaction name="actionCompras"/>
+     <addaction name="actionControl_de_existencias"/>
+     <addaction name="menuGenerar_Informes"/>
+     <addaction name="menuPersonal_Empresa"/>
+     <addaction name="menuFacturacion"/>
+    </widget>
+    <widget class="QMenu" name="menuCentro_de_Operaciones">
+     <property name="title">
+      <string>Centro de Operaciones</string>
+     </property>
+     <addaction name="actionSesiones"/>
+     <addaction name="actionImpresora"/>
+    </widget>
     <addaction name="actionAbrirSesion"/>
+    <addaction name="actionCerrar_Sesion"/>
+    <addaction name="menuOperaciones"/>
+    <addaction name="menuCentro_de_Operaciones"/>
+   </widget>
+   <widget class="QMenu" name="menuAplicaciones">
+    <property name="title">
+     <string>A&amp;plicaciones</string>
+    </property>
+    <addaction name="actionTelegram"/>
+    <addaction name="actionWhatsApp"/>
+    <addaction name="actionGoogleGmail"/>
+    <addaction name="actionGoogle"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuEditar"/>
    <addaction name="menuSistema"/>
+   <addaction name="menuAplicaciones"/>
    <addaction name="menuAyuda"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
@@ -133,6 +195,123 @@
    </property>
    <property name="statusTip">
     <string>Muestra el Manual Introductorio.</string>
+   </property>
+  </action>
+  <action name="actionVentas">
+   <property name="text">
+    <string>Ventas</string>
+   </property>
+  </action>
+  <action name="actionCompras">
+   <property name="text">
+    <string>Compras</string>
+   </property>
+  </action>
+  <action name="actionControl_de_existencias">
+   <property name="text">
+    <string>Control de existencias</string>
+   </property>
+  </action>
+  <action name="actionCerrar_Sesion">
+   <property name="text">
+    <string>Cerrar Sesión</string>
+   </property>
+  </action>
+  <action name="actionAsistencia_online">
+   <property name="text">
+    <string>Asistencia online</string>
+   </property>
+  </action>
+  <action name="actionSesiones">
+   <property name="text">
+    <string>Sesiones</string>
+   </property>
+  </action>
+  <action name="actionImpresora">
+   <property name="text">
+    <string>Impresora</string>
+   </property>
+  </action>
+  <action name="actionImprimir">
+   <property name="text">
+    <string>Imprimir</string>
+   </property>
+  </action>
+  <action name="actionInforme_de_Ventas">
+   <property name="text">
+    <string>Informe de Ventas</string>
+   </property>
+  </action>
+  <action name="actionImprime">
+   <property name="text">
+    <string>Imprimir</string>
+   </property>
+  </action>
+  <action name="actionInforme_de_Compras">
+   <property name="text">
+    <string>Informe de Compras</string>
+   </property>
+  </action>
+  <action name="actionSueldos">
+   <property name="text">
+    <string>Sueldos</string>
+   </property>
+  </action>
+  <action name="actionAdelantos">
+   <property name="text">
+    <string>Adelantos</string>
+   </property>
+  </action>
+  <action name="actionPersonal_Empresa_2">
+   <property name="text">
+    <string>Personal Empresa</string>
+   </property>
+  </action>
+  <action name="actionFactura_digital">
+   <property name="text">
+    <string>Factura digital</string>
+   </property>
+  </action>
+  <action name="actionFactura_papel">
+   <property name="text">
+    <string>Factura papel</string>
+   </property>
+  </action>
+  <action name="actionContables">
+   <property name="text">
+    <string>Contables</string>
+   </property>
+  </action>
+  <action name="actionTelegram">
+   <property name="text">
+    <string>&amp;Telegram</string>
+   </property>
+   <property name="statusTip">
+    <string>Abre Telegram Web.</string>
+   </property>
+  </action>
+  <action name="actionWhatsApp">
+   <property name="text">
+    <string>&amp;WhatsApp</string>
+   </property>
+   <property name="statusTip">
+    <string>Abre WhatsApp Web.</string>
+   </property>
+  </action>
+  <action name="actionGoogleGmail">
+   <property name="text">
+    <string>Google G&amp;mail</string>
+   </property>
+   <property name="statusTip">
+    <string>Abre Google Gmail.</string>
+   </property>
+  </action>
+  <action name="actionGoogle">
+   <property name="text">
+    <string>&amp;Google</string>
+   </property>
+   <property name="statusTip">
+    <string>Abre el buscador Google.</string>
    </property>
   </action>
  </widget>
