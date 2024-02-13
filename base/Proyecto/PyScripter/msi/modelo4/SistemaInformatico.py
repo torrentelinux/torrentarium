@@ -15,6 +15,7 @@ import os, sys, locale, webbrowser
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
 from PyQt6.QtGui import *
+from PyQt6.QtPrintSupport import *
 from PyQt6.uic import loadUi
 
 class Mensaje():
@@ -25,6 +26,10 @@ class Mensaje():
         vGraf.setText(msj)
         vGraf.setIcon(vGraf.Icon.Information)
         vGraf.exec()
+
+    # muestra un mensaje de texto en la consola de textos.
+    def mostrar(self, msj: str):
+        print(msj)
 
 # Las aplicaciones registradas en esta clase son Google, Google Gmail, Telegram y WhatsApp
 class Aplicaciones():
@@ -57,8 +62,14 @@ class VentanaPrincipal(QMainWindow):
         # vincula opción de menú "Preferencias" con método 'actionPrefs'
         self.vp.actionPreferencias.triggered.connect(self.actionPrefs)
 
-        # vincula opción de menú "Abrir Sesión" con método 'actionAbrirS'
+        # vincula opción de menú "Sistema/Abrir Sesión" con método 'actionAbrirS'
         self.vp.actionAbrirSesion.triggered.connect(self.actionAbrirS)
+
+        # vincula opción de menú "Sistema/Operaciones/Generar Informes/Imprimir" con método 'actionDlgImpresora'
+        self.vp.actionImpresora.triggered.connect(self.actionDlgImpresora)
+
+        # vincula opción de menú "Sistema/Centro de Operaciones/Impresión" con método 'actionDlgImpresion'
+        self.vp.actionImpresion.triggered.connect(self.actionDlgImpresion)
 
         # vincula opción de menú "Telegram" con método 'actionTelegramWeb'
         self.vp.actionTelegram.triggered.connect(self.actionTelegramWeb)
@@ -85,7 +96,16 @@ class VentanaPrincipal(QMainWindow):
 
     # evento respuesta para "Sistema/Abrir Sesión"
     def actionAbrirS(self):
-        Mensaje().visualizar("Opción no disponible.")
+        self.consola = Mensaje()
+        self.consola.mostrar("Opción no disponible.")
+
+    # evento respuesta para "Sistema/Operaciones/Generar Informes/Imprimir"
+    def actionDlgImpresora(self):
+        QPrintDialog(self).exec()
+
+    # evento respuesta para "Sistema/Centro de Operaciones/Impresión"
+    def actionDlgImpresion(self):
+        QPageSetupDialog(self).exec()
 
     # evento respuesta para "Aplicaciones/Telegram"
     def actionTelegramWeb(self):
