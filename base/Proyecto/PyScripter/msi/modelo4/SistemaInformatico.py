@@ -1,7 +1,9 @@
 #-------------------------------------------------------------------------------
 # Nombre:    SistemaInformatico.py
 # Propósito: Servir de modelo para la construcción 'real' de
-#            un sistema informático comercial.
+#	     un sistema informático comercial.
+# Notas:     Para evitar la visualización de los mensajes de errores, ejecute
+#	     desde la consola de textos: python SistemaInformatico.py 2> salida
 # Autor:     Octulio Biletán
 # Creado:    11/11/2023
 # Copyright: (c) Octulio Biletán 2023-2024
@@ -27,25 +29,25 @@ class Mensaje():
         vGraf.setIcon(vGraf.Icon.Information)
         vGraf.exec()
 
-    # muestra un mensaje de texto en la consola de textos.
+    # muestra un mensaje de texto en la consola de textos (stderr).
     def mostrar(self, msj: str):
-        print(msj)
+        sys.stderr.write(msj)
 
 # Las aplicaciones registradas en esta clase son Google, Google Gmail, Telegram y WhatsApp
 class Aplicaciones():
-    def navegador(self, txt_url: str)-> None:
+    def navegador(self, txt_url:str)->None:
         webbrowser.open(txt_url)
 
-    def BuscadorGoogle(self)-> None:
+    def BuscadorGoogle(self)->None:
         self.navegador("https://www.google.com/")
 
-    def CorreoGoogle(self)-> None:
+    def CorreoGoogle(self)->None:
         self.navegador("https://mail.google.com/mail/")
 
-    def Telegram(self)-> None:
+    def Telegram(self)->None:
         self.navegador("https://www.telegram.org/dl/web")
 
-    def WhatsApp(self)-> None:
+    def WhatsApp(self)->None:
         self.navegador("https://web.whatsapp.com")
 
 class VentanaPrincipal(QMainWindow):
@@ -97,7 +99,7 @@ class VentanaPrincipal(QMainWindow):
     # evento respuesta para "Sistema/Abrir Sesión"
     def actionAbrirS(self):
         self.consola = Mensaje()
-        self.consola.mostrar("Opción no disponible.")
+        self.consola.mostrar("Opción no disponible.\n")
 
     # evento respuesta para "Sistema/Operaciones/Generar Informes/Imprimir"
     def actionDlgImpresora(self):
@@ -109,27 +111,27 @@ class VentanaPrincipal(QMainWindow):
 
     # evento respuesta para "Aplicaciones/Telegram"
     def actionTelegramWeb(self):
-        print("Invocando a Telegram Web")
+        Mensaje().mostrar("Invocando a Telegram Web\n")
         Aplicaciones().Telegram()
 
     # evento respuesta para "Aplicaciones/WhatsApp"
     def actionWhatsAppWeb(self):
-        print("Invocando a WhatsApp Web")
+        Mensaje().mostrar("Invocando a WhatsApp Web\n")
         Aplicaciones().WhatsApp()
 
     # evento respuesta para "Aplicaciones/Google"
     def actionGoogleWeb(self):
-        print("Invocando a buscador Google")
+        Mensaje().mostrar("Invocando a buscador Google\n")
         Aplicaciones().BuscadorGoogle()
 
     # evento respuesta para "Aplicaciones/Google Gmail"
     def actionGmailWeb(self):
-        print("Invocando a correo-e de Google")
+        Mensaje().mostrar("Invocando a correo-e de Google\n")
         Aplicaciones().CorreoGoogle()
 
     # evento respuesta para "Ayuda/Acerca de..."
     def actionAcerca_de(self):
-        print("Acerca De: evento accionado.")
+        Mensaje().mostrar("Acerca De: evento accionado.\n")
         self.dlgAcercaDe.exec()
 
     # evento respuesta para "Ayuda/Leer Manual Introductorio"
@@ -138,7 +140,7 @@ class VentanaPrincipal(QMainWindow):
         # ubicación local o remota de la docu. básica del Sistema Informático Comercial.
         # opcional: https://tu_sitio/tu_carpeta/docu.html
         self.htmlDocu = "file:///c:/base/Proyecto/PyScripter/msi/modelo4/docu.html"
-        print("Leer manual introductorio: " + self.htmlDocu)
+        Mensaje().mostrar("Leer manual introductorio: " + self.htmlDocu + "\n")
         Aplicaciones().navegador(self.htmlDocu)
 
 # La función main()
@@ -147,7 +149,7 @@ def main():
     locale.setlocale(locale.LC_ALL, 'spanish_argentina')
 
     # crea una instancia de QApplication.
-    miAplicacion = QApplication(sys.argv)
+    miAplicacion = QApplication([])
 
     miAplicacion.setApplicationDisplayName("Sistema")
     miAplicacion.setApplicationVersion("1.4")
@@ -161,9 +163,13 @@ def main():
     # Muestra la Ventana principal en la pantalla.
     vPrincipal.show()
 
-    # Ejecuta la aplicación y luego sale de la aplicación
-    # devolviendo al S.O. un código de salida.
-    sys.exit(miAplicacion.exec())
+    # Ejecuta la aplicación principal.
+    estado = miAplicacion.exec()
+
+    Mensaje().mostrar("Finalizando Sistema Informático...")
+
+    #  Sale de la aplicación devolviendo al S.O. un código de salida.
+    sys.exit(estado)
 
 # Desde aquí comienza todo...
 if __name__ == '__main__':

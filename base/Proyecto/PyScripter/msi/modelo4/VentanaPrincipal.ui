@@ -89,7 +89,7 @@
       <addaction name="actionInforme_de_Ventas"/>
       <addaction name="actionInforme_de_Compras"/>
       <addaction name="actionPersonal_Empresa_2"/>
-      <addaction name="actionImprime"/>
+      <addaction name="actionImpresora"/>
      </widget>
      <widget class="QMenu" name="menuPersonal_Empresa">
       <property name="title">
@@ -118,7 +118,7 @@
       <string>Centro de Operaciones</string>
      </property>
      <addaction name="actionSesiones"/>
-     <addaction name="actionImpresora"/>
+     <addaction name="actionImpresion"/>
     </widget>
     <addaction name="actionAbrirSesion"/>
     <addaction name="actionCerrar_Sesion"/>
@@ -227,9 +227,12 @@
     <string>Sesiones</string>
    </property>
   </action>
-  <action name="actionImpresora">
+  <action name="actionImpresion">
    <property name="text">
-    <string>Impresora</string>
+    <string>&amp;Impresión</string>
+   </property>
+   <property name="statusTip">
+    <string>Configura la hoja a imprimir.</string>
    </property>
   </action>
   <action name="actionImprimir">
@@ -242,9 +245,12 @@
     <string>Informe de Ventas</string>
    </property>
   </action>
-  <action name="actionImprime">
+  <action name="actionImpresora">
    <property name="text">
-    <string>Imprimir</string>
+    <string>&amp;Imprimir</string>
+   </property>
+   <property name="statusTip">
+    <string>Imprime documento a Impresora.</string>
    </property>
   </action>
   <action name="actionInforme_de_Compras">
