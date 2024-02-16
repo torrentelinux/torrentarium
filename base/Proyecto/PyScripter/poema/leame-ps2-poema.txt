@@ -4,7 +4,7 @@ Autor: Octulio Biletán * 10-2023
 Versión: 1.0 (beta)
 Estado del proyecto: 'en desarrollo'.
 Lenguaje: Python v3.8 (64 bits).
-Herramienta: PyScripter para Windows v4.3
+Herramienta: PyScripter para Windows v4.3.4.0
 Librería: PySide2 v5.15.2.1, PySide6 v6.6.1, Qt v5.15.9
 Sitio de la librería: https://pypi.org/project/PySide2/
 Directorio: c:\Program Files\Python38\Lib\site-packages\PySide2\

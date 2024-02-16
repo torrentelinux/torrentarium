@@ -2,6 +2,8 @@
 # Nombre:      poema-visualizar.py
 # Propósito:   Visualizar un poema en una ventana gráfica.
 #              Las opciones disponibles son nuevo, leer, guardar e imprimir.
+#              El fichero "poema" es un fichero de textos con extensión .poe
+#              y codificación utf-8.
 #              Funciona con las bibliotecas PySide2, PySide6 y PyQt5.
 # Autor:       Octulio Biletán.
 # Creado:      22/10/2023
@@ -14,10 +16,10 @@ from __future__ import unicode_literals
 import locale, sys
 
 # Modificar para PySide2/PySide6/PyQt5
-from PySide6.QtCore import *
-from PySide6.QtWidgets import *
-from PySide6.QtGui import *
-from PySide6.QtPrintSupport import *
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtPrintSupport import *
 
 class Poema(QWidget):
     def __init__(self, parent=None):
@@ -121,8 +123,8 @@ class Poema(QWidget):
             print("Impresión cancelada.", flush=True)
 
     def on_btnGuardar(self):
-        fnombre="poema0" + str(self.nro) + ".txt"
-        ftexto=open(fnombre, "w")
+        fnombre = "poema0" + str(self.nro) + ".poe"
+        ftexto = open(fnombre, "w", encoding="utf-8")
         ftexto.write(self.text1.toPlainText())
         ftexto.close()
         print("El poema ha sido guardado en el directorio vigente: ", fnombre)
@@ -130,14 +132,16 @@ class Poema(QWidget):
 
     def on_btnLeer(self):
         print("Lee poema.", flush=True)
-        trayecto_fichero = QFileDialog.getOpenFileName(self, "Abrir fichero", "", "Ficheros de texto (*.txt)")
+        nombreFichero = QFileDialog.getOpenFileName(self, "Abrir fichero", "poema.poe", "Ficheros de poemas (*.poe)")
 
-        if trayecto_fichero[0]:
-            ficheroTexto = open(trayecto_fichero[0], "r", encoding="utf-8")
-            with ficheroTexto:
-                datos = ficheroTexto.read()
+        if nombreFichero[0]:
+            idFichero = open(nombreFichero[0], "r", encoding="utf-8")
+            with idFichero:
+                datos = idFichero.read()
                 self.text1.setText(datos)
-                ficheroTexto.close()
+                idFichero.close()
+        else:
+            print("Fichero .poe no seleccionado.")
 
     def on_btnNuevo(self):
         self.text1.clear()
@@ -148,12 +152,9 @@ class Poema(QWidget):
     """
     def centrar(self):
         posX = (self.screen().size().width() / 2) - (self.width() / 2)
-        self.move(posX, 8)
-        
+        self.move(round(posX), 8)
 
-if __name__ == '__main__':
-    import sys
-
+def main():
     locale.setlocale(locale.LC_ALL, 'spanish_argentina')
     miAplicacion = QApplication(sys.argv)
     miAplicacion.setApplicationDisplayName("Lector de poemas")
@@ -166,3 +167,6 @@ if __name__ == '__main__':
     miPoema.show()
 
     sys.exit(miAplicacion.exec())
+
+if __name__ == '__main__':
+    main()
