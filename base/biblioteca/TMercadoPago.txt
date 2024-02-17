@@ -1,0 +1,97 @@
+En you.com: Como programar en Embarcadero RAD Studio c++ Componente para MercadoPago
+
+Para programar en Embarcadero RAD Studio C++ y utilizar el componente para MercadoPago, puedes seguir los siguientes pasos:
+1* Descarga e instala Embarcadero RAD Studio desde el sitio web oficial de Embarcadero.
+2* Abre Embarcadero RAD Studio y crea un nuevo proyecto en C++.
+3* En el proyecto, puedes agregar el componente para MercadoPago utilizando las bibliotecas y herramientas disponibles en 
+   RAD Studio.
+4* Para utilizar el componente para MercadoPago, puedes consultar la documentación y ejemplos proporcionados por MercadoPago para
+integrar su API en tu aplicación.
+5* Asegúrate de tener las credenciales y tokens necesarios para autenticarte y realizar transacciones con la API de MercadoPago.
+6* Utiliza las funciones y métodos proporcionados por el componente para MercadoPago en tu código para interactuar con la API y
+realizar las operaciones deseadas, como procesar pagos, obtener información de transacciones, etc.
+
+Recuerda que Embarcadero RAD Studio ofrece una amplia gama de herramientas y bibliotecas para el desarrollo de aplicaciones en C++,
+por lo que puedes aprovechar estas características para crear una aplicación robusta e integrada con MercadoPago.
+
+Nota: Es importante tener en cuenta que los pasos específicos para utilizar el componente de MercadoPago pueden variar dependiendo
+de la versión de Embarcadero RAD Studio que estés utilizando y de las actualizaciones y cambios realizados por MercadoPago en su
+API. Por lo tanto, te recomendaría consultar la documentación oficial de MercadoPago y los recursos proporcionados por 
+Embarcadero para obtener información actualizada y detallada sobre cómo utilizar el componente en tu proyecto.
+-------------
+
+El componente TMercadoPago es gratuito para su uso en Embarcadero RAD Studio. No se requiere ningún pago para utilizarlo en tus
+proyectos. Sin embargo, ten en cuenta que el uso del componente puede estar sujeto a los términos y condiciones de MercadoPago, así
+como a cualquier tarifa o comisión asociada a las transacciones realizadas a través de su plataforma.
+
+Es importante destacar que la gratuidad del componente se refiere a su disponibilidad y uso en el entorno de desarrollo. 
+Sin embargo, es posible que existan costos asociados al uso de los servicios de MercadoPago, como tarifas por transacciones o
+comisiones por el procesamiento de pagos. Estos costos pueden variar y es recomendable consultar la documentación y los términos
+de servicio de MercadoPago para obtener información actualizada sobre cualquier tarifa o costo asociado.
+
+Recuerda que es importante revisar los términos y condiciones de MercadoPago y asegurarte de cumplir con cualquier requisito o
+restricción aplicable al utilizar su plataforma de pagos.
+
+Espero que esta información sea útil. Si tienes alguna otra pregunta, no dudes en hacerla.
+--------------------------* EJEMPLO *-----------------------------------------------------
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+#include "MercadoPago.h" // Incluye el archivo de encabezado del componente para MercadoPago
+
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+    : TForm(Owner)
+{
+}
+
+//---------------------------------------------------------------------------
+void __fastcall TForm1::btnRealizarPagoClick(TObject *Sender)
+{
+    // Crea una instancia del componente para MercadoPago
+    TMercadoPago *mp = new TMercadoPago(this);
+
+    try
+    {
+        // Establece las credenciales y opciones de configuración del componente
+        mp->AccessToken = "tu_token_de_acceso";
+        mp->SandboxMode = true; // Utiliza el entorno de pruebas de MercadoPago
+
+        // Crea un objeto de pago
+        MP::Payment payment;
+        payment.Amount = 100.0; // Monto del pago
+        payment.Description = "Producto de prueba"; // Descripción del pago
+        payment.CurrencyId = "ARS"; // Moneda del pago
+        // Establece otros campos opcionales del objeto de pago según tus necesidades
+
+        // Realiza el pago utilizando la API de MercadoPago
+        MP::Payment createdPayment = mp->CreatePayment(payment);
+
+        // Muestra el resultado del pago
+        ShowMessage("ID de pago: " + createdPayment.Id);
+    }
+    catch (Exception &e)
+    {
+        ShowMessage("Error al realizar el pago: " + e.Message);
+    }
+
+    delete mp;
+}
+------------------------------------------------------------------------------------------
+En este ejemplo, se crea un formulario con un botón llamado btnRealizarPago. Al hacer clic en este botón, se crea una instancia del
+componente TMercadoPago y se configuran las credenciales y opciones necesarias. Luego, se crea un objeto de pago con el monto, la
+descripción y la moneda deseados. Se utiliza el método CreatePayment para realizar el pago a través de la API de MercadoPago y se
+muestra el ID del pago resultante.
+Recuerda reemplazar "tu_token_de_acceso" con tu propio token de acceso proporcionado por MercadoPago. Además, asegúrate de haber
+agregado el archivo de encabezado MercadoPago.h y el componente TMercadoPago a tu proyecto.
+Este es solo un ejemplo básico para darte una idea de cómo utilizar el componente para MercadoPago en Embarcadero RAD Studio C++.
+Puedes personalizar y ampliar este código según tus necesidades específicas.
+------------------------------------------------------------------------------------------
+Fuente: you.com
+Redactor del contenido: Octulio Biletán.
+Fecha: 09:02 p.m. viernes, 16 de febrero de 2024
