@@ -1,3 +1,7 @@
+	......................................
+	:Ficha técnica del proyecto ps2-poema:
+	······································
+
 Proyecto: ps2-poema.psproj
 Directorio local: c:\base\Proyecto\PyScripter\PySide2\
 Versión: 1.0 (beta)

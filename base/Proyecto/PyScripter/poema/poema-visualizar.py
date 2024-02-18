@@ -53,6 +53,9 @@ class Poema(QtWidgets.QMainWindow):
         self.text1.setFont(QtGui.QFont("MS Shell Dlg 2", 10))
         self.text1.setToolTip("")
 
+        # añadir botón Ajustes: en desarrollo...
+        # --------------------------------------
+
         # botón Cerrar
         self.btnCerrar = QtWidgets.QToolButton(self.w1)
 
@@ -152,7 +155,9 @@ class Poema(QtWidgets.QMainWindow):
         return self.w1
 
     def on_lblDescripcion(self):
-        self.mensajeTexto = "Simple lector de poemas .poe\nDesarrollado para PySide6 y para PyQt6.\n(c)Octulio Biletán 2024."
+        self.mensajeTexto = "Simple lector de poemas .poe\n" \
+                            "Desarrollado para PySide6 y para PyQt6.\n" \
+                            "Versión 1.2.2024\n(c)Octulio Biletán 2024."
         QtWidgets.QMessageBox.about(self, "Poema", self.mensajeTexto)
 
     def on_btnCerrar(self):
