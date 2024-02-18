@@ -1,14 +1,17 @@
 Proyecto: ps2-poema.psproj
-Descripción: Lector de poemas. Los poemas están gestionados a través de ficheros de textos (leer, guardar, imprimir).
-Ejecutar: ldp.cmd
-Autor: Octulio Biletán * 10-2023
+Directorio local: c:\base\Proyecto\PyScripter\PySide2\
 Versión: 1.0 (beta)
+Autor: Octulio Biletán * 10-2023
+Descripción: Lector de poemas. Los poemas están gestionados a través de ficheros de textos (nuevo, leer, guardar, imprimir).
+Procedencia: Aplicación hecha en Tucumán, Argentina.
 Estado del proyecto: 'en desarrollo'.
+Directorio remoto: https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/PyScripter/poema/
+Comando: ldp.cmd
 S.O.: Windows (64 bits).
-Lenguaje: Python v3.8 (64 bits).
-Herramienta: PyScripter para Windows v4.3.4.0
-Librería: PySide2 v5.15.2.1, PySide6 v6.6.1, Qt v5.15.9
+Lenguaje: Python v3.8/v3.12.2 (64 bits).
+Herramienta: PyScripter para Windows v4.3.4.0 (64 bits).
+Librería: PySide2 v5.15.2.1, PySide6 v6.6.1, PyQt v5.15.9, PyQt v6.6.1
 Sitio de la librería: https://pypi.org/project/PySide2/
-Directorio: c:\Program Files\Python38\Lib\site-packages\PySide2\
+Directorio local de la librería: c:\Program Files\Python38\Lib\site-packages\PySide2\
 Buscar en Internet: "print document text in python pyqt5"
 Referencias: https://python.hotexamples.com/

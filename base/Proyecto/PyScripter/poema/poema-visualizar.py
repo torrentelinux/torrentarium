@@ -4,10 +4,10 @@
 #              Las opciones disponibles son nuevo, leer, guardar e imprimir.
 #              El fichero "poema" es un fichero de textos con extensión .poe
 #              y codificación utf-8.
-#              Funciona con las bibliotecas PySide2, PySide6 y PyQt5.
-# Autor:       Octulio Biletán.
+#              Funciona con las bibliotecas PySide2, PySide6, PyQt5 y PyQt6.
+# Autor:       (c) Octulio Biletán 2023.
 # Creado:      22/10/2023
-# Copyright:   (c) Octulio Biletán 2023.
+# Origen:      Aplicación hecha en Tucumán, Argentina.
 # Licencia:    Software Libre.
 #-------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
@@ -22,8 +22,8 @@ import locale, sys
 #from PyQt5.QtPrintSupport import *
 ##----------##
 
-# Modificar para PySide2/PySide6/PyQt5
-from PySide6 import QtCore, QtGui, QtWidgets, QtPrintSupport
+# Modificar para PySide2/PySide6/PyQt5/PyQt6
+from PyQt6 import QtCore, QtGui, QtWidgets, QtPrintSupport
 
 # definición de la clase 'Poema' como la ventana principal de la aplicación
 class Poema(QtWidgets.QMainWindow):
@@ -32,6 +32,9 @@ class Poema(QtWidgets.QMainWindow):
 
         # contador de poemas guardados
         self.nro = 1
+
+        # controla el cierre de la ventana
+        self.cierraVentana = False
 
         self.form()
 
@@ -52,73 +55,122 @@ class Poema(QtWidgets.QMainWindow):
 
         # botón Cerrar
         self.btnCerrar = QtWidgets.QToolButton(self.w1)
-        self.btnCerrar.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+
+        # self.btnCerrar.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        self.btnCerrar.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+
         self.btnCerrar.setText("Cerrar")
         self.btnCerrar.move(350, 670)
         self.btnCerrar.resize(90, 22)
-        self.btnCerrar.setCursor(QtCore.Qt.PointingHandCursor)
+
+        # self.btnCerrar.setCursor(QtCore.Qt.PointingHandCursor)
+        self.btnCerrar.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+
         self.btnCerrar.setToolTip("Cierra la aplicación.")
         self.btnCerrar.clicked.connect(self.on_btnCerrar)
 
         # botón Imprimir
         self.btnImprimir = QtWidgets.QToolButton(self.w1)
-        self.btnImprimir.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+
+        # self.btnImprimir.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        self.btnImprimir.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+
         self.btnImprimir.setText("Imprimir")
         self.btnImprimir.move(350, 638)
         self.btnImprimir.resize(90, 22)
-        self.btnImprimir.setCursor(QtCore.Qt.PointingHandCursor)
+
+        # self.btnImprimir.setCursor(QtCore.Qt.PointingHandCursor)
+        self.btnImprimir.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+
         self.btnImprimir.setToolTip("Imprime el poema.")
         self.btnImprimir.clicked.connect(self.on_btnImprimir)
 
         # botón Guardar
         self.btnGuardar = QtWidgets.QToolButton(self.w1)
-        self.btnGuardar.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+
+        #self.btnGuardar.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        self.btnGuardar.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+
         self.btnGuardar.setText("Guardar")
         self.btnGuardar.move(350, 606)
         self.btnGuardar.resize(90, 22)
-        self.btnGuardar.setCursor(QtCore.Qt.PointingHandCursor)
+
+        #self.btnGuardar.setCursor(QtCore.Qt.PointingHandCursor)
+        self.btnGuardar.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+
         self.btnGuardar.setToolTip("Guarda poema en .txt")
         self.btnGuardar.clicked.connect(self.on_btnGuardar)
 
         # botón Leer
         self.btnLeer = QtWidgets.QToolButton(self.w1)
-        self.btnLeer.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+
+        #self.btnLeer.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        self.btnLeer.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+
         self.btnLeer.setText("Leer")
         self.btnLeer.move(350, 574)
         self.btnLeer.resize(90, 22)
-        self.btnLeer.setCursor(QtCore.Qt.PointingHandCursor)
+
+        #self.btnLeer.setCursor(QtCore.Qt.PointingHandCursor)
+        self.btnLeer.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+
         self.btnLeer.setToolTip("Leer poema.")
         self.btnLeer.clicked.connect(self.on_btnLeer)
 
         # botón Nuevo
         self.btnNuevo = QtWidgets.QToolButton(self.w1)
-        self.btnNuevo.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+
+        #self.btnNuevo.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        self.btnNuevo.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+
         self.btnNuevo.setText("Nuevo")
         self.btnNuevo.move(350, 542)
         self.btnNuevo.resize(90, 22)
-        self.btnNuevo.setCursor(QtCore.Qt.PointingHandCursor)
+
+        #self.btnNuevo.setCursor(QtCore.Qt.PointingHandCursor)
+        self.btnNuevo.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+
         self.btnNuevo.setToolTip("Nuevo poema.")
         self.btnNuevo.clicked.connect(self.on_btnNuevo)
-        
-        # etiqueta 'label1'
-        self.label1 = QtWidgets.QLabel(self.w1)
-        self.label1.setText("* Lector de poemas *")
-        self.label1.move(20, 10)
-        self.label1.resize(170, 22)
-        self.label1.setFont(QtGui.QFont("Times New Roman", 12))
-        self.label1.setCursor(QtCore.Qt.ArrowCursor)
-        self.label1.setToolTip("Simple lector de poemas de textos.")
+
+        # botón etiqueta 'label1ToolButton'
+        self.label1ToolButton = QtWidgets.QToolButton(self.w1)
+        self.label1ToolButton.setSizePolicy(QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Ignored)
+
+        self.label1ToolButton.setText("* Lector de poemas *")
+        self.label1ToolButton.move(20, 10)
+        self.label1ToolButton.resize(170, 22)
+        self.label1ToolButton.setFont(QtGui.QFont("Times New Roman", 12))
+
+        #self.label1.setCursor(QtCore.Qt.WhatsThisCursor)
+        self.label1ToolButton.setCursor(QtCore.Qt.CursorShape.WhatsThisCursor)
+
+        self.label1ToolButton.setToolTip("Simple lector de poemas de textos.")
+        self.label1ToolButton.setAutoRaise(True)
+        self.label1ToolButton.clicked.connect(self.on_lblDescripcion)
 
         return self.w1
+
+    def on_lblDescripcion(self):
+        self.mensajeTexto = "Simple lector de poemas .poe\nDesarrollado para PySide6 y para PyQt6.\n(c)Octulio Biletán 2024."
+        QtWidgets.QMessageBox.about(self, "Poema", self.mensajeTexto)
 
     def on_btnCerrar(self):
         print('Cierra aplicación...', flush=True)
         QtWidgets.QApplication.beep()
+
+        # autoriza el cierre de la ventana
+        self.cierraVentana = True
+
         self.close()
 
     def closeEvent(self, event):
-        print("Finaliza aplicación.")
-        self.close()
+        if self.cierraVentana == True:
+            print("Finaliza aplicación.")
+            event.accept()
+        else:
+            print("Finalización cancelada.")
+            event.ignore()
 
     # efectúa una simple impresión de texto en el dispositivo seleccionado por el usuario.
     # los dispositivos pueden ser físicos o virtuales (PDF).
@@ -127,8 +179,10 @@ class Poema(QtWidgets.QMainWindow):
 
         self.impresora = QtPrintSupport.QPrintDialog()
         self.impresora.setWindowTitle("Imprimir Poema")
-        if self.impresora.exec() == QtPrintSupport.QPrintDialog.Accepted:
-            self.text1.print_(self.impresora.printer())
+        #if self.impresora.exec() == QtPrintSupport.QPrintDialog.Accepted:
+
+        if self.impresora.exec() == QtPrintSupport.QPrintDialog.DialogCode.Accepted:
+            self.text1.print(self.impresora.printer())
             print("Se efectuó la impresión del poema.", flush=True)
         else:
             print("Impresión cancelada.", flush=True)
@@ -170,7 +224,7 @@ def main():
 
     # 'miAplicacion' es una nueva instancia de QtWidgets.QApplication()
     miAplicacion = QtWidgets.QApplication([])
-    
+
     miAplicacion.setApplicationDisplayName("Lector de poemas")
     miAplicacion.setApplicationVersion("1.2")
 
