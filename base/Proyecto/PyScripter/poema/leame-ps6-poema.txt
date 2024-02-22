@@ -1,0 +1,21 @@
+	......................................
+	:Ficha técnica del proyecto ps6-poema:
+	······································
+
+Proyecto: ps6-poema.psproj
+Directorio local: c:\base\Proyecto\PyScripter\PySide6\
+Versión: 1.0 (beta)
+Autor: Octulio Biletán * 10-2023
+Descripción: Lector de poemas. Los poemas están gestionados a través de ficheros de textos (nuevo, leer, guardar, imprimir).
+Procedencia: Aplicación hecha en Tucumán, Argentina.
+Estado del proyecto: 'en desarrollo'.
+Directorio remoto: https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/PyScripter/poema/
+Comando: ldp.cmd
+S.O.: Windows (64 bits).
+Lenguaje: Python v3.8.9/v3.12.2 (64 bits).
+Herramienta: PyScripter para Windows v4.3.4.0 (64 bits).
+Librería: PySide6 v6.6.1, PyQt v6.6.1
+Sitio de la librería: https://pypi.org/project/PySide6/
+Directorio local de la librería: c:\Program Files\Python38\Lib\site-packages\PySide6\
+Buscar en Internet: "print document text in python pyqt6"
+Referencias: https://python.hotexamples.com/

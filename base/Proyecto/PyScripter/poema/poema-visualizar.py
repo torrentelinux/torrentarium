@@ -4,7 +4,7 @@
 #              Las opciones disponibles son nuevo, leer, guardar e imprimir.
 #              El fichero "poema" es un fichero de textos con extensión .poe
 #              y codificación utf-8.
-#              Funciona con las bibliotecas PySide2, PySide6, PyQt5 y PyQt6.
+#              Funciona con las bibliotecas PySide6, y PyQt6.
 # Autor:       (c) Octulio Biletán 2023.
 # Creado:      22/10/2023
 # Origen:      Aplicación hecha en Tucumán, Argentina.
@@ -15,14 +15,7 @@ from __future__ import unicode_literals
 
 import locale, sys
 
-## Opcional ##
-#from PyQt5.QtCore import *
-#from PyQt5.QtWidgets import *
-#from PyQt5.QtGui import *
-#from PyQt5.QtPrintSupport import *
-##----------##
-
-# Modificar para PySide2/PySide6/PyQt5/PyQt6
+# Modificar para PySide6/PyQt6
 from PyQt6 import QtCore, QtGui, QtWidgets, QtPrintSupport
 
 # definición de la clase 'Poema' como la ventana principal de la aplicación
@@ -225,6 +218,7 @@ class Poema(QtWidgets.QMainWindow):
         self.move(round(posX), 8)
 
 def main():
+    # para Linux: "es_AR.UTF-8"
     locale.setlocale(locale.LC_ALL, 'spanish_argentina')
 
     # 'miAplicacion' es una nueva instancia de QtWidgets.QApplication()

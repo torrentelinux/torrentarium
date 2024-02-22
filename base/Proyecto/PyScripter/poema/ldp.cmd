@@ -1,7 +1,7 @@
 @echo off
 cls
 del salida 2> nul
-set poema=c:\base\Proyecto\PyScripter\PySide2
+set poema=c:\base\Proyecto\PyScripter\PySide6
 pushd %poema%
 python poema-visualizar.py 2> salida
 if %ERRORLEVEL% geq 1 goto errores
