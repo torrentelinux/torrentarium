@@ -1,0 +1,21 @@
+	......................................
+	:Ficha técnica del proyecto ps2-poema:
+	······································
+
+Proyecto: <no-definido>
+Directorio local: /base/Proyecto/PythonLX/PySide2
+Versión: 1.0 (beta)
+Autor: Octulio Biletán * 10-2023
+Descripción: Lector de poemas. Los poemas están gestionados a través de ficheros de textos (nuevo, leer, guardar, imprimir).
+Procedencia: Aplicación hecha en Tucumán, Argentina.
+Estado del proyecto: 'en desarrollo'.
+Directorio remoto: https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/PyScripter/poema/
+Comando: ldp.sh
+S.O.: Oracle Linux Server (64 bits).
+Lenguaje: Python v3.6.8 (64 bits).
+Herramienta: Code::Blocks 13.12 (64 bits).
+Librería: PySide2 v5.15.2.1, PyQt v5.15.2
+Sitio de la librería: https://pypi.org/project/PySide2/
+Directorio local de la librería: /usr/local/lib64/python3.6/site-packages/PySide2
+Buscar en Internet: "print document text in python pyqt5"
+Referencias: https://python.hotexamples.com/
