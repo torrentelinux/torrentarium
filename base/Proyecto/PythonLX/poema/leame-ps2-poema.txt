@@ -9,7 +9,7 @@ Autor: Octulio Biletán * 10-2023
 Descripción: Lector de poemas. Los poemas están gestionados a través de ficheros de textos (nuevo, leer, guardar, imprimir).
 Procedencia: Aplicación hecha en Tucumán, Argentina.
 Estado del proyecto: 'en desarrollo'.
-Directorio remoto: https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/PyScripter/poema/
+Directorio remoto: https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/PythonLX/poema/
 Comando: ldp.sh
 S.O.: Oracle Linux Server (64 bits).
 Lenguaje: Python v3.6.8 (64 bits).
