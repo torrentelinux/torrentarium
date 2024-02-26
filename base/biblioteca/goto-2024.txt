@@ -1,0 +1,124 @@
+{·{Investigación sobre GOTO}·}
+		"La imaginación humana no tiene límites
+		...y ¿la digital?"
+
+En C/C++ la sentencia 'goto' trabaja con etiquetas y no con valores numéricos de tipo 'int'.
+Además su uso se restringe únicamente dentro de una función.
+Pero ¿qué pasaría si 'goto' aceptase valores de tipo 'long int'?
+Y ¿cuál sería sus consecuencias de hacer uso fuera de una función?
+Pensemos en un ámbito global con varios módulos .cpp vinculados a través de un mismo proyecto de compilación.
+Hagamos un análisis y diseño de un 'goto' para un lenguaje de programación teórico.
+La máquina teórica tiene una CPU de 1024 bits, o sea, 2^1024 bits.
+El byte es igual a 8 bits.
+Su potencia de cálculo se apoya sobre un canal de datos y de direcciones de 1024 bits que son 128 bytes.
+Posee "n" registros de propósito general, cada registro tiene capacidad para almacenar 1024 bits.
+Es una CPU multinúcleo, soporta programación multihilo y virtualización de CPU entre otras funciones.
+Si hace el cálculo de:
+	2^1024 = 1,797693134862315907729305190789e+308
+es un número bastante inmenso, útil para direccionar espacios de memoria muy extensos.
+Y para transferir datos en paquetes de 1024 bits:
+	10101011100111000...10101011100111000
+	|<--------paquete de 1024 bits----->|
+
+Por ejemplo si se tiene esta secuencia de caracteres: "Alfredo Benjamín Colombres;36370204;1.69;V;57"
+Tiene un tamaño total de 46 bytes incluído los espacios en blanco y el caracter nulo al final del mismo.
+La transferencia, de 368 bits, desde un lugar de memoria hacia otro lugar de memoria se haría en un ciclo de CPU.
+Esto es para que nos demos una idea sobre la potencia de cálculo que tendría el programador para hacer lo que quisiera.
+	
+Si nos enfocamos en un segmento de recta comprendido entre dos puntos extremos -1;+1:
+	pasado		presente	futuro
+	<---------------+---------------->
+	-1		0		+1
+	atrás		base		adelante
+	límite inferior	centro		límite superior
+	'down'		'genesis'	'up'
+	
+Entonces tendríamos la siguiente sintaxis general: 
+	[1]goto <± número línea>;
+	[2]goto <expresión>;
+	
+En donde [1] puede ser cualquier número entero positivo o negativo.
+Y en [2] puede ser el resultado de llamar a una función local, global o remota.
+Ejemplos:
+	x = 7;
+	goto fn3(fn2(fn1(x)));	   <-- salta al nº de línea devuelta por la función fn3()
+	dato = 1;
+	goto (dato = dato + 321);  <-- salta a la línea 322
+	goto fn1;		   <-- es un salto sin retorno a la función fn1()
+	goto &dato;		   <-- es un salto no admitido
+	dir_mem = &dato;
+	goto dir_mem;		   <-- es un salto no admitido
+	goto https://192.168.1.1/index.html  <-- salta a una página web !!
+	[*]goto remoto://usuario:contraseña@máquina:puerto/directorio/aplicación:fn1  
+	
+[*] En este caso: salta a una función fn1() de la aplicación que se aloja en una máquina remota.
+'remoto' es cualquier protocolo de comunicación definido entre ambos extremos del enlace.
+	
+No está permitido saltar al espacio correspondiente de los datos de las variables.
+A menos que cree o que se disponga de mecanismos de saltos al área de datos tanto
+en la CPU como así también en el lenguaje teórico.
+	
+Casos con llamadas a funciones y con valores constantes:
+	[a]goto pasttime();	|goto -1;	<-- salta a la línea anterior
+	[b]goto time(NULL);	|goto 0;	<-- no salta a ninguna línea
+	[c]goto futuretime();	|goto +1;	<-- salta a la línea siguiente
+
+Para el caso [b] ¿A dónde salta?
+	goto time(NULL);
+¿Acaso debería saltar a una línea de código más allá de los límites del programa corriendo en memoria principal?
+Y si agrego una nueva sentencia que me permita saltar hasta un límite impuesto, por ejemplo, 'jump to' = 'saltar hasta':
+	jumpto <límite inferior>:<límite superior> <nombre función>
+	'down', 'genesis' y 'up' son palabras reservadas que acompañan a 'jumpto'.
+Entonces:
+	jumpto down:up main;  <-- los saltos están delimitados dentro de main()
+	goto time(NULL);  <-- si esta sentencia está adentro de main() entonces va a saltar hasta el límite superior de main()
+
+	main()	<-- límite inferior
+	{
+		jumpto down:up main;
+		.....
+		.....
+		goto time(NULL);
+		.....
+		.....
+	}	<-- límite superior
+	
+Para hacer un 'goto' "seguro" se debería contar con mecanismos de programación para definir y controlar el accionar de 'goto'.
+La herramienta de compilación del lenguaje teórico debería estar preparada para hacer controles sobre el buen uso de 'goto'.
+También la CPU debería tener un conjunto reducido de instrucciones que restringan la ejecución de la misma.
+Se podría disponer de un 'goto' para hacer saltos locales y externos, dentro y fuera de las fronteras de una aplicación.
+Pero ¿con qué fin?, quizás para hacer simulaciones sobre temas de física, química, matemática y... filosóficos.
+La sentencia 'goto' encierra mucho potencial para hacer ciencia en la informática y en la computación.
+
+Por ejemplo:
+	goto resolver("x+1=0"); <-- salta a la línea anterior
+
+la funcion resolver() devuelve un dato tipo 'int'.
+Resuelve la ecuación algebraica encontrando el valor de 'x'.
+
+El caso de las funciones setjmp() y longjmp()
+Estas funciones forman parte de la biblioteca estándar del C y C++.
+Mediante el uso de estas funciones se pueden realizar saltos entre diferentes rutinas.
+Ellas extienden el concepto de 'goto' permitiendo hacer saltos a otra función, una y otra vez.
+
+La instrucción 'call' del lenguaje Assembler
+Esta instrucción del Assembler es más para hacer llamadas a funciones o procedimientos que luego deberán
+retornar al mismo punto de llamada. Es posible pasar datos como argumentos a la función a llamar.
+Los datos son almacenados en registros de la CPU o en direcciones de memoria antes de invocar a 'call'.
+
+Conclusiones
+La tarea de investigar sobre el buen y mal uso que se le pueda dar a 'goto' es extensa e interesante.
+Hay que tener en cuenta ciertos aspectos físicos y lógicos porque los recursos informáticos son limitantes.
+Los recursos a tener en cuenta son la CPU, la memoria principal, el medio de almacenamiento externo, la potencia de cálculo,
+los medios y enlaces de comunicación entre la parte física y la parte lógica de un equipo informático y también
+la comunicación remota con otros dispositivos electrónicos o bio-electrónicos.
+
+Referencias:
+[Algebra lineal] https://en.wikipedia.org/wiki/Linear_algebra
+[Sentencia goto en C] https://en.cppreference.com/w/c/language/goto
+[setjmp.h] https://en.wikipedia.org/wiki/Setjmp.h
+[Localizador de recursos uniforme]https://es.wikipedia.org/wiki/Localizador_uniforme_de_recursos
+
+_____________________________________________________________
+Octulio Biletán * @octulioBiletan en Telegram *
+Fecha inicial de este documento de texto: 06:25 p.m. domingo, 28 de enero de 2024
