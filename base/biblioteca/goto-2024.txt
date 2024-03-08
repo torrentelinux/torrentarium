@@ -96,6 +96,19 @@ Por ejemplo:
 la funcion resolver() devuelve un dato tipo 'int'.
 Resuelve la ecuación algebraica encontrando el valor de 'x'.
 
+La traducción de goto
+'goto' quiere decir "ir a" o también "ve a". La forma correcta de escribir es 'go to'.
+Y ¿cómo se dice saltar en inglés? Se dice 'jump to'.
+Entonces ahora observamos dos instrucciones: 'goto' y 'jumpto'.
+¿Son diferentes en su utilidad? Sutilmente sí.
+Se aplica 'goto' con la etiqueta o con el número de línea y se aplica 'jumpto' con etiquetas locales o con direcciones de memoria.
+Esta situación es "delicada" para explicar sobre cómo funciona internamente cada una de ellas.
+Porque va a depender del conjunto de herramientas de programación que se utilize para producir código binario ejecutable.
+También depende de la CPU objetivo para la ejecución del programa final.
+Otro punto a destacar es que existen los saltos condicionales y los saltos directos en el lenguaje assembler.
+Estas facilidades nos permiten movernos por todo el programa fuente, no así entre paquetes de programas corriendo en el mismo
+espacio de memoria principal.
+
 El caso de las funciones setjmp() y longjmp()
 Estas funciones forman parte de la biblioteca estándar del C y C++.
 Mediante el uso de estas funciones se pueden realizar saltos entre diferentes rutinas.
@@ -122,3 +135,4 @@ Referencias:
 _____________________________________________________________
 Octulio Biletán * @octulioBiletan en Telegram *
 Fecha inicial de este documento de texto: 06:25 p.m. domingo, 28 de enero de 2024
+Fecha última de modificación del docu.: 05:36 p.m. viernes, 08 de marzo de 2024
