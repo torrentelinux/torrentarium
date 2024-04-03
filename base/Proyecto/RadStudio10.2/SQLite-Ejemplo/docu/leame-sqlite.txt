@@ -1,0 +1,64 @@
+Documentación básica del proyecto SQLite_Ejemplo.cbproj
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭
+'SQLite_Ejemplo' es un ejemplo simple de programación en C++ para realizar una lectura a una base de datos construída en sqlite3.
+Dicho programa efectua una consulta a la 1ra. tabla de la base de datos 'ejemploSQLite.sdb'.
+Esta base de datos es del tipo sqlite3. Si no existe la misma en el directorio vigente, el usuario tiene la opción de seleccionar
+otra base de datos almacenada en otro dispositivo de almacenamiento (local/remoto/virtual).
+En el caso de que no tenga a su disposición ninguna base de datos del tipo sqlite3 será necesario elegir la opción 'Gestionar'
+para abrir la aplicación 'DB Browser for SQLite' y desde allí crear una nueva base de datos.
+'DB Browser para SQLite' (DB4S) es una herramienta visual de código abierto de alta calidad para crear, diseñar y editar bases de
+datos compatibles con SQLite3.
+
+Las combinaciones de teclas admitidas son:
+	* Finalizar   -- Alt+F4
+	* Conectar    -- Ctrl+C
+	* Desconectar -- Ctrl+D
+	* Ejecutar    -- Ctrl+E
+	* Gestionar   -- Ctrl+G
+	* Seleccionar -- Ctrl+S
+	* Ayuda       -- Ctrl+A
+	* Menú de opciones -- Tecla Menú
+	* Menú de opciones -- Shift+F10
+	
+La opción 'Gestionar' invoca a la aplicación 'DB Browser for SQLite' para crear/modificar una base de datos.
+Usted debe instalar en su computadora dicha aplicación haciendo una descarga desde el sitio "https://sqlitebrowser.org/dl/".
+
+La herramienta utilizada para la construcción de 'SQLite_Ejemplo.exe' fue Embarcadero RAD Studio 10.2, C++ Builder.
+La aplicación ha sido construída para que sea compatible con Windows 32 bits.
+Los módulos dependientes que se necesitan son:
+	* sqlite3.dll
+	* borlndmm.dll
+	* cc32250mt.dll
+	* vclimg250.bpl
+	* bindcomp250.bpl
+	* bindengine250.bpl
+	* rtl250.bpl
+	* vcl250.bpl
+	* dbrtl250.bpl
+	* dbexpress250.bpl
+	* DbxCommonDriver250.bpl
+	* DBXSqliteDriver250.bpl
+
+Todos los módulos mencionados son de 32 bits.
+El módulo sqlite3.dll puede ser descargado desde el sitio oficial de SQLite.
+Los demás módulos (dll, bpl) son suministrados por Embarcadero RAD Studio.
+
+Referencias:
+˭˭˭˭˭˭˭˭˭˭˭˭
+#Sitio oficial de SQLite
+https://www.sqlite.org/index.html
+
+#Formato de la base de datos del tipo sqlite3
+https://www.sqlite.org/fileformat.html
+
+#Tutorial: Conexión a una base de datos SQLite desde una aplicación VCL.
+https://docwiki.embarcadero.com/RADStudio/Athens/en/Tutorial:_Connecting_to_a_SQLite_Database_from_a_VCL_Application
+
+#Edición gratuita de Embarcadero C++ Builder Community
+https://www.embarcadero.com/products/cbuilder/starter
+
+#DB Browser for SQLite
+https://sqlitebrowser.org
+
+_____________________________________________________________
+Octulio Biletán *** Abril de 2024
