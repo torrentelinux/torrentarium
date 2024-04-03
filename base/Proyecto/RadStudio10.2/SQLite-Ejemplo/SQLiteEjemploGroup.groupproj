@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5D946B1C-DFAA-4DEF-9716-E181B032C5D8}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SQLite_Ejemplo.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SQLite_Ejemplo">
+        <MSBuild Projects="SQLite_Ejemplo.cbproj"/>
+    </Target>
+    <Target Name="SQLite_Ejemplo:Clean">
+        <MSBuild Projects="SQLite_Ejemplo.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SQLite_Ejemplo:Make">
+        <MSBuild Projects="SQLite_Ejemplo.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SQLite_Ejemplo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SQLite_Ejemplo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SQLite_Ejemplo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
