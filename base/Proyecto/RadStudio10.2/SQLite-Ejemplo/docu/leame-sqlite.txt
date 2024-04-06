@@ -15,6 +15,7 @@ Las combinaciones de teclas admitidas son:
 	* Desconectar -- Ctrl+D
 	* Ejecutar    -- Ctrl+E
 	* Gestionar   -- Ctrl+G
+	* Info. estado -- Ctrl+I
 	* Seleccionar -- Ctrl+S
 	* Ayuda       -- Ctrl+A
 	* Menú de opciones -- Tecla Menú
