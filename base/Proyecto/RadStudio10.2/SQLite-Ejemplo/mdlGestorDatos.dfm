@@ -908,9 +908,18 @@ object frmGestorDatos: TfrmGestorDatos
     object N1: TMenuItem
       Caption = '-'
     end
+    object InfoEstado1: TMenuItem
+      Caption = '&Info. estado'
+      Hint = 'Informa del estado actual de la conexi'#243'n.'
+      ShortCut = 16457
+      OnClick = InfoEstado1Click
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
     object Gestionar1: TMenuItem
       Caption = '&Gestionar'
-      Hint = 'Gestiona la base de datos desde una herramienta externa.'
+      Hint = 'Gestiona la base de datos vigente desde una herramienta externa.'
       ShortCut = 16455
       OnClick = Gestionar1Click
     end

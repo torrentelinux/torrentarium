@@ -37,6 +37,7 @@ __fastcall TfrmGestorDatos::TfrmGestorDatos(TComponent* Owner) : TForm(Owner)
    // Otras herramientas: sqlite3.exe
    progSQL = "\"C:\\Program Files\\DB Browser for SQLite\\DB Browser for SQLite.exe\"";
 
+   // Nombre de la base de datos por omisión
    bddSQL = "ejemploSQLite.sdb";
 }
 //---------------------------------------------------------------------------
@@ -77,10 +78,10 @@ void __fastcall TfrmGestorDatos::conectarBotonClick(TObject *Sender)
        // Abre la base de datos.
        frmControl->SQLConexion->Open();
 
-       ejecutarBoton->Enabled = true;
-       salidaMemo->Lines->Append("Conexión establecida:" + bddSQL);
+       salidaMemo->Lines->Append("Base de datos vigente: " + bddSQL);
        salidaMemo->Lines->Append("_____________________");
 
+       ejecutarBoton->Enabled = true;
        conectarBoton->Enabled = false;
    }
    catch(EDatabaseError &e)
@@ -264,6 +265,14 @@ void __fastcall TfrmGestorDatos::Seleccionar1Click(TObject *Sender)
 {
 	int estado;
 
+   if(frmControl->SQLConexion->ConnectionState == csStateOpen)
+   {
+       Application->NormalizeTopMosts();
+       Application->MessageBox(L"Importante: Primero debe desconectar la base de datos vigente.", L"SQLITE *** AVISO", MB_OK|MB_ICONINFORMATION);
+       Application->RestoreTopMosts();
+       return;
+   }
+
    if(frmControl->dlgAbrirSQLite->Execute(Application->Handle) == true)
    {
      bddSQL = frmControl->dlgAbrirSQLite->FileName;
@@ -316,21 +325,38 @@ void __fastcall TfrmGestorDatos::Ayuda1Click(TObject *Sender)
    delete dlgPanelInfo;
 }
 //---------------------------------------------------------------------------
-// Invoca la herramienta para la gestión de base de datos SQLite.
+// Invoca la herramienta para la gestión de base de datos SQLite
+// con la base de datos vigente.
 void __fastcall TfrmGestorDatos::Gestionar1Click(TObject *Sender)
 {
 	HINSTANCE estado;
 	int vreal;
 
    salidaMemo->Lines->Append("Invocando herramienta externa: " + progSQL);
+   salidaMemo->Lines->Append("Base de datos vigente: " + bddSQL);
 
-   estado = ShellExecute(Handle, L"open", progSQL.c_str(), L"", L"", SW_NORMAL);
+   estado = ShellExecute(Handle, L"open", progSQL.c_str(), bddSQL.c_str(), L"", SW_NORMAL);
    vreal = (int)estado;
    if(vreal == 42)
      vreal = 0;
 
    salidaMemo->Lines->Append("código=" + IntToStr(vreal));
    salidaMemo->Lines->Append("_____________________");
+}
+//---------------------------------------------------------------------------
+// Informa el estado actual de la conexión a la base de datos
+void __fastcall TfrmGestorDatos::InfoEstado1Click(TObject *Sender)
+{
+	DatosConexionSQL datoVigente;
+
+   frmControl->estadoConexionSQL(datoVigente);
+
+   salidaMemo->Lines->Append("Conexión activa: " + BoolToStr(datoVigente.estado, true));
+   salidaMemo->Lines->Append("Base de datos vigente: " + bddSQL);
+   salidaMemo->Lines->Append("Tamaño en bytes: " + IntToStr(datoVigente.tamBaseDatos));
+   salidaMemo->Lines->Append("Tipo de conexión establecida: " + datoVigente.nombreControlador);
+   salidaMemo->Lines->Append("Versión del controlador: " + datoVigente.verControlador);
+   salidaMemo->Lines->Append("<---------------------------->");
 }
 //---------------------------------------------------------------------------
 

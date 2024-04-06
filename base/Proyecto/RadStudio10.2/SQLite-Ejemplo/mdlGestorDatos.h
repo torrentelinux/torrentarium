@@ -42,6 +42,8 @@ __published:	// IDE-managed Components
 	TMenuItem *Ayuda1;
 	TMenuItem *Gestionar1;
 	TImage *Image1;
+	TMenuItem *InfoEstado1;
+	TMenuItem *N2;
 
 	void __fastcall conectarBotonClick(TObject *Sender);
 	void __fastcall ejecutarBotonClick(TObject *Sender);
@@ -57,6 +59,7 @@ __published:	// IDE-managed Components
 	void __fastcall Ayuda1Click(TObject *Sender);
 	void __fastcall Gestionar1Click(TObject *Sender);
 	void __fastcall Image1Click(TObject *Sender);
+	void __fastcall InfoEstado1Click(TObject *Sender);
 
 private:	// User declarations
 	String bddSQL;  // nombre de la base de datos sql

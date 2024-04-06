@@ -15,6 +15,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
+// Códigos de errores para base de datos del tipo sqlite3.
 const int FBIEN = 0;
 const int FTAMCERO = 2000;
 const int FERRORCAB = 2001;

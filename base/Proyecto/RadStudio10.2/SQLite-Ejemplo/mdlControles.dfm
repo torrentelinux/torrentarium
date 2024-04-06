@@ -26,6 +26,7 @@ object frmControl: TfrmControl
       'FailIfMissing=True'
       'Database=')
     AfterConnect = SQLConexionAfterConnect
+    AfterDisconnect = SQLConexionAfterDisconnect
     Left = 96
     Top = 116
   end
@@ -42,6 +43,10 @@ object frmControl: TfrmControl
       item
         DisplayName = 'SQLite DataBase'
         FileMask = '*.sqlite'
+      end
+      item
+        DisplayName = 'SQLite DataBase'
+        FileMask = '*.db'
       end
       item
         DisplayName = 'Todos'

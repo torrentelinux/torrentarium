@@ -7,12 +7,14 @@
 // Obs.     : El lenguaje de consulta utilizado es SQLite v3.
 //---------------------------------------------------------------------------
 
-// Código 0
+// Códigos de errores para base de datos del tipo sqlite3.
+
+// Código 0 - sin error
 extern const int FBIEN;
 
-// Código 2000
+// Código 2000 - el tamaño del archivo es cero
 extern const int FTAMCERO;
 
-// Código 2001
+// Código 2001 - la cabecera de la base de datos es incorrecta
 extern const int FERRORCAB;
 

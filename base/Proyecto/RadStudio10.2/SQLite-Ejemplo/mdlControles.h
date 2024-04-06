@@ -20,6 +20,20 @@
 #include <Vcl.Menus.hpp>
 #include <Vcl.Dialogs.hpp>
 //---------------------------------------------------------------------------
+
+struct DatosConexionSQL
+{
+   bool estado;
+   int tamBaseDatos;		// nº de bytes que contiene la bdd.
+   String verControlador;       // nº de ver. del controlador de la bdd.
+   String nombreControlador;    // nombre del controlador de la bdd.
+   String funcionControlador;   // nombre función
+   String nombreBiblioteca;     // nombre de la biblioteca
+   String proveedorBiblioteca;  // nombre del proveedor de la biblioteca
+
+   DatosConexionSQL() : estado(false), tamBaseDatos(0) {}
+};
+
 class TfrmControl : public TFrame
 {
 __published:	// IDE-managed Components
@@ -27,13 +41,16 @@ __published:	// IDE-managed Components
 	TSQLConnection *SQLConexion;
 	TFileOpenDialog *dlgAbrirSQLite;
 	void __fastcall SQLConexionAfterConnect(TObject *Sender);
+	void __fastcall SQLConexionAfterDisconnect(TObject *Sender);
 
 private:	// User declarations
-	bool estado_conexion;
+	DatosConexionSQL conexion;
+	int leerLongBaseDatos(void);
+	wchar_t *leerVersionBaseDatos(void);
 
 public:		// User declarations
 	__fastcall TfrmControl(TComponent* Owner);
-	const bool estadoConexion(void);
+	void estadoConexionSQL(DatosConexionSQL &dcsql);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TfrmControl *frmControl;
