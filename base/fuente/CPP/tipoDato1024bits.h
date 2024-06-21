@@ -1,0 +1,68 @@
+// tipoDato1024bits.h
+// octulio biletán * Junio de 2024
+// Crear un espacio de 1024 bits para el almacenamiento de datos.
+// Para uso en gral.: cálculos matemáticos, físicos, químicos, procesamiento de textos, etc.
+// Software Libre.
+//
+// Calculadora online para hacer cálculos matemático-científico
+// https://www.wolframalpha.com
+//
+
+#ifndef __1024bits__
+#define __1024bits__
+
+#include <_stddef.h>
+
+struct unsigned_int128
+{
+    unsigned __int64 pA;  // parte Alta
+    unsigned __int64 pB;  // parte Baja
+};
+
+struct unsigned_int256
+{
+   unsigned_int128 pA;
+   unsigned_int128 pB;
+};
+
+struct unsigned_int512
+{
+    unsigned_int256 pA;  // parte Alta
+    unsigned_int256 pB;  // parte Baja
+};
+
+// valor min=0
+// valor max=(2^1024)-1  ··> son 256 'F'
+// valor max=0xffffffffffffffff'ffffffffffffffff'ffffffffffffffff'ffffffffffffffff'ffffffffffffffff'ffffffffffffffff'ffffffffffffffff
+//             ffffffffffffffff'ffffffffffffffff'ffffffffffffffff'ffffffffffffffff'ffffffffffffffff'ffffffffffffffff'ffffffffffffffff
+//             ffffffffffffffff'ffffffffffffffff
+// son 309 dígitos decimales
+// valor max=179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357
+//           658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110
+//           540827237163350510684586298239947245938479716304835356329624224137215
+
+struct unsigned_int1024
+{
+   unsigned_int512 pA;  // parte Alta
+   unsigned_int512 pB;  // parte Baja
+};
+
+// Implementación del espacio de almacenamiento de 1024 bits.
+union unsigned_extra_long_int
+{
+   struct unsigned_int1024 ui;
+   unsigned __int64 n[16];
+   unsigned char c[128];
+};
+
+// definición del tipo 'espacioMem'
+// espacio de almacenamiento en memoria.
+typedef unsigned_extra_long_int espacioMem;
+
+size_t nbits(size_t type_name)
+{
+   return (type_name * 8);
+}
+
+#endif  //__1024bits__
+
