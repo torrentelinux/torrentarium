@@ -11,24 +11,31 @@
 #ifndef __1024bits__
 #define __1024bits__
 
+#include <iostream>
 #include <_stddef.h>
+#include <mem.h>
+
+using namespace std;
+
+typedef unsigned __int64 uint64_t;
+typedef unsigned char   uchar_t;
 
 struct unsigned_int128
 {
-    unsigned __int64 pA;  // parte Alta
-    unsigned __int64 pB;  // parte Baja
+    uint64_t pB; // parte Baja
+    uint64_t pA; // parte Alta
 };
 
 struct unsigned_int256
 {
-   unsigned_int128 pA;
-   unsigned_int128 pB;
+   unsigned_int128 pB;  // parte Baja
+   unsigned_int128 pA;  // parte Alta
 };
 
 struct unsigned_int512
 {
-    unsigned_int256 pA;  // parte Alta
     unsigned_int256 pB;  // parte Baja
+    unsigned_int256 pA;  // parte Alta
 };
 
 // valor min=0
@@ -43,25 +50,78 @@ struct unsigned_int512
 
 struct unsigned_int1024
 {
-   unsigned_int512 pA;  // parte Alta
    unsigned_int512 pB;  // parte Baja
+   unsigned_int512 pA;  // parte Alta
 };
 
 // Implementación del espacio de almacenamiento de 1024 bits.
 union unsigned_extra_long_int
 {
-   struct unsigned_int1024 ui;
-   unsigned __int64 n[16];
-   unsigned char c[128];
+   unsigned_int1024 ui;
+   uint64_t n[sizeof(uint64_t)*2];     //  16 elementos
+   uchar_t  c[1024/sizeof(uint64_t)];  // 128 elementos
 };
 
-// definición del tipo 'espacioMem'
-// espacio de almacenamiento en memoria.
-typedef unsigned_extra_long_int espacioMem;
+// Definición del tipo 'espacioMem128Bytes'.
+// Espacio de almacenamiento en memoria.
+// Su tamaño es de 128 bytes.
+typedef unsigned_extra_long_int espacioMem128Bytes;
+typedef unsigned_extra_long_int ueli_t;
 
-size_t nbits(size_t type_name)
+class espacioMem
 {
-   return (type_name * 8);
+   private:
+	ueli_t dato;
+
+   public:
+	espacioMem()
+	{
+	   for(unsigned int i = 0; i < sizeof(uint64_t)*2; i++)
+	     dato.n[i] = 0;
+	}
+
+	espacioMem& operator =(char *origen)
+	{
+	   memcpy(dato.c, origen, (1024/sizeof(uint64_t)));
+	   return *this;
+	}
+
+	uchar_t& operator[](unsigned int i)
+	{
+	   return dato.c[i];
+	}
+
+	friend ostream& operator <<(ostream& pantalla, espacioMem& origen);
+
+	uint64_t numero(unsigned int indice)
+	{
+	   if(indice < sizeof(uint64_t)*2)
+	     return dato.n[indice];  // devuelve el valor solicitado
+
+	   return dato.n[ (sizeof(uint64_t)*2) - 1 ];  // devuelve el último valor
+	}
+
+	size_t nbits()
+	{
+	   return (sizeof(dato) * 8);
+	}
+
+	size_t nbytes()
+	{
+	   return sizeof(dato);
+	}
+
+	unsigned int nelems()
+	{
+	   return (nbytes()/sizeof(uint64_t));
+	}
+};
+
+ostream& operator <<(ostream& pantalla, espacioMem& origen)
+{
+   pantalla << origen.dato.c;
+
+   return pantalla;
 }
 
 #endif  //__1024bits__

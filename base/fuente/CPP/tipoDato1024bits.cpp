@@ -4,18 +4,14 @@
 // Para uso en gral.: cálculos matemáticos, físicos, químicos, procesamiento de textos, etc.
 // Software Libre.
 
-#include <iostream>
 #include <cstdio>
 #include <climits>
-#include <mem.h>
 
 #include "tipoDato1024bits.h"
 
-using namespace std;
-
-espacioMem tiempo_compilacion(void)
+espacioMem128Bytes tiempo_compilacion(void)
 {
-	espacioMem tiempo;
+	espacioMem128Bytes tiempo;
 	char datos[128] = { 0 };
 
    sprintf(datos, "%s %s", __TIME__, __DATE__);
@@ -33,28 +29,32 @@ int teclaIntro(void)
 
 int main(int argc, char *argv[])
 {
-	unsigned_extra_long_int nro16 = { 0 };  // número de 16 bytes
+	espacioMem nro128;  // número de 128 bytes
 
    cout << "Trabajo de investigaci¢n sobre el almacenamiento de datos en un espacio de 1024 bits (128 bytes)." << endl;
    cout << "Tiempo de compilaci¢n de la aplicaci¢n: " << tiempo_compilacion().c << endl << endl;
 
+   /*  EN FASE DE DESARROLLO...
    for(int i = 0; i < 16; i++)
-     nro16.n[i] = ULLONG_MAX;
+       nro128.n[i] = ULLONG_MAX;
+   */
 
    char tmp[144] = "Para crear un programa y que la computadora lo interprete y ejecute,"
 		   " las instrucciones deben escribirse en un lenguaje de programación";
 
-   memcpy(nro16.c, tmp, 128);
-   nro16.c[126] = '.';
-   nro16.c[127] = 0x00;
+   nro128 = tmp;
+   nro128[nro128.nbytes()-2] = '.';
+   nro128[nro128.nbytes()-1] = 0x00;
 
-   cout << "Tama¤o de nro16: " << nbits(sizeof(nro16)) << " bits." << endl;
-   cout << "Contenido de nro16 como bytes: " << endl;
-   cout << nro16.c << endl << endl;
+   cout << "Tama¤o de nro128: " << nro128.nbits() << " bits; "
+	<< nro128.nbytes() << " bytes." << endl;
 
-   cout << "Contenido de nro16 como n£mero hexadecimal:" << endl << "0x";
-   for(int i = 0; i < 16; i++)
-     cout << hex << nro16.n[i];
+   cout << "Contenido de nro128 como bytes: " << endl;
+   cout << nro128 << endl << endl;
+
+   cout << "Contenido de nro128 como n£mero hexadecimal:" << endl << "0x";
+   for(unsigned int i = 0; i < nro128.nelems(); i++)
+     cout << hex << nro128.numero(i);
 
    cout << dec << endl;
    return teclaIntro();
