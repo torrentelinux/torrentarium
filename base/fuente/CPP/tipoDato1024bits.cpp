@@ -6,6 +6,7 @@
 
 #include <cstdio>
 #include <climits>
+#include <string>
 
 #include "tipoDato1024bits.h"
 
@@ -29,15 +30,10 @@ int teclaIntro(void)
 
 int main(int argc, char *argv[])
 {
-	espacioMem nro128;  // número de 128 bytes
+	espacioMem nro128 = 0;  // número de 128 bytes
 
    cout << "Trabajo de investigaci¢n sobre el almacenamiento de datos en un espacio de 1024 bits (128 bytes)." << endl;
    cout << "Tiempo de compilaci¢n de la aplicaci¢n: " << tiempo_compilacion().c << endl << endl;
-
-   /*  EN FASE DE DESARROLLO...
-   for(int i = 0; i < 16; i++)
-       nro128.n[i] = ULLONG_MAX;
-   */
 
    char tmp[144] = "Para crear un programa y que la computadora lo interprete y ejecute,"
 		   " las instrucciones deben escribirse en un lenguaje de programación";

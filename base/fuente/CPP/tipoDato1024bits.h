@@ -17,19 +17,29 @@
 
 using namespace std;
 
-typedef unsigned __int64 uint64_t;
-typedef unsigned char   uchar_t;
+typedef unsigned __int64  uint64_t;
+typedef unsigned __int128 uint128_t;
+typedef unsigned char     uchar_t;
 
+// Es aceptado por el compilador Embarcadero RAD Studio 10.2
 struct unsigned_int128
 {
     uint64_t pB; // parte Baja
     uint64_t pA; // parte Alta
 };
 
+// Espacio de memoria para la conversión de 128 bits a 64 bits
+union unsigned_int64_128
+{
+   uint128_t       b;
+   unsigned_int128 a;
+};
+
+// Es aceptado por el compilador Embarcadero RAD Studio 11.3, versión 28.0.47991.2819
 struct unsigned_int256
 {
-   unsigned_int128 pB;  // parte Baja
-   unsigned_int128 pA;  // parte Alta
+   uint128_t pB;  // parte Baja
+   uint128_t pA;  // parte Alta
 };
 
 struct unsigned_int512
@@ -58,15 +68,16 @@ struct unsigned_int1024
 union unsigned_extra_long_int
 {
    unsigned_int1024 ui;
-   uint64_t n[sizeof(uint64_t)*2];     //  16 elementos
-   uchar_t  c[1024/sizeof(uint64_t)];  // 128 elementos
+   uint128_t n[8];     //  8 posiciones para cada elemento
+   uchar_t   c[128];  // 128 posiciones para cada elemento
 };
 
 // Definición del tipo 'espacioMem128Bytes'.
 // Espacio de almacenamiento en memoria.
-// Su tamaño es de 128 bytes.
+// Su tamaño es de 128 bytes: número entero extra largo sin signo.
 typedef unsigned_extra_long_int espacioMem128Bytes;
 typedef unsigned_extra_long_int ueli_t;
+ostream& operator <<(ostream& pantalla, uint128_t origen);
 
 class espacioMem
 {
@@ -76,14 +87,25 @@ class espacioMem
    public:
 	espacioMem()
 	{
-	   for(unsigned int i = 0; i < sizeof(uint64_t)*2; i++)
+	   for(unsigned int i = 0; i < 8; i++)
 	     dato.n[i] = 0;
+	}
+
+	espacioMem(uint128_t origen)
+	{
+	    dato.n[0] = origen;
 	}
 
 	espacioMem& operator =(char *origen)
 	{
-	   memcpy(dato.c, origen, (1024/sizeof(uint64_t)));
+	   memcpy(dato.c, origen, (sizeof(uint128_t)*8));
 	   return *this;
+	}
+
+	espacioMem& operator =(uint128_t origen)
+	{
+	    dato.n[0] = origen;
+	    return *this;
 	}
 
 	uchar_t& operator[](unsigned int i)
@@ -93,12 +115,12 @@ class espacioMem
 
 	friend ostream& operator <<(ostream& pantalla, espacioMem& origen);
 
-	uint64_t numero(unsigned int indice)
+	uint128_t numero(unsigned int indice)
 	{
-	   if(indice < sizeof(uint64_t)*2)
+	   if(indice < 8)
 	     return dato.n[indice];  // devuelve el valor solicitado
 
-	   return dato.n[ (sizeof(uint64_t)*2) - 1 ];  // devuelve el último valor
+	   return dato.n[ 7 ];  // devuelve el último valor
 	}
 
 	size_t nbits()
@@ -113,13 +135,23 @@ class espacioMem
 
 	unsigned int nelems()
 	{
-	   return (nbytes()/sizeof(uint64_t));
+	   return (nbytes()/sizeof(uint128_t));
 	}
 };
 
 ostream& operator <<(ostream& pantalla, espacioMem& origen)
 {
    pantalla << origen.dato.c;
+
+   return pantalla;
+}
+
+ostream& operator <<(ostream& pantalla, uint128_t origen)
+{
+	unsigned_int64_128 temp = { 0 };
+
+   temp.b = origen;
+   pantalla << temp.a.pB << temp.a.pA;
 
    return pantalla;
 }
