@@ -1,11 +1,20 @@
 // tipoDato1024bits.h
 // octulio biletán * Junio de 2024
 // Crear un espacio de 1024 bits para el almacenamiento de datos.
+// Arquitectura de CPU Intel 64 bits, multinúcleo.
 // Para uso en gral.: cálculos matemáticos, físicos, químicos, procesamiento de textos, etc.
 // Software Libre.
 //
 // Calculadora online para hacer cálculos matemático-científico
 // https://www.wolframalpha.com
+//
+// Observaciones: el tipo de datos '__int128' no se encuentra documentado en la página siguiente
+// https://docwiki.embarcadero.com/RADStudio/Tokyo/en/Int8%2C_int16%2C_int32%2C_int64%2C_Unsigned_int64%2C_Extended_Integer_Types
+// https://docwiki.embarcadero.com/RADStudio/Athens/en/Int8%2C_int16%2C_int32%2C_int64%2C_Unsigned_int64%2C_Extended_Integer_Types
+// Pero sí está documentado en las siguientes páginas:
+// https://docwiki.embarcadero.com/RADStudio/Athens/en/Delphi_Intrinsic_Routines
+// https://docwiki.embarcadero.com/Libraries/Athens/en/System.MulDivInt64
+// Sufijos aceptados para las constantes: ui128, i128
 //
 
 #ifndef __1024bits__
@@ -35,7 +44,8 @@ union unsigned_int64_128
    unsigned_int128 a;
 };
 
-// Es aceptado por el compilador Embarcadero RAD Studio 11.3, versión 28.0.47991.2819
+// Es aceptado por el compilador Embarcadero RAD Studio 10.2, versión 25.0.26309.314
+// y 11.3, versión 28.0.47991.2819. Edición 64 bits.
 struct unsigned_int256
 {
    uint128_t pB;  // parte Baja
@@ -82,17 +92,31 @@ ostream& operator <<(ostream& pantalla, uint128_t origen);
 class espacioMem
 {
    private:
-	ueli_t dato;
+	bool activo = false;
+	ueli_t dato = { 0 };
 
    public:
 	espacioMem()
 	{
-	   for(unsigned int i = 0; i < 8; i++)
-	     dato.n[i] = 0;
+	   activo = true;
+	   //for(unsigned int i = 0; i < 8; i++)
+	     //dato.n[i] = 0;
+	}
+
+	~espacioMem()
+	{
+	    activo = false;
 	}
 
 	espacioMem(uint128_t origen)
 	{
+	    activo = true;
+	    dato.n[0] = origen;
+	}
+
+	espacioMem(int origen)
+	{
+	    activo = true;
 	    dato.n[0] = origen;
 	}
 
