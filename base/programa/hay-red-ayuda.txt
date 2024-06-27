@@ -1,18 +1,18 @@
-Autor: Eugenio MartÌnez - https://t.me/octulioBiletan - Junio de 2023-
-VersiÛn: 7.0 de 'hay-red.cmd' para Windows en espaÒol y en inglÈs.
-DescripciÛn:
+Autor: Eugenio Mart√≠nez - https://t.me/octulioBiletan - Junio de 2024-
+Versi√≥n: 8.0 de 'hay-red.cmd' para Windows en espa√±ol y en ingl√©s.
+Descripci√≥n:
     Comprueba el estado de conectividad de la computadora en una red y
-    el funcionamiento b·sico del servicio DNS.
-    Es m·s eficaz que las otras versiones.
+    el funcionamiento b√°sico del servicio DNS.
+    Es m√°s eficaz que las otras versiones.
     Es compatible con TCC LE x64 (Take Command 14.0).
     Se requiere del comando curl.exe para conocer la IP externa.
 Uso: hay-red [/a]|[/c]|[/s]
     /a Muestra una simple ayuda del comando.
-    /c Muestra una ayuda m·s completa del comando.
+    /c Muestra una ayuda m√°s completa del comando.
     /s Corre el comando en modo silencioso, no muestra demasiado texto en pantalla.
-Obs: prestar atenciÛn a los datos expuestos en la zona horaria local y
-     en la dir. IP externa porque si difieren... Usted est· conectado a una red
-	 privada virtual.
+Obs: prestar atenci√≥n a los datos expuestos en la zona horaria local y
+     en la dir. IP externa porque si difieren... Usted est√° conectado a una red
+     privada virtual.
 
 Sitio de descarga: Ir a github.com
 https://github.com/torrentelinux/torrentarium/blob/master/base/programa/hay-red.zip
