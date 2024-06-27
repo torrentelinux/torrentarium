@@ -1,11 +1,11 @@
 @echo off
-REM Eugenio Martínez - https://t.me/octulioBiletan - Junio de 2023-
-REM Versión 7.0 de hay-red.cmd para Windows en español y en inglés.
+REM Eugenio Martínez - https://t.me/octulioBiletan - Junio de 2024-
+REM Versión 8.0 de hay-red.cmd para Windows en español y en inglés.
 REM Comprueba el funcionamiento básico del servicio DNS.
 REM Es más eficaz que las otras versiones anteriores.
 REM Uso: hay-red [/a]|[/c]|[/s]
 REM /a Muestra una simple ayuda del comando.
-REM	/c Muestra una ayuda más completa del comando.
+REM /c Muestra una ayuda más completa del comando.
 REM /s Corre el comando en modo silencioso, no muestra demasiado texto en pantalla.
 REM -------------------------------------------------------------------------------
 chcp 1252 > nul
