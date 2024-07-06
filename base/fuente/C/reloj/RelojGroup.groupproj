@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{201D6EB3-2AC2-495B-AE54-791984905EF3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="reloj.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="reloj">
+        <MSBuild Projects="reloj.cbproj"/>
+    </Target>
+    <Target Name="reloj:Clean">
+        <MSBuild Projects="reloj.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="reloj:Make">
+        <MSBuild Projects="reloj.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="reloj"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="reloj:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="reloj:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
