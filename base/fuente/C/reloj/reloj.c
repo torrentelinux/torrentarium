@@ -1,6 +1,6 @@
 /* Programa : reloj.c
    Autor    : Eugenio Martínez
-   Propósito: Mostrar la fecha y hora del sistema, además permita su
+   Propósito: Mostrar la fecha y hora del sistema, además permite su
               modificación por parte del usuario.
    Obs.     : Código preparado para Borland C++ 3.1 o superior (MSDOS, Windows)
               y para GNU/C (Linux).
@@ -20,9 +20,13 @@
 #  include <dos.h>
 #endif
 
+#if defined(_Windows) && (__CONSOLE__)
+#  include <windows.h>
+#endif
+
 #include "macros.h"
 
-/* revisa los parámetros /?, hora y fecha */
+/* revisa los parámetros /?, ayuda, hora, fecha, ajuste */
 int parametros(char *param);
 
 /* muestra una ayuda */
@@ -55,16 +59,28 @@ int hora_rango(struct tm *t);
 /* revisa los rangos permitidos en la fecha */
 int fecha_rango(struct tm *t);
 
+/* devuelve el nombre del día vigente de la semana */
+char *hoy_dia(void);
+
+/* devuelve la cantidad de días transcurridos desde el comienzo del año vigente */
+int ndias(void);
+
 #ifdef __linux__
 char autor[] = "(c)Eugenio Martínez (2001-2024) - Tucumán - Arg.";
 
-/* los días de la semana */
+/* los nombres de los días de la semana */
 char *dias[16] = { "domingo", "lunes", "martes", "miércoles",
-                   "jueves", "viernes", "sábado", ""
-                 };
+		   "jueves", "viernes", "sábado", ""
+		 };
 #else
 char autor[] = "(c)Eugenio Mart¡nez (2001-2024) - Tucum n - Arg.";
+
+/* los nombres de los d¡as de la semana */
+char *dias[16] = { "domingo", "lunes", "martes", "mi‚rcoles",
+		   "jueves", "viernes", "s bado", ""
+		 };
 #endif
+
 
 /* Un arreglo de punteros a funciones que no reciben parámetros y que
    devuelven un valor entero
@@ -154,28 +170,36 @@ void fecha_actual(void)
         struct time hora;
         struct date fecha;
 
-   /* obtiene la hora y la fecha actual del sistema */
-   gettime(&hora);
+   /* obtiene la fecha actual del sistema */
    getdate(&fecha);
 
-   /* muestra la hora y la fecha actual */
+   /* muestra la fecha */
+   printf("Hoy es %s %02d/%02d/%d, %d d¡as transcurridos desde el comienzo del a¤o.\n",
+          hoy_dia(), fecha.da_day, fecha.da_mon, fecha.da_year, ndias());
+
+   /* obtiene la hora actual del sistema */
+   gettime(&hora);
+
+   /* muestra la hora */
    printf("Son las %d horas, %d minutos, %d segundos\n",
            hora.ti_hour, hora.ti_min, hora.ti_sec);
 
-   printf("Hoy es %02d/%02d/%d\n", fecha.da_day, fecha.da_mon, fecha.da_year);
-
+   /* Windows consola, 32 bits o más */
+#ifdef _Windows
    puts("Reloj de internet:");
    estado = system("curl --url https://worldtimeapi.org/api/ip.txt 2>nul|findstr /C:\"datetime\"");
    if(estado != 0)
      puts("Advertencia: No se pudo consultar el tiempo desde el sitio 'worldtimeapi.org'");
+#endif
+
 #endif
 }
 
 int hora(void)
 {
 #ifdef __linux__
-        int status;
-        time_t tiempo;
+	int status;
+	time_t tiempo;
         struct tm nhora, *hora;
         char teclado = NULO;
         char mensaje[] = "\nNuevo horario (hh:mm:ss): ";
@@ -369,12 +393,23 @@ int fecha(void)
 
 int ajuste(void)
 {
+#ifdef __linux__
+   puts("ajuste(): Función no implementada.\n");
+   return 0;
+#else
 	int estado = -1;
 
+   /* << Windows >>
+     Puede revisar la lista de servidores con el siguiente comando:
+     'control timedate.cpl', pestaña "Internet Time".
+     Para Argentina: ntp1.hidro.gob.ar <> ntp2.hidro.gob.ar <> ntp.ign.gob.ar
+     Para el resto del mundo: time.windows.com
+   */
    puts("Ajuste del reloj del sistema desde internet: aguarde un momento...");
    puts("<Lectura inicial>");
    tiempo_actual();
 
+   /* Invoca al comando w32tm.exe de Windows para reajustar el reloj interno */
    estado = system("w32tm.exe /resync");
    if(estado != 0)
      puts("Advertencia: No se pudo consultar el tiempo desde internet.");
@@ -385,6 +420,7 @@ int ajuste(void)
    tiempo_actual();
 
    return 0;
+#endif
 }
 
 char *euge_strlwr(char *s)
@@ -492,16 +528,56 @@ int error(void)
 
 void tiempo_actual(void)
 {
+#ifdef _Windows
         struct time hora;
         struct date fecha;
+	TIME_ZONE_INFORMATION TimeZoneInfo;
 
    /* obtiene la hora y la fecha actual del sistema */
    gettime(&hora);
    getdate(&fecha);
 
+   /* obtiene info. de la zona horaria vigente */
+   GetTimeZoneInformation(&TimeZoneInfo);
+
    /* muestra el tiempo local actual */
-   printf("%d hr %d mi %d se [+] %02d/%02d/%d\n",
-          hora.ti_hour, hora.ti_min, hora.ti_sec,
+   printf("%d hr %d mi %d,%d se [*] %02d/%02d/%d [*] ",
+          hora.ti_hour, hora.ti_min, hora.ti_sec, hora.ti_hund,
           fecha.da_day, fecha.da_mon, fecha.da_year);
+
+   /* Muestra el nombre de la zona horaria */
+   _putws(TimeZoneInfo.StandardName);
+#else
+        struct time hora;
+        struct date fecha;
+
+   gettime(&hora);
+   getdate(&fecha);
+
+   printf("%d hr %d mi %d,%d se [*] %02d/%02d/%d\n",
+          hora.ti_hour, hora.ti_min, hora.ti_sec, hora.ti_hund,
+          fecha.da_day, fecha.da_mon, fecha.da_year);
+#endif
 }
 
+char *hoy_dia(void)
+{
+        time_t tiempo = 0;
+        struct tm *fecha = NULL;
+
+   tiempo = time(NULL);
+   fecha = localtime(&tiempo);
+
+   return dias[fecha->tm_wday];
+}
+
+int ndias(void)
+{
+        time_t tiempo = 0;
+        struct tm *fecha = NULL;
+
+   tiempo = time(NULL);
+   fecha = localtime(&tiempo);
+
+   return fecha->tm_yday;
+}
