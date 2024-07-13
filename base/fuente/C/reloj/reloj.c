@@ -66,14 +66,14 @@ char *hoy_dia(void);
 int ndias(void);
 
 #ifdef __linux__
-char autor[] = "(c)Eugenio Martínez (2001-2024) - Tucumán - Arg.";
+char autor[] = "(c)Eugenio MartÃ­nez (2001-2024) - TucumÃ¡n - Argentina";
 
 /* los nombres de los días de la semana */
 char *dias[16] = { "domingo", "lunes", "martes", "miércoles",
 		   "jueves", "viernes", "sábado", ""
 		 };
 #else
-char autor[] = "(c)Eugenio Mart¡nez (2001-2024) - Tucum n - Arg.";
+char autor[] = "(c)Eugenio Mart¡nez (2001-2024) - Tucum n - Argentina";
 
 /* los nombres de los d¡as de la semana */
 char *dias[16] = { "domingo", "lunes", "martes", "mi‚rcoles",
@@ -148,22 +148,30 @@ void fecha_actual(void)
 {
 #if defined __linux__ || defined __WATCOMC__
 
-        time_t tiempo;
-        struct tm *hora;
-        struct tm *fecha;
+	int estado = -1;
+	time_t tiempo;
+	struct tm *hora;
+	struct tm *fecha;
 
-   /* obtiene la hora y la fecha actual del sistema */
+    /* obtiene la hora y la fecha actual del sistema */
     tiempo = time(NULL);
     hora = localtime(&tiempo);
     fecha = hora;
 
-   /* muestra la hora, la fecha actual, la dif. horaria y la zona horaria */
-   printf("Son las %d horas, %d minutos, %d segundos\n",
+    /* muestra la hora, la fecha actual, la dif. horaria y la zona horaria */
+    printf("Son las %d horas, %d minutos, %d segundos\n",
            hora->tm_hour, hora->tm_min, hora->tm_sec);
 
-   printf("Hoy es %s %02d/%02d/%d, %05ld %s\n", dias[fecha->tm_wday],
+    printf("Hoy es %s %02d/%02d/%d, %05ld %s\n", dias[fecha->tm_wday],
            fecha->tm_mday, (fecha->tm_mon + 1), (fecha->tm_year + 1900),
-          (fecha->tm_gmtoff/3600)*100, fecha->tm_zone);
+           (fecha->tm_gmtoff/3600)*100, fecha->tm_zone);
+
+    puts("Reloj de internet:");
+
+    /* consulta el tiempo desde un sitio de internet */
+    estado = system("rdate time.nist.gov");
+    if(estado != 0)
+      puts("Advertencia: No se pudo consultar el tiempo desde el sitio 'time.nist.gov'");
 
 #else
 	int estado = -1;
@@ -393,20 +401,33 @@ int fecha(void)
 
 int ajuste(void)
 {
-#ifdef __linux__
-   puts("ajuste(): Función no implementada.\n");
-   return 0;
-#else
 	int estado = -1;
 
+   puts("Ajuste del reloj del sistema desde internet: aguarde un momento...");
+   puts("<Lectura inicial>");
+
+#ifdef __linux__
+   tiempo_actual();
+
+   /* Variante: Invoca al comando ntpdate y hwclock de Linux para reajustar el reloj interno */
+   /* estado = system("ntpdate ntp2.hidro.gob.ar; hwclock -w"); */
+   
+   /* Invoca al comando rdate y hwclock de Linux para reajustar el reloj interno */
+   estado = system("rdate -u -s time.nist.gov; hwclock -w");
+   if(estado != 0)
+     puts("Advertencia: No se pudo consultar el tiempo desde internet.");
+   else
+     puts("Ok.");
+
+   puts("<Lectura final>");
+   system("hwclock -r");
+#else
    /* << Windows >>
      Puede revisar la lista de servidores con el siguiente comando:
      'control timedate.cpl', pestaña "Internet Time".
      Para Argentina: ntp1.hidro.gob.ar <> ntp2.hidro.gob.ar <> ntp.ign.gob.ar
      Para el resto del mundo: time.windows.com
    */
-   puts("Ajuste del reloj del sistema desde internet: aguarde un momento...");
-   puts("<Lectura inicial>");
    tiempo_actual();
 
    /* Invoca al comando w32tm.exe de Windows para reajustar el reloj interno */
@@ -418,9 +439,8 @@ int ajuste(void)
 
    puts("<Lectura final>");
    tiempo_actual();
-
-   return 0;
 #endif
+   return 0;
 }
 
 char *euge_strlwr(char *s)
@@ -495,20 +515,21 @@ int ayuda(void)
    puts("\nForma  I: RELOJ /? | --ayuda ==> muestra una ayuda\n"
         "Forma II: RELOJ [fecha | hora]\n"
         "Esta utilidad muestra la hora y fecha actual del sistema.\n"
-        "Es posible además modificar tanto la hora como la fecha, de manera individual\n"
+        "Es posible ademÃ¡s modificar tanto la hora como la fecha, de manera individual\n"
         "o ambas al mismo tiempo.\n"
         "Para cancelar el ingreso de datos presione las teclas CTRL+C.\n"
         "El formato de la hora es: hh:mm:ss\n"
         "El formato de la fecha es: dd/mm/aaaa");
 
-   puts("Los valores mínimos y máximos para la hora y la fecha son:\n\n"
+   puts("Los valores mÃ­nimos y mÃ¡ximos para la hora y la fecha son:\n\n"
         "hora: 0-23 <> minutos: 0-59 <> segundos: 0-61 (segundos bisiestos)\n"
-        "día : 1-31 <> mes    : 1-12 <> año     : 1900-....\n\n"
+        "dÃ­a : 1-31 <> mes    : 1-12 <> aÃ±o     : 1900-....\n\n"
         "Ejemplos:\n"
         "RELOJ             ==> visualiza la hora y fecha actual\n"
         "RELOJ hora        ==> permite modificar la hora del computador\n"
         "RELOJ fecha       ==> permite modificar la fecha del computador\n"
-        "RELOJ fecha hora  ==> permite que se modifiquen la fecha y hora del computador");
+        "RELOJ fecha hora  ==> permite que se modifiquen la fecha y hora del computador\n"
+        "RELOJ ajuste      ==> permite sincronizar el reloj de la PC con el reloj de internet");
 #endif
 
    return -1;   /* regresa al shell inmediatamente */
@@ -517,7 +538,7 @@ int ayuda(void)
 int error(void)
 {
 #ifdef __linux__
-   puts("Opción no reconocida.\n"
+   puts("OpciÃ³n no reconocida.\n"
 #else
    puts("Opci¢n no reconocida.\n"
 #endif
@@ -529,8 +550,8 @@ int error(void)
 void tiempo_actual(void)
 {
 #ifdef _Windows
-        struct time hora;
-        struct date fecha;
+	struct time hora;
+	struct date fecha;
 	TIME_ZONE_INFORMATION TimeZoneInfo;
 
    /* obtiene la hora y la fecha actual del sistema */
@@ -548,15 +569,20 @@ void tiempo_actual(void)
    /* Muestra el nombre de la zona horaria */
    _putws(TimeZoneInfo.StandardName);
 #else
-        struct time hora;
-        struct date fecha;
+	time_t tiempo;
+	struct tm *reloj;
 
-   gettime(&hora);
-   getdate(&fecha);
+    tiempo = time(NULL);
+    reloj = localtime(&tiempo);
 
-   printf("%d hr %d mi %d,%d se [*] %02d/%02d/%d\n",
-          hora.ti_hour, hora.ti_min, hora.ti_sec, hora.ti_hund,
-          fecha.da_day, fecha.da_mon, fecha.da_year);
+    /* muestra la hora actual */
+    printf("Es la hora: %02d:%02d:%02d\n",
+           reloj->tm_hour, reloj->tm_min, reloj->tm_sec);
+
+    /* muestra la fecha actual */
+    printf("Hoy es %s %02d/%02d/%d\n", dias[reloj->tm_wday],
+           reloj->tm_mday, (reloj->tm_mon + 1), (reloj->tm_year + 1900));
+
 #endif
 }
 
