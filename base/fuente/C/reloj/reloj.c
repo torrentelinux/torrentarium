@@ -4,7 +4,9 @@
               modificación por parte del usuario.
    Obs.     : Código preparado para Borland C++ 3.1 o superior (MSDOS, Windows)
               y para GNU/C (Linux).
-              Se requiere del comando curl.exe para consultar el tiempo desde internet.
+              Se requiere de los comandos 'rdate', 'ntpdate' y 'curl' en Linux para consultar el tiempo desde internet.
+              En Windows, se requiere que esté instalado el comando 'curl.exe'.
+              En MSDOS, no se consulta el tiempo desde internet.
 */
 
 #define __FOBSOLETE__
@@ -69,8 +71,8 @@ int ndias(void);
 char autor[] = "(c)Eugenio MartÃ­nez (2001-2024) - TucumÃ¡n - Argentina";
 
 /* los nombres de los días de la semana */
-char *dias[16] = { "domingo", "lunes", "martes", "miércoles",
-		   "jueves", "viernes", "sábado", ""
+char *dias[16] = { "domingo", "lunes", "martes", "miÃ©rcoles",
+		   "jueves", "viernes", "sÃ¡bado", ""
 		 };
 #else
 char autor[] = "(c)Eugenio Mart¡nez (2001-2024) - Tucum n - Argentina";
@@ -401,12 +403,11 @@ int fecha(void)
 
 int ajuste(void)
 {
+#ifdef __linux__
 	int estado = -1;
-
+   
    puts("Ajuste del reloj del sistema desde internet: aguarde un momento...");
    puts("<Lectura inicial>");
-
-#ifdef __linux__
    tiempo_actual();
 
    /* Variante: Invoca al comando ntpdate y hwclock de Linux para reajustar el reloj interno */
@@ -421,13 +422,19 @@ int ajuste(void)
 
    puts("<Lectura final>");
    system("hwclock -r");
+
+   return 0;
 #else
+	int estado = -1;
+
    /* << Windows >>
      Puede revisar la lista de servidores con el siguiente comando:
      'control timedate.cpl', pestaña "Internet Time".
      Para Argentina: ntp1.hidro.gob.ar <> ntp2.hidro.gob.ar <> ntp.ign.gob.ar
      Para el resto del mundo: time.windows.com
    */
+   puts("Ajuste del reloj del sistema desde internet: aguarde un momento...");
+   puts("<Lectura inicial>");
    tiempo_actual();
 
    /* Invoca al comando w32tm.exe de Windows para reajustar el reloj interno */
@@ -439,8 +446,9 @@ int ajuste(void)
 
    puts("<Lectura final>");
    tiempo_actual();
-#endif
+
    return 0;
+#endif
 }
 
 char *euge_strlwr(char *s)
