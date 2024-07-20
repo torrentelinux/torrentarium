@@ -72,15 +72,15 @@ char autor[] = "(c)Eugenio Mart√≠nez (2001-2024) - Tucum√°n - Argentina";
 
 /* los nombres de los dÌas de la semana */
 char *dias[16] = { "domingo", "lunes", "martes", "mi√©rcoles",
-		   "jueves", "viernes", "s√°bado", ""
-		 };
+                   "jueves", "viernes", "s√°bado", ""
+                 };
 #else
 char autor[] = "(c)Eugenio Mart°nez (2001-2024) - Tucum†n - Argentina";
 
 /* los nombres de los d°as de la semana */
 char *dias[16] = { "domingo", "lunes", "martes", "miÇrcoles",
-		   "jueves", "viernes", "s†bado", ""
-		 };
+                   "jueves", "viernes", "s†bado", ""
+                 };
 #endif
 
 
@@ -148,12 +148,12 @@ int parametros(char *param)
 
 void fecha_actual(void)
 {
-#if defined __linux__ || defined __WATCOMC__
+#if defined __linux__
 
-	int estado = -1;
-	time_t tiempo;
-	struct tm *hora;
-	struct tm *fecha;
+        int estado = -1;
+        time_t tiempo;
+        struct tm *hora;
+        struct tm *fecha;
 
     /* obtiene la hora y la fecha actual del sistema */
     tiempo = time(NULL);
@@ -176,7 +176,7 @@ void fecha_actual(void)
       puts("Advertencia: No se pudo consultar el tiempo desde el sitio 'time.nist.gov'");
 
 #else
-	int estado = -1;
+        int estado = -1;
         struct time hora;
         struct date fecha;
 
@@ -208,8 +208,8 @@ void fecha_actual(void)
 int hora(void)
 {
 #ifdef __linux__
-	int status;
-	time_t tiempo;
+        int status;
+        time_t tiempo;
         struct tm nhora, *hora;
         char teclado = NULO;
         char mensaje[] = "\nNuevo horario (hh:mm:ss): ";
@@ -404,15 +404,15 @@ int fecha(void)
 int ajuste(void)
 {
 #ifdef __linux__
-	int estado = -1;
-   
+        int estado = -1;
+
    puts("Ajuste del reloj del sistema desde internet: aguarde un momento...");
    puts("<Lectura inicial>");
    tiempo_actual();
 
    /* Variante: Invoca al comando ntpdate y hwclock de Linux para reajustar el reloj interno */
    /* estado = system("ntpdate ntp2.hidro.gob.ar; hwclock -w"); */
-   
+
    /* Invoca al comando rdate y hwclock de Linux para reajustar el reloj interno */
    estado = system("rdate -u -s time.nist.gov; hwclock -w");
    if(estado != 0)
@@ -425,7 +425,7 @@ int ajuste(void)
 
    return 0;
 #else
-	int estado = -1;
+        int estado = -1;
 
    /* << Windows >>
      Puede revisar la lista de servidores con el siguiente comando:
@@ -558,9 +558,9 @@ int error(void)
 void tiempo_actual(void)
 {
 #ifdef _Windows
-	struct time hora;
-	struct date fecha;
-	TIME_ZONE_INFORMATION TimeZoneInfo;
+        struct time hora;
+        struct date fecha;
+        TIME_ZONE_INFORMATION TimeZoneInfo;
 
    /* obtiene la hora y la fecha actual del sistema */
    gettime(&hora);
@@ -577,8 +577,8 @@ void tiempo_actual(void)
    /* Muestra el nombre de la zona horaria */
    _putws(TimeZoneInfo.StandardName);
 #else
-	time_t tiempo;
-	struct tm *reloj;
+        time_t tiempo;
+        struct tm *reloj;
 
     tiempo = time(NULL);
     reloj = localtime(&tiempo);
