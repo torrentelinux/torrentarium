@@ -2,6 +2,7 @@
 // Propósito: Mostrar una simple línea de texto en la ventana de textos, Windows.
 //            Compilar junto con 'setupConsole.cpp'.
 //            'setupConsole.cpp' prepara la ventana de textos antes de su uso.
+// Es compatible con Embarcadero RAD Studio.
 
 #include <iostream>
 
