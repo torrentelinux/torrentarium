@@ -1,1 +1,10 @@
+Documentos referentes al proyecto de simulación de un motor eléctrico:
 
+	https://www.baeldung.com/java-delay-code-execution
+	https://stackoverflow.com/questions/23283041/how-to-make-java-delay-for-a-few-seconds
+	https://jarroba.com/multitarea-e-hilos-en-java-con-ejemplos-thread-runnable/
+	https://www.geeksforgeeks.org/runnable-interface-in-java/
+
+Para Apache NetBeans IDE ver. 23, Java JDK ver. 21.0.2 en sistemas Linux y Windows 64 bits.
+___________________________________________________________
+Octulio Biletán * 06:16 p.m. viernes, 11 de octubre de 2024
