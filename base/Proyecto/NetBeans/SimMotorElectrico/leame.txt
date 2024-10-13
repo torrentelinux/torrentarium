@@ -1,4 +1,5 @@
-Documentos referentes al proyecto de simulaci髇 de un motor el閏trico:
+Simulaci贸n de un motor el茅ctrico cualquiera, puede ser la de un lavarropas, una heladera, un microondas, etc.
+Documentos referentes al proyecto de simulaci贸n de un motor el茅ctrico:
 
 	https://www.baeldung.com/java-delay-code-execution
 	https://stackoverflow.com/questions/23283041/how-to-make-java-delay-for-a-few-seconds
@@ -6,5 +7,29 @@ Documentos referentes al proyecto de simulaci髇 de un motor el閏trico:
 	https://www.geeksforgeeks.org/runnable-interface-in-java/
 
 Para Apache NetBeans IDE ver. 23, Java JDK ver. 21.0.2 en sistemas Linux y Windows 64 bits.
+Ficheros a descomprimir:
+    SimMotorElectrico.7z	Para Windows.
+    SimMotorElectrico.tar.7z	Para Linux.
+
+Traducci贸n de c贸digo Java a c贸digo Assembler: https://www.codeconvert.ai/java-to-assembly-converter
+Conceptos de programaci贸n concurrente: https://en.wikipedia.org/wiki/Concurrency_(computer_science)
+
+Rutinas Sin Uso:
+    private static boolean repeat(boolean continuar)
+    {
+        if(continuar == false)
+        {
+            cycle  = dato1;     // true=activo; false=inactivo
+            accion = dato2;     // lavando;     apagado
+        }
+        else
+        {
+            cycle  = dato1;     // true=activo; false=inactivo
+            accion = dato2;     // lavando;     apagado
+        }
+
+        return cycle;
+    }
+
 ___________________________________________________________
-Octulio Bilet醤 * 06:16 p.m. viernes, 11 de octubre de 2024
+Octulio Bilet谩n * 06:16 p.m. viernes, 11 de octubre de 2024
