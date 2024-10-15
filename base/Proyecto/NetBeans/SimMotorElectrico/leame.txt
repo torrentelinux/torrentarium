@@ -14,22 +14,25 @@ Ficheros a descomprimir:
 Traducción de código Java a código Assembler: https://www.codeconvert.ai/java-to-assembly-converter
 Conceptos de programación concurrente: https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 
-Rutinas Sin Uso:
-    private static boolean repeat(boolean continuar)
-    {
-        if(continuar == false)
-        {
-            cycle  = dato1;     // true=activo; false=inactivo
-            accion = dato2;     // lavando;     apagado
-        }
-        else
-        {
-            cycle  = dato1;     // true=activo; false=inactivo
-            accion = dato2;     // lavando;     apagado
-        }
+Las herramientas necesarias para trabajar sobre este proyecto:
+    * Java JDK v21.0.4
+        https://www.oracle.com/java/technologies/downloads/#java21
+    * Apache NetBeans IDE
+        https://netbeans.apache.org/front/main/download/nb23/
+    * Sistema operativo Linux o Windows.
 
-        return cycle;
-    }
+Tutoriales sobre el lenguaje de programación Java:
+    * Java Tutorials learning paths (Oracle)
+        https://docs.oracle.com/javase/tutorial/tutorialLearningPaths.html
+
+Estudios sobre motores eléctricos:
+    * Motores eléctricos
+	https://demotor.net/motores-electricos
+    * Motor CC
+	https://javalab.org/en/dc_motor_en/
+    * Motor eléctrico
+	https://es.wikipedia.org/wiki/Motor_el%C3%A9ctrico
+
 
 ___________________________________________________________
 Octulio Biletán * 06:16 p.m. viernes, 11 de octubre de 2024
