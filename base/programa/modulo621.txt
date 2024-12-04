@@ -1,21 +1,27 @@
 	Torrente Utilidades
-	 - edición 2022 --
+	 - edición 2024 --
 
 
-modulo621 es un fichero para ser acoplado o montado en un sistema Linux.
+modulo621.udv es un fichero para ser acoplado o montado en un sistema Linux.
 
 << Area de descarga >>
+Directorio base/imagen/
 https://u.pcloud.link/publink/show?code=kZ4I1h7Z5TAxbJqo2i0JgaDaBWkvm5DOKvQ7&lang=es#folder=11670005309&tpl=publicfoldergrid
 
-Para comprobar la integridad de modulo621 después de haberlo descargado, ejecute:
-sha512sum -c modulo621.SHA512
+Para comprobar la integridad de modulo621.udv después de haberlo descargado, ejecute:
+    sha512sum -c modulo621.SHA512
 
 En Oracle Linux/CentOS Linux, ejecute los siguientes comandos:
 (1) Crear el directorio: mkdir /base&&mkdir /base/disco&&mkdir /base/disco/virtual/
-(2) Acoplar modulo621 en directorio virtual: mount -t auto modulo621 /base/disco/virtual
+(2) Acoplar modulo621.udv en directorio virtual: mount -t auto modulo621.udv /base/disco/virtual
 (3) Mostrar el contenido: vdir /base/disco/virtual/
 
-Y para desacoplar modulo621, ejecute: umount /base/disco/virtual
+Y para desacoplar modulo621.udv, ejecute:
+    umount /base/disco/virtual
+
+Para confinar a un nuevo directorio raíz '/' del usuario 'root', ejecute:
+    chroot --userspec=0:0 /base/disco/virtual/ /bin/bash
+Y para salir, ejecute 'exit'.
 
 ____________________________________________
 Estructura jerárquica de Torrente Utilidades
@@ -27,55 +33,6 @@ Estructura jerárquica de Torrente Utilidades
 │   ├── biblioteca
 │   │   ├── docu
 │   │   │   └── AndroidPC2021.pdf
-│   │   ├── HolaSimple
-│   │   │   ├── Imagenes
-│   │   │   │   ├── holaSimple01.jpeg
-│   │   │   │   ├── holaSimple02.jpeg
-│   │   │   │   ├── holaSimple03.jpeg
-│   │   │   │   └── holaSimple04.jpeg
-│   │   │   ├── JDeveloper
-│   │   │   │   └── HolaSimple
-│   │   │   │       ├── Cliente
-│   │   │   │       │   ├── clases
-│   │   │   │       │   │   └── HolaSimple
-│   │   │   │       │   │       └── Hola.class
-│   │   │   │       │   ├── Cliente.jpr
-│   │   │   │       │   ├── deploy
-│   │   │   │       │   │   └── hola.jar
-│   │   │   │       │   ├── fuente
-│   │   │   │       │   │   └── HolaSimple
-│   │   │   │       │   │       └── Hola.java
-│   │   │   │       │   └── public_html
-│   │   │   │       └── HolaSimple.jws
-│   │   │   ├── leame.txt
-│   │   │   └── NetBeansLX
-│   │   │       └── HolaSimple
-│   │   │           ├── build
-│   │   │           │   ├── built-jar.properties
-│   │   │           │   ├── classes
-│   │   │           │   │   └── HolaSimple
-│   │   │           │   │       └── Hola.class
-│   │   │           │   ├── empty
-│   │   │           │   └── generated-sources
-│   │   │           │       └── ap-source-output
-│   │   │           ├── build.xml
-│   │   │           ├── dist
-│   │   │           │   ├── HolaSimple.jar
-│   │   │           │   └── README.TXT
-│   │   │           ├── manifest.mf
-│   │   │           ├── nbproject
-│   │   │           │   ├── build-impl.xml
-│   │   │           │   ├── genfiles.properties
-│   │   │           │   ├── private
-│   │   │           │   │   ├── config.properties
-│   │   │           │   │   ├── private.properties
-│   │   │           │   │   └── private.xml
-│   │   │           │   ├── project.properties
-│   │   │           │   └── project.xml
-│   │   │           ├── src
-│   │   │           │   └── HolaSimple
-│   │   │           │       └── Hola.java
-│   │   │           └── test
 │   │   ├── libro
 │   │   │   ├── Algoritmo
 │   │   │   │   ├── analisis-contrase.txt
@@ -95,40 +52,42 @@ Estructura jerárquica de Torrente Utilidades
 │   │   │   ├── NotasDeIngles.pdf
 │   │   │   ├── objetos.pdf
 │   │   │   ├── PrincipiosSobreEducacion.pdf
-│   │   │   ├── protocolos-2021.pdf
+│   │   │   ├── protocolos-2022.pdf
+│   │   │   ├── tabla-ascii.pdf
 │   │   │   ├── TareaParaLaCasa.pdf
 │   │   │   └── vala-manual.pdf
-│   │   ├── Licencias GNU
+│   │   ├── Licencias\ GNU
 │   │   │   ├── gnu-lesser.txt
 │   │   │   ├── gnu-library.txt
 │   │   │   ├── LICENSE
 │   │   │   ├── LICENSE-prog.gnu.txt
 │   │   │   └── modelo-de-biblioteca.txt
-│   │   └── texto
-│   │       ├── amistad.txt
-│   │       ├── codigo-de-particion.txt
-│   │       ├── hierbas
-│   │       │   ├── yuyos-configurar.txt
-│   │       │   ├── yuyos-leame.txt
-│   │       │   ├── yuyos-referencias.txt
-│   │       │   ├── yuyos.txt
-│   │       │   └── yuyos-utf8.txt
-│   │       ├── Java
-│   │       │   ├── jar.txt
-│   │       │   ├── javac.txt
-│   │       │   ├── javah.txt
-│   │       │   ├── javap.txt
-│   │       │   ├── java.txt
-│   │       │   └── jdeps.txt
-│   │       └── reloj
-│   │           ├── lealinux.txt
-│   │           ├── leamsdos.txt
-│   │           ├── macros.h
-│   │           ├── pragma.h
-│   │           ├── reloj.c
-│   │           └── reloj.prj
+│   │   ├── texto
+│   │   │   ├── amistad.txt
+│   │   │   ├── codigo-de-particion.txt
+│   │   │   ├── hierbas
+│   │   │   │   ├── yuyos-configurar.txt
+│   │   │   │   ├── yuyos-leame.txt
+│   │   │   │   ├── yuyos-referencias.txt
+│   │   │   │   ├── yuyos.txt
+│   │   │   │   └── yuyos-utf8.txt
+│   │   │   ├── Java
+│   │   │   │   ├── jar.txt
+│   │   │   │   ├── javac.txt
+│   │   │   │   ├── javah.txt
+│   │   │   │   ├── javap.txt
+│   │   │   │   ├── java.txt
+│   │   │   │   └── jdeps.txt
+│   │   │   └── reloj
+│   │   │       ├── lealinux.txt
+│   │   │       ├── leamsdos.txt
+│   │   │       ├── macros.h
+│   │   │       ├── pragma.h
+│   │   │       ├── reloj.c
+│   │   │       └── reloj.prj
+│   │   └── TorrenteUtilidades.txt
 │   ├── config
-│   ├── depósito
+│   ├── dep\303\263sito
 │   ├── descarga
 │   ├── disco
 │   │   ├── c
@@ -142,11 +101,23 @@ Estructura jerárquica de Torrente Utilidades
 │   │   ├── imagen
 │   │   └── virtual
 │   ├── dispositivo
+│   │   └── incinerador -> /dev/null
 │   ├── fuente
 │   │   ├── adn2.cc
 │   │   ├── adn.cc
 │   │   ├── adn.h
 │   │   ├── bsort.cpp
+│   │   ├── capsalida.c
+│   │   ├── capsalida.gdt
+│   │   ├── capsalida.gpr
+│   │   ├── cf.cpp
+│   │   ├── cf.gdt
+│   │   ├── cf.gpr
+│   │   ├── ctf.cpp
+│   │   ├── ctf.gdt
+│   │   ├── ctf.gpr
+│   │   ├── cube.c
+│   │   ├── elm.cpp
 │   │   ├── hola.c
 │   │   ├── hola++.cpp
 │   │   ├── Java
@@ -158,15 +129,121 @@ Estructura jerárquica de Torrente Utilidades
 │   │   │   ├── ps.fragmento.java
 │   │   │   ├── Rand_and_Srand.java
 │   │   │   └── salida.java.txt
+│   │   ├── npi.c
+│   │   ├── npi.gdt
+│   │   ├── npi.gpr
+│   │   ├── NroPI
+│   │   │   ├── calculaNroPi
+│   │   │   ├── calculaNroPi.cpp
+│   │   │   └── calculoNroPi-2024.png
 │   │   ├── reloj
-│   │   │   ├── lealinux.txt
-│   │   │   ├── leamsdos.txt
+│   │   │   ├── 16bits
+│   │   │   │   └── RELOJ.EXE
+│   │   │   ├── 32bits
+│   │   │   │   └── reloj.exe
+│   │   │   ├── 64bits
+│   │   │   │   └── reloj.exe
+│   │   │   ├── bc31
+│   │   │   │   ├── RELOJ.CFG
+│   │   │   │   ├── RELOJ.DSK
+│   │   │   │   ├── RELOJ.MAK
+│   │   │   │   └── RELOJ.PRJ
+│   │   │   ├── bc502
+│   │   │   │   ├── reloj.DSW
+│   │   │   │   └── reloj.ide
+│   │   │   ├── codegear
+│   │   │   │   ├── reloj.cbproj
+│   │   │   │   ├── reloj.cbproj.local
+│   │   │   │   ├── reloj.dsk
+│   │   │   │   ├── RelojGroup.groupproj
+│   │   │   │   └── RelojGroup.groupproj.local
+│   │   │   ├── DevStudio
+│   │   │   │   └── Reloj
+│   │   │   │       ├── build
+│   │   │   │       │   └── Debug
+│   │   │   │       │       └── OracleDeveloperStudio-Linux
+│   │   │   │       │           ├── main.o
+│   │   │   │       │           └── reloj.o
+│   │   │   │       ├── dist
+│   │   │   │       │   └── Debug
+│   │   │   │       │       └── OracleDeveloperStudio-Linux
+│   │   │   │       │           └── reloj
+│   │   │   │       ├── main.c
+│   │   │   │       ├── Makefile
+│   │   │   │       ├── nbproject
+│   │   │   │       │   ├── configurations.xml
+│   │   │   │       │   ├── Makefile-Debug.mk
+│   │   │   │       │   ├── Makefile-impl.mk
+│   │   │   │       │   ├── Makefile-Release.mk
+│   │   │   │       │   ├── Makefile-variables.mk
+│   │   │   │       │   ├── Package-Debug.bash
+│   │   │   │       │   ├── Package-Release.bash
+│   │   │   │       │   ├── private
+│   │   │   │       │   │   ├── configurations.xml
+│   │   │   │       │   │   ├── cpp_standard_headers_indexer.cpp
+│   │   │   │       │   │   ├── c_standard_headers_indexer.c
+│   │   │   │       │   │   ├── launcher.properties
+│   │   │   │       │   │   ├── Makefile-variables.mk
+│   │   │   │       │   │   └── private.xml
+│   │   │   │       │   └── project.xml
+│   │   │   │       └── reloj.c
+│   │   │   ├── docu
+│   │   │   │   ├── lealinux.txt
+│   │   │   │   ├── leame.html
+│   │   │   │   ├── leamsdos.txt
+│   │   │   │   ├── LICENSE.gnu.txt
+│   │   │   │   ├── reloj01.png
+│   │   │   │   ├── reloj02.png
+│   │   │   │   ├── reloj03.png
+│   │   │   │   ├── reloj04.png
+│   │   │   │   ├── reloj05.png
+│   │   │   │   ├── reloj06.png
+│   │   │   │   ├── reloj07.png
+│   │   │   │   ├── salida.gcc.almaLinux
+│   │   │   │   └── salida.gcc.oracleLinux
+│   │   │   ├── linux
+│   │   │   │   ├── compila.gcc.oracleLinux.txt
+│   │   │   │   ├── reloj
+│   │   │   │   └── reloj.static
+│   │   │   ├── macros.h
+│   │   │   ├── msdos
+│   │   │   │   ├── leame.txt
+│   │   │   │   ├── macros.h
+│   │   │   │   ├── pragma.h
+│   │   │   │   └── reloj.c
+│   │   │   ├── ow2_0
+│   │   │   │   ├── reloj.c
+│   │   │   │   ├── reloj.lk1
+│   │   │   │   ├── reloj.mk
+│   │   │   │   ├── reloj.mk1
+│   │   │   │   ├── reloj.tgt
+│   │   │   │   └── reloj.wpj
+│   │   │   ├── pragma.h
+│   │   │   ├── RadStudioXE4
+│   │   │   │   ├── reloj.cbproj
+│   │   │   │   ├── reloj.cbproj.local
+│   │   │   │   ├── reloj.dsk
+│   │   │   │   ├── RelojGroup.groupproj
+│   │   │   │   ├── RelojGroup.groupproj.local
+│   │   │   │   ├── reloj.res
+│   │   │   │   └── Win32
+│   │   │   │       └── Release
 │   │   │   ├── reloj.c
-│   │   │   ├── reloj.gdt
-│   │   │   └── reloj.gpr
+│   │   │   └── torrenteLinux
+│   │   │       ├── lealinux.txt
+│   │   │       ├── leamsdos.txt
+│   │   │       ├── macros.h
+│   │   │       ├── pragma.h
+│   │   │       ├── reloj.c
+│   │   │       ├── reloj.gdt
+│   │   │       └── reloj.gpr
 │   │   ├── tblascii.cpp
 │   │   ├── tblascii.gdt
 │   │   ├── tblascii.gpr
+│   │   ├── usuario1.cc
+│   │   ├── usuario.cc
+│   │   ├── usuario.gdt
+│   │   ├── usuario.gpr
 │   │   ├── vala
 │   │   │   ├── activaWiFi
 │   │   │   ├── activaWiFi.vala
@@ -190,17 +267,29 @@ Estructura jerárquica de Torrente Utilidades
 │   ├── incluir
 │   │   ├── ccast.h
 │   │   ├── ccast.utf8.h
-│   │   └── pragma.h
+│   │   ├── pragma.h
+│   │   └── usuario.h
 │   ├── lib
 │   │   ├── bin16
 │   │   ├── bin32
 │   │   └── bin64
 │   ├── multimedios
 │   │   ├── foto
-│   │   ├── gráfico
+│   │   │   └── BanderaArgentina.jpg
+│   │   ├── gr\303\241fico
+│   │   │   ├── linux-chapa.jpg
+│   │   │   ├── pinguino-bahco.jpg
+│   │   │   └── unix.jpg
 │   │   ├── icono
-│   │   ├── música
+│   │   │   └── pingui.ico
+│   │   ├── m\303\272sica
+│   │   │   └── b_moment.xm
+│   │   ├── sonidos
+│   │   │   ├── bip.wav
+│   │   │   ├── mpop.wav
+│   │   │   └── tic.wav
 │   │   └── video
+│   │       └── video01.wmv
 │   ├── programa
 │   │   ├── 113x34
 │   │   ├── 170x48
@@ -222,13 +311,9 @@ Estructura jerárquica de Torrente Utilidades
 │   │   │   ├── ciclar
 │   │   │   ├── ctf
 │   │   │   ├── deth
-│   │   │   ├── glhola
 │   │   │   ├── mvirtual
 │   │   │   ├── probar_tcp_puertos
 │   │   │   ├── reloj
-│   │   │   ├── tblascii
-│   │   │   ├── usuario
-│   │   │   ├── ventana
 │   │   │   └── ventana.elf
 │   │   ├── bin64
 │   │   │   ├── ComprobarEnlace
@@ -257,6 +342,7 @@ Estructura jerárquica de Torrente Utilidades
 │   │   ├── discoT
 │   │   ├── eld
 │   │   ├── elm
+│   │   ├── elm.sh
 │   │   ├── expulsar
 │   │   ├── gotoxy
 │   │   ├── grabar-cdrom
@@ -301,6 +387,55 @@ Estructura jerárquica de Torrente Utilidades
 │   │   ├── tocarmusica
 │   │   ├── tocarwav
 │   │   └── win386
+│   ├── Proyecto
+│   │   ├── JDeveloper
+│   │   │   └── HolaSimple
+│   │   │       ├── Cliente
+│   │   │       │   ├── clases
+│   │   │       │   │   └── HolaSimple
+│   │   │       │   │       └── Hola.class
+│   │   │       │   ├── Cliente.jpr
+│   │   │       │   ├── deploy
+│   │   │       │   │   └── hola.jar
+│   │   │       │   ├── fuente
+│   │   │       │   │   └── HolaSimple
+│   │   │       │   │       └── Hola.java
+│   │   │       │   └── public_html
+│   │   │       └── HolaSimple.jws
+│   │   ├── leame.txt
+│   │   └── NetBeansLX
+│   │       └── HolaSimple
+│   │           ├── build
+│   │           │   ├── built-jar.properties
+│   │           │   ├── classes
+│   │           │   │   └── HolaSimple
+│   │           │   │       └── Hola.class
+│   │           │   ├── empty
+│   │           │   └── generated-sources
+│   │           │       └── ap-source-output
+│   │           ├── build.xml
+│   │           ├── dist
+│   │           │   ├── HolaSimple.jar
+│   │           │   └── README.TXT
+│   │           ├── Imagenes
+│   │           │   ├── holaSimple01.jpeg
+│   │           │   ├── holaSimple02.jpeg
+│   │           │   ├── holaSimple03.jpeg
+│   │           │   └── holaSimple04.jpeg
+│   │           ├── manifest.mf
+│   │           ├── nbproject
+│   │           │   ├── build-impl.xml
+│   │           │   ├── genfiles.properties
+│   │           │   ├── private
+│   │           │   │   ├── config.properties
+│   │           │   │   ├── private.properties
+│   │           │   │   └── private.xml
+│   │           │   ├── project.properties
+│   │           │   └── project.xml
+│   │           ├── src
+│   │           │   └── HolaSimple
+│   │           │       └── Hola.java
+│   │           └── test
 │   ├── red
 │   │   └── leame.texto
 │   ├── registro
@@ -528,6 +663,9 @@ Estructura jerárquica de Torrente Utilidades
 │   ├── watchdog
 │   ├── watchdog0
 │   └── zero
+├── etc
+│   ├── fstab
+│   └── motd
 ├── lost+found
 ├── mnt
 │   ├── cdrom
@@ -536,7 +674,7 @@ Estructura jerárquica de Torrente Utilidades
 ├── modulo621
 └── proc
 
-130 directories, 383 files
+157 directories, 488 files
 
 ___________
 Referencias
