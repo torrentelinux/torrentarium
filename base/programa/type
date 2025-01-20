@@ -6,7 +6,7 @@
 //              Su comportamiento es similar al comando 'type' de cmd/Windows.
 //              Desarrollado para sistemas Linux y Java ver. 16
 // Observac.  : No requiere compilación este código fuente.
-//              Renombrar de "Type.java" a "type": rename -v *.java type ./Type.java
+//              Renombrar de "Type.java" a "type": mv -v Type.java type
 //              Cambiar a permisos de archivo ejecutable: chmod +x type
 //              Ejecutar: ./type
 
