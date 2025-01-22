@@ -1,0 +1,37 @@
+* Documentación de los comandos en Java *
+
+Documentación técnica de los comandos creados en el lenguaje de programación Java.
+Todos los comandos aquí mencionados forman parte del paquete de aplicaciones "Torrente Utilidades" para sistemas operativos Linux y Windows.
+
+[*] Comando pause
+ Programa   : ComandoPause.java
+ Java Script: pause
+ Autor      : Octulio Biletán * Enero de 2025
+ Descripción: Crear el comando 'pause' para suspender la ejecución de un programa por lotes
+              y visualizar un mensaje de textos.
+              Su comportamiento es similar al comando 'pause' de cmd/Windows.
+              Desarrollado para sistemas Linux y Java ver. 16
+ Observac.  : No requiere compilación este código fuente.
+              Renombrar de "ComandoPause.java" a "pause": mv -v ComandoPause.java pause
+              Cambiar a permisos de archivo ejecutable: chmod +x pause
+              Ejecutar: ./pause
+
+
+[*] Comando showTextFile
+ Programa   : Type.java
+ Java Script: showTextFile
+ Autor      : Octulio Biletán * Enero de 2025
+ Descripción: Crear el comando 'showTextFile' para leer un fichero de textos y visualizarlo en la salida estándar del sistema.
+              Su comportamiento es similar al comando 'type' de cmd/Windows.
+              Desarrollado para sistemas Linux y Java ver. 16
+ Observac.  : No requiere compilación este código fuente.
+              Renombrar de "Type.java" a "showTextFile": mv -v Type.java showTextFile
+              Cambiar a permisos de archivo ejecutable: chmod +x showTextFile
+              Ejecutar: ./showTextFile
+
+
+Sitios
+ en GitHub: github.com/torrentelinux/torrentarium/tree/master/base/programa
+ en Google: sites.google.com/site/torrentelinux/
+_________________________________
+Octulio Biletán * Enero de 2025 *
