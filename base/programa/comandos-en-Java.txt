@@ -16,7 +16,6 @@ Todos los comandos aquí mencionados forman parte del paquete de aplicaciones "T
               Cambiar a permisos de archivo ejecutable: chmod +x pause
               Ejecutar: ./pause
 
-
 [*] Comando showTextFile
  Programa   : Type.java
  Java Script: showTextFile
@@ -29,6 +28,8 @@ Todos los comandos aquí mencionados forman parte del paquete de aplicaciones "T
               Cambiar a permisos de archivo ejecutable: chmod +x showTextFile
               Ejecutar: ./showTextFile
 
+
+Licencia: GNU GENERAL PUBLIC LICENSE, versión 3, año 2007.
 
 Sitios
  en GitHub: github.com/torrentelinux/torrentarium/tree/master/base/programa
