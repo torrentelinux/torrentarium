@@ -1,0 +1,78 @@
+#!/usr/bin/java --source 16
+
+// Programa   : Type.java
+// Java Script: showTextFile
+// Descripción: Crear el comando 'showTextFile' para leer un fichero de textos y visualizarlo en la salida estándar del sistema.
+//              Su comportamiento es similar al comando 'type' de cmd/Windows.
+//              Desarrollado para sistemas Linux y Java ver. 16
+// Observac.  : No requiere compilación este código fuente.
+//              Renombrar de "Type.java" a "showTextFile": mv -v Type.java showTextFile
+//              Cambiar a permisos de archivo ejecutable: chmod +x showTextFile
+//              Ejecutar: ./showTextFile
+
+package comandotype;
+
+import java.io.IOException;
+import java.nio.file.*;
+
+/**
+ * Clase Type.
+ * @author Octulio Biletán
+ */
+public class Type
+{
+    private static void ayuda()
+    {
+        System.out.println("Comando 'showTextFile', ver. 1.0, Enero de 2025.");
+        System.out.println("Uso: showTextFile <fichero_a_visualizar>");
+        System.out.println("Ej.: showTextFile /etc/system-release");
+        System.out.println("     sudo showTextFile /var/log/messages | tail");
+        System.out.println("     sudo showTextFile /var/log/messages | tail | kwrite --stdin");
+    }
+
+    private static void finalizar()
+    {
+        finalizar(0);
+    }
+
+    private static void finalizar(int codigo)
+    {
+        System.exit(codigo);
+    }
+
+    /**
+     * Definición de main() - entrada principal -
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)
+    {
+        // Si no hay argumentos... muestra una ayuda en pantalla y retorna al proceso padre.
+        if(args.length == 0)
+        {
+            ayuda();
+            finalizar();
+        }
+
+        // toma el nombre del fichero ingresado desde la línea de comandos
+        String nombreFichero = args[0];
+
+        try
+        {
+            // lee el fichero y guarda su contenido en memoria
+            String texto = Files.readString(Path.of(nombreFichero));
+
+            // muestra todo el contenido del fichero en la salida estándar del sistema
+            System.out.println(texto);
+            System.out.flush();
+
+        }
+        catch(IOException | SecurityException | OutOfMemoryError ex)
+        {
+            // en caso de error de lectura, de almacenamiento o por razones de seguridad,
+            // muestra un breve mensaje de aviso en pantalla y finaliza la ejecución de 'type'.
+            System.err.println("Error, no se pudo visualizar el archivo: " + ex.getMessage());
+            System.err.println(">>" + ex.getClass().getCanonicalName() + "<<");
+            finalizar(1); 
+        }
+    }
+}
