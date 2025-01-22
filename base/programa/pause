@@ -1,0 +1,115 @@
+#!/usr/bin/java --source 16
+
+// Programa   : ComandoPause.java
+// Java Script: pause
+// Autor      : Octulio Biletán * Enero de 2025
+// Descripción: Crear el comando 'pause' para suspender la ejecución de un programa por lotes
+//              y visualizar un mensaje de textos.
+//              Su comportamiento es similar al comando 'pause' de cmd/Windows.
+//              Desarrollado para sistemas Linux y Java ver. 16
+// Observac.  : No requiere compilación este código fuente.
+//              Renombrar de "ComandoPause.java" a "pause": mv -v ComandoPause.java pause
+//              Cambiar a permisos de archivo ejecutable: chmod +x pause
+//              Ejecutar: ./pause
+
+package comandopause;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * Definición de la clase ComandoPause.
+ * @author Octulio Biletán
+ */
+public class ComandoPause
+{
+    private static void ayuda()
+    {
+        System.out.println("""
+                           Comando 'pause', ver. 1.0, Enero de 2025.
+                           Descripci\u00f3n:
+                               Suspende la ejecuci\u00F3n de un programa por lotes y muestra el mensaje:
+                               Presione tecla Intro [<-'] para continuar...
+                               Contin\u00FAa la ejecuci\u00F3n cuando el usuario presiona la tecla Intro.
+                               Opcionalmente el usuario puede redefinir el mensaje a visualizar.""");
+
+        System.out.println("Uso:\n    pause [\"mensaje_de_texto_a_visualizar\"] | [/a | /?]");
+        System.out.println("Ej.:\n    pause /?");
+        System.out.println("    pause \"<Presione tecla Intro para terminar>\"");
+        System.out.println("    pause");
+        System.out.println("Casos especiales en la consola bash del sistema:");
+        System.out.println("    pause $'\\033[H\\033[2J'$'en\\a\\n    pausa...' ==> borra la pantalla, hace sonar el timbre del altavoz y muestra un mensaje de textos a dos líneas.");
+        System.out.println("Consulte el manual de bash del sistema: man bash");
+    }
+
+    @SuppressWarnings("unused")
+    private static void finalizar()
+    {
+        finalizar(0);
+    }
+
+    private static void finalizar(int codigo)
+    {
+        System.exit(codigo);
+    }
+
+    private static void pausa()
+    {
+        pausa("Presione tecla Intro [<-'] para continuar...");
+    }
+
+    private static void pausa(String msj)
+    {
+        System.out.println(msj);
+        System.out.flush();
+
+        try
+        {
+            @SuppressWarnings("unused")
+            int read;
+            read = System.in.read();
+        }
+        catch(IOException ex)
+        {
+            Logger.getLogger(ComandoPause.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private static void error()
+    {
+        System.err.println("Error: argumento incorrecto.");
+        System.err.println("Use opción /a o /? para obtener una ayuda.");
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)
+    {
+        // Si no hay argumentos... hace una pausa y finaliza la pausa hasta que
+        // se presiona la tecla Intro/Enter.
+        if(args.length == 0)
+            pausa();
+        else
+        {
+            boolean condicion = args[0].equalsIgnoreCase("/a") || args[0].equalsIgnoreCase("/?");
+            if(condicion)
+                ayuda();
+            else
+            {
+                // Comprueba el uso de las comillas en el mensaje recibido
+                condicion = args[0].contains(" ") || (args.length == 1);
+                if(condicion)
+                {
+                    pausa(args[0]);
+                }
+                else
+                {
+                    error();
+                    finalizar(1);
+                }
+            }
+        }
+    }
+}
