@@ -1,9 +1,16 @@
 * Documentación de los comandos en Java *
 
+<>Introducción
 Documentación técnica de los comandos creados en el lenguaje de programación Java.
-Todos los comandos aquí mencionados forman parte del paquete de aplicaciones "Torrente Utilidades" para sistemas operativos Linux y Windows.
+Todos los comandos aquí mencionados forman parte del paquete de aplicaciones "Torrente Utilidades" para
+sistemas operativos Linux y Windows.
+Es importante que el programador en Java cuente con cierta experiencia y pericia en los diferentes sistemas
+operativos: Windows, Linux, Android y otros más.
+Para así poder desenvolverse en ellos de manera independiente y con 'responsabilidad'.
 
+<>Los comandos
 [*] Comando pause
+ Proyecto   : ComandoPause
  Programa   : ComandoPause.java
  Java Script: pause
  Autor      : Octulio Biletán * Enero de 2025
@@ -17,21 +24,37 @@ Todos los comandos aquí mencionados forman parte del paquete de aplicaciones "T
               Ejecutar: ./pause
 
 [*] Comando showTextFile
+ Proyecto   : ComandoType
  Programa   : Type.java
  Java Script: showTextFile
  Autor      : Octulio Biletán * Enero de 2025
- Descripción: Crear el comando 'showTextFile' para leer un fichero de textos y visualizarlo en la salida estándar del sistema.
-              Su comportamiento es similar al comando 'type' de cmd/Windows.
+ Descripción: Crear el comando 'showTextFile' para leer un fichero de textos y visualizarlo en la salida estándar
+              del sistema. Su comportamiento es similar al comando 'type' de cmd/Windows.
               Desarrollado para sistemas Linux y Java ver. 16
  Observac.  : No requiere compilación este código fuente.
               Renombrar de "Type.java" a "showTextFile": mv -v Type.java showTextFile
               Cambiar a permisos de archivo ejecutable: chmod +x showTextFile
               Ejecutar: ./showTextFile
 
+<>Licencia: GNU GENERAL PUBLIC LICENSE, versión 3, año 2007.
 
-Licencia: GNU GENERAL PUBLIC LICENSE, versión 3, año 2007.
+<>Visualización de documentos
+Para leer y visualizar documentos extensos en la pantalla o consola de textos use el comando 'more' o 'less'
+suministrados por el sistema Linux, así:
+    showTextFile comandos-enJava.txt | more
 
-Sitios
+Si desea interrumpir la lectura del documento presione la tecla 'Q' o las teclas 'Ctrl+C'.
+
+<>Impresión de documentos
+Puede imprimir este documento a PDF de la siguiente manera:
+    showTextFile comandos-en-Java.txt | lpr
+
+El archivo resultado, _stdin_.pdf, se encuentra en el directorio del usuario vigente ~/Escritorio/
+Debe asegurarse que el servicio de impresión CUPS esté activo en memoria.
+Para modificar el directorio final por otro de su preferencia tiene que hacer cambios en /etc/cups/cups-pdf.conf
+Puede consultar el manual de configuración de cups: man cupsd.conf
+
+<>Sitios
  en GitHub: github.com/torrentelinux/torrentarium/tree/master/base/programa
  en Google: sites.google.com/site/torrentelinux/
 _________________________________
