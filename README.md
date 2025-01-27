@@ -5,7 +5,7 @@ Hay más proyectos en el directorio /torrentarium/base/Proyecto/<br>
 
 <b>Proyecto OpenProgram.exe</b>: construído con Embarcadero C++ Builder.<br>
 Soporta 32 y 64 bits, Windows Vista, 7, 8, 8.1, 10, 2008, 2012, 2016, 2019 y 2022.<br>
-Código fuente en directorio: base/deposito/
+Código fuente y ejecutables en directorio: base/deposito/
 
 <b>Proyecto wciclar.exe</b>: construído con Embarcadero RAD Studio 10.2 Tokyo, 32 bits.<br>
 
