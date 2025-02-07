@@ -51,7 +51,7 @@ PATH=$base/programa:$PATH
 TIEMPO=`echo "[";date;echo $(timedatectl|grep zone:);echo "]"`
 
 # Puede ser dialog, cdialog, whiptail (newt), zenity, kdialog, etc...
-VTEXTO=`command -v cdialog`
+VTEXTO=`command -v dialog`
 
 export base PATH TIEMPO VTEXTO
 
