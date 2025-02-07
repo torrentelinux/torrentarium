@@ -1,0 +1,97 @@
+#!/bin/bash
+# Utilidades Torrente, edición Febrero 2025.
+# Octulio Biletán <octulioBiletan@telegram>
+
+# Elimina de la memoria otras instancias de menú.bin
+eliminamenu()
+{
+	for opmen in $(pgrep menú.bin); do
+	  kill -n 9 $opmen
+	  kill -n 9 menú
+	  kill -n 9 dialog
+	done
+}
+
+# Informa el nº de versión de 'menú'
+versionMenu()
+{
+    echo "Versión: 1.2.2025"
+}
+
+# Visualiza una ayuda en pantalla
+ayudaMenu()
+{
+    echo "< Descripción >"
+    echo "El comando 'menú' muestra en pantalla un menú de diez opciones."
+    echo "Las opciones del menú principal están definidas en 'menú.bin'."
+    echo "La finalidad de este comando es facilitar al usuario novel a que se"
+    echo "familiarice con el entorno Linux y la consola de textos 'bash'."
+    echo "El comando 'menú.bin' se apoya principalmente en el comando '/bin/dialog'."
+    echo "Existen otros comandos similares que pueden ser invocados: cdialog y whiptail."
+    echo "Puede personalizar en 'menú' qué comando invocar según gustos personales."
+    echo "Para tal fin tiene que modificar la variable 'VTEXTO='."
+    echo
+    echo "Los comandos 'menú' y 'menú.bin' forman parte de"
+    echo "Utilidades Torrente, edición Febrero 2025."
+    echo
+    echo "< Opciones admitidas >"
+    echo "Solicitar Ayuda:"
+    echo -e "\t--ayuda, -a, --help, -h"
+
+    echo "Conocer el nº de versión:"
+    echo -e "\t--version, -v"
+}
+
+eliminamenu
+
+# Directorio base de las Utilidades Torrente.
+base=/base
+
+PATH=$base/programa:$PATH
+TIEMPO=`echo "[";date;echo $(timedatectl|grep zone:);echo "]"`
+
+# Puede ser dialog, cdialog, whiptail (newt), zenity, kdialog, etc...
+VTEXTO=`command -v cdialog`
+
+export base PATH TIEMPO VTEXTO
+
+_error=1
+if [ $# -gt 0 ] ; then
+    # Examina por el arg. '--ayuda'...
+    if [ "$1" = "--ayuda" ] || [ "$1" = "-a" ] || [ "$1" = "--help" ] || [ "$1" = "-h" ] ; then
+	ayudaMenu
+	_error=0
+    fi
+
+    # Examina por el arg. '--version' ó '-v'
+    if [ "$1" = "--version" ] || [ "$1" = "-v" ] ; then
+	echo $0
+        versionMenu
+	echo
+        echo $VTEXTO
+        $VTEXTO --version
+        _error=0
+    else
+	if [ "$_error" = "1" ] ; then
+	    echo "Opción no admitida."
+    	    echo "Escriba: menú -a ó menú -h para conocer las opciones admitidas."
+    	fi
+    fi
+
+    exit $_error
+fi
+
+source menú.bin
+retval=$?
+
+case $retval in
+  2)
+    . $HOME/.bash_logout
+    exit $retval;;
+  1)
+    break & clear;;
+  255)
+    break & clear;;
+esac
+
+exit 0
