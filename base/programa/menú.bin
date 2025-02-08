@@ -2,6 +2,9 @@
 # El comando 'menú.bin' debe ser invocado desde el comando 'menú'.
 # Utilidades Torrente, edición Febrero 2025.
 
+SEPARADOR1="-----"
+SEPARADOR2="----------------"
+
 advertencia()
 {
     $VTEXTO --title "Advertencia" --msgbox "Opción deshabilitada." 0 0
@@ -34,7 +37,9 @@ $VTEXTO --backtitle "Util. Torrente * Usr: "$(whoami)" * Tty: "$(tty)" * Nmb: "$
 "Cerrar" "Cierra y finaliza todas tus sesiones." \
 "Reiniciar" "Reinicia la computadora." \
 "Apagar" "Apaga la computadora." \
-"Salir" "Sale de este menú y vuelve al modo comando." 2>/tmp/checklist.tmp.$$
+"Salir" "Sale de este menú y vuelve al modo comando." \
+"$SEPARADOR1" "$SEPARADOR2" \
+"Ayuda" "Visualiza la ayuda de 'menú'." 2>/tmp/checklist.tmp.$$
 
 retval=$?
 choice=`cat /tmp/checklist.tmp.$$`
@@ -42,14 +47,17 @@ rm -f /tmp/checklist.tmp.$$
 
 case $retval in
   0)
+    if [ "$choice" = "$SEPARADOR1" ]; then
+	menú
+    fi
     if [ "$choice" = "Consola" ]; then
-	clear
+	/bin/clear
 	$base/programa/pause "Para cerrar la consola y regresar al menú principal escriba 'exit' y presione [Intro]"
-	/bin/bash
+	$SHELL
 	menú
     fi
     if [ "$choice" = "Archivos" ]; then
-	clear
+	/bin/clear
 	/usr/bin/mc
 	menú
     fi
@@ -59,14 +67,14 @@ case $retval in
     fi
 
     if [ "$choice" = "Escritorio" ]; then
-        startx >/dev/null 2>&1
+        /bin/startx >/dev/null 2>&1
         menú
     fi
 
     if [ "$choice" = "Configurar" ]; then
-        clear
+        /bin/clear
         /usr/bin/setup
-        pause
+	pause
         menú
     fi
     if [ "$choice" = "Expulsar" ]; then
@@ -87,15 +95,19 @@ case $retval in
         $base/programa/pause
         menú
     fi
+    if [ "$choice" = "Ayuda" ]; then
+	ayudaMenu
+	menú
+    fi
     if [ "$choice" = "Salir" ]; then
         clear
         echo "Para cerrar su sesión: 'exit' o 'logout' o teclas Ctrl+D"
     fi;;
   1)
-    clear
+    /bin/clear
     echo "Botón 'Cancelar' presionado.";;
   255)
-    break & clear;;
+    break & /bin/clear;;
 esac
 
 # Retorna a menú
