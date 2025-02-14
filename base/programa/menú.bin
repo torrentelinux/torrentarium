@@ -5,6 +5,17 @@
 SEPARADOR1="-----"
 SEPARADOR2="----------------"
 
+# Comando mx-tools de MX-Linux
+STP=`command -v mx-tools`
+estado=$?
+if [ "$estado" = 1 ]; then
+    # comando setup de sistemas compatibles con redhat linux
+    ConfigLINUX=`command -v setup`
+else
+    # sistema mx-linux
+    ConfigLINUX=$STP
+fi
+
 advertencia()
 {
     $VTEXTO --title "Advertencia" --msgbox "Opción deshabilitada." 0 0
@@ -73,7 +84,7 @@ case $retval in
 
     if [ "$choice" = "Configurar" ]; then
         /bin/clear
-        /usr/bin/setup
+        $ConfigLINUX
 	pause
         menú
     fi
