@@ -1,5 +1,5 @@
 	Torrente Utilidades
-	 - edición 2024 --
+	 - edición 2025 --
 
 
 modulo621.udv es un fichero para ser acoplado o montado en un sistema Linux.
