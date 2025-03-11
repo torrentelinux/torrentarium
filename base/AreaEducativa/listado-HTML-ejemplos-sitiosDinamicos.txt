@@ -26,6 +26,9 @@ https://www.estradawebgroup.com/Post/Como-instalar-Visual-Studio-2022/20523
 Proyecto SeaMonkey - Navegador web + Editor HTML
 https://www.seamonkey-project.org
 
+LibreOffice - Writer + Editor HTML
+https://es.libreoffice.org
+
 Argentina
 Pachamama Bike Shop - Yerba Buena
 https://www.pachamamabikeshop.com.ar
