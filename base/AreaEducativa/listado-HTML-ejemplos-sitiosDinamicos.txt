@@ -15,6 +15,14 @@ https://clockmaker.jp/labs/150125_clock/index.html
 Django Project - Python Web Framework
 https://www.djangoproject.com
 
+Tutorial de Django - Microsoft
+https://learn.microsoft.com/es-mx/visualstudio/python/learn-django-in-visual-studio-step-01-project-and-solution?view=vs-2022
+
+Cómo instalar Visual Studio - Microsoft
+https://visualstudio.microsoft.com/es/
+https://code.visualstudio.com/docs/setup/linux
+https://www.estradawebgroup.com/Post/Como-instalar-Visual-Studio-2022/20523
+
 Argentina
 Pachamama Bike Shop - Yerba Buena
 https://www.pachamamabikeshop.com.ar
