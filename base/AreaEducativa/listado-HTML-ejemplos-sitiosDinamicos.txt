@@ -24,10 +24,19 @@ https://code.visualstudio.com/docs/setup/linux
 https://www.estradawebgroup.com/Post/Como-instalar-Visual-Studio-2022/20523
 
 Proyecto SeaMonkey - Navegador web + Editor HTML
+Corre en Windows y Linux
 https://www.seamonkey-project.org
 
 LibreOffice - Writer + Editor HTML
+Corre en Windows y Linux
 https://es.libreoffice.org
+
+OpenOffice - Writer + Editor HTML
+Corre en Windows y Linux
+https://www.openoffice.org/es/
+
+Crea una página web gratuita - Alojamiento + servicio gratuito
+https://es.webador.com
 
 Argentina
 Pachamama Bike Shop - Yerba Buena
@@ -39,6 +48,10 @@ https://www.gimnasiosproform.com.ar
 
 Directorio de gimnasios - Argentina
 https://ar.gimnasios.com/
+
+* Búsquedas *
+Alojamiento de sitios webs argentina
+https://duckduckgo.com/?q=alojamiento+de+sitios+webs+argentina&t=vivaldi&ia=web
 
 _____________________________________________________________
 Eugenio Martínez * Tucumán * Argentina
