@@ -53,6 +53,12 @@ https://ar.gimnasios.com/
 Alojamiento de sitios webs argentina
 https://duckduckgo.com/?q=alojamiento+de+sitios+webs+argentina&t=vivaldi&ia=web
 
+El mejor hosting Django: ¿dónde ejecutar su próximo proyecto Django?
+https://hostscore.net/es/choose/best-django-hosting-providers/
+
+Alojamiento Python
+https://www.pythonanywhere.com
+
 _____________________________________________________________
 Eugenio Martínez * Tucumán * Argentina
 X -->> https://twitter.com/octulioBiletan
