@@ -1,4 +1,4 @@
-···Referencias de páginas webs en la internet - Marzo de 2025···
+···Referencias a contenidos digitales en la internet - Marzo de 2025···
 
 HTML5 y CSS
 https://www.html6.es
@@ -38,6 +38,7 @@ https://www.openoffice.org/es/
 Crea una página web gratuita - Alojamiento + servicio gratuito
 https://es.webador.com
 
+--------------------------------------------------------------
 Argentina
 Pachamama Bike Shop - Yerba Buena
 https://www.pachamamabikeshop.com.ar
@@ -55,12 +56,18 @@ https://www.siguefit.com/index.html
 * Búsquedas *
 Alojamiento de sitios webs argentina
 https://duckduckgo.com/?q=alojamiento+de+sitios+webs+argentina&t=vivaldi&ia=web
+--------------------------------------------------------------
 
 El mejor hosting Django: ¿dónde ejecutar su próximo proyecto Django?
 https://hostscore.net/es/choose/best-django-hosting-providers/
 
 Alojamiento Python
 https://www.pythonanywhere.com
+
+* Videos *
+Desarrollo Web Completo con Django y Python en Visual Studio Code
+Tutorial paso a paso.
+https://www.youtube.com/watch?v=_WLkr4Rw5-Q
 
 _____________________________________________________________
 Eugenio Martínez * Tucumán * Argentina
