@@ -1,31 +1,11 @@
 ···Referencias a contenidos digitales en la internet - Marzo de 2025···
 
+>>== Estudiar y aprender diseños de páginas HTMLs ==<<
 HTML5 y CSS
 https://www.html6.es
 
-gym club california - Estados Unidos
-https://www.orangetheory.com/en-us
-
-Buick - Empresa de automoviles - Estados Unidos
-https://www.buick.com/
-
-Apple Watch Modoki
-https://clockmaker.jp/labs/150125_clock/index.html
-
-Django Project - Python Web Framework
-https://www.djangoproject.com
-
-Tutorial de Django - Microsoft
-https://learn.microsoft.com/es-mx/visualstudio/python/learn-django-in-visual-studio-step-01-project-and-solution?view=vs-2022
-
-Cómo instalar Visual Studio - Microsoft
-https://visualstudio.microsoft.com/es/
-https://code.visualstudio.com/docs/setup/linux
-https://www.estradawebgroup.com/Post/Como-instalar-Visual-Studio-2022/20523
-
-Proyecto SeaMonkey - Navegador web + Editor HTML
-Corre en Windows y Linux
-https://www.seamonkey-project.org
+Crea una página web gratuita - Alojamiento + servicio gratuito
+https://es.webador.com
 
 LibreOffice - Writer + Editor HTML
 Corre en Windows y Linux
@@ -35,10 +15,77 @@ OpenOffice - Writer + Editor HTML
 Corre en Windows y Linux
 https://www.openoffice.org/es/
 
-Crea una página web gratuita - Alojamiento + servicio gratuito
-https://es.webador.com
+>>== Sitios que utilizan tecnologías Webs innovadoras ==<<
+gym club california - Estados Unidos
+https://www.orangetheory.com/en-us
 
---------------------------------------------------------------
+Buick - Empresa de automoviles - Estados Unidos
+https://www.buick.com/
+
+Apple Watch Modoki
+https://clockmaker.jp/labs/150125_clock/index.html
+
+>>== Herramientas de programación - IDE ==<<
+Cómo instalar Visual Studio - Microsoft
+https://visualstudio.microsoft.com/es/
+https://code.visualstudio.com/docs/setup/linux
+https://www.estradawebgroup.com/Post/Como-instalar-Visual-Studio-2022/20523
+
+>>== Navegadores de contenidos webs - Multiplataformas ==<<
+Proyecto SeaMonkey - Navegador web + Editor HTML
+Corre en Windows y Linux
+https://www.seamonkey-project.org
+
+Navegador multiplataforma Firefox
+https://www.mozilla.org/es-AR/firefox/
+
+Navegador Vivaldi - Práctico
+https://vivaldi.com/es/
+https://vivaldi.com/es/company/
+
+>>== APIs Python - Librerías ==<<
+Django Project - Python Web Framework
+https://www.djangoproject.com
+
+Tutorial de Django - Microsoft
+https://learn.microsoft.com/es-mx/visualstudio/python/learn-django-in-visual-studio-step-01-project-and-solution?view=vs-2022
+
+Reflex - Frontend. Backend. Pure Python
+The open-source framework to build and deploy web apps - no Javascript required.
+https://reflex.dev/
+
+Crear un proyecto con Reflex
+https://blog.syntaxia.mx/posts/post-3
+
+Reflex is an open-source framework for building
+full-stack web applications entirely in pure Python.
+With Reflex, you can build anything from small data science
+projects to large, multi-page websites without having to write
+any HTML, CSS, or JavaScript.
+https://github.com/reflex-dev/awesome-reflex
+
+SQLModel
+https://sqlmodel.tiangolo.com/
+
+FastAPI
+https://fastapi.tiangolo.com/es/
+
+Crear un proyecto con FastAPI
+https://blog.syntaxia.mx/posts/post-2
+
+>>== Hospedaje web con soporte a Python ==<<
+El mejor hosting Django: ¿dónde ejecutar su próximo proyecto Django?
+https://hostscore.net/es/choose/best-django-hosting-providers/
+
+Alojamiento Python
+https://www.pythonanywhere.com
+
+>>== Videos ==<<
+Desarrollo Web Completo con Django y Python en Visual Studio Code
+Tutorial paso a paso.
+https://www.youtube.com/watch?v=_WLkr4Rw5-Q
+
+--=__________________________________________________________=--
 Argentina
 Pachamama Bike Shop - Yerba Buena
 https://www.pachamamabikeshop.com.ar
@@ -56,21 +103,10 @@ https://www.siguefit.com/index.html
 * Búsquedas *
 Alojamiento de sitios webs argentina
 https://duckduckgo.com/?q=alojamiento+de+sitios+webs+argentina&t=vivaldi&ia=web
---------------------------------------------------------------
-
-El mejor hosting Django: ¿dónde ejecutar su próximo proyecto Django?
-https://hostscore.net/es/choose/best-django-hosting-providers/
-
-Alojamiento Python
-https://www.pythonanywhere.com
-
-* Videos *
-Desarrollo Web Completo con Django y Python en Visual Studio Code
-Tutorial paso a paso.
-https://www.youtube.com/watch?v=_WLkr4Rw5-Q
+--____________________________________________________________--
 
 _____________________________________________________________
 Eugenio Martínez * Tucumán * Argentina
 X -->> https://twitter.com/octulioBiletan
 Telegram -->> https://t.me/s/emc_cpp
-Asesoramientos/Desarrollos/Formación en tecnologías digitales
+Asesoramientos/Desarrollos/Formación en tecnologías digitales.
