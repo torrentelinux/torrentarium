@@ -1,4 +1,5 @@
 // EjemploParaLinux - Java/JNA
+// Octulio Biletán - Abril de 2025
 // Referencias: https://en.wikipedia.org/wiki/Java_Native_Access
 //
 
@@ -26,13 +27,22 @@ public class EjemploParaLinux
          * @return
          */
         public int putenv(String strvar);
-            
+
         /**
          * Consultar 'man 3p system'.
          * @param comando
          * @return
          */
         public int system(String comando);
+    }
+    
+    /**
+     * Suena un bip en el parlante de la PC, borra la pantalla por completo y coloca el
+     * cursor en la posición 1,1 de la pantalla.<br>
+     */
+    public static void bcls()
+    {
+        System.out.print("\007\033[2J\033[H");
     }
 
     /**
@@ -46,10 +56,8 @@ public class EjemploParaLinux
         // Se vincula en tiempo de ejecución con la librería de 'C' del S.O. Linux
         oslinux = (Stdlib)Native.load(Platform.C_LIBRARY_NAME, Stdlib.class);
 
-        // Suena un bip en el parlante de la PC, borra la pantalla y coloca el
-        // cursor en la posición 1,1 de la pantalla.
-        System.out.print("\007\033[2J\033[H");
-
+	bcls();
+	
         Native.main(args);
         System.out.println("Codificación: " + Native.getDefaultStringEncoding());
         System.out.println("Tipo de S.O.: "+ nombreSO[ Platform.getOSType() ] + "," + Platform.ARCH);
