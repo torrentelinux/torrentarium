@@ -1,0 +1,5 @@
+Proyecto "FichaDeEmpleado" para Apache NetBeans IDE, Windows/Linux.
+Ejercicio de programación Java + SQL + JDBC
+
+Ultima actualización:
+dom 11 may 2025 00:11:48 -03
