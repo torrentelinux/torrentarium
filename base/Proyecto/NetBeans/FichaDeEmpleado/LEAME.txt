@@ -1,5 +1,14 @@
 Proyecto "FichaDeEmpleado" para Apache NetBeans IDE, Windows/Linux.
 Ejercicio de programación Java + SQL + JDBC
 
+Conector JDBC para MySQL, descargue la última versión disponible para su S.O.
+https://dev.mysql.com/downloads/connector/j/
+
+Conector JDBC para PostgreSQL
+https://jdbc.postgresql.org/download/postgresql-42.7.5.jar
+
+Otras versiones del conector JDBC para PostgreSQL
+https://jdbc.postgresql.org/download/
+
 Ultima actualización:
 dom 11 may 2025 00:11:48 -03
