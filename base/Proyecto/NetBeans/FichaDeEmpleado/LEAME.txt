@@ -11,4 +11,4 @@ Otras versiones del conector JDBC para PostgreSQL
 https://jdbc.postgresql.org/download/
 
 Ultima actualización:
-dom 11 may 2025 00:11:48 -03
+23:36 domingo, 11 de mayo de 2025
