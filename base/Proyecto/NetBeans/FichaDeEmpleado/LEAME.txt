@@ -24,4 +24,4 @@ El archivo <FichaDeEmpleado.zip> contiene todo lo necesario (proyecto y código 
 en el entorno de desarrollo Apache NetBeans.
 
 Ultima actualización:
-21:02 lunes, 12 de mayo de 2025
+23:41 domingo, 18 de mayo de 2025
