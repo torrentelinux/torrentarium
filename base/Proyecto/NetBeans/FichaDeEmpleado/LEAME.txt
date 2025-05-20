@@ -4,6 +4,13 @@ Ejercicio de programación Java + SQL + JDBC.
 Puede ejecutar desde la línea de comandos la aplicación .jar:
     C:\base\Proyecto\NetBeans\FichaDeEmpleado>java -jar dist\FichaDeEmpleado.jar
 
+En el directorio sql\ se encuentran los archivos SQL necesarios para subirlos al
+servidor SQL que corresponda:
+    persona-mysql.sql		para importar al servidor MySQL
+    persona-postgresql.sql	para importar al servidor PostgreSQL
+
+Contiene la definición de la tabla 'empleado' de la base de datos 'persona'.
+
 [+] Recursos digitales que se utilizaron en el proyecto de programación
 Conector JDBC para MySQL, descargue la última versión disponible para su S.O.
 https://dev.mysql.com/downloads/connector/j/
@@ -24,4 +31,4 @@ El archivo <FichaDeEmpleado.zip> contiene todo lo necesario (proyecto y código 
 en el entorno de desarrollo Apache NetBeans.
 
 Ultima actualización:
-23:23 lunes, 19 de mayo de 2025
+00:25 martes, 20 de mayo de 2025
