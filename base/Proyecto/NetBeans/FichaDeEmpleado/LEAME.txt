@@ -3,6 +3,8 @@ Proyecto "FichaDeEmpleado" para Apache NetBeans IDE, Windows/Linux.
 Ejercicio de programación Java + SQL + JDBC.
 Puede ejecutar desde la línea de comandos la aplicación .jar:
     C:\base\Proyecto\NetBeans\FichaDeEmpleado>java -jar dist\FichaDeEmpleado.jar
+o también:
+    C:\base\Proyecto\NetBeans\FichaDeEmpleado>javaw -jar dist\FichaDeEmpleado.jar
 
 En el directorio sql\ se encuentran los archivos SQL necesarios para subirlos al
 servidor SQL que corresponda:
@@ -31,4 +33,4 @@ El archivo <FichaDeEmpleado.zip> contiene todo lo necesario (proyecto y código 
 en el entorno de desarrollo Apache NetBeans.
 
 Ultima actualización:
-00:25 martes, 20 de mayo de 2025
+22:05 domingo, 25 de mayo de 2025
