@@ -26,6 +26,13 @@ https://jdbc.postgresql.org/download/
 Cómo modificar el aspecto gráfico/tema de la aplicación
 https://www.geeksforgeeks.org/java-swing-look-feel/
 
+Libro digital sobre el lenguaje SQL
+Lenguaje SQL para Novatos, edición 2024, Eugenio Martínez.
+https://github.com/torrentelinux/torrentarium/blob/master/base/biblioteca/LenguajeSQL-SentenciasBasicas.pdf
+
+Tutorial sobre MySQL
+https://www.tutorialspoint.com/mysql/index.htm
+
 [+] Directorio de Descarga en GitHub
 https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/NetBeans/FichaDeEmpleado
 Puede descargar todo lo que hay en dicho directorio en su computadora para practicar y aprender.
@@ -33,4 +40,4 @@ El archivo <FichaDeEmpleado.zip> contiene todo lo necesario (proyecto y código 
 en el entorno de desarrollo Apache NetBeans.
 
 Ultima actualización:
-22:05 domingo, 25 de mayo de 2025
+22:12 sábado, 31 de mayo de 2025
