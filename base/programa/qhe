@@ -1,0 +1,8 @@
+#!/bin/bash
+# Comando qhe = que hora es.
+# Octulio Biletán - Junio de 2025.
+# Muestra la hora actual en pantalla con nros. gdes.
+# El formato de la hora es: horas.minutos.segundos
+#
+
+while true; do date +" %H.%M.%S"|xargs banner; echo "Ctr+C sale."; sleep 1; clear; done
