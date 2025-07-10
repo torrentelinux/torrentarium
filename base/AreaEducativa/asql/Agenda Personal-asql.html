@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>asql: lenguaje algoritmico en español para la consulta de base de datos.</title>
+    <meta name="author" content="Octulio Biletán.">
+    <meta name="description" content="Ejemplo de asql.">
+  </head>
+  <body>
+    <b>asql</b>: <b>L</b>enguaje <b>a</b>lgoritmico, en e<b>s</b>pañol,
+    para la consulta de base de datos, es similar al lenguaje S<b>Q</b>L.<br>
+    <br>
+    <font size="+1"><u><b>Creación de una base de datos con una tabla.</b></u><br>
+    </font><br>
+    ; Crea la variable 'titular' de tipo mensaje de textos<br>
+    <u>nuevo</u> <u>mensaje</u> titular<br>
+    <br>
+    ; Guarda el texto en 'titular'<br>
+    <u>asignar</u> "Agenda Personal" <u>a</u> titular<br>
+    <br>
+    ; Muestra el contenido de 'titular' en la pantalla<br>
+    <u>informe</u> <u>mensaje</u> titular <u>en</u> <u>pantalla</u><br>
+    <br>
+    <u>nueva</u> <u>bdatos</u> AgendaPersonal<br>
+    <u>contiene</u> 1 <u>tabla</u> AgendaPersonal<br>
+    <br>
+    <u>nueva</u> <u>tabla</u> AgendaPersonal.Contactos<br>
+    <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Nombre <u>tipo</u>
+    <u>alfanum</u> <u>tam</u> 64<br>
+    <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Apellido <u>tipo</u>
+    <u>alfanum</u> <u>tam</u> 64<br>
+    <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Codigo <u>tipo</u>
+    <u>num</u>, <u>cprim</u><br>
+    <br>
+    <u>asignar</u> "Octulio" <u>a</u> AgendaPersonal.Contactos.Nombre<br>
+    <u>asignar</u> "Biletán" <u>a</u> AgendaPersonal.Contactos.Apellido<br>
+    <u>asignar</u> 100 <u>a</u> AgendaPersonal.Contactos.Codigo<br>
+    <br>
+    ; Espera a que el usuario presione la tecla 'Intro'<br>
+    ; La variable 'respuesta' contiene el código de la tecla presionada<br>
+    <u>esperar</u> respuesta <u>tecla</u> <u>intro</u> <u>de</u> <u>teclado</u>
+    <br>
+    <u>limpiar</u> <u>pantalla</u><br>
+    <br>
+    ; muestra toda la tabla en la pantalla <br>
+    <u>informe</u> <u>tabla</u> AgendaPersonal.Contactos <u>en</u> <u>pantalla</u>
+    <br>
+    <br>
+    _______________________________________________________________<br>
+    Octulio Biletán * 9 de Julio de 2025 *<br>
+  </body>
+</html>
