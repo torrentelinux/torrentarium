@@ -1,0 +1,46 @@
+; asql: Lenguaje algoritmico, en español, similar al lenguaje SQL.
+;
+; Creación de una base de datos con una tabla.
+; --------------------------------------------
+;
+
+proyecto "Agenda Personal"
+    algoritmo "Crear base de datos" alias cbdd
+
+        ; Crea la variable 'titular' de tipo mensaje de textos
+        nuevo mensaje titular
+
+        ; Guarda el texto en 'titular'
+        asignar "Agenda Personal" a titular
+
+        ; Muestra el contenido de 'titular' en la pantalla
+        informe mensaje titular en pantalla
+
+        ; Crea una nueva base de datos.
+        nueva bdatos AgendaPersonal
+
+        ; Nos aseguramos que la nueva base de datos contenga una única tabla.
+        contiene 1 tabla AgendaPersonal
+
+        nueva tabla AgendaPersonal.Contactos
+        nuevo campo AgendaPersonal.Contactos.Nombre tipo alfanum tam 64
+        nuevo campo AgendaPersonal.Contactos.Apellido tipo alfanum tam 64
+        nuevo campo AgendaPersonal.Contactos.Codigo tipo num, cprim
+
+        asignar "Octulio" a AgendaPersonal.Contactos.Nombre
+        asignar "Biletán" a AgendaPersonal.Contactos.Apellido
+        asignar 100 a AgendaPersonal.Contactos.Codigo
+
+        ; Espera a que el usuario presione la tecla 'Intro'
+        ; La variable 'respuesta' contiene el código de la tecla presionada
+        esperar respuesta tecla intro de teclado
+        limpiar pantalla
+
+        ; muestra toda la tabla en la pantalla
+        informe tabla AgendaPersonal.Contactos en pantalla
+
+    fin algoritmo cbdd
+
+    invocar cbdd
+
+fin proyecto

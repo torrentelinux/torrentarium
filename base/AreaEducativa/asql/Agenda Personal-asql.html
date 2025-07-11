@@ -1,53 +1,106 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>asql: lenguaje algoritmico en español para la consulta de base de datos.</title>
+    <title>asql: lenguaje algorítmico en español para la consulta de
+      base de datos.</title>
     <meta name="author" content="Octulio Biletán.">
     <meta name="description" content="Ejemplo de asql.">
   </head>
   <body>
     <b>asql</b>: <b>L</b>enguaje <b>a</b>lgoritmico, en e<b>s</b>pañol,
-    para la consulta de base de datos, es similar al lenguaje S<b>Q</b>L.<br>
+    para la consulta de base de datos similar al lenguaje S<b>Q</b>L.<br>
+    Versión 1.0, edición para propósitos educativos.<br>
+    Orientado a estudiantes noveles en la programación de base de datos.<br>
+    Puede ser usado en cualquier sistema operativo que cuente con un
+    editor de textos básico.<br>
     <br>
-    <font size="+1"><u><b>Creación de una base de datos con una tabla.</b></u><br>
+    <font size="+1"><b>Las reglas del lenguaje</b></font><br>
+    Se aconseja que todas las palabras reservadas estén subrayadas y en
+    minúsculas a los fines de resaltarlas del resto del código fuente.<br>
+    El punto y coma (;) indica que es un comentario. Y debe comenzar con
+    el punto y coma hasta terminar la línea de comentario con un retorno
+    de carro y avance de línea (CRLF).<br>
+    Un archivo fuente .asql contiene un único proyecto de programación
+    algorítmica.<br>
+    Un proyecto puede contener uno o varios algoritmos. El nombre del
+    proyecto tiene que estar entrecomillado.<br>
+    Un algoritmo debe definirse con un nombre y opcionalmente puede
+    estar acompañado de un alias único. El nombre del algoritmo tiene
+    que estar entrecomillado.<br>
+    Cada línea de código fuente termina con un retorno de carro y avance
+    de línea (CRLF).<br>
+    <br>
+    <font size="+1"><u><b>Ejemplo:</b></u><b> Creación de una base de
+        datos con una tabla</b><br>
     </font><br>
-    ; Crea la variable 'titular' de tipo mensaje de textos<br>
-    <u>nuevo</u> <u>mensaje</u> titular<br>
+    <u>proyecto</u> "Agenda Personal"<br>
+    &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Crear base de datos" <u>alias</u>
+    cbdd<br>
     <br>
-    ; Guarda el texto en 'titular'<br>
-    <u>asignar</u> "Agenda Personal" <u>a</u> titular<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Crea la variable 'titular'
+    de tipo mensaje de textos<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>mensaje</u>
+    titular<br>
     <br>
-    ; Muestra el contenido de 'titular' en la pantalla<br>
-    <u>informe</u> <u>mensaje</u> titular <u>en</u> <u>pantalla</u><br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Guarda el texto en 'titular'<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> "Agenda
+    Personal" <u>a</u> titular<br>
     <br>
-    <u>nueva</u> <u>bdatos</u> AgendaPersonal<br>
-    <u>contiene</u> 1 <u>tabla</u> AgendaPersonal<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Muestra el contenido de
+    'titular' en la pantalla<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>informe</u> <u>mensaje</u>
+    titular <u>en</u> <u>pantalla</u><br>
     <br>
-    <u>nueva</u> <u>tabla</u> AgendaPersonal.Contactos<br>
-    <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Nombre <u>tipo</u>
-    <u>alfanum</u> <u>tam</u> 64<br>
-    <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Apellido <u>tipo</u>
-    <u>alfanum</u> <u>tam</u> 64<br>
-    <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Codigo <u>tipo</u>
-    <u>num</u>, <u>cprim</u><br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Crea una nueva base de
+    datos.<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nueva</u> <u>bdatos</u>
+    AgendaPersonal<br>
     <br>
-    <u>asignar</u> "Octulio" <u>a</u> AgendaPersonal.Contactos.Nombre<br>
-    <u>asignar</u> "Biletán" <u>a</u> AgendaPersonal.Contactos.Apellido<br>
-    <u>asignar</u> 100 <u>a</u> AgendaPersonal.Contactos.Codigo<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Nos aseguramos que la nueva
+    base de datos contenga una única tabla.<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>contiene</u> 1 <u>tabla</u>
+    AgendaPersonal<br>
     <br>
-    ; Espera a que el usuario presione la tecla 'Intro'<br>
-    ; La variable 'respuesta' contiene el código de la tecla presionada<br>
-    <u>esperar</u> respuesta <u>tecla</u> <u>intro</u> <u>de</u> <u>teclado</u>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nueva</u> <u>tabla</u>
+    AgendaPersonal.Contactos<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>campo</u>
+    AgendaPersonal.Contactos.Nombre <u>tipo</u> <u>alfanum</u> <u>tam</u>
+    64<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>campo</u>
+    AgendaPersonal.Contactos.Apellido <u>tipo</u> <u>alfanum</u> <u>tam</u>
+    64<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>campo</u>
+    AgendaPersonal.Contactos.Codigo <u>tipo</u> <u>num</u>, <u>cprim</u><br>
     <br>
-    <u>limpiar</u> <u>pantalla</u><br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> "Octulio" <u>a</u>
+    AgendaPersonal.Contactos.Nombre<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> "Biletán" <u>a</u>
+    AgendaPersonal.Contactos.Apellido<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> 100 <u>a</u>
+    AgendaPersonal.Contactos.Codigo<br>
     <br>
-    ; muestra toda la tabla en la pantalla <br>
-    <u>informe</u> <u>tabla</u> AgendaPersonal.Contactos <u>en</u> <u>pantalla</u>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Espera a que el usuario
+    presione la tecla 'Intro'<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; La variable 'respuesta'
+    contiene el código de la tecla presionada<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>esperar</u> respuesta <u>tecla</u>
+    <u>intro</u> <u>de</u> <u>teclado</u> <br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>limpiar</u> <u>pantalla</u><br>
     <br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; muestra toda la tabla en la
+    pantalla <br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>informe</u> <u>tabla</u>
+    AgendaPersonal.Contactos <u>en</u> <u>pantalla</u> <br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u> cbdd<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <u>invocar</u> cbdd<br>
+    <br>
+    <u>fin</u> <u>proyecto</u><br>
     <br>
     _______________________________________________________________<br>
     Octulio Biletán * 9 de Julio de 2025 *<br>
+    <br>
   </body>
 </html>
