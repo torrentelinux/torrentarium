@@ -2,10 +2,9 @@
 ;
 ; Creación de una base de datos con una tabla.
 ; --------------------------------------------
-;
 
 proyecto "Agenda Personal"
-    algoritmo "Crear base de datos" alias cbdd
+    algoritmo "Crear base de datos" argumento arg tipo conector a servidor alias cbdd
 
         ; Crea la variable 'titular' de tipo mensaje de textos
         nuevo mensaje titular
@@ -17,7 +16,7 @@ proyecto "Agenda Personal"
         informe mensaje titular en pantalla
 
         ; Crea una nueva base de datos.
-        nueva bdatos AgendaPersonal
+        nueva bdatos arg.AgendaPersonal
 
         ; Nos aseguramos que la nueva base de datos contenga una única tabla.
         contiene 1 tabla AgendaPersonal
@@ -41,6 +40,26 @@ proyecto "Agenda Personal"
 
     fin algoritmo cbdd
 
-    invocar cbdd
+; -----------------------------
+     algoritmo "Conectarse al servidor SQL" devuelve tipo conector a servidor alias abrirConexion
+        nuevo idConexion tipo conector a servidor
+
+        abrir sesion en servidor "localhost" con cuenta "postgres" y clave "postgres"
+        asignar sesion a idConexion
+
+        devolver idConexion
+    fin algoritmo abrirConexion
+
+    algoritmo "Desconectarse del servidor SQL" argumento arg tipo conector a servidor alias cerrarConexion
+        cerrar sesion arg
+
+    fin algoritmo cerrarConexion
+
+; -----------------------------
+    nuevo miConexion tipo conector a servidor
+
+    invocar abrirConexion{miConexion}
+    invocar cbdd(miConexion)
+    invocar cerrarConexion(miConexion)
 
 fin proyecto

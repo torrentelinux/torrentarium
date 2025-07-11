@@ -9,6 +9,8 @@
   </head>
   <body>
     <b>asql</b>: <b>L</b>enguaje <b>a</b>lgoritmico, en e<b>s</b>pañol,
+
+
     para la consulta de base de datos similar al lenguaje S<b>Q</b>L.<br>
     Versión 1.0, edición para propósitos educativos.<br>
     Orientado a estudiantes noveles en la programación de base de datos.<br>
@@ -18,7 +20,7 @@
     <font size="+1"><b>Las reglas del lenguaje</b></font><br>
     Se aconseja que todas las palabras reservadas estén subrayadas y en
     minúsculas a los fines de resaltarlas del resto del código fuente.<br>
-    El punto y coma (;) indica que es un comentario. Y debe comenzar con
+    El punto y coma ";" indica que es un comentario. Y debe comenzar con
     el punto y coma hasta terminar la línea de comentario con un retorno
     de carro y avance de línea (CRLF).<br>
     Un archivo fuente .asql contiene un único proyecto de programación
@@ -30,12 +32,17 @@
     que estar entrecomillado.<br>
     Cada línea de código fuente termina con un retorno de carro y avance
     de línea (CRLF).<br>
+    Las llaves de apertura y cierre "{}" denotan pasaje de variable por
+    referencia.<br>
+    Los paréntesis de apertura y cierre "()" denotan pasaje de variable
+    por valor.<br>
     <br>
     <font size="+1"><u><b>Ejemplo:</b></u><b> Creación de una base de
         datos con una tabla</b><br>
     </font><br>
     <u>proyecto</u> "Agenda Personal"<br>
-    &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Crear base de datos" <u>alias</u>
+    &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Crear base de datos" <u>argumento</u>
+    arg <u>tipo</u> <u>conector</u> <u>a</u> <u>servidor</u> <u>alias</u>
     cbdd<br>
     <br>
     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Crea la variable 'titular'
@@ -52,10 +59,10 @@
     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>informe</u> <u>mensaje</u>
     titular <u>en</u> <u>pantalla</u><br>
     <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Crea una nueva base de
-    datos.<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Crea una nueva base de datos
+    en el servidor<br>
     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nueva</u> <u>bdatos</u>
-    AgendaPersonal<br>
+    arg.AgendaPersonal<br>
     <br>
     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Nos aseguramos que la nueva
     base de datos contenga una única tabla.<br>
@@ -95,7 +102,36 @@
     <br>
     &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u> cbdd<br>
     <br>
-    &nbsp;&nbsp;&nbsp; <u>invocar</u> cbdd<br>
+    &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Conectarse al servidor SQL" <u>devuelve</u>
+    <u>tipo</u> <u>conector</u> <u>a</u> <u>servidor</u> <u>alias</u>
+    abrirConexion<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> idConexion <u>tipo</u>
+    <u>conector</u> <u>a</u> <u>servidor</u><br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <u>abrir</u> <u>sesion</u> <u>en</u>
+    <u>servidor</u> "localhost" <u>con</u> <u>cuenta</u> "postgres" <u>y</u>
+    <u>clave</u> "postgres"<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> <u>sesion</u>
+    a idConexion<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>devolver</u> idConexion<br>
+    &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u> abrirConexion<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Desconectarse del servidor
+    SQL" <u>argumento</u> arg <u>tipo</u> <u>conector</u> <u>a</u> <u>servidor</u>
+    <u>alias</u> cerrarConexion<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>cerrar</u> <u>sesion</u>
+    arg<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u> cerrarConexion<br>
+    <br>
+    ; ----------------------------------------------------------<br>
+    &nbsp;&nbsp;&nbsp; <u>nuevo</u> miConexion <u>tipo</u> <u>conector</u>
+    <u>a</u> <u>servidor</u><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <u>invocar</u> abrirConexion{miConexion}<br>
+    &nbsp;&nbsp;&nbsp; <u>invocar</u> cbdd(miConexion)<br>
+    &nbsp;&nbsp;&nbsp; <u>invocar</u> cerrarConexion(miConexion)<br>
     <br>
     <u>fin</u> <u>proyecto</u><br>
     <br>
