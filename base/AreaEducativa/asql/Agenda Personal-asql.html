@@ -1,142 +1,370 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>asql: lenguaje algorÃ­tmico en espaÃ±ol para la consulta de
+    <meta http-equiv="CONTENT-TYPE" content="text/html;
+      charset=windows-1252">
+    <title>asql: lenguaje algorítmico en español para la consulta de
       base de datos.</title>
-    <meta name="author" content="Octulio BiletÃ¡n.">
-    <meta name="description" content="Ejemplo de asql.">
+    <meta name="GENERATOR" content="OpenOffice 4.1.15 (Win32)">
+    <meta name="AUTHOR" content="Octulio Biletán.">
+    <meta name="CREATED" content="0;0">
+    <meta name="CHANGEDBY" content="Octulio Biletán">
+    <meta name="CHANGED" content="20250715;21260171">
+    <meta name="DESCRIPTION" content="Ejemplo de asql.">
   </head>
-  <body>
-    <b>asql</b>: <b>L</b>enguaje <b>a</b>lgoritmico, en e<b>s</b>paÃ±ol,
-
-
-    para la consulta de base de datos similar al lenguaje S<b>Q</b>L.<br>
-    VersiÃ³n 1.0, ediciÃ³n para propÃ³sitos educativos.<br>
-    Orientado a estudiantes noveles en la programaciÃ³n de base de datos.<br>
-    Puede ser usado en cualquier sistema operativo que cuente con un
-    editor de textos bÃ¡sico.<br>
-    <br>
-    <font size="+1"><b>Las reglas del lenguaje</b></font><br>
-    Se aconseja que todas las palabras reservadas estÃ©n subrayadas y en
-    minÃºsculas a los fines de resaltarlas del resto del cÃ³digo fuente.<br>
-    El punto y coma ";" indica que es un comentario. Y debe comenzar con
-    el punto y coma hasta terminar la lÃ­nea de comentario con un retorno
-    de carro y avance de lÃ­nea (CRLF).<br>
-    Un archivo fuente .asql contiene un Ãºnico proyecto de programaciÃ³n
-    algorÃ­tmica.<br>
-    Un proyecto puede contener uno o varios algoritmos. El nombre del
-    proyecto tiene que estar entrecomillado.<br>
-    Un algoritmo debe definirse con un nombre y opcionalmente puede
-    estar acompaÃ±ado de un alias Ãºnico. El nombre del algoritmo tiene
-    que estar entrecomillado.<br>
-    Cada lÃ­nea de cÃ³digo fuente termina con un retorno de carro y avance
-    de lÃ­nea (CRLF).<br>
-    Las llaves de apertura y cierre "{}" denotan pasaje de variable por
-    referencia.<br>
-    Los parÃ©ntesis de apertura y cierre "()" denotan pasaje de variable
-    por valor.<br>
-    <br>
-    <font size="+1"><u><b>Ejemplo:</b></u><b> CreaciÃ³n de una base de
-        datos con una tabla</b><br>
-    </font><br>
-    <u>proyecto</u> "Agenda Personal"<br>
-    &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Crear base de datos" <u>argumento</u>
-    arg <u>tipo</u> <u>conector</u> <u>a</u> <u>servidor</u> <u>alias</u>
-    cbdd<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Crea la variable 'titular'
-    de tipo mensaje de textos<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>mensaje</u>
-    titular<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Guarda el texto en 'titular'<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> "Agenda
-    Personal" <u>a</u> titular<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Muestra el contenido de
-    'titular' en la pantalla<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>informe</u> <u>mensaje</u>
-    titular <u>en</u> <u>pantalla</u><br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Crea una nueva base de datos
-    en el servidor<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nueva</u> <u>bdatos</u>
-    arg.AgendaPersonal<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Nos aseguramos que la nueva
-    base de datos contenga una Ãºnica tabla.<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>contiene</u> 1 <u>tabla</u>
-    AgendaPersonal<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nueva</u> <u>tabla</u>
-    AgendaPersonal.Contactos<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>campo</u>
-    AgendaPersonal.Contactos.Nombre <u>tipo</u> <u>alfanum</u> <u>tam</u>
-    64<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>campo</u>
-    AgendaPersonal.Contactos.Apellido <u>tipo</u> <u>alfanum</u> <u>tam</u>
-    64<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>campo</u>
-    AgendaPersonal.Contactos.Codigo <u>tipo</u> <u>num</u>, <u>cprim</u><br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> "Octulio" <u>a</u>
-    AgendaPersonal.Contactos.Nombre<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> "BiletÃ¡n" <u>a</u>
-    AgendaPersonal.Contactos.Apellido<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> 100 <u>a</u>
-    AgendaPersonal.Contactos.Codigo<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Espera a que el usuario
-    presione la tecla 'Intro'<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; La variable 'respuesta'
-    contiene el cÃ³digo de la tecla presionada<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>esperar</u> respuesta <u>tecla</u>
-    <u>intro</u> <u>de</u> <u>teclado</u> <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>limpiar</u> <u>pantalla</u><br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; muestra toda la tabla en la
-    pantalla <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>informe</u> <u>tabla</u>
-    AgendaPersonal.Contactos <u>en</u> <u>pantalla</u> <br>
-    <br>
-    &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u> cbdd<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Conectarse al servidor SQL" <u>devuelve</u>
-    <u>tipo</u> <u>conector</u> <u>a</u> <u>servidor</u> <u>alias</u>
-    abrirConexion<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> idConexion <u>tipo</u>
-    <u>conector</u> <u>a</u> <u>servidor</u><br>
-    <br>
-    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <u>abrir</u> <u>sesion</u> <u>en</u>
-    <u>servidor</u> "localhost" <u>con</u> <u>cuenta</u> "postgres" <u>y</u>
-    <u>clave</u> "postgres"<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u> <u>sesion</u>
-    a idConexion<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>devolver</u> idConexion<br>
-    &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u> abrirConexion<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Desconectarse del servidor
-    SQL" <u>argumento</u> arg <u>tipo</u> <u>conector</u> <u>a</u> <u>servidor</u>
-    <u>alias</u> cerrarConexion<br>
-    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>cerrar</u> <u>sesion</u>
-    arg<br>
-    <br>
-    &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u> cerrarConexion<br>
-    <br>
-    ; ----------------------------------------------------------<br>
-    &nbsp;&nbsp;&nbsp; <u>nuevo</u> miConexion <u>tipo</u> <u>conector</u>
-    <u>a</u> <u>servidor</u><br>
-    <br>
-    &nbsp;&nbsp;&nbsp; <u>invocar</u> abrirConexion{miConexion}<br>
-    &nbsp;&nbsp;&nbsp; <u>invocar</u> cbdd(miConexion)<br>
-    &nbsp;&nbsp;&nbsp; <u>invocar</u> cerrarConexion(miConexion)<br>
-    <br>
-    <u>fin</u> <u>proyecto</u><br>
-    <br>
-    _______________________________________________________________<br>
-    Octulio BiletÃ¡n * 9 de Julio de 2025 *<br>
-    <br>
+  <body dir="LTR" lang="es-AR">
+    <p style="margin-bottom: 0cm"><b><font size="+1">Introducción<br>
+        </font>asql</b>: <b>L</b>enguaje
+      <b>a</b>lgoritmico, en e<b>s</b>pañol, para la consulta de
+      base de datos similar al lenguaje S<b>Q</b>L.<br>
+      Versión 1.0,
+      edición para propósitos educativos.<br>
+      Orientado a
+      estudiantes noveles en la programación de base de datos.<br>
+      Puede
+      ser usado en cualquier sistema operativo que cuente con un editor
+      de
+      textos básico.<br>
+      <br>
+      <font size="4"><b>Las reglas del
+          lenguaje</b></font><br>
+      Se aconseja que todas las palabras reservadas
+      estén subrayadas y en minúsculas a los fines de
+      resaltarlas del resto del código fuente.<br>
+      El punto y coma
+      ";" indica que es un comentario. Y debe comenzar con el
+      punto y coma hasta terminar la línea de comentario con un
+      retorno de carro y avance de línea (CRLF).<br>
+      Un archivo
+      fuente .asql contiene un único proyecto de programación
+      algorítmica.<br>
+      Un proyecto puede contener uno o varios
+      algoritmos. El nombre del proyecto tiene que estar entrecomillado.<br>
+      Un
+      algoritmo debe definirse con un nombre y opcionalmente puede estar
+      acompañado de un alias único. El nombre del algoritmo
+      tiene que estar entrecomillado.<br>
+      Cada línea de código
+      fuente termina con un retorno de carro y avance de línea
+      (CRLF).<br>
+      Las llaves de apertura y cierre "{}" denotan
+      pasaje de variable por referencia.<br>
+      Los paréntesis de
+      apertura y cierre "()" denotan pasaje de variable por
+      valor.<br>
+      <br>
+      <font size="4"><b>Las palabras reservadas<br>
+        </b></font>Son
+      las siguientes:</p>
+    <table width="100%" cellspacing="3" cellpadding="2" border="1">
+      <colgroup><col width="61*"> <col width="54*"> <col width="48*">
+        <col width="54*"> <col width="38*"> </colgroup><tbody>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">a</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">cprim</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">en</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">no</font></p>
+          </td>
+          <td width="15%">
+            <p><font face="Courier New, Courier, monospace">tecla</font></p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">argumento</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">cfora</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">elimina</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">nueva</font></p>
+          </td>
+          <td width="15%">
+            <p><font face="Courier New, Courier, monospace">teclado</font></p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">algoritmo</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">cuenta</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">esperar</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">nuevo</font></p>
+          </td>
+          <td width="15%">
+            <p><font face="Courier New, Courier, monospace">tipo</font></p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">alfanum</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">cerrar</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">fin</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">o</font></p>
+          </td>
+          <td width="15%">
+            <p><font face="Courier New, Courier, monospace">y</font></p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">asignar</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">conector</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">invocar</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">proyecto</font></p>
+          </td>
+          <td width="15%">
+            <p><br>
+            </p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">abrir</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">con</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">informe</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">pantalla</font></p>
+          </td>
+          <td width="15%">
+            <p><br>
+            </p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">alias</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">clave</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">intro</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">sesion</font></p>
+          </td>
+          <td width="15%">
+            <p><br>
+            </p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">bdatos</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">de</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">limpiar</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">servidor</font></p>
+          </td>
+          <td width="15%">
+            <p><br>
+            </p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">contiene</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">devuelve</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">mensaje</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">tabla</font></p>
+          </td>
+          <td width="15%">
+            <p><br>
+            </p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="24%">
+            <p><font face="Courier New, Courier, monospace">campo</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">devolver</font></p>
+          </td>
+          <td width="19%">
+            <p><font face="Courier New, Courier, monospace">num</font></p>
+          </td>
+          <td width="21%">
+            <p><font face="Courier New, Courier, monospace">tam</font></p>
+          </td>
+          <td width="15%">
+            <p><br>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>
+      <font size="4"><u><b>Ejemplo:</b></u></font><font size="4">
+      </font><font size="4"><b>Creación de una base de datos con una
+          tabla</b></font><font size="4"><br>
+      </font><br>
+      <u>proyecto</u> "Agenda
+      Personal"<br>
+      &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Crear
+      base de datos" <u>argumento</u> arg <u>tipo</u> <u>conector</u>
+      <u>a</u> <u>servidor</u> <u>alias</u> cbdd<br>
+      <br>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; ; Crea la variable 'titular' de tipo mensaje de
+      textos<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>nuevo</u> <u>mensaje</u>
+      titular<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; Guarda el
+      texto en 'titular'<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u>
+      "Agenda Personal" <u>a</u> titular<br>
+      <br>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; ; Muestra el contenido de 'titular' en la
+      pantalla<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>informe</u>
+      <u>mensaje</u> titular <u>en</u> <u>pantalla</u><br>
+      <br>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; ; Crea una nueva base de datos en el servidor<br>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; <u>nueva</u> <u>bdatos</u> arg.AgendaPersonal<br>
+      <br>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; ; Nos aseguramos que la nueva base de datos
+      contenga una única tabla.<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>contiene</u> 1 <u>tabla</u> AgendaPersonal<br>
+      <br>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; <u>nueva</u> <u>tabla</u>
+      AgendaPersonal.Contactos<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Nombre <u>tipo</u>
+      <u>alfanum</u> <u>tam</u> 64<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Apellido <u>tipo</u>
+      <u>alfanum</u> <u>tam</u> 64<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>nuevo</u> <u>campo</u> AgendaPersonal.Contactos.Codigo <u>tipo</u>
+      <u>num</u>, <u>cprim</u><br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>asignar</u> "Octulio" <u>a</u>
+      AgendaPersonal.Contactos.Nombre<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>asignar</u> "Biletán" <u>a</u>
+      AgendaPersonal.Contactos.Apellido<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>asignar</u> 100 <u>a</u> AgendaPersonal.Contactos.Codigo<br>
+      <br>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; ; Espera a que el usuario presione la tecla
+      'Intro'<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; La variable
+      'respuesta' contiene el código de la tecla presionada<br>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; <u>esperar</u> respuesta <u>tecla</u> <u>intro</u>
+      <u>de</u> <u>teclado</u> <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>limpiar</u> <u>pantalla</u><br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      ; muestra toda la tabla en la pantalla <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>informe</u> <u>tabla</u> AgendaPersonal.Contactos <u>en</u>
+      <u>pantalla</u> <br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u>
+      cbdd<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <u>algoritmo</u> "Conectarse al
+      servidor SQL" <u>devuelve</u> <u>tipo</u> <u>conector</u> <u>a</u>
+      <u>servidor</u> <u>alias</u> abrirConexion<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>nuevo</u> idConexion <u>tipo</u> <u>conector</u> <u>a</u>
+      <u>servidor</u><br>
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <u>abrir</u>
+      <u>sesion</u> <u>en</u> <u>servidor</u> "localhost" <u>con</u>
+      <u>cuenta</u> "postgres" <u>y</u> <u>clave</u>
+      "postgres"<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>asignar</u>
+      <u>sesion</u> <u>a</u> idConexion<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <u>devolver</u> idConexion<br>
+      &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u>
+      abrirConexion<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <u>algoritmo</u>
+      "Desconectarse del servidor SQL" <u>argumento</u> arg <u>tipo</u>
+      <u>conector</u> <u>a</u> <u>servidor</u> <u>alias</u>
+      cerrarConexion<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <u>cerrar</u>
+      <u>sesion</u> arg<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <u>fin</u> <u>algoritmo</u>
+      cerrarConexion<br>
+      <br>
+      ;
+      ----------------------------------------------------------<br>
+      &nbsp;&nbsp;&nbsp;
+      <u>nuevo</u> miConexion <u>tipo</u> <u>conector</u> <u>a</u>
+      <u>servidor</u><br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <u>invocar</u>
+      abrirConexion{miConexion}<br>
+      &nbsp;&nbsp;&nbsp; <u>invocar</u>
+      cbdd(miConexion)<br>
+      &nbsp;&nbsp;&nbsp; <u>invocar</u>
+      cerrarConexion(miConexion)<br>
+      <br>
+      <u>fin</u>
+      <u>proyecto</u><br>
+      <br>
+      _______________________________________________________________<br>
+      Octulio
+      Biletán * 9 de Julio de 2025 *</p>
   </body>
 </html>
