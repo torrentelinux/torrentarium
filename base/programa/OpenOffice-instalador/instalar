@@ -1,0 +1,26 @@
+#!/bin/sh
+# - Descripción -
+# Instala el conjunto de paquetes rpm OpenOffice en su sistema Linux: CentOS/Fedora/RedHat.
+# Modo básico - comando para el superusuario 'root' - sin comprobaciones rigurosas.
+# - Autor -
+# Edmund Muslok.
+# - Uso -
+# ./instalar
+# - Fecha -
+# Agosto de 2025.
+echo -n "Instalar Apache OpenOffice 4.1.15 Linux x86-64 rpm español en sistema "
+/usr/bin/uname -ro
+echo
+echo -n "Usuario vigente: "
+/usr/bin/id -nu
+echo
+/usr/bin/tar -xvf Apache_OpenOffice_4.1.15_Linux_x86-64_install-rpm_es.tar.gz
+cd es/RPMS
+/usr/bin/rpm -ivh *.rpm
+cd desktop-integration
+/usr/bin/rpm -ivh openoffice4.1.15-redhat-menus-4.1.15-9813.noarch.rpm
+echo "Elija cualquiera de las siguientes opciones para iniciar OpenOffice:"
+echo "(Opción 1) Ejecute comando 'openoffice4' desde la consola de la interfaz gráfica de su sistema: GNOME/KDE etc."
+echo "(Opción 2) Seleccionar en la interfaz gráfica: Menú Inicio/Aplicaciones/Oficina/Office"
+/usr/bin/whereis openoffice4
+echo "Terminado."
