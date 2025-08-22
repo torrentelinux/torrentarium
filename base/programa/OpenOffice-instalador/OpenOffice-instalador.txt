@@ -5,5 +5,7 @@ Dicho paquete "tar.gz" ha de ser descargado desde este enlace: https://www.openo
 Seleccione opción "Linux 64-bit (RPM)", "Español", "4.1.15". Presione el botón "Descargar la instalación completa" para completar la acción.
 Se hace uso de 'tar' y 'rpm' para lograr los objetivos de la instalación en el modo consola de textos.
 El programa 'instalar' cumple su función básicamente sin comprobar rigurosamente de que si hay una instalación previa de OpenOffice o no.
-Su código fuente es "software libre". Usted puede: agregar/quitar/modificar/copiar código fuente del mismo siempre y cuando respete los derechos de autor y mencione su procedencia inicial.
+Se sugiere hacer uso de dicho programa cuando OpenOffice no está instalado en su sistema Linux con el fin de hacer una instalación limpia en el S.O.
+Su código fuente es "software libre".
+Usted puede: agregar/quitar/modificar/copiar código fuente del mismo siempre y cuando respete los derechos de autor y mencione su procedencia inicial.
 ***/\***
