@@ -1,1 +1,9 @@
+--Instalador de OpenOffice para los sistemas Linux (Agosto de 2025)--
 
+El programa 'instalar' instala 'OpenOffice 4.1.15', 64 bits, a partir del archivo "Apache_OpenOffice_4.1.15_Linux_x86-64_install-rpm_es.tar.gz" en Linux.
+Dicho paquete "tar.gz" ha de ser descargado desde este enlace: https://www.openoffice.org/es/descargar/
+Seleccione opción "Linux 64-bit (RPM)", "Español", "4.1.15". Presione el botón "Descargar la instalación completa" para completar la acción.
+Se hace uso de 'tar' y 'rpm' para lograr los objetivos de la instalación en el modo consola de textos.
+El programa 'instalar' cumple su función básicamente sin comprobar rigurosamente de que si hay una instalación previa de OpenOffice o no.
+Su código fuente es "software libre". Usted puede: agregar/quitar/modificar/copiar código fuente del mismo siempre y cuando respete los derechos de autor y mencione su procedencia inicial.
+***/\***
