@@ -1,26 +1,69 @@
 #!/bin/sh
 # - Descripción -
 # Instala el conjunto de paquetes rpm OpenOffice en su sistema Linux: CentOS/Fedora/RedHat.
-# Modo básico - comando para el superusuario 'root' - sin comprobaciones rigurosas.
+# Modo básico - comando para el superusuario 'root' - incluye comprobaciones rigurosas.
 # - Autor -
 # Edmund Muslok.
 # - Uso -
 # ./instalar
 # - Fecha -
-# Agosto de 2025.
+# Agosto de 2025. Versión 2.0
+#
+/usr/bin/clear
 echo -n "Instalar Apache OpenOffice 4.1.15 Linux x86-64 rpm español en sistema "
-/usr/bin/uname -ro
+/usr/bin/uname -nro
 echo
 echo -n "Usuario vigente: "
 /usr/bin/id -nu
-echo
+
+PAQT=`stat Apache_OpenOffice_4.1.15_Linux_x86-64_install-rpm_es.tar.gz 2> /tmp/salida.opof`
+retval=$?
+if [ "$retval" = 1 ] ; then
+    echo "<<Error>>"
+    echo "No existe el paquete OpenOffice en el directorio vigente."
+    echo "<<Aviso>>"
+    echo "Tanto 'instalar' como 'OpenOffice' tienen que estar juntos en el mismo directorio para iniciar la instalación."
+    unlink /tmp/salida.opof
+    exit 1
+fi
+
+unlink /tmp/salida.opof
+
+IGRAF=`printenv DISPLAY`
+retval=$?
+if [ "$retval" = 1 ] ; then
+    echo "Error: Ejecute este programa desde la interfaz gráfica del sistema."
+    exit 1
+fi
+
+if [ "$UID" = "0" ] ; then
+    echo "Usuario autorizado."
+    sleep 2
+else
+    echo "¡¡¡ Usuario no autorizado !!!"
+    echo "Ejecute este programa como usuario 'root' para iniciar la instalación del paquete OpenOffice."
+    echo "Otra posibilidad es la siguiente: sudo ./instalar"
+    exit 2
+fi
+
+echo "1º etapa - Descomprimir paquete tar.gz"
 /usr/bin/tar -xvf Apache_OpenOffice_4.1.15_Linux_x86-64_install-rpm_es.tar.gz
 cd es/RPMS
+sleep 4
+
+echo "2º etapa - Instalar los paquetes .rpm en el sistema"
 /usr/bin/rpm -ivh *.rpm
 cd desktop-integration
 /usr/bin/rpm -ivh openoffice4.1.15-redhat-menus-4.1.15-9813.noarch.rpm
+sleep 4
+
+echo "3º etapa - Pasos para iniciar OpenOffice"
 echo "Elija cualquiera de las siguientes opciones para iniciar OpenOffice:"
 echo "(Opción 1) Ejecute comando 'openoffice4' desde la consola de la interfaz gráfica de su sistema: GNOME/KDE etc."
 echo "(Opción 2) Seleccionar en la interfaz gráfica: Menú Inicio/Aplicaciones/Oficina/Office"
 /usr/bin/whereis openoffice4
+echo
+OVERSION=`openoffice4 -h 2>/tmp/salida.verOO`
+head -n 1 /tmp/salida.verOO
+unlink /tmp/salida.verOO
 echo "Terminado."
