@@ -6,6 +6,15 @@ Seleccione opción "Linux 64-bit (RPM)", "Español", "4.1.15". Presione el botó
 Se hace uso de 'tar' y 'rpm' para lograr los objetivos de la instalación en el modo consola de textos.
 El programa 'instalar' cumple su función básicamente sin comprobar rigurosamente de que si hay una instalación previa de OpenOffice o no.
 Se sugiere hacer uso de dicho programa cuando OpenOffice no está instalado en su sistema Linux con el fin de hacer una instalación limpia en el S.O.
+
+Descargar 'instalar' en el directorio '/root' o en su directorio personal.
+Siendo 'root', poner los siguientes permisos al archivo mencionado: 
+    chmod 0755 instalar
+    chown 0:0 instalar
+
+Ahora ejecute el instalador:
+    ./instalar
+
 Su código fuente es "software libre".
 Usted puede: agregar/quitar/modificar/copiar código fuente del mismo siempre y cuando respete los derechos de autor y mencione su procedencia inicial.
 ***/\***
