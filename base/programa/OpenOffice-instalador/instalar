@@ -7,7 +7,7 @@
 # - Uso -
 # ./instalar
 # - Fecha -
-# Agosto de 2025. Versión 2.0
+# Agosto de 2025. Versión 2.1
 #
 /usr/bin/clear
 echo -n "Instalar Apache OpenOffice 4.1.15 Linux x86-64 rpm español en sistema "
@@ -48,10 +48,12 @@ fi
 
 echo "1º etapa - Descomprimir paquete tar.gz"
 /usr/bin/tar -xvf Apache_OpenOffice_4.1.15_Linux_x86-64_install-rpm_es.tar.gz
-cd es/RPMS
 /usr/bin/sleep 4
+/usr/bin/zenity --text-info --title="Léame" --filename=es/readmes/README_es --width 1000 --height 700
+/usr/bin/zenity --text-info --title="Licencia" --filename=es/licenses/LICENSE --width 1000 --height 700
 
 echo "2º etapa - Instalar los paquetes .rpm en el sistema"
+cd es/RPMS
 /usr/bin/rpm -ivh *.rpm
 cd desktop-integration
 /usr/bin/rpm -ivh openoffice4.1.15-redhat-menus-4.1.15-9813.noarch.rpm
