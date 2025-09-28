@@ -3,6 +3,7 @@
 // Librería: JLogo.java
 // Versión : 1.0
 // Ambiente: Linux, modo consola.
+// Licencia: Software libre.
 
 /*
   Movimientos de la tortuga sobre la pantalla de textos

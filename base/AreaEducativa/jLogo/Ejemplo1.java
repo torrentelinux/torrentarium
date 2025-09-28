@@ -2,6 +2,7 @@
 // Paquete : Ejemplo01
 // Programa: Ejemplo1.java
 // Ambiente: Linux, modo consola.
+// Licencia: Software libre.
 
 package Ejemplo01;
 

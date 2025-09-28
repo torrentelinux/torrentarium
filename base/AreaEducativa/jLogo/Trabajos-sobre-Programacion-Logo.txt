@@ -1,0 +1,27 @@
+Lenguaje de programación UCBLogo:
+https://en.wikipedia.org/wiki/UCBLogo
+
+Manual técnico del lenguaje Logo: A.I. Memo 313, Dic. de 1974
+https://dspace.mit.edu/bitstream/handle/1721.1/6226/AIM-313.pdf
+
+Lenguaje Logo:
+https://en.wikipedia.org/wiki/Logo_%28programming_language%29
+
+Sitio oficial de Brian Harvey
+https://people.eecs.berkeley.edu/~bh/
+https://people.eecs.berkeley.edu/~bh/logo.html
+
+Para investigar...
+Logo software/hardware:
+https://el.media.mit.edu/logo-foundation/resources/software_hardware.html
+
+Entorno Logo online:
+https://app.lbym.org
+
+Learning by Making:
+https://docs.lbym.org
+https://lbym.sonoma.edu
+https://lbym.sonoma.edu/support/
+
+________________________________________
+Octulio Biletán, 23 de Setiembre de 2025
