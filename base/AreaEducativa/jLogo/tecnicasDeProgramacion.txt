@@ -1,0 +1,19 @@
+    Técnicas de Programación aplicadas al desarrollo de la librería JLogo
+
+Investigación y Desarrollo básico en Java de la Tortuga.
+Se utilizó el sistema operativo Oracle Linux Server 7.9 y las herramientas de
+desarrollo OpenJDK 16.0.1+9
+La programación se efectuó en Apache NetBeans IDE 25, OpenJDK 23.0.2+7
+Todo el software estuvo basado en 64 bits.
+
+Codificación UNICODE de la apariencia visual de la tortuga en modo texto:
+ * caracter triángulo (punta hacia abajo):     ᐁ  0xE1 0x90 0x81
+ * caracter triángulo (punta hacia arriba):    ᐃ  0xE1 0x90 0x83
+ * caracter triángulo (punta hacia derecha):   ᐅ  0xE1 0x90 0x85
+ * caracter triángulo (punta hacia izquierda): ᐊ  0xE1 0x90 0x8A
+
+Todo, hasta ahora, está en pleno desarrollo en modo consola.
+Se proyecta hacer también todo el desarrollo en modo gráfico.
+
+______________________________________________________________
+Eugenio Martínez, sáb 27 sep 2025, Tucumán, Argentina.
