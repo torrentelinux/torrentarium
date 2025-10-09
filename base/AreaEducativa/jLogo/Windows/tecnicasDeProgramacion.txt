@@ -16,5 +16,10 @@ Usabilidad
 Hacer la lógica de programación en la función miembro "hoja_de_dibujo::visualizar()".
 Desde aquí invocar a la librería JLogo y sus diferentes funciones miembros.
 
+Binarios
+En el archivo "Ejemplo1-binarios-Win64.7z" se encuentra el ejecutable "Ejemplo1.exe" y sus librerías.
+Descomprima todo en un directorio de su gusto, luego entre a 'Win64\Release\' e invoque a Ejemplo1.exe
+
 ______________________________________________________________
 Eugenio Martínez, jue 9 oct 2025, Tucumán, Argentina.
+
