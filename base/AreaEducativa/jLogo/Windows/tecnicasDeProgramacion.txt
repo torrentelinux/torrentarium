@@ -1,0 +1,20 @@
+    Técnicas de Programación aplicadas al desarrollo de la librería JLogo
+
+Proyecto JLogo
+Investigación y Desarrollo básico en C++ de la Tortuga.
+Se utilizó el sistema operativo Windows Server 2016 std y la herramienta de desarrollo Embarcadero RAD Studio 11.
+La programación se efectuó en C++ y con la librería VCL.
+Todo el software estuvo basado en 64 bits.
+
+Todo, hasta ahora, está en pleno desarrollo la librería JLogo para Windows.
+Se proyecta hacer modificaciones y agregados al código fuente para las próximas versiones.
+
+Licencia
+Todo el código fuente C++ (archivos .cpp y .h) del proyecto es software libre.
+
+Usabilidad
+Hacer la lógica de programación en la función miembro "hoja_de_dibujo::visualizar()".
+Desde aquí invocar a la librería JLogo y sus diferentes funciones miembros.
+
+______________________________________________________________
+Eugenio Martínez, jue 9 oct 2025, Tucumán, Argentina.
