@@ -61,6 +61,8 @@ class TrianguloRectangulo {
         System.out.println(">\n");
     }
 
+    // Grafica en pantalla el triángulo.
+    // La rutina puede ser modificada para presentar un triángulo más preciso.
     void graficar() {
         System.out.println("\nRepresentación gráfica del triángulo rectángulo\n");
 
