@@ -1,4 +1,6 @@
 // TrianguloRectangulo.java
+// Eugenio Martínez - Octubre de 2025.
+// Licencia: Software Libre.
 
 import java.util.Locale;
 import java.util.Scanner;
