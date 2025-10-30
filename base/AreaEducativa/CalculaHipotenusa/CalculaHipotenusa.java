@@ -1,4 +1,6 @@
 // CalculaHipotenusa.java
+// Eugenio Martínez * Octubre de 2025.
+// Licencia: Software Libre.
 
 /**
  * Programa para calcular la hipotenusa de un triángulo rectángulo utilizando el
