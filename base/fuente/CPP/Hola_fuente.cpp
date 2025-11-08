@@ -9,7 +9,7 @@ using namespace std;
 #define siguiente_linea  "\n"
 #define programa         main()
 #define inicie           {
-#define termine         }
+#define termine          }
 #define mensaje(t)       #t
 
 programa
@@ -20,6 +20,7 @@ inicie
      mensaje(--------------)
    cierre;
 termine
+
 
 
 
