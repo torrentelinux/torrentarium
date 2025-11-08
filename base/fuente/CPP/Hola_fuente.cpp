@@ -1,5 +1,5 @@
 ﻿// Programa C++ ¡Hola a todos!
-// construído con macros en español
+// construído con macros definidas en español
 
 #include <iostream>
 using namespace std;
@@ -9,7 +9,7 @@ using namespace std;
 #define siguiente_linea  "\n"
 #define programa         main()
 #define inicie           {
-#define termine 	       }
+#define termine         }
 #define mensaje(t)       #t
 
 programa
@@ -20,5 +20,6 @@ inicie
      mensaje(--------------)
    cierre;
 termine
+
 
 
