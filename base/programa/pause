@@ -1,4 +1,4 @@
-#!/usr/bin/java --source 16
+#!/usr/bin/java --source 25
 
 // Programa   : ComandoPause.java
 // Java Script: pause
@@ -6,13 +6,19 @@
 // Descripción: Crear el comando 'pause' para suspender la ejecución de un programa por lotes
 //              y visualizar un mensaje de textos.
 //              Su comportamiento es similar al comando 'pause' de cmd/Windows.
-//              Desarrollado para sistemas Linux y Java ver. 16
+//              Desarrollado para sistemas Linux y Java ver. 16 y versiones superiores.
 // Observac.  : No requiere compilación este código fuente.
-//              Renombrar de "ComandoPause.java" a "pause": mv -v ComandoPause.java pause
-//              Cambiar a permisos de archivo ejecutable: chmod +x pause
-//              Ejecutar: ./pause
+//		Cree la var. de entorno 'base=/base' estando en Bash.
+//		Cree el directorio '$base/programa/'
+//		Instale el .java en $base/programa/
+//		Renombre 'comandopause' a 'programa'.
+//              Renombre "ComandoPause.java" a "pause": mv -v ComandoPause.java pause
+//              Cambie sus permisos a archivo ejecutable: chmod +x pause
+//              Ejecute: ./pause
 
-package comandopause;
+// Modificado mié 31 dic 2025.
+// package comandopause;
+package programa;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -27,7 +33,7 @@ public class ComandoPause
     private static void ayuda()
     {
         System.out.println("""
-                           Comando 'pause', ver. 1.0, Enero de 2025.
+                           Comando 'pause', ver. 1.12, Diciembre de 2025.
                            Descripci\u00f3n:
                                Suspende la ejecuci\u00F3n de un programa por lotes y muestra el mensaje:
                                Presione tecla Intro [<-'] para continuar...
