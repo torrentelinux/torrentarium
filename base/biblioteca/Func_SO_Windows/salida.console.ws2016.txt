@@ -1,0 +1,199 @@
+* Windows Server 2016 * Listado de funciones admitidas * Consola de textos *
+
+
+Imports from ntdll.dll
+    (hint = 03D2) RtlGetActiveConsoleId
+
+Imports from api-ms-win-core-console-l1-1-0.dll
+    (hint = 000D) WriteConsoleW
+    (hint = 000C) WriteConsoleA
+    (hint = 000B) SetConsoleMode
+    (hint = 000A) SetConsoleCtrlHandler
+    (hint = 0009) ReadConsoleW
+    (hint = 0008) ReadConsoleInputW
+    (hint = 0007) ReadConsoleInputA
+    (hint = 0006) ReadConsoleA
+    (hint = 0005) PeekConsoleInputA
+    (hint = 0004) GetNumberOfConsoleInputEvents
+    (hint = 0003) GetConsoleOutputCP
+    (hint = 0002) GetConsoleMode
+                  AllocConsole
+    (hint = 0001) GetConsoleCP
+
+Imports from api-ms-win-core-console-l2-1-0.dll
+    (hint = 000A) GetConsoleScreenBufferInfoEx
+    (hint = 000B) GetConsoleTitleW
+    (hint = 0009) GetConsoleScreenBufferInfo
+    (hint = 000D) PeekConsoleInputW
+    (hint = 000E) ReadConsoleOutputA
+    (hint = 000F) ReadConsoleOutputAttribute
+    (hint = 0010) ReadConsoleOutputCharacterA
+    (hint = 0011) ReadConsoleOutputCharacterW
+    (hint = 0008) GetConsoleCursorInfo
+    (hint = 0013) ScrollConsoleScreenBufferA
+    (hint = 0014) ScrollConsoleScreenBufferW
+    (hint = 0015) SetConsoleActiveScreenBuffer
+    (hint = 0016) SetConsoleCP
+    (hint = 0017) SetConsoleCursorInfo
+    (hint = 0007) GenerateConsoleCtrlEvent
+    (hint = 0018) SetConsoleCursorPosition
+    (hint = 0019) SetConsoleOutputCP
+    (hint = 001A) SetConsoleScreenBufferInfoEx
+    (hint = 001B) SetConsoleScreenBufferSize
+    (hint = 001C) SetConsoleTextAttribute
+    (hint = 0006) FreeConsole
+    (hint = 0005) FlushConsoleInputBuffer
+    (hint = 0004) FillConsoleOutputCharacterW
+    (hint = 0003) FillConsoleOutputCharacterA
+    (hint = 0002) FillConsoleOutputAttribute
+    (hint = 0001) CreateConsoleScreenBuffer
+                  AttachConsole
+    (hint = 001D) SetConsoleTitleW
+    (hint = 001E) SetConsoleWindowInfo
+    (hint = 001F) WriteConsoleInputA
+    (hint = 0020) WriteConsoleInputW
+    (hint = 0021) WriteConsoleOutputA
+    (hint = 0022) WriteConsoleOutputAttribute
+    (hint = 0023) WriteConsoleOutputCharacterA
+    (hint = 0024) WriteConsoleOutputCharacterW
+    (hint = 0025) WriteConsoleOutputW
+    (hint = 000C) GetLargestConsoleWindowSize
+    (hint = 0012) ReadConsoleOutputW
+
+Exports from KERNEL32.dll
+    000624D0   10 0006 AddConsoleAliasA
+    00062620   11 0007 AddConsoleAliasW
+    0002A610   25 0015 AllocConsole
+    0002A6F0   41 0025 AttachConsole
+    00062F30  134 0083 CloseConsoleHandle
+    00062FF0  157 009A ConsoleMenuControl
+    0002A700  180 00B1 CreateConsoleScreenBuffer
+    00062F50  296 0125 DuplicateConsoleHandle
+    000626A0  353 015E ExpungeConsoleCommandHistoryA
+    00062720  354 015F ExpungeConsoleCommandHistoryW
+    0002A710  361 0166 FillConsoleOutputAttribute
+    0002A720  362 0167 FillConsoleOutputCharacterA
+    0002A730  363 0168 FillConsoleOutputCharacterW
+    0002A740  412 0199 FlushConsoleInputBuffer
+    0002A750  422 01A3 FreeConsole
+    0002A760  431 01AC GenerateConsoleCtrlEvent
+    00062740  478 01DB GetConsoleAliasA
+    00062780  479 01DC GetConsoleAliasExesA
+    00062810  480 01DD GetConsoleAliasExesLengthA
+    00062860  481 01DE GetConsoleAliasExesLengthW
+    00062870  482 01DF GetConsoleAliasExesW
+    00062960  483 01E0 GetConsoleAliasW
+    000629B0  484 01E1 GetConsoleAliasesA
+    00062A60  485 01E2 GetConsoleAliasesLengthA
+    00062AF0  486 01E3 GetConsoleAliasesLengthW
+    00062B10  487 01E4 GetConsoleAliasesW
+    0002A620  488 01E5 GetConsoleCP
+    000634F0  489 01E6 GetConsoleCharType
+    00062B30  490 01E7 GetConsoleCommandHistoryA
+    00062BE0  491 01E8 GetConsoleCommandHistoryLengthA
+    00062C70  492 01E9 GetConsoleCommandHistoryLengthW
+    00062C90  493 01EA GetConsoleCommandHistoryW
+    0002A770  494 01EB GetConsoleCursorInfo
+    00063550  495 01EC GetConsoleCursorMode
+    00063040  496 01ED GetConsoleDisplayMode
+    00063800  497 01EE GetConsoleFontInfo
+    00063890  498 01EF GetConsoleFontSize
+    00063090  499 01F0 GetConsoleHardwareState
+    000638E0  500 01F1 GetConsoleHistoryInfo
+    000971EE  501 01F2 GetConsoleInputExeNameA => kernelbase.GetConsoleInputExeNameA
+    00097229  502 01F3 GetConsoleInputExeNameW => kernelbase.GetConsoleInputExeNameW
+    00062F90  503 01F4 GetConsoleInputWaitHandle
+    00063950  504 01F5 GetConsoleKeyboardLayoutNameA
+    00063970  505 01F6 GetConsoleKeyboardLayoutNameW
+    0002A630  506 01F7 GetConsoleMode
+    000635B0  507 01F8 GetConsoleNlsMode
+    00062CB0  508 01F9 GetConsoleOriginalTitleA
+    00062CD0  509 01FA GetConsoleOriginalTitleW
+    0002A640  510 01FB GetConsoleOutputCP
+    00063A00  511 01FC GetConsoleProcessList
+    0002A780  512 01FD GetConsoleScreenBufferInfo
+    0002A790  513 01FE GetConsoleScreenBufferInfoEx
+    00063A80  514 01FF GetConsoleSelectionInfo
+    00062CF0  515 0200 GetConsoleTitleA
+    0002A7A0  516 0201 GetConsoleTitleW
+    00063AD0  517 0202 GetConsoleWindow
+    00063B10  524 0209 GetCurrentConsoleFont
+    00063B70  525 020A GetCurrentConsoleFontEx
+    0002A7B0  603 0258 GetLargestConsoleWindowSize
+    00063C00  655 028C GetNumberOfConsoleFonts
+    0002A650  656 028D GetNumberOfConsoleInputEvents
+    00063C40  657 028E GetNumberOfConsoleMouseButtons
+    00063E30  875 0369 InvalidateConsoleDIBits
+    00062FA0 1011 03F1 OpenConsoleW
+    00037B70 1012 03F2 OpenConsoleWStub
+    0002A660 1045 0413 PeekConsoleInputA
+    0002A7C0 1046 0414 PeekConsoleInputW
+    0002A670 1115 0459 ReadConsoleA
+    0002A680 1116 045A ReadConsoleInputA
+    0009ACB1 1117 045B ReadConsoleInputExA => kernelbase.ReadConsoleInputExA
+    0009ACE4 1118 045C ReadConsoleInputExW => kernelbase.ReadConsoleInputExW
+    0002A690 1119 045D ReadConsoleInputW
+    0002A7D0 1120 045E ReadConsoleOutputA
+    0002A7E0 1121 045F ReadConsoleOutputAttribute
+    0002A7F0 1122 0460 ReadConsoleOutputCharacterA
+    0002A800 1123 0461 ReadConsoleOutputCharacterW
+    0002A810 1124 0462 ReadConsoleOutputW
+    0002A6A0 1125 0463 ReadConsoleW
+    0003DB40 1177 0497 RegisterConsoleIME
+    00063600 1178 0498 RegisterConsoleOS2
+    000630F0 1179 0499 RegisterConsoleVDM
+    0002A820 1224 04C6 ScrollConsoleScreenBufferA
+    0002A830 1225 04C7 ScrollConsoleScreenBufferW
+    0002A840 1242 04D8 SetConsoleActiveScreenBuffer
+    0002A850 1243 04D9 SetConsoleCP
+    0002A6B0 1244 04DA SetConsoleCtrlHandler
+    00063190 1245 04DB SetConsoleCursor
+    0002A860 1246 04DC SetConsoleCursorInfo
+    00063650 1247 04DD SetConsoleCursorMode
+    0002A870 1248 04DE SetConsoleCursorPosition
+    000631E0 1249 04DF SetConsoleDisplayMode
+    00063C90 1250 04E0 SetConsoleFont
+    00063240 1251 04E1 SetConsoleHardwareState
+    00063CE0 1252 04E2 SetConsoleHistoryInfo
+    00063D50 1253 04E3 SetConsoleIcon
+    0009B901 1254 04E4 SetConsoleInputExeNameA => kernelbase.SetConsoleInputExeNameA
+    0009B93C 1255 04E5 SetConsoleInputExeNameW => kernelbase.SetConsoleInputExeNameW
+    00063290 1256 04E6 SetConsoleKeyShortcuts
+    000636B0 1257 04E7 SetConsoleLocalEUDC
+    00063DA0 1258 04E8 SetConsoleMaximumWindowSize
+    00063310 1259 04E9 SetConsoleMenuClose
+    0002A6C0 1260 04EA SetConsoleMode
+    00063750 1261 04EB SetConsoleNlsMode
+    00062DB0 1262 04EC SetConsoleNumberOfCommandsA
+    00062E60 1263 04ED SetConsoleNumberOfCommandsW
+    000637A0 1264 04EE SetConsoleOS2OemFormat
+    0002A880 1265 04EF SetConsoleOutputCP
+    00063360 1266 04F0 SetConsolePalette
+    0002A890 1267 04F1 SetConsoleScreenBufferInfoEx
+    0002A8A0 1268 04F2 SetConsoleScreenBufferSize
+    0002A8B0 1269 04F3 SetConsoleTextAttribute
+    00062E80 1270 04F4 SetConsoleTitleA
+    0002A8C0 1271 04F5 SetConsoleTitleW
+    0002A8D0 1272 04F6 SetConsoleWindowInfo
+    00063DB0 1274 04F8 SetCurrentConsoleFontEx
+    0009BF45 1316 0522 SetLastConsoleEventActive => kernelbase.SetLastConsoleEventActive
+    000633D0 1387 0569 ShowConsoleCursor
+    000637F0 1446 05A4 UnregisterConsoleIME
+    00063E90 1454 05AC VDMConsoleOperation
+    00062FE0 1459 05B1 VerifyConsoleIoHandle
+    000220E0 1474 05C0 WTSGetActiveConsoleSessionId
+    0002A6D0 1525 05F4 WriteConsoleA
+    0002A8E0 1526 05F5 WriteConsoleInputA
+    00063410 1527 05F6 WriteConsoleInputVDMA
+    00063480 1528 05F7 WriteConsoleInputVDMW
+    0002A8F0 1529 05F8 WriteConsoleInputW
+    0002A900 1530 05F9 WriteConsoleOutputA
+    0002A910 1531 05FA WriteConsoleOutputAttribute
+    0002A920 1532 05FB WriteConsoleOutputCharacterA
+    0002A930 1533 05FC WriteConsoleOutputCharacterW
+    0002A940 1534 05FD WriteConsoleOutputW
+    0002A6E0 1535 05FE WriteConsoleW
+
+________________________________________________________________
+Documentación de las funciones contenidas en Windows Server 2016
+································································
