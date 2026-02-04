@@ -1,0 +1,32 @@
+La consola de textos de Windows: conhost.exe y cmd.exe
+--------------------------------
+
+Cambios en la consola de Windows en Windows Server:
+https://learn.microsoft.com/es-es/windows-server/administration/windows-console-changes
+
+Secuencia de caracteres escape para la consola de textos:
+https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b#ansi-escape-sequences
+https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
+
+La consola de textos - Console Windows Host - conhost.exe - ConhostV1.dll - ConhostV2.dll
+https://michielvoo.net/2022/11/23/windows-command-line-interface-pt1.html
+https://michielvoo.net/2022/11/24/windows-command-line-interface-pt2.html
+
+Borra toda la pantalla - Take Command - JPSoft:
+· setdos /a1 -- Activa caracteres ANSI
+· echo ^e[2J  -- Borra la pantalla en tccle14x64 - Take Command v14 - ANSI X3.64 Command Reference -
+· crear directorios \base\programa en c:
+· definir var. de entorno 'base' ==> set base=c:\base
+· crear archivo 'bp' en '%base%\programa' --> echo ^e[2J > bp
+· type %base%\programa\bp  ==> borra toda la pantalla
+
+Borra toda la pantalla - Command cmd.exe - Microsoft Windows:
+· Para introducir el código ESC (0x1B) presione las teclas 'Ctrl' y '[' y da como resultado '^['
+· echo ^[[2J  -- Borra la pantalla en 'cmd - Microsoft Windows'
+· crear directorios \base\programa en c:
+· definir var. de entorno 'base' ==> set base=c:\base
+· crear archivo 'bp' en '%base%\programa' --> echo ^[[2J^[[1;1H > bp
+· type %base%\programa\bp  ==> borra toda la pantalla y pone el cursor en la fila 1, columna 1.
+
+_________________________________________>>>
+Octulio Biletán * Febrero de 2026 *
