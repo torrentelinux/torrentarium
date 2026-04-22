@@ -2,12 +2,12 @@
     Encabezamiento: Textos.h
     Autor         : Edmund Muslok - Marzo~Abril de 2026.
     Descripción   : Gestión de líneas de caracteres mediante las funcs:
-                    crearTexto(), eliminarTexto(), inicializarTexto(), copiarTexto()
-                    y la estructura de datos _stTexto{}.
+                    crearTexto(), crearTextoF(), eliminarTexto(), eliminarTextoF(), copiarTexto()
+                    y la función auxiliar limpiar() y la estructura de datos _stTexto{}.
     Observaciones : En _stTexto{} se registra la capacidad máxima de almacenamiento
-                    y el tamaño vigente de la línea de textos.
+                    y el tamaño vigente de la línea de textos entre otras cosas.
                     Es compatible con el compilador de Embarcadero C++ Builder y
-                    con G++/CygWin.
+                    con GNU G++/CygWin.
 */
 
 #if !defined(__TEXTOS_H)
@@ -25,9 +25,11 @@
 
 struct _stTexto
 {
-    size_t tam;		/* tamaño vigente de la línea de caracteres */
-    size_t cap;		/* capacidad máxima de almacenamiento en la línea de caracteres */
-    char *linea;	/* línea de caracteres */
+    size_t tam;			/* tamaño vigente de la línea de caracteres */
+    size_t cap;			/* capacidad máxima de almacenamiento en la línea de caracteres */
+    unsigned long int venc;	/* Tiempo de vencimiento/caducidad o "contador de accesos" de los datos guardados en 'linea' */
+    unsigned short int tipo_venc;	/* 0=no definido, 1=contador de accesos, 2=tiempo de vencimiento, 3=no modificable */
+    char *linea;		/* línea de caracteres, son los datos guardados */
 };
 
 /* Tipo de dato 'Texto'
@@ -39,13 +41,27 @@ typedef struct _stTexto Texto;
 extern "C" {
 #endif
 
-/* La función de prueba */
+/* La función de pruebas 1 y 2 */
 void pruebaTextos1(void);
+void pruebaTextos2(void);
+
+/* Es similar a setmem() */
+void limpiar(void *region, unsigned int longitud, char valor);
 
 /* Conjunto de funciones para el tratamiento simple de 'Texto' (una secuencia de caracteres) */
-void inicializarTexto(Texto *t, char *txtlinea, size_t ncaracts);
+/* Crear una línea de textos de longitud fija en memoria */
+void crearTextoF(Texto *t, char txtlinea[], size_t ncaracts);
+
+/* Crear una línea de textos de longitud fija y dinámicamente en memoria */
 void crearTexto(Texto *nuevo, size_t cap_nuevo);
+
+/* Eliminar de la memoria la línea de textos */
 char *eliminarTexto(Texto *dst);
+
+/* Eliminar de la memoria la línea de textos de longitud fija */
+char *eliminarTextoF(Texto *dst);
+
+/* Copiar una línea de textos 'org' en otra del mismo tipo 'dst' */
 Texto *copiarTexto(Texto *dst, Texto *org);
 /*___________________________________________________________*/
 
@@ -71,7 +87,7 @@ int getch(void)
     struct termios oldt, newt;
 
     // Obtiene el estado actual de la terminal consola
-    if(tcgetattr(STDIN_FILENO, &oldt) != 0) 
+    if(tcgetattr(STDIN_FILENO, &oldt) != 0)
     {
         perror("::Error:: tcgetattr");
         return -1;
@@ -79,7 +95,7 @@ int getch(void)
 
     newt = oldt;
     newt.c_lflag &= ~(ICANON | ECHO);	//   Deshabilita el modo canónico y el modo eco
-    if(tcsetattr(STDIN_FILENO, TCSANOW, &newt) != 0) 
+    if(tcsetattr(STDIN_FILENO, TCSANOW, &newt) != 0)
     {
         perror("::Error:: tcsetattr");
         return -1;
@@ -89,7 +105,7 @@ int getch(void)
     ch = getchar();
 
     // Restablece los valores anteriores
-    if(tcsetattr(STDIN_FILENO, TCSANOW, &oldt) != 0) 
+    if(tcsetattr(STDIN_FILENO, TCSANOW, &oldt) != 0)
     {
         perror("::Error:: tcsetattr");
         return -1;
@@ -101,11 +117,28 @@ int getch(void)
 
 void crearTexto(Texto *nuevo, size_t cap_nuevo)
 {
-   errno = 0;
+    errno = 0;
 
-   nuevo->linea = (char *)calloc(cap_nuevo, sizeof(char));
-   nuevo->cap = cap_nuevo;
-   nuevo->tam = 0;
+    nuevo->linea = (char *)calloc(cap_nuevo, sizeof(char));
+    nuevo->cap = cap_nuevo;
+    nuevo->tam = 0;
+    nuevo->tipo_venc = 0;
+    nuevo->venc = 0;	/* Este valor puede representar una cuenta de accesos comenzando desde uno */
+			/* o tiempo de vencimiento a los datos para su acceso comenzando desde uno,*/
+			/* el tiempo puede ser años, meses, días, horas, minutos y segundos */
+			/* Cuando es cero, significa no definido */
+}
+
+void crearTextoF(Texto *t, char txtlinea[], size_t ncaracts)
+{
+    t->linea = (char *)txtlinea;
+    t->cap = ncaracts;
+    t->tam = 0;
+    t->tipo_venc = 0;
+    t->venc = 0;	/* Este valor puede representar una cuenta de accesos comenzando desde uno */
+			/* o tiempo de vencimiento a los datos para su acceso comenzando desde uno,*/
+			/* el tiempo puede ser años, meses, días, horas, minutos y segundos */
+			/* Cuando es cero, significa no definido */
 }
 
 char *eliminarTexto(Texto *dst)
@@ -132,6 +165,29 @@ char *eliminarTexto(Texto *dst)
    return NULL;
 }
 
+char *eliminarTextoF(Texto *dst)
+{
+   errno = 0;
+
+   if(dst->linea == NULL || dst->cap == 0)
+    {
+      errno = EINVAL;  /* argumento inválido */
+      return NULL;
+    }
+
+#if defined(__CYGWIN__)
+   memset(dst->linea, '\0', dst->tam);
+#else
+   setmem(dst->linea, dst->tam, '\0');
+#endif // __CYGWIN__
+
+   dst->cap = 0;
+   dst->tam = 0;
+
+   dst->linea = NULL;
+   return NULL;
+}
+
 Texto *copiarTexto(Texto *dst, Texto *org)
 {
 	char *tmp = NULL;
@@ -150,11 +206,13 @@ Texto *copiarTexto(Texto *dst, Texto *org)
     return dst;
 }
 
-void inicializarTexto(Texto *t, char *txtlinea, size_t ncaracts)
+void limpiar(void *region, unsigned int longitud, char valor)
 {
-   t->linea = txtlinea;
-   t->cap = ncaracts;
-   t->tam = 0;
+#if defined(__CYGWIN__)
+   memset(region, valor, longitud);
+#else
+   setmem(region, longitud, valor);
+#endif // fin __CYGWIN__
 }
 
 /* Prueba las capacidades de uso de 'Texto' y sus funcs. */
@@ -164,23 +222,33 @@ void pruebaTextos1(void)
         Texto t2 = { 0 };
         char linea[80] = { 0 };
 
-   puts("Prueba nº 1 de 'Texto'\n");
+   puts("Prueba n§ 1 de 'Texto'\n");
 
-   sprintf(linea, "Hoy es un dia nublado.\n");
-   crearTexto(&t1, 80);
+   sprintf(linea, "== Hoy es un d¡a nublado ==\n");
+   crearTexto(&t1, 80);  /* Se crea 't1' dinámicamente en memoria */
 
-   /* Inicializa 't2' */
-   inicializarTexto(&t2, linea, sizeof(linea));
+   /* Se crea 't2' estáticamente en memoria con una longitud fija de datos del tipo char[] */
+   crearTextoF(&t2, linea, sizeof(linea));
 
    copiarTexto(&t1, &t2);
 
+   printf("Contenido de 'linea[]': %s", linea);
    printf("Contenido de t1: %s", t1.linea);
    printf("Contenido de t2: %s\n", t2.linea);
 
-   eliminarTexto(&t1);
+   eliminarTexto(&t1);		/* Se elimina 't1' dinámicamente de la memoria */
+   eliminarTextoF(&t2);         /* Se elimina el contenido de 't2' de la memoria */
+   limpiar(linea, 80, '\0');    /* Se elimina el contenido de 'linea' de la memoria */
+   printf("Contenido de 'linea[]' despu‚s de la eliminaci¢n de 't1' y 't2':\n%s\n", (linea[0] == '\0' ? "<nul>" : linea));
 
    puts("Presione cualquier tecla para terminar...");
    getch();
+}
+
+/* A completar !! */
+void pruebaTextos2(void)
+{
+	;puts("<fn() no implementada>");
 }
 
 #ifdef __cplusplus
