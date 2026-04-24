@@ -23,12 +23,16 @@
 #  include <conio.h>
 #endif // __BORLANDC__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct _stTexto
 {
     size_t tam;			/* tamaño vigente de la línea de caracteres */
     size_t cap;			/* capacidad máxima de almacenamiento en la línea de caracteres */
     unsigned long int venc;	/* Tiempo de vencimiento/caducidad o "contador de accesos" de los datos guardados en 'linea' */
-    unsigned short int tipo_venc;	/* 0=no definido, 1=contador de accesos, 2=tiempo de vencimiento, 3=no modificable */
+    unsigned short int tipo_venc;	/* 0=no definido, 1=contador de accesos, 2=tiempo de vencimiento, 3=dato no modificable */
     char *linea;		/* línea de caracteres, son los datos guardados */
 };
 
@@ -37,18 +41,11 @@ struct _stTexto
 */
 typedef struct _stTexto Texto;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/* La función de pruebas 1 y 2 */
-void pruebaTextos1(void);
-void pruebaTextos2(void);
-
 /* Es similar a setmem() */
 void limpiar(void *region, unsigned int longitud, char valor);
 
 /* Conjunto de funciones para el tratamiento simple de 'Texto' (una secuencia de caracteres) */
+
 /* Crear una línea de textos de longitud fija en memoria */
 void crearTextoF(Texto *t, char txtlinea[], size_t ncaracts);
 
@@ -63,6 +60,22 @@ char *eliminarTextoF(Texto *dst);
 
 /* Copiar una línea de textos 'org' en otra del mismo tipo 'dst' */
 Texto *copiarTexto(Texto *dst, Texto *org);
+
+/* Copiar una secuencia de caracteres 'org' en 'dst' del tipo 'Texto' */
+Texto *copiarATexto(Texto *dst, const char *org);
+
+/* Abre un archivo de textos para operaciones de E/S de datos */
+FILE *abrirTexto(const char *fnom);
+
+/* Cierra el archivo de textos dando por finalizada las operaciones de E/S de datos */
+int cerrarTexto(FILE *f);
+
+/* Guarda texto 'org' en un archivo de textos 'fdestino' */
+int guardarTexto(FILE *fdestino, Texto *org);
+
+/* Lee texto 'dst'  de un archivo de textos 'forig' */
+int leerTexto(FILE *forig, Texto *dst);
+
 /*___________________________________________________________*/
 
 #if defined(__CYGWIN__)
@@ -206,6 +219,77 @@ Texto *copiarTexto(Texto *dst, Texto *org)
     return dst;
 }
 
+Texto *copiarATexto(Texto *dst, const char *org)
+{
+	char *tmp = NULL;
+
+   errno = 0;
+   tmp = strncpy(dst->linea, org, dst->cap);
+   if(tmp == NULL)
+   {
+      errno = EINVAL;  /* argumento inválido */
+      return NULL;
+   }
+
+   dst->tam = strlen(dst->linea);
+
+   return dst;
+}
+
+FILE *abrirTexto(const char *fnom)
+{
+        static FILE *fichero;
+
+   errno = 0;
+   fichero = fopen(fnom, "w+t");
+   return fichero;
+}
+
+int cerrarTexto(FILE *f)
+{
+        int estado = 0;
+
+   errno = 0;
+   if(ferror(f) || feof(f))
+     clearerr(f);
+
+   estado = fclose(f);
+   return estado;
+}
+
+int guardarTexto(FILE *fdestino, Texto *org)
+{
+        int estado = 0;
+
+   if(fdestino == NULL || org == NULL)
+   {
+     errno = 2;
+   }
+   else
+   {
+     errno = 0;
+     estado = fwrite(org->linea, org->tam, 1, fdestino);
+     fflush(fdestino);
+     return estado;
+   }
+
+   return errno;
+}
+
+int leerTexto(FILE *forig, Texto *dst)
+{
+        int estado = 0;
+
+   errno = 0;
+   if(feof(forig))
+     clearerr(forig);
+
+   estado = fread(dst->linea, dst->cap, 1, forig);
+   dst->tam = strlen(dst->linea);
+
+   return estado;
+}
+
 void limpiar(void *region, unsigned int longitud, char valor)
 {
 #if defined(__CYGWIN__)
@@ -213,42 +297,6 @@ void limpiar(void *region, unsigned int longitud, char valor)
 #else
    setmem(region, longitud, valor);
 #endif // fin __CYGWIN__
-}
-
-/* Prueba las capacidades de uso de 'Texto' y sus funcs. */
-void pruebaTextos1(void)
-{
-        Texto t1 = { 0 };
-        Texto t2 = { 0 };
-        char linea[80] = { 0 };
-
-   puts("Prueba n§ 1 de 'Texto'\n");
-
-   sprintf(linea, "== Hoy es un d¡a nublado ==\n");
-   crearTexto(&t1, 80);  /* Se crea 't1' dinámicamente en memoria */
-
-   /* Se crea 't2' estáticamente en memoria con una longitud fija de datos del tipo char[] */
-   crearTextoF(&t2, linea, sizeof(linea));
-
-   copiarTexto(&t1, &t2);
-
-   printf("Contenido de 'linea[]': %s", linea);
-   printf("Contenido de t1: %s", t1.linea);
-   printf("Contenido de t2: %s\n", t2.linea);
-
-   eliminarTexto(&t1);		/* Se elimina 't1' dinámicamente de la memoria */
-   eliminarTextoF(&t2);         /* Se elimina el contenido de 't2' de la memoria */
-   limpiar(linea, 80, '\0');    /* Se elimina el contenido de 'linea' de la memoria */
-   printf("Contenido de 'linea[]' despu‚s de la eliminaci¢n de 't1' y 't2':\n%s\n", (linea[0] == '\0' ? "<nul>" : linea));
-
-   puts("Presione cualquier tecla para terminar...");
-   getch();
-}
-
-/* A completar !! */
-void pruebaTextos2(void)
-{
-	;puts("<fn() no implementada>");
 }
 
 #ifdef __cplusplus
