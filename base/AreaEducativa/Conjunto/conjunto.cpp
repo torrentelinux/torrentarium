@@ -39,7 +39,7 @@ const char *Conjunto::esVacio(void)
 
     respuesta = _no;
 
-    for(unsigned int i = 0; i < (sizeof(valor)/sizeof(int)); i++)
+    for(unsigned int i = 0; i < (sizeof(valor) / sizeof(int)); i++)
     {
         if(valor[i] == -1)
         {
@@ -77,12 +77,11 @@ void Conjunto::vacie(void)
     _capacidad = 3;		// El conjunto puede alojar hasta tres elementos numéricos.
 }
 
-// -----------------------------------
+// -------------------------------
 
-//xConjunto::xConjunto():Conjunto::Conjunto(0)
 xConjunto::xConjunto():Conjunto(0)
 {
-    _elementos = ninguno;             // El conjunto está vacío.
+    _elementos = ninguno;       // El conjunto está vacío.
     _capacidad = 1024;          // El conjunto puede alojar hasta 1024 elementos numéricos.
     _pares = _impares = ninguno;
     _nombre = sin_nombre;	// El conjunto no posee nombre.
@@ -94,10 +93,10 @@ xConjunto::xConjunto(int vNum[1024], int cant):Conjunto(0)
 {
     _capacidad = 1024;          // El conjunto puede alojar hasta 1024 elementos numéricos.
     _pares = _impares = ninguno;
-    
+
     if(cant > _capacidad)
         cant = _capacidad;
-    
+
     _elementos = cant;
     (void)memset(&a, indefinido, sizeof(int) * _capacidad);  // Todo el vector está indefinido.
 
@@ -162,6 +161,11 @@ int xConjunto::pares(void)
    return _pares;
 }
 
+int xConjunto::impares(void)
+{
+   return _impares;
+}
+
 const char *xConjunto::listeElementos(void)
 {
             static string lista;
@@ -190,5 +194,29 @@ const char *xConjunto::listeElementos(void)
 
 void xConjunto::introduceImpares(xConjunto e)
 {
+        int tmp = 0;
+        int k = 0;
+        string respuesta;
 
+    respuesta = e.esVacio();
+
+    if(respuesta == _si)
+        return;  // el conjunto está vacío.
+
+    // recorre todo el contenido del conjunto 'e'
+    for(int i = 0, k = 0; i < e.elementos(); i++)
+    {
+        if(e.a[i] < 1)  // ignora el 0 y los nros negativos
+          continue;
+
+        tmp = e.a[i] % 2;   // calcula el módulo
+        if(tmp == 1)        // si es uno entonces es impar
+        {
+            a[k++] = e.a[i];  // guarda el valor en el conjunto destino
+            _impares++;       // cuenta los nº impares guardados en el conjunto destino
+        }
+    }
+
+    if(_impares > 0)
+      _elementos = _impares;  // actualiza la cantidad de elementos numéricos que posee el conjunto
 }

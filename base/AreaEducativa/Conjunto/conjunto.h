@@ -13,13 +13,13 @@
 
 #include <string>
 
+using namespace std;
+
 static const int indefinido	= -1;
 static const int ninguno	= 0;
 static const string sin_nombre = "sin nombre";
 static const char _si[] 	= "sí";
 static const char _no[] 	= "no";
-
-using namespace std;
 
 /**
  * Clase Conjunto.
