@@ -1,8 +1,9 @@
 ﻿/*
- * Programa que ilustra el uso de la clase 'Conjunto'
+ * Programa que ilustra el uso de la clase 'Conjunto' y 'xConjunto'.
+ * Licencia: Software Libre.
  */
 
-/* 
+/*
  * File:   ejercicio.cpp
  * Author: Octulio Biletán
  * Created on 16 de mayo de 2026, 13:23

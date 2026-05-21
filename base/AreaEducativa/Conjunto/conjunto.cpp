@@ -2,6 +2,9 @@
 // Implementación básica de la clase 'Conjunto'.
 // Puede almacenar hasta 3 elementos numéricos.
 //
+// Implementación de la subclase extendida 'xConjunto'.
+// Puede almacenar hasta 1024 elementos numéricos.
+//
 // Licencia: Software Libre.
 
 #include <cstring>
@@ -17,7 +20,7 @@ const char *Conjunto::contiene(int d)
             static string respuesta;
 
     respuesta = _no;
-    for(unsigned int i = 0; i < (sizeof(valores)/sizeof(int)); i++)
+    for(unsigned int i = 0; i < (sizeof(valores) / sizeof(int)); i++)
     {
             if(valores[i] == d)
             {
@@ -38,7 +41,6 @@ const char *Conjunto::esVacio(void)
             static string respuesta;
 
     respuesta = _no;
-
     for(unsigned int i = 0; i < (sizeof(valor) / sizeof(int)); i++)
     {
         if(valor[i] == -1)
@@ -58,15 +60,15 @@ const char *Conjunto::esVacio(void)
 const char *Conjunto::listeElementos(void)
 {
             string respuesta;
-            static char lista[1024];
+            static char valores[64];
 
-    strcpy(lista, "{ Ø }");
+    strcpy(valores, "{ Ø }");
     respuesta = esVacio();
 
     if(respuesta == _no)
-        sprintf(lista, "{ %d,%d,%d }", a1, a2, a3 );
+        sprintf(valores, "{ %d,%d,%d }", a1, a2, a3 );
 
-    return lista;
+    return valores;
 }
 
 // Transforma en conjunto vacío.

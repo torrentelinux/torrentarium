@@ -1,5 +1,7 @@
 ﻿/*
  * ejercicio nº 3 sobre conjuntos de datos numéricos.
+ * Licencia: Software Libre.
+
  */
 #include <iostream>
 
@@ -13,7 +15,7 @@ int resolver_ejercicio_03(void)
         xConjunto muestra = { vectorZ, 5 };
 
     cout << "Ejercicio 3--" << endl << endl;
-    
+
     x.otorgaleNombre("Números pares");
     y.otorgaleNombre("Números impares");
 

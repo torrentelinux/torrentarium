@@ -1,7 +1,9 @@
 ﻿/*
  * ejercicio nº 2 sobre conjuntos de datos numéricos.
+ * Licencia: Software Libre.
  */
-#include <iostream>
+
+ #include <iostream>
 
 #include "conjunto.h"
 
