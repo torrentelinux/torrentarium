@@ -14,5 +14,11 @@ Software educativo para sistemas Windows y Linux.
 Se requiere la librería Java/JDK y/o Java/JRE para su correcto funcionamiento.
 El código fuente de "NumeracionBinaria.java" es compatible desde la versión 21 en adelante.
 
+::Referencias::
+1] https://lineadecodigo.com/categoria/java/
+2] https://rootstack.com/es/blog/java-limpiar-pantalla
+3] https://es.wikipedia.org/wiki/Código_binario
+4] https://www.areatecnologia.com/sistema-binario.htm
+
 _______________________________
 Octulio Biletán * Junio de 2026
