@@ -4,8 +4,9 @@ Su objetivo es servir de plataforma educativa para la enseñanza del sistema de 
 tanto en Windows como en Linux.
 Fijarse en las imágenes gráficas que acompañan a esta documentación para conocer sus opciones de uso.
 Para empezar a usar, abra la consola de textos de su S.O. y escriba:
-    java -jar dist\NumeracionBinaria.jar
-    
+    java -jar dist\NumeracionBinaria.jar	(Windows/cmd)
+    java -jar dist/NumeracionBinaria.jar	(Linux/bash)
+
 El Proyecto Java 'NumeracionBinaria' ha sido realizado en Apache NetBeans IDE.
 Software educativo para sistemas Windows y Linux.
 
