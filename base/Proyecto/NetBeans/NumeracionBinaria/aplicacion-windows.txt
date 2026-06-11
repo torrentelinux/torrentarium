@@ -1,0 +1,50 @@
+- Numeracion Binaria - Edición Windows -
+
+Su objetivo es servir de plataforma educativa para la enseñanza del sistema de numeración binaria
+tanto en Windows como en Linux.
+Fijarse en las imágenes gráficas que acompañan a esta documentación para conocer sus opciones de uso.
+Para empezar a usar, abra la consola de textos de su S.O. y escriba:
+    java -jar dist\NumeracionBinaria.jar	(Windows/cmd)
+    java -jar dist/NumeracionBinaria.jar	(Linux/bash)
+
+El Proyecto Java 'NumeracionBinaria' ha sido realizado en Apache NetBeans IDE.
+Software educativo para sistemas Windows y Linux.
+
+::INSTALACION::
+Se ofrece dos paquetes de archivos según sea el S.O. que Usted use diariamente.
+Paquete completo para Linux:
+	NumeracionBinaria-linux-1.6.2026.tar.xz		{1}
+Paquete completo para Windows:
+	NumeracionBinaria-windows-1.6.2026.zip		{2}
+
+Para el caso {2}, no es necesario que Usted sea 'Administrador' o que tenga privilegios altos para instalar 'NumeracionBinaria'.
+Descomprima todo en un directorio, público o personal, y pase adentro de ./NumeracionBinaria/
+En el mencionado directorio contiene lo siguiente:
+NumeracionBinaria/.
+├── build
+│   ├── classes
+│   │   └── numeracionbinaria
+│   ├── empty
+│   └── generated-sources
+│       └── ap-source-output
+├── dist			=> el archivo .jar principal
+├── doc				=> la documentación del proyecto más la licencia GNU/GPL v3
+├── nbproject			=> los archivos del proyecto para el entorno NetBeans
+│   └── private
+└── src
+    └── numeracionbinaria	=> el archivo .java fuente
+
+::IMPORTANTE::
+Se requiere la librería Java/JDK y/o Java/JRE para su correcto funcionamiento.
+El código fuente de "NumeracionBinaria.java" es compatible desde la versión 21 en adelante.
+
+::Referencias::
+1] https://lineadecodigo.com/categoria/java/
+2] https://rootstack.com/es/blog/java-limpiar-pantalla
+3] https://es.wikipedia.org/wiki/Código_binario
+4] https://www.areatecnologia.com/sistema-binario.htm
+5] https://es.wikipedia.org/wiki/Código_escape_ANSI
+6] https://es.wikipedia.org/wiki/Carácter_de_control
+
+_______________________________
+Octulio Biletán * Junio de 2026
