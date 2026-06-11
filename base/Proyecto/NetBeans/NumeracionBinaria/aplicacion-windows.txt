@@ -43,8 +43,23 @@ NumeracionBinaria/.
     └── numeracionbinaria	=> el archivo .java fuente
 
 ::IMPORTANTE::
-Se requiere la librería Java/JDK y/o Java/JRE para su correcto funcionamiento.
+Usted debe contar con conocimientos básicos de S.O. Windows para comenzar a desarrollar aplicaciones Java.
+Le suguiero que busque info., docu., videos, etc. en Internet sobre Windows.
+
+Se requiere la librería Java/JDK y/o Java/JRE para su correcto funcionamiento del proyecto 'NumeracionBinaria'.
 El código fuente de "NumeracionBinaria.java" es compatible desde la versión 21 en adelante.
+Si en su computadora no tiene instalada la librería mencionada, le sugiero que lea el siguiente artículo:
+    - Cómo instalar Java (JDK) en Windows paso a paso -
+    https://mundobytes.com/como-instalar-java-jdk-en-windows/
+
+Si quiere utilizar Apache NetBeans IDE para aprender/estudiar/recompilar el código fuente de 'NumeracionBinaria'
+tendrá que proceder a descargar e instalar el entorno de programación Java desde el sitio oficial:
+    https://netbeans.apache.org/front/main/index.html
+
+Y presionar el botón 'verde' que dice 'download' y lo llevará a otro enlace, es de 'codelerity'
+    https://github.com/codelerity/netbeans-packages/releases/download/v30-build1/Apache-NetBeans-30.exe
+
+Tocar sobre el botón que dice 'Apache NetBeans 30 + JDK 26 (.exe x86_64)' y procederá a descargar el paquete instalador.
 
 ::Referencias::
 1] https://lineadecodigo.com/categoria/java/
