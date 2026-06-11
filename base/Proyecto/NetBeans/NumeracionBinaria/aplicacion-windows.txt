@@ -10,6 +10,14 @@ Para empezar a usar, abra la consola de textos de su S.O. y escriba:
 El Proyecto Java 'NumeracionBinaria' ha sido realizado en Apache NetBeans IDE.
 Software educativo para sistemas Windows y Linux.
 
+::HOSPEDAJE::
+El proyecto 'NumeracionBinaria' está hospedado en GitHub, visite el siguiente enlace:
+	https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/NetBeans/NumeracionBinaria
+
+Allí encontrará el paquete .zip que corresponde a la versión para Windows.
+Haga clic sobre el paquete "NumeracionBinaria-windows-1.6.2026.zip" y luego clic sobre el botón 'Download raw file' (a la derecha)
+y el navegador procederá a descargar el paquete seleccionado.
+
 ::INSTALACION::
 Se ofrece dos paquetes de archivos según sea el S.O. que Usted use diariamente.
 Paquete completo para Linux:
