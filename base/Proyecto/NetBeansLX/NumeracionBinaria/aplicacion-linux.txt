@@ -1,0 +1,73 @@
+- Numeracion Binaria - Edición Linux -
+
+Su objetivo es servir de plataforma educativa para la enseñanza del sistema de numeración binaria
+tanto en Linux como en Windows.
+Fijarse en las imágenes gráficas que acompañan a esta documentación para conocer sus opciones de uso.
+La aplicación requiere que corra en un ambiente gráfico porque ha sido vinculado en el proceso de compilación
+con la librería javax.swing, el ambiente gráfico puede ser KDE, GNOME o cualquier otro que inicialize la interfaz gráfica.
+
+Para empezar a usar, abra la consola de textos de su S.O. y escriba:
+    java -jar dist/NumeracionBinaria.jar	(Linux/bash)
+    java -jar dist\NumeracionBinaria.jar	(Windows/cmd)
+
+El Proyecto Java 'NumeracionBinaria' ha sido realizado en Apache NetBeans IDE.
+Es software educativo para sistemas Linux y Windows. Se acompaña el archivo de la licencia GNU/GPL v3 'LICENSE'.
+
+::HOSPEDAJE::
+El proyecto 'NumeracionBinaria' está hospedado en GitHub, visite el siguiente enlace:
+	https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/NetBeans/NumeracionBinaria
+
+Allí encontrará el paquete .xz que corresponde a la versión para Linux.
+Haga clic sobre el paquete "NumeracionBinaria-linux-1.6.2026.tar.xz" y luego clic sobre el botón 'Download raw file' (a la derecha)
+y el navegador procederá a descargar el paquete seleccionado.
+
+::INSTALACION::
+Se ofrece dos paquetes de archivos según sea el S.O. que Usted use diariamente.
+Paquete completo para Linux:
+	NumeracionBinaria-linux-1.6.2026.tar.xz		{1}
+Paquete completo para Windows:
+	NumeracionBinaria-windows-1.6.2026.7z		{2}
+
+Para el caso {1}, no es necesario que Usted sea 'root' o que tenga privilegios altos para instalar 'NumeracionBinaria'.
+Descomprima todo en un directorio, público o personal, y pase adentro de ./NumeracionBinaria/
+En el mencionado directorio contiene lo siguiente:
+NumeracionBinaria/.
+├── build
+│   ├── classes
+│   │   └── numeracionbinaria
+│   ├── empty
+│   └── generated-sources
+│       └── ap-source-output
+├── dist			=> el archivo .jar principal
+├── doc				=> la documentación del proyecto más la licencia GNU/GPL v3
+├── nbproject			=> los archivos del proyecto para el entorno NetBeans
+│   └── private
+└── src
+    └── numeracionbinaria	=> el archivo .java fuente
+
+::IMPORTANTE::
+Se requiere la librería Java/JDK y/o Java/JRE para su correcto funcionamiento.
+El código fuente de "NumeracionBinaria.java" es compatible desde la versión 21 en adelante.
+
+::PROCESO DE DESARROLLO::
+Puede trabajar desde la consola de textos del S.O. ya sea editando, compilando y ejecutar el archivo .jar
+pero es más cómodo hacer todo eso desde el entorno de NetBeans.
+Linux cuenta con numerosos editores de textos para programadores, por ejemplo, mcedit, kwrite, xed, gedit, etc.
+Los comandos de Java para el proceso de desarrollo son: javac, jar y java.
+Cada uno de ellos cuenta con ayuda a través del comando man, por ejemplo, man javac.
+
+Compilar .java: javac src\numeracionbinaria\NumeracionBinaria.java
+Ejecutar .class: java -cp src numeracionbinaria.NumeracionBinaria
+Ejecutar .jar: java -jar dist\NumeracionBinaria.jar
+
+::Referencias::
+1] https://lineadecodigo.com/categoria/java/
+2] https://rootstack.com/es/blog/java-limpiar-pantalla
+3] https://es.wikipedia.org/wiki/Código_binario
+4] https://www.areatecnologia.com/sistema-binario.htm
+5] https://en.wikipedia.org/wiki/ANSI_escape_code
+6] https://es.wikipedia.org/wiki/Código_escape_ANSI
+7] https://es.wikipedia.org/wiki/Carácter_de_control
+
+______________________________
+Octulio Biletán * Junio de 2026
