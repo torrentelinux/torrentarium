@@ -15,7 +15,7 @@ Es software educativo para sistemas Linux y Windows. Se acompaña el archivo de 
 
 ::HOSPEDAJE::
 El proyecto 'NumeracionBinaria' está hospedado en GitHub, visite el siguiente enlace:
-	https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/NetBeans/NumeracionBinaria
+	https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/NetBeansLX/NumeracionBinaria
 
 Allí encontrará el paquete .xz que corresponde a la versión para Linux.
 Haga clic sobre el paquete "NumeracionBinaria-linux-1.6.2026.tar.xz" y luego clic sobre el botón 'Download raw file' (a la derecha)
