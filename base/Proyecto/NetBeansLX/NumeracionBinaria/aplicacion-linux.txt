@@ -10,14 +10,18 @@ Para empezar a usar, abra la consola de textos de su S.O. y escriba:
     java -jar dist/NumeracionBinaria.jar	(Linux/bash)
     java -jar dist\NumeracionBinaria.jar	(Windows/cmd)
 
+O también, de esta manera: ./NumeracionBinaria
+es un programa ejecutable en Bash que invoca a Java para que se inicie la aplicación 'NumeracionBinaria.jar'.
+
 El Proyecto Java 'NumeracionBinaria' ha sido realizado en Apache NetBeans IDE.
 Es software educativo para sistemas Linux y Windows. Se acompaña el archivo de la licencia GNU/GPL v3 'LICENSE'.
 
 ::HOSPEDAJE::
-El proyecto 'NumeracionBinaria' está hospedado en GitHub, visite el siguiente enlace:
-	https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/NetBeansLX/NumeracionBinaria
+El proyecto 'NumeracionBinaria' está hospedado en GitHub, visite estos enlace:
+	{1} https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/NetBeansLX/NumeracionBinaria
+	{2} https://github.com/torrentelinux/torrentarium/tree/master/base/Proyecto/NetBeans/NumeracionBinaria
 
-Allí encontrará el paquete .xz que corresponde a la versión para Linux.
+En {1} allí encontrará el paquete .xz que corresponde a la versión para Linux.
 Haga clic sobre el paquete "NumeracionBinaria-linux-1.6.2026.tar.xz" y luego clic sobre el botón 'Download raw file' (a la derecha)
 y el navegador procederá a descargar el paquete seleccionado.
 
@@ -26,7 +30,7 @@ Se ofrece dos paquetes de archivos según sea el S.O. que Usted use diariamente.
 Paquete completo para Linux:
 	NumeracionBinaria-linux-1.6.2026.tar.xz		{1}
 Paquete completo para Windows:
-	NumeracionBinaria-windows-1.6.2026.7z		{2}
+	NumeracionBinaria-windows-1.6.2026.zip		{2}
 
 Para el caso {1}, no es necesario que Usted sea 'root' o que tenga privilegios altos para instalar 'NumeracionBinaria'.
 Descomprima todo en un directorio, público o personal, y pase adentro de ./NumeracionBinaria/
@@ -39,7 +43,7 @@ NumeracionBinaria/.
 │   └── generated-sources
 │       └── ap-source-output
 ├── dist			=> el archivo .jar principal
-├── doc				=> la documentación del proyecto más la licencia GNU/GPL v3
+├── doc				=> la documentación del proyecto, las imágenes gráficas más la licencia GNU/GPL v3
 ├── nbproject			=> los archivos del proyecto para el entorno NetBeans
 │   └── private
 └── src
@@ -47,7 +51,11 @@ NumeracionBinaria/.
 
 ::IMPORTANTE::
 Se requiere la librería Java/JDK y/o Java/JRE para su correcto funcionamiento.
-El código fuente de "NumeracionBinaria.java" es compatible desde la versión 21 en adelante.
+El código fuente de "NumeracionBinaria.java" es compatible desde la versión 17 en adelante.
+Visite el sitio de OpenJDK, consulte allí lo que hace falta para instalar en su S.O. Linux.
+También puede buscar info. en el mismo sitio web de su sistema Linux para disponer de Java.
+Otra alternativa es fijarse en el sitio web de Apache NetBeans y descargar el IDE junto
+con la librería Java/JDK para su sistema Linux.
 
 ::PROCESO DE DESARROLLO::
 Puede trabajar desde la consola de textos del S.O. ya sea editando, compilando y ejecutar el archivo .jar
@@ -61,13 +69,16 @@ Ejecutar .class: java -cp src numeracionbinaria.NumeracionBinaria
 Ejecutar .jar: java -jar dist\NumeracionBinaria.jar
 
 ::Referencias::
-1] https://lineadecodigo.com/categoria/java/
-2] https://rootstack.com/es/blog/java-limpiar-pantalla
+0] https://lineadecodigo.com/categoria/java/
+1] https://rootstack.com/es/blog/java-limpiar-pantalla
+2] https://www.areatecnologia.com/sistema-binario.htm
 3] https://es.wikipedia.org/wiki/Código_binario
-4] https://www.areatecnologia.com/sistema-binario.htm
-5] https://en.wikipedia.org/wiki/ANSI_escape_code
-6] https://es.wikipedia.org/wiki/Código_escape_ANSI
-7] https://es.wikipedia.org/wiki/Carácter_de_control
+4] https://es.wikipedia.org/wiki/Código_escape_ANSI
+5] https://es.wikipedia.org/wiki/Carácter_de_control
+6] https://en.wikipedia.org/wiki/ANSI_escape_code
+7] https://www.calculator.io/es/calculadora-binaria/
+8] https://openjdk.org/
+9] https://netbeans.apache.org/
 
-______________________________
+_______________________________
 Octulio Biletán * Junio de 2026
