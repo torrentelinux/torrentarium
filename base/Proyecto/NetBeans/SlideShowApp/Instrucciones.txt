@@ -1,0 +1,15 @@
+::Instrucciones de uso::
+
+[*] Primero tiene que iniciar el servidor GlassFish desde el entorno de NetBeans.
+[*] Presione las teclas Ctrl+5 para entrar a la pestaña 'Services'.
+[*] Haga clic derecho encima de 'GlassFish Server' y presione en opción 'Start'.
+[*] Inicie y abra el navegador web de su preferencia.
+[*] Escriba en la barra de direcciones la siguiente URL:
+    http://localhost:8080/SlideShowApp/
+
+Y mostrará las imágenes gráficas en el navegador web, éstas están en el directorio web/imagenes/
+Usted puede poner allí cualquier imágen gráfica y cantidad que desee.
+Los formatos reconocidos son: jpg, png y webp.
+
+________________________________________________________________
+Octulio Biletán * https://x.com/euxeniumartinez * Agosto de 2026
