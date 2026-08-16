@@ -11,9 +11,20 @@
 Y mostrará las imágenes gráficas en el navegador web, éstas están en el directorio web/imagenes/
 Usted puede poner allí cualquier imágen gráfica y cantidad que desee.
 Los formatos reconocidos son: jpg, png y webp.
-Atención: el archivo 'guiapractica.php' tiene que estar alojado en el directorio 'c:\laragon\www\'
-para que sea accedido mediante Apache HTTPD.
-La URL que se utilizará es http://localhost/guiapractica.php
+Atención:
+    1] Instale GlassFish 8.0.0 mediante la asistencia de NetBeans, apartado Tools/Servers/Add Server...
+    2]  El archivo 'guiapractica.php' tiene que estar alojado en el directorio 'c:\laragon\www\'
+	 para que sea accedido mediante Apache HTTPD.
+	 La URL que se utilizará es http://localhost/guiapractica.php
+
+[*] Administración del servidor de aplicaciones desde 'Command Prompt' (cmd.exe)
+	Para iniciar Eclipse GlassFish: glassfish\bin\asadmin start-domain
+	Visite http://localhost:4848
+	Para detener Eclipse GlassFish: glassfish\bin\asadmin stop-domain
+
+Para mayor información sobre el uso de:
+	· Eclipse GlassFish, visite el sitio https://github.com/eclipse-ee4j/glassfish
+	· Laragon, visite el sitio https://github.com/leokhoa/laragon
 
 ________________________________________________________________
 Octulio Biletán * https://x.com/euxeniumartinez * Agosto de 2026
