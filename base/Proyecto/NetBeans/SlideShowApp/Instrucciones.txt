@@ -1,6 +1,7 @@
 ::Instrucciones de uso::
 
-[*] Primero tiene que iniciar el servidor GlassFish desde el entorno de NetBeans.
+[*] Primero tiene que iniciar el servidor Laragon presionando el botón 'Iniciar todo'.
+[*] Luego tiene que iniciar el servidor GlassFish desde el entorno de NetBeans.
 [*] Presione las teclas Ctrl+5 para entrar a la pestaña 'Services'.
 [*] Haga clic derecho encima de 'GlassFish Server' y presione en opción 'Start'.
 [*] Inicie y abra el navegador web de su preferencia.
@@ -10,6 +11,9 @@
 Y mostrará las imágenes gráficas en el navegador web, éstas están en el directorio web/imagenes/
 Usted puede poner allí cualquier imágen gráfica y cantidad que desee.
 Los formatos reconocidos son: jpg, png y webp.
+Atención: el archivo 'guiapractica.php' tiene que estar alojado en el directorio 'c:\laragon\www\'
+para que sea accedido mediante Apache HTTPD.
+La URL que se utilizará es http://localhost/guiapractica.php
 
 ________________________________________________________________
 Octulio Biletán * https://x.com/euxeniumartinez * Agosto de 2026
