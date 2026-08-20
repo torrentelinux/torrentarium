@@ -1,0 +1,19 @@
+ ValidaCorreo.java --- Octulio Biletán --- Marzo de 2020.
+ Valida una dirección de correo electrónico que tiene la forma:
+ ------------
+ Caso 1: <caracteres>@<caracteres>.<caracteres>
+ Caso 2: <64 caracteres>@<255 caracteres>
+ Reglas:     No se admiten caracteres de la lengua castellana: ñ, Ñ y las vocales acentuadas.
+             Es decir si está correctamente escrito y que será admitido por el servidor de correo electrónico.
+ Correcto  : lala@lala.com; maniana10@lala.com; mmmmmmmmmm10@lala.com; direccion@empresa.com
+ Incorrecto: lalalalacom; lala@lala.com1; mañana10@lala.com; dirección@compañía.com
+ ------------
+ Versión    : 1.8.2026
+ Ejecutar   : (1) java ValidaCorreo.java
+              (2) java ValidaCorreo.java dirección@compañía.com
+ Referencias: Consulta en: https://lagrowthmachine.com/es/que-es-una-direccion-de-correo-electronico-valida-reglas-formato-explicadas/
+ Actualizado: Agosto de 2026.
+ -------------
+ Alternativa 1: Pattern.compile("([a-z0-9]+(\\.?[a-z0-9])*)+@(([a-z]+)\\.([a-z]+))+");
+ Alternativa 2: Pattern composicion = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+ ------------
