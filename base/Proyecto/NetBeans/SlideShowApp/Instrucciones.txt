@@ -1,21 +1,33 @@
-::Instrucciones de uso::
+			::Instrucciones de uso::
 
-[*] Primero tiene que iniciar el servidor Laragon presionando el botón 'Iniciar todo'.
+
+[*] Prepare un "entorno de desarrollo" en su computadora con Windows.
+[*] Active la cuenta 'Administrador' y asigne una contraseña de acceso.
+[*] Ingrese a Windows mediante la cuenta 'Administrador'.
+[*] Instale las siguientes herramientas de programación para el desarrollo de aplicaciones webs:
+	# Apache NetBeans IDE 30
+	# Java Zulu SDK 25
+	# Eclipse GlassFish 8.0.0
+	# Laragon 8.6.1
+[*] Cree un directorio en c:\ para todos los proyectos de programación Java/NetBeans.
+[*] Guarde en el directorio que Usted ha creado el proyecto 'SlideShowApp'.
+[*] Ejecute Laragon:
+	# Iniciar los servicios del servidor Laragon presionando el botón 'Iniciar todo'.
+[*] Ejecute NetBeans y abra el proyecto 'SlideShowApp'.
 [*] Luego tiene que iniciar el servidor GlassFish desde el entorno de NetBeans.
-[*] Presione las teclas Ctrl+5 para entrar a la pestaña 'Services'.
-[*] Haga clic derecho encima de 'GlassFish Server' y presione en opción 'Start'.
+	# Presione las teclas Ctrl+5 para entrar a la pestaña 'Services'.
+	# Haga clic derecho encima de 'GlassFish Server' y presione en opción 'Start'.
 [*] Inicie y abra el navegador web de su preferencia.
 [*] Escriba en la barra de direcciones la siguiente URL:
-    http://localhost:8080/SlideShowApp/
+	http://localhost:8080/SlideShowApp/
 
 Y mostrará las imágenes gráficas en el navegador web, éstas están en el directorio web/imagenes/
 Usted puede poner allí cualquier imágen gráfica y cantidad que desee.
 Los formatos reconocidos son: jpg, png y webp.
 Atención:
     1] Instale GlassFish 8.0.0 mediante la asistencia de NetBeans, apartado Tools/Servers/Add Server...
-    2]  El archivo 'guiapractica.php' tiene que estar alojado en el directorio 'c:\laragon\www\'
-	 para que sea accedido mediante Apache HTTPD.
-	 La URL que se utilizará es http://localhost/guiapractica.php
+    2] El archivo 'guiapractica.php' tiene que estar alojado en el directorio 'c:\laragon\www\' para que sea accedido mediante Apache HTTPD.
+	La URL que se utilizará es http://localhost/guiapractica.php
 
 [*] Administración del servidor de aplicaciones desde 'Command Prompt' (cmd.exe)
 	Para iniciar Eclipse GlassFish: glassfish\bin\asadmin start-domain
@@ -23,8 +35,13 @@ Atención:
 	Para detener Eclipse GlassFish: glassfish\bin\asadmin stop-domain
 
 Para mayor información sobre el uso de:
-	· Eclipse GlassFish, visite el sitio https://github.com/eclipse-ee4j/glassfish
+	· Eclipse GlassFish Server, visite los sitios:
+	    # https://github.com/eclipse-ee4j/glassfish
+	    # Quick Start Guide https://glassfish.org/docs/latest/quick-start-guide.html
+	    # En Netbeans IDE, visite el sitio https://omnifish.ee/developers/glassfish-server/ide-plugins-for-glassfish/netbeans/
 	· Laragon, visite el sitio https://github.com/leokhoa/laragon
-
+	· Diferencias entre servidor web (por ej. laragon) y servidor de aplicaciones (por ej. glassfish), visite el sitio
+	  https://ccnadesdecero.es/servidor-web-vs-servidor-aplicaciones/
+	
 ________________________________________________________________
 Octulio Biletán * https://x.com/euxeniumartinez * Agosto de 2026
