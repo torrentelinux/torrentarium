@@ -1,0 +1,10 @@
+Desarrollo de un proyecto informático para un centro educativo privado.
+
+Crear un directorio: c:\base\sitio
+Descomprimir en dicho directorio: bdd2-clase7.zip
+Ejecutar cmd: entrar al directorio c:\base\sitio\CentroEducativo\
+Ejecutar en dicho directorio: jwebserver
+Para navegar: http://localhost:8000/CentroEducativo/
+
+______________________________________________
+Eugenio Martínez * Septiembre 2026
