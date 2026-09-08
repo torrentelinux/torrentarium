@@ -1,16 +1,20 @@
 El programa "hay-red" es un script para Bash.
-Comprueba que su computadora tenga conexion de red hacia el exterior (internet).
+Comprueba que su computadora tenga conexión de red hacia el exterior (internet).
 Se apoya en los siguientes programas: ping, nmcli, ip, curl y timedatectl.
 Detecta si en Linux está en uso 'systemd' o 'sysvinit' para informar qué zona horaria está vigente en la computadora.
 No es necesario usar el comando 'sudo' para ejecutar este programa.
-  
+
 Ha sido probado en:
 * Oracle Linux Server 7.9 y versiones posteriores.
 * MX-Linux 23 y versiones posteriores.
-* GobMis GNU/Linux 5.0 - Yetapa.
+* GobMis GNU/Linux 5.0 - Yetapá.
 
-Descargue el archivo mencionado y luego asigne permisos de ejecucion (0775).
-Puede guardarlo en algun directorio 'bin', por ejemplo en '~/bin'.
-Ejecute asi en una consola de textos: ./hay-red
+Descargue el archivo mencionado y luego asigne permisos de ejecución (0755) con el comando 'chmod'.
+Puede guardarlo en algún directorio 'bin', por ejemplo en '~/bin'.
+Entre al directorio 'bin' y ejecute así en una consola de textos: ./hay-red
+En cambio, si pone el programa en '/usr/bin' bastará su ejecución desde cualquier directorio porque el sistema lo ubicará mediante la var. de entorno 'PATH'.
+Por ejemplo:
+[usuario@computadora ~]$ hay-red
+
 _______________________________________________
 Octulio Biletan * Septiembre de 2026 *
