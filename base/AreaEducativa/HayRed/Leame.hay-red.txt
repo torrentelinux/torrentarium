@@ -11,3 +11,5 @@ Ha sido probado en:
 Descargue el archivo mencionado y luego asigne permisos de ejecucion (0775).
 Puede guardarlo en algun directorio 'bin', por ejemplo en '~/bin'.
 Ejecute asi en una consola de textos: ./hay-red
+_______________________________________________
+Octulio Biletan * Septiembre de 2026 *
