@@ -1,23 +1,31 @@
 #!/bin/sh
 # De.: Comprueba si estás en red.
 # Uso: hay-red
-# Ej.: hay-red
-# Au.: Octulio Biletán - torrentelinux@gmail.com
+# Ej.: [1]hay-red
+#    : [2]hay-red|zenity --text-info
+#      [3]hay-red|zenity --text-info --title="¿Hay red?" --width 574 --height 244
+# Au.: Octulio Biletán - https://t.me/octuliobiletan - Septiembre 2026
 
-echo "<<Estado actual de su conexión de red>>"
-echo "Aguarde un momento... "$LOGNAME
+echo '** Estado actual de su conexión de red **'
+echo 'Aguarde un momento... '$LOGNAME
 destino='one.one.one.one'
 status=`ping -q -c 7 $destino`
+
 if [ "$status" = "" ] ; then
-    nmcli -c yes g permissions
-    nmcli -c yes g
-    echo "No hay red hacia el destino "$destino
+    nmcli -c auto g permissions
+    nmcli -c auto g
+    echo 'No hay red hacia el destino '$destino
 else
-    nmcli -c yes g
+    nmcli -c auto g
     nmcli n connectivity check
     echo $status
-    echo "<<Direcciones IP activas>>"
+    echo '** Direcciones IP activas **'
     ip address|grep global
+    echo '** Dir. IP externa **'
+#   Alternativa: curl --url https://api.myip.com
+    curl --url https://ipinfo.io/json 2> /dev/null
+    echo -e "\n** Zona horaria activa **"
+    timedatectl|grep zone:
     echo "Sí hay red."
 fi
 echo Listo $LOGNAME.
