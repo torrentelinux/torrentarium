@@ -33,14 +33,14 @@ else
 #   Alternativa: curl --url https://api.myip.com
     curl --url https://ipinfo.io/json 2> /dev/null
     echo -e "\n** Zona horaria activa **"
-    
+
     # Depende del init...
     if [ "$USA" = "systemd" ] ; then
-           timedatectl|grep zone:
+	timedatectl|grep zone:
     else
-           cat /etc/timezone
+	cat /etc/timezone
     fi
-    
+
     echo "Sí hay red."
 fi
 echo Listo $LOGNAME.
