@@ -5,11 +5,19 @@
 #    : [2]hay-red|zenity --text-info
 #      [3]hay-red|zenity --text-info --title="¿Hay red?" --width 574 --height 244
 # Au.: Octulio Biletán - https://t.me/octuliobiletan - Septiembre 2026
+# Co.: Con la 'asistencia' de Javier Obregón - https://t.me/jobregon - Septiembre de 2026.
 
 echo '** Estado actual de su conexión de red **'
 echo 'Aguarde un momento... '$LOGNAME
 destino='one.one.one.one'
 status=`ping -q -c 7 $destino`
+
+## Qué init usa la distro...
+if [ -d /run/systemd/system ] ; then
+        USA="systemd"
+else
+        USA="sysvinit"
+fi
 
 if [ "$status" = "" ] ; then
     nmcli -c auto g permissions
@@ -25,8 +33,14 @@ else
 #   Alternativa: curl --url https://api.myip.com
     curl --url https://ipinfo.io/json 2> /dev/null
     echo -e "\n** Zona horaria activa **"
-#   Alternativa: timedatectl|grep zone:
-    cat /etc/timezone
+    
+    # Depende del init...
+    if [ "$USA" = "systemd" ] ; then
+           timedatectl|grep zone:
+    else
+           cat /etc/timezone
+    fi
+    
     echo "Sí hay red."
 fi
 echo Listo $LOGNAME.
