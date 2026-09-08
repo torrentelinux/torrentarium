@@ -25,7 +25,8 @@ else
 #   Alternativa: curl --url https://api.myip.com
     curl --url https://ipinfo.io/json 2> /dev/null
     echo -e "\n** Zona horaria activa **"
-    timedatectl|grep zone:
+#   Alternativa: timedatectl|grep zone:
+    cat /etc/timezone
     echo "Sí hay red."
 fi
 echo Listo $LOGNAME.
