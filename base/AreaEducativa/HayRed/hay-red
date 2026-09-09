@@ -6,6 +6,8 @@
 #      [3]hay-red|zenity --text-info --title="¿Hay red?" --width 574 --height 244
 # Au.: Octulio Biletán - https://t.me/octuliobiletan - Septiembre 2026
 # Co.: Con la 'asistencia' de Javier Obregón - https://t.me/jobregon - Septiembre de 2026.
+# Ob.: Ejecute ps -q 1|grep sysv para averiguar si sysvinit está en memoria
+#      y ps -q 1|grep syst para averiguar si systemd está en memoria.
 
 echo '** Estado actual de su conexión de red **'
 echo 'Aguarde un momento... '$LOGNAME
