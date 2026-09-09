@@ -19,5 +19,5 @@ En cambio, si pone el programa en '/usr/bin' bastará su ejecución desde cualqu
 Por ejemplo:
 [usuario@computadora ~]$ hay-red
 
-_______________________________________________
-Octulio Biletan * Septiembre de 2026 *
+______________________________________________________________
+Octulio Biletán * Septiembre de 2026 *
