@@ -2,20 +2,23 @@ El programa "hay-red" es un script con instrucciones para Bash.
 Comprueba si su computadora/dispositivo tiene conexión de red hacia el exterior (internet).
 Se apoya en los siguientes programas: ping, nmcli, ip, curl y timedatectl.
 Detecta si en Linux está en uso 'systemd' o 'sysvinit' para informar qué zona horaria está vigente en la computadora.
-Una observación a tener en cuenta: Ejecute 'ps -q 1|grep sysv' para averiguar si 'sysvinit' está en memoria
-y 'ps -q 1|grep syst' para averiguar si 'systemd' está en memoria.
 Dado que el programa 'timedatectl' se apoya en los servicios de 'systemd'.
+Una observación a tener en cuenta: Ejecute 'ps -q 1|grep sysv' para averiguar si 'sysvinit' está en memoria
+y 'ps -q 1|grep syst' para averiguar si 'systemd' está en memoria, y por último 'ps -q 1 && pstree root' para saber si
+está corriendo en un espacio confinado definido por el administrador del sistema (root).
 No es necesario usar el comando 'sudo' para ejecutar el programa 'hay-red'.
 
 Ha sido probado en:
 * Oracle Linux Server 7.9 y versiones posteriores.
 * MX-Linux 23 y versiones posteriores.
 * GobMis GNU/Linux 5.0 - Yetapá.
+* Google Cloud Shell - Ubuntu Linux 24.04.4 LTS.
 
 Descargue el archivo mencionado y luego asigne permisos de ejecución (0755) con el comando 'chmod'.
 Puede guardarlo en algún directorio 'bin', por ejemplo en '~/bin'.
 Entre al directorio 'bin' y ejecute así en una consola de textos: ./hay-red
-En cambio, si pone el programa en '/usr/bin' bastará su ejecución desde cualquier directorio porque el sistema lo ubicará mediante la var. de entorno 'PATH'.
+En cambio, si pone el programa en '/usr/bin' bastará su ejecución desde cualquier directorio porque
+el sistema lo ubicará mediante la var. de entorno 'PATH'.
 Por ejemplo:
 [usuario@computadora ~]$ hay-red
 
