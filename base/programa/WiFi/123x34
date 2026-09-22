@@ -1,0 +1,5 @@
+#!/bin/sh
+# Selecciona la fuente de caracteres a 123x34, Unicode.
+# Eugenio Martínez - Febrero de 2025.
+#
+clear ; setfont -v Uni2-TerminusBold22x11

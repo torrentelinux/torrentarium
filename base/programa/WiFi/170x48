@@ -1,0 +1,7 @@
+#!/bin/bash
+# Selecciona la fuente de caracteres a 170x48, Unicode.
+# Estilo Visual Prederminado (evp) en Linux.
+# Consultar las vars. $COLUMNS y $LINES de Bash.
+# Eugenio Martínez - Febrero de 2025.
+#
+clear ; setfont -v latarcyrheb-sun16
