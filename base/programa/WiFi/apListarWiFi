@@ -1,0 +1,12 @@
+#!/bin/sh
+# Lista los AP que están disponibles con señal WiFi.
+# Se requiere del comando watch y nmcli en Linux.
+# Presione las teclas Ctrl+C para terminar la ejecución de 'watch'.
+# mar 22 sep 2026 12:30:20 -03
+# Octulio Biletán.
+
+170x48
+echo Lista de redes AP/WIFI disponibles:
+/usr/bin/watch -c -n 11 'echo "Salir=Ctrl+C"&&/usr/bin/nmcli -c yes d w l --rescan yes'
+123x34
+echo Terminado.
