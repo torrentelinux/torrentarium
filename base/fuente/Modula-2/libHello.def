@@ -1,0 +1,6 @@
+(* Módulo de definición libHello.def *)
+
+DEFINITION MODULE FOR "C" libHello;
+EXPORT UNQUALIFIED system;
+PROCEDURE system (command: ARRAY OF CHAR) : INTEGER;
+END libHello.
