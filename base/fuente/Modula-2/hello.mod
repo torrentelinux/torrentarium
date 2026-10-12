@@ -4,15 +4,19 @@
 
 MODULE hello;
 FROM StrIO IMPORT WriteString, WriteLn;
+FROM StdIO IMPORT Read;
 FROM NumberIO IMPORT WriteInt;
 FROM libHello IMPORT system; (* libHello.system() *)
 
 VAR
    status: INTEGER; (* Almacena el código devuelto por system() *)
+   ch: CHAR;
 BEGIN
    status := system('clear');  (* Borra la pantalla totalmente *)
-                                                                              
+
    WriteString('¡Hola mundo!'); WriteLn;
    WriteString('status='); WriteInt(status, 0);
-   WriteLn
+   WriteLn;
+
+   Read(ch)  (* Efectúa una pausa hasta que que se presione tecla Intro. *)
 END hello.
